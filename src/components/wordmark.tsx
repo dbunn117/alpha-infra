@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { BrandMark } from "@/components/brand-mark";
 
 /*
- * Styled text wordmark. A compass/needle mark can slot in to the left of the
- * text later (see spec §9 [LOGO]); for now it's type-only.
+ * Brand lockup: compass mark + styled text. The text stays live (Space Grotesk
+ * via next/font) rather than baked into an image, so it renders crisply and
+ * adapts to the theme alongside the mark.
  */
 export function Wordmark({
   className,
@@ -16,12 +18,12 @@ export function Wordmark({
     <Link
       href={href}
       aria-label="North Alpha — home"
-      className={cn(
-        "font-heading text-lg font-semibold tracking-tight text-foreground",
-        className
-      )}
+      className={cn("inline-flex items-center gap-2.5", className)}
     >
-      North<span className="text-accent-bright">&nbsp;Alpha</span>
+      <BrandMark className="size-8" />
+      <span className="font-heading text-lg font-semibold tracking-tight text-foreground">
+        North<span className="text-accent-bright">&nbsp;Alpha</span>
+      </span>
     </Link>
   );
 }

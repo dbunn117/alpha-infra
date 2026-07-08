@@ -37,6 +37,10 @@ yarn-error.log*
 # internal planning docs (build spec, copy deck) — kept out of the public repo
 /docs/
 
+# personal documents that may sit in the project folder — never publish these
+/*.pdf
+/*.docx
+
 # vercel
 .vercel
 

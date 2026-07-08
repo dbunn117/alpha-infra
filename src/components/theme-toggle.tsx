@@ -9,6 +9,7 @@ export function ThemeToggle() {
   const [mounted, setMounted] = React.useState(false);
 
   // Avoid hydration mismatch: render a stable placeholder until mounted.
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time mount guard
   React.useEffect(() => setMounted(true), []);
 
   const isDark = resolvedTheme === "dark";

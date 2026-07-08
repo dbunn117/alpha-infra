@@ -1,0 +1,7 @@
+<svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="North Alpha mark">
+  <title>North Alpha mark</title>
+  <circle cx="48" cy="48" r="30" fill="none" stroke="#3A466E" stroke-width="2.5"/>
+  <polygon points="48,20 55,48 41,48" fill="#38BDF8"/>
+  <polygon points="48,76 55,48 41,48" fill="#3A466E"/>
+  <circle cx="48" cy="48" r="4" fill="#0B1020" stroke="#38BDF8" stroke-width="1.5"/>
+</svg>

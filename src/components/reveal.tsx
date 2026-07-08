@@ -30,6 +30,7 @@ export function Reveal({
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- show immediately when motion is reduced
       setVisible(true);
       return;
     }
