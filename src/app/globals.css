@@ -1,0 +1,191 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  North Alpha design system — spec §7.
+  Dark is the hero look (default). Light is a supported variant.
+  Brand accent = electric blue. Button fills use blue-600 (#2563EB) so white
+  labels clear WCAG AA; --accent-bright (blue-500/400) is used for text
+  highlights, big numbers, eyebrows, borders, and glows.
+*/
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-bright: var(--accent-bright);
+  --color-brand-violet: var(--brand-violet);
+  --color-success: var(--success);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+/* Light variant */
+:root {
+  --background: #ffffff;
+  --foreground: #0b1020;
+  --card: #ffffff;
+  --card-foreground: #0b1020;
+  --popover: #ffffff;
+  --popover-foreground: #0b1020;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0b1020;
+  --muted: #f4f6fb;
+  --muted-foreground: #4a5578;
+  --accent: #eef2ff;
+  --accent-foreground: #0b1020;
+  --accent-bright: #2563eb;
+  --brand-violet: #7c3aed;
+  --success: #16a34a;
+  --destructive: #dc2626;
+  --border: rgba(11, 16, 32, 0.1);
+  --input: rgba(11, 16, 32, 0.14);
+  --ring: #3b82f6;
+  --radius: 0.875rem;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Dark variant — the hero look */
+.dark {
+  --background: #070c1f;
+  --foreground: #f5f7ff;
+  --card: #0f1630;
+  --card-foreground: #f5f7ff;
+  --popover: #0f1630;
+  --popover-foreground: #f5f7ff;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #141b34;
+  --secondary-foreground: #f5f7ff;
+  --muted: #141b34;
+  --muted-foreground: #a9b2cf;
+  --accent: #141b34;
+  --accent-foreground: #f5f7ff;
+  --accent-bright: #60a5fa;
+  --brand-violet: #a78bfa;
+  --success: #22c55e;
+  --destructive: #f87171;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #3b82f6;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading tracking-tight;
+  }
+  /* Visible, consistent focus ring for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  /* Constrained content column (spec: ~1200px) */
+  .container-page {
+    @apply mx-auto w-full max-w-[1200px] px-6 sm:px-8;
+  }
+  /* Generous vertical section rhythm (spec: 96–128px desktop) */
+  .section {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  /* Subtle card border + glow used across surfaces */
+  .surface {
+    @apply rounded-2xl border border-border bg-card;
+  }
+  /* Big-number motif */
+  .stat-number {
+    @apply font-heading text-accent-bright tabular-nums;
+  }
+  /* Hero background: soft radial glow + faint grid, both cheap and static */
+  .hero-glow {
+    background:
+      radial-gradient(
+        60% 55% at 50% 0%,
+        color-mix(in oklab, var(--primary) 22%, transparent) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        40% 40% at 85% 20%,
+        color-mix(in oklab, var(--brand-violet) 16%, transparent) 0%,
+        transparent 70%
+      );
+  }
+  /* Scroll-in reveal (see components/reveal.tsx). Only hides when JS is on. */
+  .reveal {
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(70% 60% at 50% 0%, #000 0%, transparent 75%);
+  }
+}
+
+/* Respect reduced-motion globally as a safety net (spec §7.3, §10) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Never leave reveal content hidden for reduced-motion users. */
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
