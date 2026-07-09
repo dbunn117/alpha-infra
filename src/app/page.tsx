@@ -1,6 +1,7 @@
 import { Hero } from "@/components/hero";
 import { ServicesSection } from "@/components/services-section";
 import { HowItWorks } from "@/components/how-it-works";
+import { ToolsStrip } from "@/components/tools-strip";
 import { PricingSection } from "@/components/pricing-section";
 import { AboutBlock } from "@/components/about-block";
 import { Testimonials } from "@/components/testimonials";
@@ -34,6 +35,7 @@ export default function HomePage() {
 
       <ServicesSection />
       <HowItWorks />
+      <ToolsStrip />
       <PricingSection />
       <AboutBlock />
       <Testimonials />

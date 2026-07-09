@@ -134,6 +134,18 @@ export const aboutBlock = {
   ],
 } as const;
 
+export const tools = {
+  eyebrow: "Tools & platforms",
+  heading: "Built with the right tools for the job.",
+  intro:
+    "Vendor-agnostic and hands-on — we build with the AI models and automation platforms that fit your stack, not a single favorite.",
+  groups: [
+    { label: "AI & LLMs", items: ["Claude", "ChatGPT", "Claude Code", "Gemini"] },
+    { label: "Automation", items: ["Copilot Studio", "Power Automate", "n8n"] },
+    { label: "Data & BI", items: ["Power BI", "Python", "SQL", "Power Query"] },
+  ],
+} as const;
+
 export const socialProof = {
   heading: "What people say after working together.",
   note: "Placeholder cards — real testimonials will be added as they're collected.",
