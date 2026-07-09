@@ -37,9 +37,16 @@ yarn-error.log*
 # internal planning docs (build spec, copy deck) — kept out of the public repo
 /docs/
 
-# personal documents that may sit in the project folder — never publish these
+# personal documents & private planning that may sit in the project folder —
+# never publish these to the public repo
 /*.pdf
 /*.docx
+/*.zip
+/Basic_LinkedInDataExport_*
+/first-clients-strategy.md
+/fable5-business-builder-prompt.md
+/north-alpha-TAM-analysis.md
+/upwork-30-day-plan.md
 
 # vercel
 .vercel
