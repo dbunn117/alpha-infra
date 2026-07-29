@@ -8,8 +8,9 @@ export const alt = `${site.name} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Compass mark (dark variant) as a data URI, for the OG lockup.
-const markSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="30" stroke="#3A466E" stroke-width="2.5"/><polygon points="48,20 55,48 41,48" fill="#38BDF8"/><polygon points="48,76 55,48 41,48" fill="#3A466E"/><circle cx="48" cy="48" r="4" fill="#070c1f" stroke="#38BDF8" stroke-width="1.5"/></svg>`;
+// Alpha Infra mark (dark variant) as a data URI, for the OG lockup:
+// an alpha peak rising from foundation layers.
+const markSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 96 96" fill="none"><polygon points="48,16 76,56 20,56" fill="#38BDF8"/><polygon points="48,40 58,56 38,56" fill="#070c1f"/><rect x="20" y="64" width="56" height="7" rx="3.5" fill="#3A466E"/><rect x="30" y="77" width="36" height="7" rx="3.5" fill="#3A466E" opacity="0.7"/></svg>`;
 const markUri = `data:image/svg+xml,${encodeURIComponent(markSvg)}`;
 
 export default function OpengraphImage() {
@@ -32,7 +33,7 @@ export default function OpengraphImage() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={markUri} width={72} height={72} alt="" />
           <div style={{ display: "flex", fontSize: 40, fontWeight: 700, color: "#f5f7ff" }}>
-            North<span style={{ color: "#60a5fa" }}>&nbsp;Alpha</span>
+            Alpha<span style={{ color: "#60a5fa" }}>&nbsp;Infra</span>
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>

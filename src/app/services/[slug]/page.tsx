@@ -26,7 +26,7 @@ export async function generateMetadata({
     title: service.name,
     description: service.subhead,
     alternates: { canonical: `/services/${service.slug}` },
-    openGraph: { title: `${service.name} · North Alpha`, description: service.subhead },
+    openGraph: { title: `${service.name} · Alpha Infra`, description: service.subhead },
   };
 }
 

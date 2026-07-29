@@ -4,7 +4,7 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "How North Alpha handles the information you share.",
+  description: "How Alpha Infra handles the information you share.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       <div className="container-page pb-16 pt-6">
         <div className="max-w-2xl space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
-            North Alpha is a one-person consulting practice run by{" "}
+            Alpha Infra LLC is a one-person consulting practice run by{" "}
             {site.founder}. This is a short, plain-English summary of how your
             information is handled.
           </p>

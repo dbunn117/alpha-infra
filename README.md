@@ -1,6 +1,6 @@
-# North Alpha — marketing website
+# Alpha Infra — marketing website
 
-Marketing site for North Alpha, a one-person AI consulting practice.
+Marketing site for Alpha Infra, a one-person AI consulting practice.
 Built with **Next.js (App Router) + TypeScript + Tailwind CSS v4 + shadcn/ui**,
 `framer-motion`, `lucide-react`, `next-themes`, and Resend for the contact form.
 
@@ -29,7 +29,7 @@ Nothing is required to run locally; sensible fallbacks/placeholders are used.
 | `NEXT_PUBLIC_BOOKING_URL` | Cal.com/Calendly link. Until set, booking areas show a placeholder + email fallback. |
 | `OWNER_EMAIL` | Where contact-form submissions are emailed (default `davibunn@gmail.com`). |
 | `RESEND_API_KEY` | Enables real email via [Resend](https://resend.com). If empty, submissions log server-side and the form still succeeds. |
-| `CONTACT_FROM_EMAIL` | Verified Resend sender (e.g. `hello@northalpha.ai`). |
+| `CONTACT_FROM_EMAIL` | Verified Resend sender (e.g. `hello@alphainfra.ai`). |
 | `NEXT_PUBLIC_LINKEDIN_URL` | Footer + structured data. |
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata/sitemap/robots/OG. |
 
@@ -68,4 +68,4 @@ blue; button fills use blue-600 so labels clear WCAG AA contrast.
 
 1. Push to a Git repo and import into [Vercel](https://vercel.com/new).
 2. Add the environment variables above in the project settings.
-3. Add the custom domain `northalpha.ai`.
+3. Add the custom domain `alphainfra.ai`.

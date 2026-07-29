@@ -1,5 +1,5 @@
 /*
- * All seven North Alpha offerings. Single source of truth: drives the homepage
+ * All seven Alpha Infra offerings. Single source of truth: drives the homepage
  * offering cards, the /services overview, and each dedicated /services/[slug]
  * page. Copy is transcribed verbatim from the copy deck
  * (docs/website-copy-and-names.md).

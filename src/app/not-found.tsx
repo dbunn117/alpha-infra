@@ -9,7 +9,7 @@ export default function NotFound() {
       <h1 className="mt-4 text-3xl font-semibold">This page went off course.</h1>
       <p className="mt-3 max-w-md text-muted-foreground">
         The page you&apos;re looking for doesn&apos;t exist. Let&apos;s get you
-        back to your true north.
+        back on solid ground.
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Link href="/" className={cn(cta({ variant: "primary", size: "md" }))}>

@@ -6,7 +6,7 @@ import type { NextConfig } from "next";
  * build` are unaffected and keep the full server (including the contact API).
  */
 const isPages = process.env.GITHUB_PAGES === "true";
-const repo = "north-alpha";
+const repo = "alpha-infra";
 
 const nextConfig: NextConfig = isPages
   ? {

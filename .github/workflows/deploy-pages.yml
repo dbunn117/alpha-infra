@@ -42,7 +42,7 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_GITHUB_PAGES: "true"
-          NEXT_PUBLIC_SITE_URL: "https://dbunn117.github.io/north-alpha"
+          NEXT_PUBLIC_SITE_URL: "https://dbunn117.github.io/alpha-infra"
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3

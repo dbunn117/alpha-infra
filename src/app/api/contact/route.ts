@@ -81,7 +81,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const subject = `New North Alpha inquiry — ${interest} — ${name}`;
+  const subject = `New Alpha Infra inquiry — ${interest} — ${name}`;
   const lines = [
     `Name: ${name}`,
     `Email: ${email}`,
@@ -101,7 +101,7 @@ export async function POST(req: Request) {
   try {
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
-      from: `North Alpha <${FROM_EMAIL}>`,
+      from: `Alpha Infra <${FROM_EMAIL}>`,
       to: [OWNER_EMAIL],
       replyTo: email,
       subject,

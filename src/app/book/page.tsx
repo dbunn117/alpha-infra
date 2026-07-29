@@ -5,7 +5,7 @@ import { BookingEmbed } from "@/components/booking-embed";
 
 export const metadata: Metadata = {
   title: "Book a call",
-  description: "Book a free 30-minute discovery call with North Alpha.",
+  description: "Book a free 30-minute discovery call with Alpha Infra.",
   alternates: { canonical: "/book" },
 };
 

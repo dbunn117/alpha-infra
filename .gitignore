@@ -49,6 +49,9 @@ yarn-error.log*
 /upwork-30-day-plan.md
 /Professional Photos*/
 
+# old North Alpha brand assets — kept locally, not published post-rebrand
+/brand/
+
 # vercel
 .vercel
 

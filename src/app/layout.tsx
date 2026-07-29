@@ -58,6 +58,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: site.name,
+  legalName: site.legalName,
   description: site.description,
   url: site.siteUrl,
   email: site.ownerEmail,

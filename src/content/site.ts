@@ -5,8 +5,9 @@
  */
 
 export const site = {
-  name: "North Alpha",
-  tagline: "Your true north for AI advantage.",
+  name: "Alpha Infra",
+  legalName: "Alpha Infra LLC",
+  tagline: "AI foundations that drive meaningful growth.",
   description:
     "Practical AI strategy, audits, coaching, and hands-on enablement for small businesses, teams, and the professionals who run them.",
   founder: "David Bunn",
@@ -16,7 +17,7 @@ export const site = {
     process.env.NEXT_PUBLIC_LINKEDIN_URL ??
     "https://www.linkedin.com/in/davidkcbunn",
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://northalpha.ai",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alphainfra.ai",
 } as const;
 
 export const nav = {
@@ -123,7 +124,7 @@ export const pricing = {
 
 export const aboutBlock = {
   heading: "One partner, from first win to full strategy.",
-  body: "I'm David Bunn — a finance and operations leader who spent a decade at PwC, a venture-backed startup, and a real estate private equity firm before AI changed what a small team could do. Today my day job is the work North Alpha does: building AI-powered reporting workflows that cut manual effort by 80%, LLM-driven analysis tools, and interactive dashboards that leaders actually open. I'm BIDA®-certified in business intelligence and a (currently inactive) CPA. My belief is simple: AI is at its best when it frees people to do the high-judgment work only they can do. Whether you need a single automation, a team that can build its own, or a strategy for the years ahead, you work directly with me — not a handoff to junior staff.",
+  body: "I'm David Bunn — a finance and operations leader who spent a decade at PwC, a venture-backed startup, and a real estate private equity firm before AI changed what a small team could do. Today my day job is the work Alpha Infra does: building AI-powered reporting workflows that cut manual effort by 80%, LLM-driven analysis tools, and interactive dashboards that leaders actually open. I'm BIDA®-certified in business intelligence and a (currently inactive) CPA. My belief is simple: AI is at its best when it frees people to do the high-judgment work only they can do. Whether you need a single automation, a team that can build its own, or a strategy for the years ahead, you work directly with me — not a handoff to junior staff.",
   credibility: [
     "10+ years in finance & operations",
     "PwC",
@@ -174,10 +175,10 @@ export const contact = {
 } as const;
 
 export const aboutPage = {
-  eyebrow: "About North Alpha",
+  eyebrow: "About Alpha Infra",
   h1: "I help teams put people where judgment matters — and let AI do the rest.",
   subhead:
-    "North Alpha is a one-person AI consulting practice run by David Bunn. You work directly with me, start to finish.",
+    "Alpha Infra is a one-person AI consulting practice run by David Bunn. You work directly with me, start to finish.",
   sections: [
     {
       heading: "My background",
@@ -188,8 +189,8 @@ export const aboutPage = {
       body: "For the last few years my work has centered on innovation: driving AI projects, reimagining how work flows, and replacing manual processes with scalable systems. In practice that has meant building AI-powered reporting workflows that cut manual data work by ~80%, an LLM-driven market-diligence tool that gives investment teams instant competitive assessments, and dynamic, interactive dashboards that let teams drill from the big picture down to a single asset. I'm BIDA®-certified in business intelligence and analysis, a CPA (currently inactive), and I've completed Level I of the CFA program.",
     },
     {
-      heading: "Why North Alpha",
-      body: "I started North Alpha because I kept seeing the same thing: capable teams buried in repetitive work, sitting on data they never use, making today's decisions on last week's numbers. The technology to fix that is finally here — but tools alone don't change anything. It takes someone who understands both the technology and how a business actually runs to redesign the work around it. That's the gap I fill.",
+      heading: "Why Alpha Infra",
+      body: "I started Alpha Infra because I kept seeing the same thing: capable teams buried in repetitive work, sitting on data they never use, making today's decisions on last week's numbers. The technology to fix that is finally here — but tools alone don't change anything. It takes someone who understands both the technology and how a business actually runs to redesign the work around it. That's the gap I fill.",
     },
     {
       heading: "How I work",
@@ -200,7 +201,7 @@ export const aboutPage = {
 } as const;
 
 export const footer = {
-  tagline: "Your true north for AI advantage.",
+  tagline: "AI foundations that drive meaningful growth.",
   links: [
     { label: "Services", href: "/services" },
     { label: "Pricing", href: "/#pricing" },

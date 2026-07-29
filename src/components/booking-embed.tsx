@@ -46,7 +46,7 @@ export function BookingEmbed({ className }: { className?: string }) {
     <div className={cn("surface overflow-hidden", className)}>
       <iframe
         src={url}
-        title="Book a discovery call with North Alpha"
+        title="Book a discovery call with Alpha Infra"
         loading="lazy"
         className="h-[680px] w-full border-0"
         allow="camera; microphone; fullscreen"

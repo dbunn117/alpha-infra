@@ -64,7 +64,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} North Alpha. All rights reserved.
+            © {year} Alpha Infra LLC. All rights reserved.
           </p>
           <Link
             href="/privacy"

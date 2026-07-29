@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  North Alpha design system — spec §7.
+  Alpha Infra design system — spec §7.
   Dark is the hero look (default). Light is a supported variant.
   Brand accent = electric blue. Button fills use blue-600 (#2563EB) so white
   labels clear WCAG AA; --accent-bright (blue-500/400) is used for text

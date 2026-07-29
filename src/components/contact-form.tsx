@@ -30,7 +30,7 @@ export function ContactForm() {
     >;
 
     if (STATIC_MODE) {
-      const subject = `North Alpha inquiry — ${data.interest || "General"} — ${data.name || ""}`;
+      const subject = `Alpha Infra inquiry — ${data.interest || "General"} — ${data.name || ""}`;
       const body = [
         `Name: ${data.name || ""}`,
         `Email: ${data.email || ""}`,

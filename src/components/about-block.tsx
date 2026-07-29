@@ -42,7 +42,7 @@ export function AboutBlock() {
                 href="/about"
                 className={cn(cta({ variant: "outline", size: "md" }))}
               >
-                More about North Alpha
+                More about Alpha Infra
               </Link>
             </div>
           </div>
