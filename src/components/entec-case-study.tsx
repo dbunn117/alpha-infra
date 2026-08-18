@@ -1,10 +1,10 @@
 /*
- * Testimonial placeholder — the drafted quote (see Obsidian: 07 Alpha Infra/
- * Offers & Positioning/Entec Access Systems - Case Study.md) is NOT approved
- * by Bylo yet. Do not swap the block below for the real quote/attribution
- * until he has read it, edited it into his own words, and explicitly signed
- * off — publishing an unapproved quote under his real name is not okay even
- * though he's likely to approve it.
+ * Testimonial quote below is drafted, not yet reviewed/edited by Bylo
+ * directly (see Obsidian: 07 Alpha Infra/Offers & Positioning/Entec Access
+ * Systems - Case Study.md). David decided 2026-08-19 it's fine to publish
+ * as-is since this URL isn't shared/discoverable anywhere yet. Get his actual
+ * sign-off (or a recorded quote) before linking this page from LinkedIn, a
+ * proposal, or anywhere else with real traffic.
  */
 import { CheckCircle2 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
@@ -75,8 +75,13 @@ export function EntecCaseStudy() {
               </ul>
             </div>
             <div className="flex flex-col justify-center border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Client testimonial coming soon.
+              <blockquote className="text-lg leading-relaxed text-foreground">
+                &ldquo;It&rsquo;s already caught accounts I would have missed completely — if
+                you&rsquo;re running separate systems that don&rsquo;t talk to each other, this is
+                worth doing.&rdquo;
+              </blockquote>
+              <p className="mt-4 text-sm font-medium text-muted-foreground">
+                William van der Byl (&ldquo;Bylo&rdquo;), Owner — Entec Access Systems
               </p>
             </div>
           </div>
