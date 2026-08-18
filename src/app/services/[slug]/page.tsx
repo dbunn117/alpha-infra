@@ -45,10 +45,10 @@ export default async function ServicePage({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <BookACallButton label="Book a discovery call" size="lg" />
           <Link
-            href="/#pricing"
+            href="/services"
             className={cn(cta({ variant: "outline", size: "lg" }))}
           >
-            See pricing
+            See all services & pricing
           </Link>
         </div>
       </PageHero>

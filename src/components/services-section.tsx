@@ -43,6 +43,10 @@ export function ServicesSection({
             );
           })}
         </div>
+
+        <p className="mx-auto mt-12 max-w-2xl text-center text-sm text-muted-foreground">
+          {offerings.footnote}
+        </p>
       </div>
     </section>
   );

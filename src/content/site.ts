@@ -9,7 +9,7 @@ export const site = {
   legalName: "Alpha Infra LLC",
   tagline: "AI foundations that drive meaningful growth.",
   description:
-    "Practical AI strategy, audits, coaching, and hands-on enablement for small businesses, teams, and the professionals who run them.",
+    "Custom AI systems that turn the data scattered across your business into revenue, insight, and better service — built for small and mid-sized businesses ready to move the needle.",
   founder: "David Bunn",
   // Config — override via env (.env.local). See .env.example.
   ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
@@ -24,17 +24,16 @@ export const nav = {
   links: [
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
-    { label: "Pricing", href: "/#pricing" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;
 
 export const hero = {
-  eyebrow: "Practical AI systems, built around how you actually work",
-  headline: "Connect what you already run. See what needs your attention.",
+  eyebrow: "Practical AI systems for growing businesses",
+  headline: "Unlock the value hiding in the systems you already run.",
   subhead:
-    "I pull the data scattered across the systems you already use — email, operations software, accounting, whatever runs your business — into one place that gives you visibility and tells you what needs attention.",
+    "I bring the data scattered across your CRM, ops, finance, and email into one cohesive AI system — built to help you serve customers better, grow revenue, and finally see what's really happening in your business.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   stats: [
@@ -53,6 +52,8 @@ export const offerings = {
   heading: "Start where you are. Grow as far as you want.",
   intro:
     "Two ways to start: a fast win, or the full system. As we work together, some clients bring me in to train their team or shape AI strategy at the leadership level.",
+  footnote:
+    'Ask about value-based pricing (fees tied to the savings I create) and adding 30–90 days of follow-up "office hours" to any workshop or build.',
 } as const;
 
 export const howItWorks = {
@@ -81,37 +82,40 @@ export const howItWorks = {
   ],
 } as const;
 
-export const pricing = {
-  heading: "Transparent pricing. Real outcomes.",
+export const fitCheck = {
+  eyebrow: "Is this you?",
+  heading: "Who this is for.",
   intro:
-    "Start with a quick win or the full system — every engagement is designed to lead to the next. Prices below are starting points; strategy is scoped to your team.",
-  // Each row references a service slug for name/price/highlight; blurb is the
-  // pricing-specific line from the copy deck.
-  rows: [
+    "I'm selective about the businesses I take on, because the work only pays off when it's a real fit.",
+  forYou: [
     {
-      slug: "system",
-      blurb:
-        "A live system wired to your real data sources; optional maintenance from $500/mo.",
+      title: "Your data lives in three or more places, and nobody has the full picture.",
+      body: "CRM, spreadsheets, email, accounting software that don't talk to each other — you're piecing the real picture together by hand, or not seeing it at all.",
     },
     {
-      slug: "quick-win",
-      blurb: "One high-volume process, automated, in weeks.",
+      title: "You know there's revenue or margin hiding in your data, but no time to dig it out.",
+      body: "You suspect the answer to \"what should we focus on\" is already sitting in your systems somewhere. You just don't have the tools — or the hours — to find it.",
     },
     {
-      slug: "workshops",
-      blurb: "Hands-on, up to ~8 people, building reusable tools together.",
+      title: "The same manual process eats hours every week.",
+      body: "Someone on your team is doing by hand what software should be doing for them, and it's not going away on its own.",
     },
     {
-      slug: "coaching",
-      blurb: "Tailored to executives or analysts.",
+      title: "You want something built around how you actually run your business — not a generic template.",
+      body: "Off-the-shelf software makes you bend your workflow to fit the tool. You want the reverse.",
     },
     {
-      slug: "strategy",
-      blurb: "Leadership engagement + phased roadmap; optional ongoing advisory.",
+      title: "You're ready to build, not just get diagnosed.",
+      body: "You don't need another slide deck telling you what's wrong. You need it fixed.",
     },
   ],
-  footnote:
-    'Ask about value-based pricing (fees tied to the savings I create) and adding 30–90 days of follow-up "office hours" to any workshop or build.',
+  notForYou: [
+    "You want an off-the-shelf SaaS subscription, not something built around your workflow.",
+    "You need a large enterprise rollout with a formal procurement or RFP process.",
+    "You already have an in-house data or engineering team that owns this.",
+    "You're looking for a slide deck and a roadmap, not working software.",
+    "You're not the decision-maker and can't move without multi-stakeholder sign-off.",
+  ],
 } as const;
 
 export const aboutBlock = {
@@ -196,7 +200,7 @@ export const footer = {
   tagline: "AI foundations that drive meaningful growth.",
   links: [
     { label: "Services", href: "/services" },
-    { label: "Pricing", href: "/#pricing" },
+    { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

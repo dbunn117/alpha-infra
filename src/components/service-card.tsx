@@ -23,6 +23,11 @@ export function ServiceCard({ service }: { service: Service }) {
 
       <h3 className="mt-5 flex items-center gap-2 text-xl font-semibold">
         {service.name}
+        {service.mostPopular ? (
+          <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground">
+            flagship
+          </span>
+        ) : null}
         {service.isEntry ? (
           <span className="rounded-full border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
             entry
@@ -45,7 +50,7 @@ export function ServiceCard({ service }: { service: Service }) {
       </p>
 
       <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
-        <span className="text-sm font-medium text-accent-bright">
+        <span className="text-lg font-semibold text-accent-bright">
           {service.priceDisplay}
         </span>
         <Link

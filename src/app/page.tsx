@@ -1,8 +1,8 @@
 import { Hero } from "@/components/hero";
+import { FitCheck } from "@/components/fit-check";
 import { ServicesSection } from "@/components/services-section";
 import { HowItWorks } from "@/components/how-it-works";
 import { ToolsStrip } from "@/components/tools-strip";
-import { PricingSection } from "@/components/pricing-section";
 import { AboutBlock } from "@/components/about-block";
 import { Testimonials } from "@/components/testimonials";
 import { FinalCta } from "@/components/final-cta";
@@ -33,10 +33,10 @@ export default function HomePage() {
         </div>
       </section>
 
+      <FitCheck />
       <ServicesSection />
       <HowItWorks />
       <ToolsStrip />
-      <PricingSection />
       <AboutBlock />
       <Testimonials />
       <FinalCta />

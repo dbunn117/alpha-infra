@@ -51,11 +51,11 @@ export const SERVICES: Service[] = [
     icon: "LineChart",
     eyebrow: "Build & Deliver",
     tagline:
-      "I pull the data scattered across the systems you already run — CRM, ops, finance, email, whatever runs your business — into one live system that tells you what needs attention. Built around your decisions, not a generic template.",
+      "I bring the data scattered across your CRM, ops, finance, and email into one AI system built to help you serve customers better, grow revenue, and see what's really happening in your business.",
     bestFor: "owners and teams who want one clear view instead of five disconnected tools.",
     priceDisplay: "Starting at $5,000",
     mostPopular: true,
-    h1: "One system. Everything that matters, in view.",
+    h1: "Turn your data into revenue, insight, and better service.",
     subhead:
       "I connect the tools you already run into a single live system, built around your real decisions — the same approach that gave Entec Access Systems one place to manage sales instead of three.",
     problemHeading: "The problem",
