@@ -37,9 +37,9 @@ export const hero = {
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   stats: [
-    { value: "~80%", label: "manual reporting effort eliminated with AI" },
     { value: "$25B+", label: "market-cap audit client at PwC" },
-    { value: "$120M", label: "Series A supported at Major League Cricket" },
+    { value: "10+ yrs", label: "in finance, operations & data before AI" },
+    { value: "Jul 2026", label: "system live in daily use at Entec Access Systems" },
   ],
 } as const;
 
