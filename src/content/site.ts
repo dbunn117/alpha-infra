@@ -118,6 +118,35 @@ export const fitCheck = {
   ],
 } as const;
 
+export const faq = {
+  eyebrow: "FAQ",
+  heading: "Common questions.",
+  intro:
+    "Straight answers on ownership, data, and how I work. Still unsure? Book a call and ask me directly.",
+  items: [
+    {
+      question: "Who owns the system and everything it produces?",
+      answer:
+        "You do — completely. The system, the code behind it, and everything it produces belong to you once the engagement is complete. I don't retain rights to it, resell it, or reuse it as a template for another client.",
+    },
+    {
+      question: "What happens to my data, and is it secure?",
+      answer:
+        "Your data is used only for your engagement, never combined with another client's, and encrypted in transit and at rest. I keep only what's needed to build and maintain your system, and I'll delete or return anything else on request.",
+    },
+    {
+      question: "Do you train AI models on my data?",
+      answer:
+        "No — never. The AI providers I build with (Anthropic's Claude, OpenAI, and others) don't train their models on business data sent through their commercial APIs by default, and I never use one client's data to build or improve another client's system.",
+    },
+    {
+      question: "How accurate is the AI, and what happens when it gets something wrong?",
+      answer:
+        "Every system I build has review built in — AI-made matches and suggestions are always clearly marked as AI-made, never blended in as if a person made the call. You and your team stay the final check on anything that matters.",
+    },
+  ],
+} as const;
+
 export const aboutBlock = {
   heading: "One partner, from first win to full strategy.",
   body: "I'm David Bunn — a finance and operations leader who spent a decade at PwC, a venture-backed startup, and a real estate private equity firm before AI changed what a small team could do. Today my day job is the work Alpha Infra does: building AI-powered reporting workflows that cut manual effort by 80%, LLM-driven analysis tools, and interactive dashboards that leaders actually open. I'm BIDA®-certified in business intelligence and a (currently inactive) CPA. My belief is simple: AI is at its best when it frees people to do the high-judgment work only they can do. Whether you need a single automation, a team that can build its own, or a strategy for the years ahead, you work directly with me — not a handoff to junior staff.",

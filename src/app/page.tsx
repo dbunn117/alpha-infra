@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/how-it-works";
 import { ToolsStrip } from "@/components/tools-strip";
 import { AboutBlock } from "@/components/about-block";
 import { Testimonials } from "@/components/testimonials";
+import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
@@ -39,6 +40,7 @@ export default function HomePage() {
       <ToolsStrip />
       <AboutBlock />
       <Testimonials />
+      <Faq />
       <FinalCta />
     </>
   );
