@@ -23,7 +23,7 @@ export const professionalProjects: Project[] = [
     tag: "Investment strategy",
     icon: "Globe2",
     blurb:
-      "A zero-to-one tool that blends macro-economic data with LLMs to give investment teams instant competitive assessments and strategic roadmaps when evaluating new markets to acquire in.",
+      "Blends macro-economic data with LLMs to give investment teams instant competitive assessments when evaluating new markets to acquire in.",
     tools: ["LLMs", "Macro-economic data", "Python", "Agentic analysis"],
   },
   {
@@ -31,7 +31,7 @@ export const professionalProjects: Project[] = [
     tag: "Financial modeling",
     icon: "Calculator",
     blurb:
-      "Financial models rebuilt in Claude Code instead of spreadsheets — dynamic, visually rich, and interactive. Stakeholders explore scenarios and drill into the drivers instead of squinting at a static grid of cells, so the model becomes something people actually engage with.",
+      "Financial models rebuilt in Claude Code instead of spreadsheets — interactive, so stakeholders explore scenarios instead of squinting at a grid of cells.",
     tools: ["Claude Code", "Financial modeling", "Interactive apps"],
   },
   {
@@ -39,7 +39,7 @@ export const professionalProjects: Project[] = [
     tag: "Real estate · BI",
     icon: "Map",
     blurb:
-      "A dynamic, interactive map of an entire real-estate portfolio. Plot every owned asset across markets, resize market bubbles on the fly by metrics like square footage and rent PSF, and drill into asset-manager and tenant detail.",
+      "An interactive map of an entire real-estate portfolio — resize market bubbles by metrics like square footage or rent PSF and drill into tenant detail.",
     tools: ["Geospatial viz", "Power BI", "Interactive dashboards"],
     internalHref: "#asset-map",
     linkLabel: "Try the interactive demo",
@@ -57,7 +57,7 @@ export const professionalProjects: Project[] = [
     tag: "Diligence · web app",
     icon: "ClipboardCheck",
     blurb:
-      "Coordinated third-party vendors and internal business users to build a web application supporting the acquisitions process — from data cleansing through a front-end app that speeds up diligence.",
+      "A web app supporting the acquisitions process end-to-end — from data cleansing to a front end that speeds up diligence.",
     tools: ["Claude Code", "Data cleansing", "Front-end app"],
   },
   {
@@ -65,7 +65,7 @@ export const professionalProjects: Project[] = [
     tag: "Agentic ops",
     icon: "Inbox",
     blurb:
-      "An agent that triages high-volume shared inboxes — reading, classifying, and routing (or auto-actioning) incoming mail so the right item reaches the right person instead of piling up in a queue.",
+      "Triages high-volume shared inboxes — reads, classifies, and routes (or auto-actions) mail so the right item reaches the right person.",
     tools: ["Claude", "Copilot Studio", "Power Automate"],
   },
   {
@@ -73,7 +73,7 @@ export const professionalProjects: Project[] = [
     tag: "Data pipeline · BI",
     icon: "FileStack",
     blurb:
-      "A pipeline that ingests documents — sales and lease comps, or any structured doc — extracts the data with AI, writes it to a database, and refreshes a live visualization. Powers deal-volume analysis by region and property type, updated as new comps land.",
+      "Ingests documents like sales and lease comps, extracts the data with AI, and refreshes a live deal-volume dashboard as new comps land.",
     tools: ["AI extraction", "SQL", "Power BI", "Power Automate"],
   },
   {
@@ -81,7 +81,7 @@ export const professionalProjects: Project[] = [
     tag: "Finance automation",
     icon: "Receipt",
     blurb:
-      "An AP workflow that ingests invoices from a shared mailbox, extracts and validates the details, and automates the weekly wire-request package sent to the third-party administrator — turning a manual, error-prone process into a reliable scheduled run.",
+      "Ingests invoices from a shared mailbox, extracts and validates the details, and automates the weekly wire-request package — a manual process turned scheduled run.",
     tools: ["AI extraction", "Power Automate", "n8n"],
   },
   {
@@ -89,7 +89,7 @@ export const professionalProjects: Project[] = [
     tag: "Interactive dashboards",
     icon: "BarChart3",
     blurb:
-      "Highly dynamic, interactive business-review and lookback apps that give leadership real-time visibility into the key drivers of performance — slice by segment, drill into detail, and see what's actually moving the numbers, not a static monthly deck.",
+      "Interactive business-review apps that give leadership real-time visibility into performance — slice by segment instead of reading a static monthly deck.",
     tools: ["Interactive dashboards", "Power BI", "Data modeling"],
   },
 ];
