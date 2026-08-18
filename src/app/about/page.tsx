@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { UserRound } from "lucide-react";
 import { aboutPage, aboutBlock } from "@/content/site";
 import { PageHero } from "@/components/page-hero";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { Reveal } from "@/components/reveal";
+import { ExperienceTimeline } from "@/components/experience-timeline";
+import { SkillsGrid } from "@/components/skills-grid";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "About",
@@ -24,13 +26,16 @@ export default function AboutPage() {
       />
 
       <div className="container-page grid gap-12 pb-8 pt-12 lg:grid-cols-[300px_1fr] lg:gap-16">
-        {/* Headshot placeholder — swap for David's photo (spec §9 FOUNDER_PHOTO) */}
         <div className="mx-auto w-full max-w-[300px] lg:sticky lg:top-24 lg:self-start">
-          <div className="surface flex aspect-square items-center justify-center overflow-hidden">
-            <div className="flex flex-col items-center gap-3 text-muted-foreground">
-              <UserRound className="size-12" aria-hidden />
-              <span className="text-sm">Headshot coming soon</span>
-            </div>
+          <div className="surface aspect-square overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={asset("/david-bunn.jpg")}
+              alt="David Bunn"
+              width={600}
+              height={600}
+              className="size-full object-cover"
+            />
           </div>
           <ul className="mt-6 flex flex-wrap gap-2">
             {aboutBlock.credibility.map((item) => (
@@ -72,6 +77,9 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      <ExperienceTimeline />
+      <SkillsGrid />
     </>
   );
 }

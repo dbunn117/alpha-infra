@@ -23,6 +23,7 @@ export const site = {
 export const nav = {
   links: [
     { label: "Services", href: "/services" },
+    { label: "Work", href: "/work" },
     { label: "Pricing", href: "/#pricing" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
@@ -30,22 +31,22 @@ export const nav = {
 } as const;
 
 export const hero = {
-  eyebrow: "Humans + AI, redesigned around judgment",
-  headline: "Put your people where judgment matters. Let AI handle the rest.",
+  eyebrow: "Practical AI systems, built around how you actually work",
+  headline: "Connect what you already run. See what needs your attention.",
   subhead:
-    "Practical AI strategy, audits, coaching, and hands-on enablement for small businesses, teams, and the professionals who run them. We help you find the real wins, redesign the workflow around them, and build the tools to make it stick.",
+    "I pull the data scattered across the systems you already use — email, operations software, accounting, whatever runs your business — into one place that gives you visibility and tells you what needs attention.",
   primaryCta: "Book a discovery call",
-  secondaryCta: "See how we help",
+  secondaryCta: "See how I help",
   stats: [
-    { value: "Weeks, not quarters", label: "to first working automation" },
-    { value: "4–8", label: "people per workshop, hands-on" },
-    { value: "1", label: "partner, start to finish" },
+    { value: "~80%", label: "manual reporting effort eliminated with AI" },
+    { value: "$25B+", label: "market-cap audit client at PwC" },
+    { value: "$120M", label: "Series A supported at Major League Cricket" },
   ],
 } as const;
 
 export const problem = {
   heading: "Most teams are drowning in work AI could already be doing.",
-  body: "Repetitive, manual, high-volume tasks quietly eat your team's best hours — the exact hours you'd rather spend on judgment, relationships, and decisions. The winners in this shift aren't the ones with the most tools. They're the ones who redesign how work flows: people move into the high-judgment, critical roles, and AI agents carry the repeatable load. That's the whole game, and it's what we do with you.",
+  body: "Repetitive, manual, high-volume tasks quietly eat your team's best hours — the exact hours you'd rather spend on judgment, relationships, and decisions. The winners in this shift aren't the ones with the most tools. They're the ones who redesign how work flows: people move into the high-judgment, critical roles, and AI agents carry the repeatable load. That's the whole game, and it's what I do with you.",
 } as const;
 
 export const offerings = {
@@ -55,27 +56,27 @@ export const offerings = {
 } as const;
 
 export const howItWorks = {
-  heading: 'A clear path from "where do we start?" to "this is running."',
+  heading: 'A clear path from "where do I start?" to "this is running."',
   steps: [
     {
       order: "01",
       title: "Discover",
-      body: "We learn how your team really works and where AI creates the most value, fastest.",
+      body: "I learn how your team really works and where AI creates the most value, fastest.",
     },
     {
       order: "02",
       title: "Redesign",
-      body: "We map the target-state workflow: people on judgment, agents on the repeatable load.",
+      body: "I map the target-state workflow: people on judgment, agents on the repeatable load.",
     },
     {
       order: "03",
       title: "Build",
-      body: "We build the agents, skills, and automations — or teach your team to build them.",
+      body: "I build the agents, skills, and automations — or teach your team to build them.",
     },
     {
       order: "04",
       title: "Enable & adapt",
-      body: "We coach, hand off, and stay close through follow-up so adoption actually sticks.",
+      body: "I coach, hand off, and stay close through follow-up so adoption actually sticks.",
     },
   ],
 } as const;
@@ -119,7 +120,7 @@ export const pricing = {
     },
   ],
   footnote:
-    'Ask about value-based pricing (fees tied to the savings we create) and adding 30–90 days of follow-up "office hours" to any workshop or build.',
+    'Ask about value-based pricing (fees tied to the savings I create) and adding 30–90 days of follow-up "office hours" to any workshop or build.',
 } as const;
 
 export const aboutBlock = {
@@ -139,7 +140,7 @@ export const tools = {
   eyebrow: "Tools & platforms",
   heading: "Built with the right tools for the job.",
   intro:
-    "Vendor-agnostic and hands-on — we build with the AI models and automation platforms that fit your stack, not a single favorite.",
+    "Vendor-agnostic and hands-on — I build with the AI models and automation platforms that fit your stack, not a single favorite.",
   groups: [
     { label: "AI & LLMs", items: ["Claude", "ChatGPT", "Claude Code", "Gemini"] },
     { label: "Automation", items: ["Copilot Studio", "Power Automate", "n8n"] },
@@ -194,7 +195,7 @@ export const aboutPage = {
     },
     {
       heading: "How I work",
-      body: "Direct, practical, and honest. No jargon, no junior-staff handoffs, no boiling the ocean. We find a real win, build it, and let it lead to the next one. My north star is simple: use AI to free your people for the high-judgment work only they can do.",
+      body: "Direct, practical, and honest. No jargon, no junior-staff handoffs, no boiling the ocean. I find a real win, build it, and let it lead to the next one. My north star is simple: use AI to free your people for the high-judgment work only they can do.",
     },
   ],
   ctaLine: "Let's find your first win.",
