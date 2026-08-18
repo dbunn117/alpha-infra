@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
+import { SERVICES } from "@/content/services";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
@@ -31,9 +32,8 @@ export const metadata: Metadata = {
   keywords: [
     "AI consulting",
     "AI strategy",
-    "AI audit",
     "AI coaching",
-    "AI enablement",
+    "custom AI systems",
     "AI workshops",
     "small business AI",
     "workflow redesign",
@@ -66,17 +66,9 @@ const jsonLd = {
   areaServed: "US",
   slogan: site.tagline,
   sameAs: [site.linkedin],
-  makesOffer: [
-    "AI Strategy",
-    "AI Audit",
-    "1:1 Coaching",
-    "Small-Group Workshops",
-    "Team Enablement",
-    "Live Dashboards",
-    "Data Activation",
-  ].map((name) => ({
+  makesOffer: SERVICES.map((service) => ({
     "@type": "Offer",
-    itemOffered: { "@type": "Service", name },
+    itemOffered: { "@type": "Service", name: service.name },
   })),
 };
 
