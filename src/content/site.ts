@@ -52,7 +52,7 @@ export const problem = {
 export const offerings = {
   heading: "Start where you are. Grow as far as you want.",
   intro:
-    "Seven ways to work together — from a fast first win to a full strategy for the road ahead, plus the builds that make it real.",
+    "Two ways to start: a fast win, or the full system. As we work together, some clients bring me in to train their team or shape AI strategy at the leadership level.",
 } as const;
 
 export const howItWorks = {
@@ -84,14 +84,18 @@ export const howItWorks = {
 export const pricing = {
   heading: "Transparent pricing. Real outcomes.",
   intro:
-    "Start small and tactical or go all-in on strategy — every engagement is designed to lead to the next. Prices below are starting points; audits and strategy are scoped to your team.",
+    "Start with a quick win or the full system — every engagement is designed to lead to the next. Prices below are starting points; strategy is scoped to your team.",
   // Each row references a service slug for name/price/highlight; blurb is the
   // pricing-specific line from the copy deck.
   rows: [
     {
-      slug: "enablement",
+      slug: "system",
       blurb:
-        "One high-volume process, automated — or a session teaching your team to build it.",
+        "A live system wired to your real data sources; optional maintenance from $500/mo.",
+    },
+    {
+      slug: "quick-win",
+      blurb: "One high-volume process, automated, in weeks.",
     },
     {
       slug: "workshops",
@@ -102,21 +106,8 @@ export const pricing = {
       blurb: "Tailored to executives or analysts.",
     },
     {
-      slug: "audit",
-      blurb: "Fixed-scope workflow audit and redesign plan.",
-    },
-    {
       slug: "strategy",
       blurb: "Leadership engagement + phased roadmap; optional ongoing advisory.",
-    },
-    {
-      slug: "dashboards",
-      blurb:
-        "A live, interactive dashboard wired to your data; optional maintenance from $500/mo.",
-    },
-    {
-      slug: "data",
-      blurb: "Uncover, organize, and analyze your hidden data to drive growth.",
     },
   ],
   footnote:
@@ -164,10 +155,10 @@ export const finalCta = {
 export const contact = {
   heading: "Tell me what you're working on.",
   interests: [
-    "Team Enablement",
+    "Custom AI System",
+    "Quick Win",
     "Workshop",
     "1:1 Coaching",
-    "AI Audit",
     "AI Strategy",
     "Not sure yet",
   ],

@@ -1,15 +1,19 @@
 /*
- * All seven Alpha Infra offerings. Single source of truth: drives the homepage
+ * Alpha Infra's offerings. Single source of truth: drives the homepage
  * offering cards, the /services overview, and each dedicated /services/[slug]
- * page. Copy is transcribed verbatim from the copy deck
- * (docs/website-copy-and-names.md).
+ * page. One flagship build (proven on Entec Access Systems) plus a fast entry
+ * point are featured first; training, coaching, and strategy are positioned
+ * as where the relationship goes next, not competing first-purchase options.
  */
 
-export type ServiceGroup = "Advisory & Enablement" | "Build & Deliver";
+export type ServiceGroup =
+  | "Build & Deliver"
+  | "Training & Coaching"
+  | "Strategic Partnership";
 
 export type Service = {
   slug: string;
-  order: string; // "01".."07"
+  order: string; // "01".."05"
   group: ServiceGroup;
   name: string;
   /** lucide-react icon name */
@@ -40,64 +44,115 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "enablement",
+    slug: "system",
     order: "01",
-    group: "Advisory & Enablement",
-    name: "Team Enablement",
-    icon: "Rocket",
-    eyebrow: "Advisory & Enablement",
+    group: "Build & Deliver",
+    name: "Custom AI System",
+    icon: "LineChart",
+    eyebrow: "Build & Deliver",
     tagline:
-      "Get a fast, practical start with ChatGPT or Claude. I build a skill, agent, or automation for one high-volume, manual process — or run a session that shows your team how to build it themselves.",
-    bestFor: "small teams who want a real win in weeks.",
+      "I pull the data scattered across the systems you already run — CRM, ops, finance, email, whatever runs your business — into one live system that tells you what needs attention. Built around your decisions, not a generic template.",
+    bestFor: "owners and teams who want one clear view instead of five disconnected tools.",
+    priceDisplay: "Starting at $5,000",
+    mostPopular: true,
+    h1: "One system. Everything that matters, in view.",
+    subhead:
+      "I connect the tools you already run into a single live system, built around your real decisions — the same approach that gave Entec Access Systems one place to manage sales instead of three.",
+    problemHeading: "The problem",
+    problem:
+      "Most businesses run on scattered, stale data. Key numbers live in five different tools, reports are out of date the moment they're sent, and nobody has one place that shows what actually needs attention today. You end up making today's decisions on last week's picture — or missing what matters because it's buried in an inbox nobody's watching.",
+    whatHeading: "What I build",
+    what:
+      "Before I build anything, I map how the work actually happens — the workflows, the tools, the decisions that matter — the same way I did with Entec Access Systems' owner before building his sales system. Then I connect your existing tools into one live system: a place that shows account history, flags what needs a response, and holds your pipeline for what's next. Interactive, always current, and designed around the decisions you actually make — not a generic dashboard template.",
+    whatYouGet: [
+      "A live system wired to your real data sources — no more logging into five places",
+      "Built around the decisions you actually make, not a generic template",
+      "Interactivity built in: filters, drill-downs, and the specific views your work requires",
+      "Every AI-made match or suggestion clearly marked as AI-made — never blended in as if a person did it",
+      "A short walkthrough so your team uses it with confidence from day one",
+      "Optional ongoing maintenance and iteration as your needs change",
+    ],
+    howItWorks: [
+      {
+        title: "Map",
+        body: "I learn how the work actually happens and what \"done right\" looks like for you.",
+      },
+      {
+        title: "Connect",
+        body: "I wire up your existing tools and get the data flowing cleanly.",
+      },
+      {
+        title: "Build",
+        body: "I design and build the system, then refine it with you.",
+      },
+      {
+        title: "Handover",
+        body: "I walk your team through it; optional maintenance keeps it sharp.",
+      },
+    ],
+    whoItsFor:
+      "Owners and teams who want to stop guessing and start seeing — especially if your data is spread across tools and no one has the full picture in one place.",
+    pricing:
+      "Starting at $5,000, depending on the number of systems and complexity. Optional maintenance from $500/mo.",
+    ctaLine: "Ready to see everything that matters, in one place?",
+  },
+  {
+    slug: "quick-win",
+    order: "02",
+    group: "Build & Deliver",
+    name: "Quick Win",
+    icon: "Rocket",
+    eyebrow: "Build & Deliver",
+    tagline:
+      "A fast, practical first step. I pick one high-volume, manual process and automate it with AI — a working result in weeks, not quarters.",
+    bestFor: "small teams who want a real win before committing to a bigger build.",
     priceDisplay: "Starting at $1,500",
     isEntry: true,
     h1: "Your first real AI win — in weeks, not quarters.",
     subhead:
-      "A fast, practical start with ChatGPT or Claude. I take one high-volume, manual process and automate it — or show your team how to build it themselves.",
+      "A fast, practical automation for one high-volume, manual process — a working result you can point to before committing to anything bigger.",
     problemHeading: "The problem",
     problem:
-      "Your team is curious about AI but stuck at the starting line. Everyone's heard it can help; nobody has time to figure out where or how. Meanwhile the same manual, repetitive task eats hours every week. You don't need a strategy deck yet — you need one clear win that proves the point.",
+      "You're curious about AI but not ready to commit to a full system yet. Meanwhile the same manual, repetitive task eats hours every week. You don't need a strategy deck — you need one clear, working win.",
     whatHeading: "What I do",
     what:
-      "I pick one high-volume, currently-manual process and make it dramatically faster with AI. Two ways to work: I build it — I create the skill, agent, or automation for you — or I teach it — a hands-on session where I build it with your team so they can do the next one themselves. Most clients do a bit of both.",
+      "I pick one high-volume, currently-manual process and make it dramatically faster with AI — a skill, agent, or automation your team actually uses, delivered in weeks. It's the smallest version of what I build at the bigger scale: real, working software, not a slide deck.",
     whatYouGet: [
-      "One painful, repetitive process automated or streamlined with AI",
-      "A working skill, agent, or automation your team actually uses",
-      "The know-how to extend it — so the value keeps compounding",
+      "One painful, repetitive process automated with AI",
+      "A working skill, agent, or automation your team uses immediately",
       "A clear sense of where AI can help next",
     ],
     howItWorks: [
       {
         title: "Pick a target",
-        body: "I find a high-volume, manual process worth automating first.",
+        body: "I find the highest-value manual process worth automating first.",
       },
       {
-        title: "Build or teach",
-        body: "I build the solution, or build it with your team live.",
+        title: "Build",
+        body: "I build the automation and get it working in your real workflow.",
       },
       {
-        title: "Roll out",
-        body: "I make sure it works in the real workflow and people adopt it.",
+        title: "Hand off",
+        body: "I make sure your team can run it — and knows what's next.",
       },
     ],
     whoItsFor:
-      "Small teams who want a practical, low-risk start — and a real result they can point to.",
+      "Small teams who want a practical, low-risk start — and a real result they can point to before going further.",
     pricing:
-      "Starting at $1,500 for a single enablement session; build-a-solution sprints run $2,500–$5,000.",
+      "Starting at $1,500 for a single automation; larger sprints run $2,500–$5,000.",
     ctaLine: "Let's get you a first win.",
   },
   {
     slug: "workshops",
-    order: "02",
-    group: "Advisory & Enablement",
+    order: "03",
+    group: "Training & Coaching",
     name: "Small-Group Workshops",
     icon: "Users",
-    eyebrow: "Advisory & Enablement",
+    eyebrow: "Training & Coaching",
     tagline:
       "A hands-on half-day or full-day for 4–8 people. I cover the fundamentals and best practices, then build reusable agents, skills, and skill files together — around the work your team actually does.",
     bestFor: "teams that learn by building.",
     priceDisplay: "Half-day from $3,500 · Full-day from $6,000",
-    mostPopular: true,
     h1: "A team that builds with AI — not just talks about it.",
     subhead:
       "A hands-on half-day or full-day for 4–8 people. I cover the fundamentals and best practices, then build reusable agents, skills, and tools together — around the work your team actually does.",
@@ -140,11 +195,11 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "coaching",
-    order: "03",
-    group: "Advisory & Enablement",
+    order: "04",
+    group: "Training & Coaching",
     name: "1:1 Coaching",
     icon: "UserRound",
-    eyebrow: "Advisory & Enablement",
+    eyebrow: "Training & Coaching",
     tagline:
       "Personalized coaching for how you work. For executives using AI as a strategy and thought partner, or for analysts getting more from AI while keeping every output accurate and trustworthy. Fundamentals, best practices, and the habits that matter.",
     bestFor: "individuals who want to level up fast.",
@@ -185,63 +240,12 @@ export const SERVICES: Service[] = [
     ctaLine: "Level up how you work with AI.",
   },
   {
-    slug: "audit",
-    order: "04",
-    group: "Advisory & Enablement",
-    name: "AI Audit",
-    icon: "ClipboardCheck",
-    eyebrow: "Advisory & Enablement",
-    tagline:
-      "I map how work actually gets done — using an AI agent to interview your people about their processes — then recommend how to redesign those workflows for a future where humans hold the critical, high-judgment roles and agents handle the rest.",
-    bestFor: "teams ready to redesign, not just experiment.",
-    priceDisplay: "Custom — book a call",
-    h1: "Know exactly what to redesign — and why.",
-    subhead:
-      "I map how work actually gets done, then show you how to redesign it for a future where your people hold the high-judgment roles and AI agents handle the rest.",
-    problemHeading: "The problem",
-    problem:
-      "You know AI should change how your team works — but “somewhere” isn't a plan. Without a clear map of your current workflows and where AI genuinely fits, you risk automating the wrong things, missing the big wins, and unsettling your team. You need a grounded, prioritized redesign, not guesswork.",
-    whatHeading: "What I do",
-    what:
-      "I come in and map how work really happens — including using an AI agent to interview your people about their day-to-day processes and workflows, so I capture the real picture, not the org-chart version. Then I show you how to redesign those workflows for the future: humans in the critical, high-judgment roles; AI agents carrying the repeatable load. You get a clear before-and-after with the quick wins called out.",
-    whatYouGet: [
-      "A current-state map of how work actually gets done",
-      "Prioritized recommendations to redesign workflows around AI",
-      "A target-state operating model: people on judgment, agents on the rest",
-      "Quick wins flagged for immediate impact",
-      "A natural on-ramp to building it (see Data Activation, Live Dashboards, Enablement)",
-    ],
-    howItWorks: [
-      {
-        title: "Interview",
-        body: "An AI agent (plus me) interviews your team about how work really flows.",
-      },
-      {
-        title: "Map",
-        body: "I document the current state and where the friction and value are.",
-      },
-      {
-        title: "Redesign",
-        body: "I recommend the target-state workflows and the roles humans should own.",
-      },
-      {
-        title: "Prioritize",
-        body: "I sequence it, starting with the quick wins.",
-      },
-    ],
-    whoItsFor:
-      "Teams and orgs ready to redesign how they work — not just experiment at the edges.",
-    pricing:
-      "Custom, scoped to team size and number of workflows. Most audits start around $8,000. Book a call and I'll scope it together.",
-    ctaLine: "Find out exactly what to change.",
-  },
-  {
     slug: "strategy",
     order: "05",
-    group: "Advisory & Enablement",
+    group: "Strategic Partnership",
     name: "AI Strategy",
     icon: "Compass",
-    eyebrow: "Advisory & Enablement",
+    eyebrow: "Strategic Partnership",
     tagline:
       "I help your leadership team think through how AI reshapes your business — where it creates advantage, where it threatens the current model — and co-build a phased roadmap for adapting to a new world of work.",
     bestFor: "leadership teams planning the next few years.",
@@ -287,116 +291,12 @@ export const SERVICES: Service[] = [
       "Custom multi-week engagement, typically $15,000–$40,000, with an optional ongoing advisory retainer. Book a call and I'll scope it together.",
     ctaLine: "Build the plan for what's coming.",
   },
-  {
-    slug: "dashboards",
-    order: "06",
-    group: "Build & Deliver",
-    name: "Live Dashboards",
-    icon: "LineChart",
-    eyebrow: "Build & Deliver",
-    tagline:
-      "Highly interactive, dynamic dashboards that give you real-time visibility into what actually drives your business. I pull from the systems you already use into one always-current view you can filter, drill into, and act on — not another report that's stale by the time you read it.",
-    bestFor:
-      "owners and teams who want to see the business clearly, in real time.",
-    priceDisplay: "Starting at $5,000",
-    h1: "See your business clearly — in real time.",
-    subhead:
-      "Interactive, always-current dashboards that pull from the tools you already use, so the numbers that matter are one click away — not buried in a spreadsheet someone updates on Fridays.",
-    problemHeading: "The problem",
-    problem:
-      "Most teams run on stale, scattered data. Key numbers live in five different tools, reports are out of date the moment they're sent, and by the time you spot a problem, it's already last month's problem. You end up making today's decisions on last week's picture.",
-    whatHeading: "What I build",
-    what:
-      "A single, live view of your business that's genuinely interactive — filter by segment, drill into the detail, compare periods, and watch the metrics update in real time. I connect it to your existing systems (CRM, finance, ops, marketing, whatever you run on), design around the decisions you actually make, and hand you something your whole team will open every morning.",
-    whatYouGet: [
-      "A live, hosted dashboard wired to your real data sources",
-      "The KPIs and views your team needs, designed around your decisions — not a generic template",
-      "Interactivity built in: filters, drill-downs, segments, period-over-period",
-      "Dynamic, interactive models — explore scenarios and drill into the drivers live, instead of re-keying a static spreadsheet",
-      "A short walkthrough so your team can use it with confidence",
-      "Optional ongoing maintenance and iteration as your needs change",
-    ],
-    howItWorks: [
-      {
-        title: "Scope",
-        body: "I agree on the decisions the dashboard should support and the metrics that drive them.",
-      },
-      {
-        title: "Connect",
-        body: "I wire up your data sources and get the numbers flowing cleanly.",
-      },
-      {
-        title: "Build",
-        body: "I design and build the interactive dashboard, then refine it with you.",
-      },
-      {
-        title: "Handover",
-        body: "I walk your team through it; optional maintenance keeps it sharp.",
-      },
-    ],
-    whoItsFor:
-      "Owners and teams who want to stop guessing and start seeing — especially if your data is spread across tools and no one has the full picture in one place.",
-    pricing:
-      "Starting at $5,000, depending on the number of data sources and complexity. Optional maintenance from $500/mo. Real-time pipelines and AI-driven features scope up from there.",
-    ctaLine: "Ready to see your business in real time?",
-  },
-  {
-    slug: "data",
-    order: "07",
-    group: "Build & Deliver",
-    name: "Data Activation",
-    icon: "Database",
-    eyebrow: "Build & Deliver",
-    tagline:
-      "Most businesses are sitting on troves of data they don't realize is valuable. I use AI to uncover it, organize and clean it, and analyze it — turning hidden data into insight and action that drives revenue and profitability. Find it, understand it, put it to work.",
-    bestFor: "businesses ready to turn data they already have into growth.",
-    priceDisplay: "Custom — book a call",
-    h1: "You're sitting on data worth more than you think.",
-    subhead:
-      "Most businesses have troves of data they never use. I use AI to uncover it, organize it, and analyze it — turning what you already have into revenue and profitability growth.",
-    problemHeading: "The problem",
-    problem:
-      "Every business generates data — sales, customers, operations, support, marketing. Most of it sits unused in systems no one connects, in formats no one cleans, answering questions no one gets around to asking. It's one of the most valuable assets you own, and it's almost certainly underworked.",
-    whatHeading: "What I do",
-    what:
-      "I treat your data as the asset it is. Using AI, I find the valuable data hiding across your systems, organize and clean it into something usable, and analyze it to surface what's actually driving — or draining — your revenue and profit. Then I translate that into clear, prioritized actions. Not a 40-page report; a short list of moves worth making.",
-    whatYouGet: [
-      "A map of the valuable, underused data across your business",
-      "An organized, cleaned dataset you can keep using",
-      "AI-driven analysis that surfaces real patterns, risks, and opportunities",
-      "The analysis delivered as a dynamic, interactive model you can explore — not a static spreadsheet or a slide dump",
-      "Prioritized, revenue-focused recommendations — what to do, and why it matters",
-      "A clear path to keep watching it (pairs naturally with Live Dashboards)",
-    ],
-    howItWorks: [
-      {
-        title: "Discover",
-        body: "I find the valuable data you're not using and where it lives.",
-      },
-      {
-        title: "Organize",
-        body: "I clean and structure it into something AI and your team can work with.",
-      },
-      {
-        title: "Analyze",
-        body: "I use AI to surface the patterns that move revenue and profit.",
-      },
-      {
-        title: "Activate",
-        body: "I hand you prioritized actions — and, if you want, a live dashboard to track them.",
-      },
-    ],
-    whoItsFor:
-      "Businesses ready to turn data they already have into growth — especially if you suspect there's value in your numbers but have never had the time or tools to dig it out.",
-    pricing:
-      "Custom — scoped to your data volume, how much cleaning it needs, and the depth of analysis. Most engagements start around $10,000. Book a call and I'll scope it together.",
-    ctaLine: "Let's find the value hiding in your data.",
-  },
 ];
 
 export const SERVICE_GROUPS: ServiceGroup[] = [
-  "Advisory & Enablement",
   "Build & Deliver",
+  "Training & Coaching",
+  "Strategic Partnership",
 ];
 
 export function getService(slug: string): Service | undefined {

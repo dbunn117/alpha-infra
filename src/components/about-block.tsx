@@ -1,22 +1,25 @@
 import Link from "next/link";
-import { UserRound } from "lucide-react";
 import { aboutBlock } from "@/content/site";
 import { SectionHeading } from "@/components/section-heading";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
+import { asset } from "@/lib/asset";
 
 export function AboutBlock() {
   return (
     <section id="about" className="section scroll-mt-16">
       <div className="container-page">
         <div className="grid items-start gap-10 lg:grid-cols-[320px_1fr] lg:gap-14">
-          {/* Headshot placeholder — swap for David's photo (spec §9 FOUNDER_PHOTO) */}
           <div className="mx-auto w-full max-w-[320px]">
-            <div className="surface flex aspect-square items-center justify-center overflow-hidden">
-              <div className="flex flex-col items-center gap-3 text-muted-foreground">
-                <UserRound className="size-12" aria-hidden />
-                <span className="text-sm">Headshot coming soon</span>
-              </div>
+            <div className="surface aspect-square overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={asset("/david-bunn.jpg")}
+                alt="David Bunn"
+                width={600}
+                height={600}
+                className="size-full object-cover"
+              />
             </div>
           </div>
 

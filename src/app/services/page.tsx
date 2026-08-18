@@ -7,7 +7,7 @@ import { offerings } from "@/content/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Seven ways to work with Alpha Infra — from a fast first win to a full AI strategy, plus the builds that make it real.",
+    "A custom AI system or a fast quick win to start — training, coaching, and strategy as the relationship grows.",
   alternates: { canonical: "/services" },
 };
 
