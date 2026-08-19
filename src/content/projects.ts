@@ -105,6 +105,15 @@ export const personalProjects: Project[] = [
     href: "https://cricfanai-web.vercel.app",
   },
   {
+    title: "PitchMap",
+    tag: "Sports market intelligence",
+    icon: "Globe2",
+    blurb:
+      "Scores and ranks US markets for cricket business opportunity — blending Census, business-pattern, and OpenStreetMap data into audience, commercial, and infrastructure-gap signals.",
+    tools: ["Python", "Census & public data", "OpenStreetMap", "Interactive maps"],
+    href: "https://dbunn117.github.io/pitchmap/",
+  },
+  {
     title: "Podcast OS",
     tag: "Personal dashboard",
     icon: "Podcast",
