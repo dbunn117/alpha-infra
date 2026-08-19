@@ -21,8 +21,16 @@ export default function WorkPage() {
       />
 
       <EntecCaseStudy />
-      <AssetMapDemo />
+      {/*
+       * TODO: once the real Entec walkthrough video is recorded (see
+       * "Today's Priority Actions" shot list in the vault case-study note),
+       * embed it here, right after the case study. AssetMapDemo is demoted
+       * below the project catalogue in the meantime - it's a real-estate
+       * recreation with illustrative data, unrelated to the Entec flagship
+       * narrative, so it shouldn't compete for this spot.
+       */}
       <ProjectsSection />
+      <AssetMapDemo />
     </>
   );
 }
