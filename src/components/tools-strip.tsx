@@ -13,7 +13,7 @@ export function ToolsStrip() {
           align="center"
         />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {tools.groups.map((group, i) => (
             <Reveal key={group.label} delay={i * 0.05}>
               <div className="surface h-full p-6 text-center">

@@ -74,20 +74,24 @@ export const SERVICES: Service[] = [
     ],
     howItWorks: [
       {
-        title: "Map",
-        body: "I learn how the work actually happens and what \"done right\" looks like for you.",
-      },
-      {
-        title: "Connect",
-        body: "I wire up your existing tools and get the data flowing cleanly.",
+        title: "Discovery",
+        body: "I learn how the work actually happens and what \"done right\" looks like for you, and assess the right tech stack — working inside the systems you already run wherever it makes sense.",
       },
       {
         title: "Build",
-        body: "I design and build the system, then refine it with you.",
+        body: "I connect your existing tools and build the system around your real decisions — not a generic template.",
+      },
+      {
+        title: "Test",
+        body: "I check it against real scenarios and real data before you ever rely on it day to day.",
+      },
+      {
+        title: "Go live",
+        body: "I connect it to your live data and get your team using it for real.",
       },
       {
         title: "Handover",
-        body: "I walk your team through it; optional maintenance keeps it sharp.",
+        body: "You own it outright. If you're comfortable with tools like Claude Code, I can set you up to maintain simple changes yourself — or I stay on with optional ongoing maintenance from $500/mo.",
       },
     ],
     whoItsFor:
@@ -104,19 +108,19 @@ export const SERVICES: Service[] = [
     icon: "Rocket",
     eyebrow: "Build & Deliver",
     tagline:
-      "A fast, practical first step. I pick one high-volume, manual process and automate it with AI — a working result in weeks, not quarters.",
+      "A fast, practical first step. I pick one high-volume, manual process and automate it with AI — typically live within 2–3 weeks of our first call.",
     bestFor: "small teams who want a real win before committing to a bigger build.",
     priceDisplay: "Starting at $1,500",
     isEntry: true,
-    h1: "Your first real AI win — in weeks, not quarters.",
+    h1: "Your first real AI win — typically live in 2–3 weeks.",
     subhead:
-      "A fast, practical automation for one high-volume, manual process — a working result you can point to before committing to anything bigger.",
+      "A fast, practical automation for one high-volume, manual process — typically live within 2–3 weeks, so you have a working result before committing to anything bigger.",
     problemHeading: "The problem",
     problem:
       "You're curious about AI but not ready to commit to a full system yet. Meanwhile the same manual, repetitive task eats hours every week. You don't need a strategy deck — you need one clear, working win.",
     whatHeading: "What I do",
     what:
-      "I pick one high-volume, currently-manual process and make it dramatically faster with AI — a skill, agent, or automation your team actually uses, delivered in weeks. It's the smallest version of what I build at the bigger scale: real, working software, not a slide deck.",
+      "I pick one high-volume, currently-manual process and make it dramatically faster with AI — a skill, agent, or automation your team actually uses, typically live within 2–3 weeks. It's the smallest version of what I build at the bigger scale: real, working software, not a slide deck.",
     whatYouGet: [
       "One painful, repetitive process automated with AI",
       "A working skill, agent, or automation your team uses immediately",

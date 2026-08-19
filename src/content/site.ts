@@ -164,11 +164,12 @@ export const tools = {
   eyebrow: "Tools & platforms",
   heading: "Built with the right tools for the job.",
   intro:
-    "Vendor-agnostic and hands-on — I build with the AI models and automation platforms that fit your stack, not a single favorite.",
+    "Vendor-agnostic and hands-on — I work inside your existing tech stack wherever it makes sense, and bring proven, modern tools where new infrastructure is needed.",
   groups: [
     { label: "AI & LLMs", items: ["Claude", "ChatGPT", "Claude Code", "Gemini"] },
     { label: "Automation", items: ["Copilot Studio", "Power Automate", "n8n"] },
     { label: "Data & BI", items: ["Power BI", "Python", "SQL", "Power Query"] },
+    { label: "Infrastructure & Hosting", items: ["Supabase", "Vercel", "GitHub"] },
   ],
 } as const;
 
