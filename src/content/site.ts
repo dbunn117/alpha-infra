@@ -43,9 +43,43 @@ export const hero = {
   ],
 } as const;
 
-export const problem = {
-  heading: "Most teams are drowning in work AI could already be doing.",
-  body: "Repetitive, manual, high-volume tasks quietly eat your team's best hours — the exact hours you'd rather spend on judgment, relationships, and decisions. The winners in this shift aren't the ones with the most tools. They're the ones who redesign how work flows: people move into the high-judgment, critical roles, and AI agents carry the repeatable load. That's the whole game, and it's what I do with you.",
+export const principles = {
+  eyebrow: "How I think about AI",
+  heading: "Six things I believe about using AI in a business.",
+  intro:
+    "Not hype, not theory — this is the thinking that shapes how I actually build.",
+  items: [
+    {
+      order: "01",
+      title: "Your data is a competitive advantage — if you use it.",
+      body: "Most businesses collect far more data than they act on. It sits in a CRM, a spreadsheet, an inbox — informing nothing. AI is what finally makes it cheap enough to turn that data into decisions in real time, not a quarterly review.",
+    },
+    {
+      order: "02",
+      title: "AI has a jagged edge.",
+      body: "It's brilliant at some things and unreliable at others. The advantage goes to whoever designs the system that knows which is which — not whoever adopts the most tools.",
+    },
+    {
+      order: "03",
+      title: "It does the grunt work — and the strategy.",
+      body: "Deterministic automation handles the repeatable load. But AI beat the best chess player alive — it can reason strategically too, if it knows the rules of your business. I use it for both, with your judgment always in the loop, never replaced by it.",
+    },
+    {
+      order: "04",
+      title: "Think of AI spend like headcount, not software.",
+      body: "Managing token and compute cost well is becoming a real competitive differentiator. The businesses that win will budget for AI the way they budget for people — not as a line item to minimize.",
+    },
+    {
+      order: "05",
+      title: "The benchmark is 10x, not 10%.",
+      body: "If your team can process 10 quotes a day, AI should get you to 100 — not 11. That's the order of magnitude I design for.",
+    },
+    {
+      order: "06",
+      title: "This is a CEO decision, not an IT ticket.",
+      body: "AI strategy shapes how the business competes. It belongs with the person who owns that outcome — not buried in a tooling request.",
+    },
+  ],
 } as const;
 
 export const offerings = {
