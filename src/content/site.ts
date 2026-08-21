@@ -33,7 +33,7 @@ export const hero = {
   eyebrow: "Practical AI systems for growing businesses",
   headline: "Unlock the value hiding in the systems you already run.",
   subhead:
-    "Wherever your data already lives, I connect it into one AI system built to drive real outcomes — more revenue, more output, or higher quality. Not another dashboard to check.",
+    "Wherever your data already lives, I connect it into one AI system built to drive real outcomes — more revenue, more output, or higher quality.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   stats: [
