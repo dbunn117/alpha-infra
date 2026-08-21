@@ -41,8 +41,6 @@ export const professionalProjects: Project[] = [
     blurb:
       "An interactive map of an entire real-estate portfolio — resize market bubbles by metrics like square footage or rent PSF and drill into tenant detail.",
     tools: ["Geospatial viz", "Power BI", "Interactive dashboards"],
-    internalHref: "#asset-map",
-    linkLabel: "Try the interactive demo",
   },
   {
     title: "AI Resource Hub & Automated Reporting",

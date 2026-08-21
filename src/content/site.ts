@@ -33,7 +33,7 @@ export const hero = {
   eyebrow: "Practical AI systems for growing businesses",
   headline: "Unlock the value hiding in the systems you already run.",
   subhead:
-    "I bring the data scattered across your CRM, ops, finance, and email into one cohesive AI system — built to help you serve customers better, grow revenue, and finally see what's really happening in your business.",
+    "Wherever your data already lives, I connect it into one AI system built to drive outcomes — more repeat revenue, faster response times, and more deals won. Not another dashboard to check.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   stats: [

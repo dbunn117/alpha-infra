@@ -12,16 +12,16 @@ import { Reveal } from "@/components/reveal";
 
 const PILLARS = [
   {
-    title: "Account memory",
-    body: "A live picture of every key account — last touchpoint, current-year spend, whether they've gone quiet — instead of that living in one person's head.",
+    title: "Keeps recurring revenue recurring",
+    body: "AI reads across every account — last touchpoint, current-year spend, whether they've gone quiet — and tells him who to follow up with and when, before a customer he could keep decides to leave.",
   },
   {
-    title: "Inbound accountability",
-    body: "Flags inbound enquiries the moment they land, including which ones matter most, and tracks whether the team is responding and quoting inside the target they set.",
+    title: "Wins more of what comes in",
+    body: "Every inbound enquiry is flagged the moment it lands and routed for a fast quote — cutting response time enough to win business that used to go to whoever answered first.",
   },
   {
-    title: "Forward pipeline",
-    body: "Holds the target list — the businesses he wants to win next — so there's an actual place future pipeline lives, not a notebook.",
+    title: "A real pipeline for what's next",
+    body: "Holds the target list — the businesses he wants to win next — so new-business pipeline lives somewhere real, not a notebook.",
   },
 ] as const;
 
@@ -31,8 +31,8 @@ export function EntecCaseStudy() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Case study — Entec Access Systems"
-          heading="From three logins to one system he opens every morning."
-          intro="Entec Access Systems (Staines, UK — ~15 people, 20 years trading, doors and access systems for retail, healthcare, education, and public-sector customers) ran sales the way most owner-operators do: one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else."
+          heading="A system built to drive revenue — not just show it to him."
+          intro="Entec Access Systems (Staines, UK — ~15 people, 20 years trading, doors and access systems for retail, healthcare, education, and public-sector customers) ran sales the way most owner-operators do: one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else — and revenue was leaking on both ends: accounts going quiet with nobody noticing, and enquiries sitting too long before a quote went out."
         />
 
         <div className="mt-12 grid gap-5 sm:grid-cols-3">
@@ -55,16 +55,16 @@ export function EntecCaseStudy() {
             <div>
               <h3 className="text-lg font-semibold">How it was built</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Eight working sessions over ten weeks — not a spec handed over once and delivered
-                blind. The definition of &ldquo;key account&rdquo; changed twice as his actual usage
-                corrected the first guess. That&rsquo;s normal, and it&rsquo;s why this is something
-                he actually opens every morning instead of software he was sold once and stopped
-                using.
+                Built with Claude Code over eight working sessions across ten weeks — not a spec
+                handed over once and delivered blind. The definition of &ldquo;key account&rdquo;
+                changed twice as his actual usage corrected the first guess. That&rsquo;s normal,
+                and it&rsquo;s why this is something he actually opens every morning instead of
+                software he was sold once and stopped using.
               </p>
               <ul className="mt-5 space-y-2">
                 {[
                   "Live in daily use since July 2026",
-                  "Replaces a generic CRM with something built around how he actually sells",
+                  "Deterministic automations pull the right data out of three systems that don't talk to each other — AI interprets it and makes the call",
                   "Every AI-made match is shown as AI-made, never blended in as if a person did it",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
