@@ -16,6 +16,8 @@ import {
   Receipt,
   BarChart3,
   Calculator,
+  BookOpen,
+  TrendingUp,
   type LucideIcon,
 } from "lucide-react";
 
@@ -37,6 +39,8 @@ const ICONS: Record<string, LucideIcon> = {
   Receipt,
   BarChart3,
   Calculator,
+  BookOpen,
+  TrendingUp,
 };
 
 export function ProjectIcon({

@@ -31,7 +31,7 @@ export const professionalProjects: Project[] = [
     tag: "Financial modeling",
     icon: "Calculator",
     blurb:
-      "Financial models rebuilt in Claude Code instead of spreadsheets — stakeholders explore scenarios and get answers in real time instead of waiting days for the model to be updated, in a format that's far more visual and easier to digest than a grid of cells.",
+      "Financial models rebuilt in Claude Code — stakeholders explore scenarios and get answers in real time, instead of waiting days for an update.",
     tools: ["Claude Code", "Financial modeling", "Interactive apps"],
   },
   {
@@ -40,22 +40,30 @@ export const professionalProjects: Project[] = [
     icon: "Map",
     blurb:
       "An interactive map of an entire real-estate portfolio — resize market bubbles by metrics like square footage or rent PSF and drill into tenant detail.",
-    tools: ["Geospatial viz", "Power BI", "Interactive dashboards"],
+    tools: ["Claude Code", "Leaflet", "Interactive dashboards"],
   },
   {
-    title: "AI Resource Hub & Automated Reporting",
-    tag: "Workflow automation",
-    icon: "Workflow",
+    title: "AI Resource Hub",
+    tag: "AI knowledge hub",
+    icon: "BookOpen",
     blurb:
-      "Automated reporting workflows and an internal AI resource hub built with Claude Code and Copilot Studio — cutting manual data-extraction time by roughly 80% for capital-markets teams.",
-    tools: ["Claude Code", "Copilot Studio", "Power Query"],
+      "An internal hub for staying current on AI — the latest news pulled in automatically on a scheduled Codex run, alongside curated learning paths, compute techniques, thought leaders, and research.",
+    tools: ["Codex", "Scheduled automation", "Knowledge base"],
+  },
+  {
+    title: "Deal-Flow Reporting",
+    tag: "Capital markets · BI",
+    icon: "TrendingUp",
+    blurb:
+      "Feeds hundreds of weekly \"call for offers\" emails into a Power Automate workflow and a shared database, then charts deal volume by region and property type in Power BI — giving capital-markets teams a read on recent activity before deciding when to bring a new deal to market.",
+    tools: ["Power Automate", "Power BI", "SharePoint"],
   },
   {
     title: "Acquisitions Due-Diligence App",
     tag: "Investor relations · diligence",
     icon: "ClipboardCheck",
     blurb:
-      "Surfaces how the team answered the same due-diligence questions before, so investor relations can draft responses to new questionnaires from precedent instead of a blank page.",
+      "Surfaces how the team answered the same due-diligence questions before — including a side-by-side view of how an answer has shifted over the last three years — so investor relations can draft new responses from precedent instead of a blank page.",
     tools: ["Claude Code", "Semantic search", "Investor relations"],
   },
   {
@@ -63,7 +71,7 @@ export const professionalProjects: Project[] = [
     tag: "Email automation",
     icon: "Inbox",
     blurb:
-      "Mostly rules-based Power Automate flows that read, classify, and route high-volume shared-inbox mail — with AI steps where a prompt decides what a message actually is, so the right item reaches the right person.",
+      "Routes high-volume shared-inbox mail through Power Automate workflows — rule-based where the pattern is clear, AI-classified where judgment is needed — so the right item reaches the right person automatically.",
     tools: ["Power Automate", "AI classification", "Copilot Studio"],
   },
   {
@@ -88,7 +96,7 @@ export const professionalProjects: Project[] = [
     icon: "BarChart3",
     blurb:
       "Lets portfolio managers compare each asset's actual performance against its underwriting model — interactive and visual instead of a static variance report.",
-    tools: ["Interactive dashboards", "Power BI", "Data modeling"],
+    tools: ["Claude Code", "Interactive dashboards"],
   },
 ];
 
