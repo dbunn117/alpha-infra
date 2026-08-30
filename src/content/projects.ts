@@ -23,8 +23,8 @@ export const professionalProjects: Project[] = [
     tag: "Investment strategy",
     icon: "Globe2",
     blurb:
-      "Blends macro-economic data with LLMs to give investment teams instant competitive assessments when evaluating new markets to acquire in.",
-    tools: ["LLMs", "Macro-economic data", "Python", "Agentic analysis"],
+      "Weights and scores macro-economic and demographic data into a market scorecard, then uses AI to write the narrative behind the trends — nationally, by market, and by property sector.",
+    tools: ["Claude Code", "Macro-economic data", "Python", "Agentic analysis"],
   },
   {
     title: "Dynamic Financial Modeling",
@@ -44,10 +44,10 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "AI Resource Hub",
-    tag: "AI knowledge hub",
+    tag: "AI education",
     icon: "BookOpen",
     blurb:
-      "An internal hub for staying current on AI — the latest news pulled in automatically on a scheduled Codex run, alongside curated learning paths, compute techniques, thought leaders, and research.",
+      "An internal hub for staying current on AI — the latest news pulled in automatically on a scheduled Codex run, alongside curated learning paths, prompt techniques, thought leaders, and research.",
     tools: ["Codex", "Scheduled automation", "Knowledge base"],
   },
   {
@@ -75,12 +75,12 @@ export const professionalProjects: Project[] = [
     tools: ["Power Automate", "AI classification", "Copilot Studio"],
   },
   {
-    title: "Doc Ingestion → Database → Live Dashboard",
-    tag: "Data pipeline · BI",
+    title: "Doc Ingestion → Queryable Database",
+    tag: "Data pipeline",
     icon: "FileStack",
     blurb:
-      "Ingests documents like sales and lease comps, extracts the data with AI, and refreshes a live deal-volume dashboard as new comps land.",
-    tools: ["AI extraction", "Power BI", "Power Automate"],
+      "Ingests documents like sales and lease comps and extracts the data with AI, pushing it into a database that's queryable by an AI or agent built on top.",
+    tools: ["AI extraction", "Power Automate"],
   },
   {
     title: "Accounts-Payable Automation",
@@ -95,7 +95,7 @@ export const professionalProjects: Project[] = [
     tag: "Interactive dashboards",
     icon: "BarChart3",
     blurb:
-      "Lets portfolio managers compare each asset's actual performance against its underwriting model — interactive and visual instead of a static variance report.",
+      "Lets portfolio managers compare each asset's actual performance against its underwriting model, spot outperformers and underperformers at a glance, and drill into what's actually driving that performance — interactive and visual instead of a static variance report.",
     tools: ["Claude Code", "Interactive dashboards"],
   },
 ];
