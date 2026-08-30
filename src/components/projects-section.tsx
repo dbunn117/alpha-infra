@@ -44,12 +44,17 @@ export function ProjectsSection() {
           </div>
           <div className="space-y-10">
             {PERSONAL_PROJECT_GROUPS.map((group) => (
-              <div key={group}>
+              <div key={group.label}>
                 <h4 className="mb-4 text-sm font-medium text-muted-foreground">
-                  {group}
+                  {group.label}
                 </h4>
+                {group.note ? (
+                  <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                    {group.note}
+                  </p>
+                ) : null}
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                  {personalProjectsByGroup(group).map((p, i) => (
+                  {personalProjectsByGroup(group.label).map((p, i) => (
                     <Reveal key={p.title} delay={i * 0.03}>
                       <ProjectCard project={p} variant="personal" />
                     </Reveal>

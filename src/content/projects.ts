@@ -101,10 +101,13 @@ export const professionalProjects: Project[] = [
   },
 ];
 
-export const PERSONAL_PROJECT_GROUPS = [
-  "Sports & market intelligence",
-  "Hermes — personal agent platform",
-] as const;
+export const PERSONAL_PROJECT_GROUPS: { label: string; note?: string }[] = [
+  { label: "Sports & market intelligence" },
+  {
+    label: "Hermes — personal agent platform",
+    note: "Scout, Heath, and Paula each maintain their own folder in my Obsidian vault — durable memory that gives them context, builds history, and lets them get sharper over time instead of starting from zero every conversation. It's the same idea I'd bring to a business: a shared knowledge base that makes the whole system smarter as it goes, not just smart at launch.",
+  },
+];
 
 export const personalProjects: Project[] = [
   {
@@ -133,7 +136,7 @@ export const personalProjects: Project[] = [
     icon: "Compass",
     group: "Hermes — personal agent platform",
     blurb:
-      "Runs my household operations end-to-end — books and tracks appointments and renewals, handles pet-care reminders, narrows travel research to a shortlist, triages its own inbox, places routine calls, and sends a daily sports briefing. Has its own email address and Google Workspace.",
+      "Carries my household's operational load — researches and shortlists travel, appointments, and renewals, then waits for my yes before it books or pays. Handles routine calls, triages its own inbox, and sends a daily sports briefing, with its own email address and Google Workspace.",
     tools: ["Hermes Agent", "Google Workspace", "AgentMail"],
   },
   {
@@ -142,7 +145,7 @@ export const personalProjects: Project[] = [
     icon: "Activity",
     group: "Hermes — personal agent platform",
     blurb:
-      "Turns Dexcom G7 / Omnipod and WHOOP data into a daily brief and a weekly report — not just a dashboard to check, but a nudge toward action that's measurably improved my glucose time-in-range and recovery scores.",
+      "My health coach, not a dashboard — pulls Glooko, WHOOP, and DEXA data into one picture, holds an actual point of view on what to do next, and reaches out proactively when something's worth acting on. It won't touch insulin dosing — that stays with my endocrinologist — but it'll build the evidence case for that conversation.",
     tools: ["Hermes Agent", "WHOOP API", "Glooko"],
     href: "https://dbunn117.github.io/health-dashboard/",
   },
@@ -152,16 +155,16 @@ export const personalProjects: Project[] = [
     icon: "Baby",
     group: "Hermes — personal agent platform",
     blurb:
-      "A parenting coach for our toddlers — tracks what works for each kid individually, keeps a living playbook of scripts for tantrums, bedtime, and sibling conflict, and updates it as things change.",
+      "A parenting coach for our toddlers, not a search engine for activity ideas — it has opinions about what to try next, tracks whether it worked, and keeps a living playbook of scripts and activities that gets sharper as it learns what actually works for each kid individually.",
     tools: ["Hermes Agent", "Obsidian", "Telegram"],
   },
   {
     title: "Podcast OS",
-    tag: "Personal dashboard",
+    tag: "Personal digest",
     icon: "Podcast",
     group: "Hermes — personal agent platform",
     blurb:
-      "A daily podcast digest dashboard that pulls RSS history for my favorite shows (All-In, Prof G Markets, Diary of a CEO, and more) into one interactive, always-current view.",
+      "Pulls RSS history for my favorite shows (All-In, Prof G Markets, Diary of a CEO, and more), summarizes each episode, and flags what's actually relevant to me or Alpha Infra — always current, never a backlog.",
     tools: ["Python", "RSS", "Static site"],
     href: "https://dbunn117.github.io/podcast-digest/",
   },
