@@ -31,7 +31,7 @@ export const professionalProjects: Project[] = [
     tag: "Financial modeling",
     icon: "Calculator",
     blurb:
-      "Financial models rebuilt in Claude Code instead of spreadsheets — interactive, so stakeholders explore scenarios instead of squinting at a grid of cells.",
+      "Financial models rebuilt in Claude Code instead of spreadsheets — stakeholders explore scenarios and get answers in real time instead of waiting days for the model to be updated, in a format that's far more visual and easier to digest than a grid of cells.",
     tools: ["Claude Code", "Financial modeling", "Interactive apps"],
   },
   {
@@ -52,19 +52,19 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "Acquisitions Due-Diligence App",
-    tag: "Diligence · web app",
+    tag: "Investor relations · diligence",
     icon: "ClipboardCheck",
     blurb:
-      "A web app supporting the acquisitions process end-to-end — from data cleansing to a front end that speeds up diligence.",
-    tools: ["Claude Code", "Data cleansing", "Front-end app"],
+      "Surfaces how the team answered the same due-diligence questions before, so investor relations can draft responses to new questionnaires from precedent instead of a blank page.",
+    tools: ["Claude Code", "Semantic search", "Investor relations"],
   },
   {
-    title: "Shared-Inbox Triage Agent",
-    tag: "Agentic ops",
+    title: "Shared-Inbox Triage Automation",
+    tag: "Email automation",
     icon: "Inbox",
     blurb:
-      "Triages high-volume shared inboxes — reads, classifies, and routes (or auto-actions) mail so the right item reaches the right person.",
-    tools: ["Claude", "Copilot Studio", "Power Automate"],
+      "Mostly rules-based Power Automate flows that read, classify, and route high-volume shared-inbox mail — with AI steps where a prompt decides what a message actually is, so the right item reaches the right person.",
+    tools: ["Power Automate", "AI classification", "Copilot Studio"],
   },
   {
     title: "Doc Ingestion → Database → Live Dashboard",
@@ -72,7 +72,7 @@ export const professionalProjects: Project[] = [
     icon: "FileStack",
     blurb:
       "Ingests documents like sales and lease comps, extracts the data with AI, and refreshes a live deal-volume dashboard as new comps land.",
-    tools: ["AI extraction", "SQL", "Power BI", "Power Automate"],
+    tools: ["AI extraction", "Power BI", "Power Automate"],
   },
   {
     title: "Accounts-Payable Automation",
@@ -80,14 +80,14 @@ export const professionalProjects: Project[] = [
     icon: "Receipt",
     blurb:
       "Ingests invoices from a shared mailbox, extracts and validates the details, and automates the weekly wire-request package — a manual process turned scheduled run.",
-    tools: ["AI extraction", "Power Automate", "n8n"],
+    tools: ["AI extraction", "Power Automate"],
   },
   {
     title: "Business Review & Lookback Apps",
     tag: "Interactive dashboards",
     icon: "BarChart3",
     blurb:
-      "Interactive business-review apps that give leadership real-time visibility into performance — slice by segment instead of reading a static monthly deck.",
+      "Lets portfolio managers compare each asset's actual performance against its underwriting model — interactive and visual instead of a static variance report.",
     tools: ["Interactive dashboards", "Power BI", "Data modeling"],
   },
 ];
@@ -128,24 +128,6 @@ export const personalProjects: Project[] = [
       "A mobile-friendly dashboard that normalizes Dexcom G7 / Omnipod and WHOOP data into one live view — generated automatically by my personal Hermes agent from CSV exports and the WHOOP API.",
     tools: ["Python", "WHOOP API", "SQLite", "Hermes agent"],
     href: "https://dbunn117.github.io/health-dashboard/",
-  },
-  {
-    title: "Rental Ranking App",
-    tag: "Decision tool",
-    icon: "Home",
-    blurb:
-      "A Next.js app that loads holiday-rental options from a CSV and lets you rate, sort, and compare them — turning a messy spreadsheet decision into a clean, rankable interface.",
-    tools: ["Next.js", "TypeScript", "CSV"],
-    href: "https://rental-ranking-app.vercel.app",
-  },
-  {
-    title: "Data-Warehouse Financial Model",
-    tag: "Finance tooling",
-    icon: "Database",
-    blurb:
-      "A web-based financial model backed by a structured data warehouse — bringing spreadsheet-grade modeling into a maintainable, queryable app.",
-    tools: ["JavaScript", "Data modeling", "Vercel"],
-    href: "https://data-warehouse-financial-model.vercel.app",
   },
   {
     title: "Personal CRM from LinkedIn",
