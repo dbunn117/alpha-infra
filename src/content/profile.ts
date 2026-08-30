@@ -46,7 +46,7 @@ export const experience: Experience[] = [
       "Built an AI Resource Hub and automated reporting workflows with Claude Code and Copilot Studio, cutting manual data-extraction time by ~80% for capital markets teams.",
       "Rebuilt financial models as dynamic, interactive apps in Claude Code — far more visual and explorable than static Excel workbooks, letting stakeholders test scenarios and drill into the drivers.",
       "Developed a zero-to-one Market Selection Tool leveraging macro-economic data and LLMs to give investment teams instant competitive assessments and strategic roadmaps for new acquisitions.",
-      "Built a dynamic, interactive Asset Map Dashboard plotting all owned assets across markets — drill into asset-manager and tenant detail, and resize market bubbles on the fly by metrics like square footage and rent PSF.",
+      "Built a dynamic, interactive Asset Map Explorer plotting all owned assets across markets — drill into asset-manager and tenant detail, and resize market bubbles on the fly by metrics like square footage and rent PSF.",
       "Built AI document-ingestion pipelines (sales/lease comps and other docs) that auto-write to a database and refresh live deal-volume dashboards by region and property type, plus agentic triage for high-volume shared inboxes.",
       "Automated accounts payable end-to-end — from shared-mailbox invoice ingestion to the weekly third-party wire-request package — and built dynamic business-review / lookback apps across Copilot Studio, Power Automate, and n8n.",
       "Key contact for the Acquisitions AI project, coordinating third-party vendors and internal users on data cleansing and front-end app development.",

@@ -35,12 +35,12 @@ export const professionalProjects: Project[] = [
     tools: ["Claude Code", "Financial modeling", "Interactive apps"],
   },
   {
-    title: "Asset Map Dashboard",
+    title: "Asset Map Explorer",
     tag: "Real estate · BI",
     icon: "Map",
     blurb:
       "An interactive map of an entire real-estate portfolio — resize market bubbles by metrics like square footage or rent PSF and drill into tenant detail.",
-    tools: ["Claude Code", "Leaflet", "Interactive dashboards"],
+    tools: ["Claude Code", "Leaflet", "Interactive apps"],
   },
   {
     title: "AI Resource Hub",
@@ -92,11 +92,11 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "Business Review & Lookback Apps",
-    tag: "Interactive dashboards",
+    tag: "Interactive apps",
     icon: "BarChart3",
     blurb:
       "Lets portfolio managers compare each asset's actual performance against its underwriting model, spot outperformers and underperformers at a glance, and drill into what's actually driving that performance — interactive and visual instead of a static variance report.",
-    tools: ["Claude Code", "Interactive dashboards"],
+    tools: ["Claude Code", "Interactive apps"],
   },
 ];
 
