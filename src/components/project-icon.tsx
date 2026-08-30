@@ -18,6 +18,8 @@ import {
   Calculator,
   BookOpen,
   TrendingUp,
+  Compass,
+  Baby,
   type LucideIcon,
 } from "lucide-react";
 
@@ -41,6 +43,8 @@ const ICONS: Record<string, LucideIcon> = {
   Calculator,
   BookOpen,
   TrendingUp,
+  Compass,
+  Baby,
 };
 
 export function ProjectIcon({

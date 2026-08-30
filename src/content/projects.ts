@@ -15,6 +15,7 @@ export type Project = {
   internalHref?: string; // on-page anchor (e.g. the interactive demo)
   image?: string; // /shots/*.png
   linkLabel?: string;
+  group?: string; // personal projects only - see PERSONAL_PROJECT_GROUPS
 };
 
 export const professionalProjects: Project[] = [
@@ -100,11 +101,17 @@ export const professionalProjects: Project[] = [
   },
 ];
 
+export const PERSONAL_PROJECT_GROUPS = [
+  "Sports & market intelligence",
+  "Hermes — personal agent platform",
+] as const;
+
 export const personalProjects: Project[] = [
   {
     title: "CricFan AI",
     tag: "Sports analytics",
     icon: "Trophy",
+    group: "Sports & market intelligence",
     blurb:
       "AI-powered cricket stats and analytics on ball-by-ball Cricsheet data — ask natural-language stat questions and get answers, powered by Claude. Built with Next.js and Supabase.",
     tools: ["Next.js", "Supabase", "Claude", "Cricsheet"],
@@ -114,51 +121,61 @@ export const personalProjects: Project[] = [
     title: "PitchMap",
     tag: "Sports market intelligence",
     icon: "Globe2",
+    group: "Sports & market intelligence",
     blurb:
       "Scores and ranks US markets for cricket business opportunity — blending Census, business-pattern, and OpenStreetMap data into audience, commercial, and infrastructure-gap signals.",
     tools: ["Python", "Census & public data", "OpenStreetMap", "Interactive maps"],
     href: "https://dbunn117.github.io/pitchmap/",
   },
   {
+    title: "Scout",
+    tag: "Admin & operations agent",
+    icon: "Compass",
+    group: "Hermes — personal agent platform",
+    blurb:
+      "Runs my household operations end-to-end — books and tracks appointments and renewals, handles pet-care reminders, narrows travel research to a shortlist, triages its own inbox, places routine calls, and sends a daily sports briefing. Has its own email address and Google Workspace.",
+    tools: ["Hermes Agent", "Google Workspace", "AgentMail"],
+  },
+  {
+    title: "Heath",
+    tag: "Health agent",
+    icon: "Activity",
+    group: "Hermes — personal agent platform",
+    blurb:
+      "Turns Dexcom G7 / Omnipod and WHOOP data into a daily brief and a weekly report — not just a dashboard to check, but a nudge toward action that's measurably improved my glucose time-in-range and recovery scores.",
+    tools: ["Hermes Agent", "WHOOP API", "Glooko"],
+    href: "https://dbunn117.github.io/health-dashboard/",
+  },
+  {
+    title: "Paula",
+    tag: "Parenting agent",
+    icon: "Baby",
+    group: "Hermes — personal agent platform",
+    blurb:
+      "A parenting coach for our toddlers — tracks what works for each kid individually, keeps a living playbook of scripts for tantrums, bedtime, and sibling conflict, and updates it as things change.",
+    tools: ["Hermes Agent", "Obsidian", "Telegram"],
+  },
+  {
     title: "Podcast OS",
     tag: "Personal dashboard",
     icon: "Podcast",
+    group: "Hermes — personal agent platform",
     blurb:
       "A daily podcast digest dashboard that pulls RSS history for my favorite shows (All-In, Prof G Markets, Diary of a CEO, and more) into one interactive, always-current view.",
     tools: ["Python", "RSS", "Static site"],
     href: "https://dbunn117.github.io/podcast-digest/",
   },
   {
-    title: "Health Dashboard",
-    tag: "Personal data",
-    icon: "Activity",
-    blurb:
-      "A mobile-friendly dashboard that normalizes Dexcom G7 / Omnipod and WHOOP data into one live view — generated automatically by my personal Hermes agent from CSV exports and the WHOOP API.",
-    tools: ["Python", "WHOOP API", "SQLite", "Hermes agent"],
-    href: "https://dbunn117.github.io/health-dashboard/",
-  },
-  {
     title: "Personal CRM from LinkedIn",
     tag: "Personal agent",
     icon: "Users",
+    group: "Hermes — personal agent platform",
     blurb:
       "A personal CRM built from my own LinkedIn connection data — structured, searchable, and enriched so I can actually work my network instead of scrolling it.",
     tools: ["Python", "LLMs", "Data enrichment"],
   },
-  {
-    title: "Hermes — Call Agent",
-    tag: "Agent",
-    icon: "PhoneCall",
-    blurb:
-      "A voice-capable agent in my personal Hermes setup that can place phone calls on my behalf — handling routine calls end-to-end so I don't have to.",
-    tools: ["Voice AI", "Agents", "Automation"],
-  },
-  {
-    title: "Hermes — Daily Sports Digest",
-    tag: "Agent",
-    icon: "Newspaper",
-    blurb:
-      "A Hermes agent that assembles and sends me a personalized sports digest every morning — the scores, storylines, and teams I care about, without the noise.",
-    tools: ["Agents", "Scheduling", "Summarization"],
-  },
 ];
+
+export function personalProjectsByGroup(group: string): Project[] {
+  return personalProjects.filter((p) => p.group === group);
+}

@@ -1,4 +1,8 @@
-import { professionalProjects, personalProjects } from "@/content/projects";
+import {
+  professionalProjects,
+  personalProjectsByGroup,
+  PERSONAL_PROJECT_GROUPS,
+} from "@/content/projects";
 import { SectionHeading } from "@/components/section-heading";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
@@ -38,11 +42,20 @@ export function ProjectsSection() {
             </h3>
             <span className="h-px flex-1 bg-border" />
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {personalProjects.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.03}>
-                <ProjectCard project={p} variant="personal" />
-              </Reveal>
+          <div className="space-y-10">
+            {PERSONAL_PROJECT_GROUPS.map((group) => (
+              <div key={group}>
+                <h4 className="mb-4 text-sm font-medium text-muted-foreground">
+                  {group}
+                </h4>
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {personalProjectsByGroup(group).map((p, i) => (
+                    <Reveal key={p.title} delay={i * 0.03}>
+                      <ProjectCard project={p} variant="personal" />
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
