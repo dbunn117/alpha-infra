@@ -1,5 +1,5 @@
 /*
- * David Bunn — profile content (from résumé, June 2026). Single source for the
+ * David Bunn: profile content (from résumé, June 2026). Single source for the
  * hero, about, experience timeline, and skills sections. Public contact is
  * email + LinkedIn only; no phone or home address per privacy.
  */
@@ -14,10 +14,10 @@ export const profile = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dbunn117.github.io/portfolio",
 
   tagline:
-    "I help businesses solve the problems that actually move the needle — growth, operations, and the decisions leaders make — by building the AI tools to match. A decade across finance and operations keeps it grounded in how a business really runs.",
+    "I help businesses solve the problems that actually move the needle (growth, operations, and the decisions leaders make) by building the AI tools to match. A decade across finance and operations keeps it grounded in how a business really runs.",
 
   summary:
-    "I'm a business and operations consultant who builds. Across 9+ years in audit, high-growth operations, and private-equity innovation, I've learned how businesses actually make decisions — and lately I've spent my time building the AI tools that make those decisions faster and sharper. What energizes me most are the front-office problems: growth, strategy, competitive positioning, and the messy operational questions in between. My finance background — CPA, CFA-track, BIDA-certified — is the foundation that makes what I build trustworthy, but the work I love is helping a business see and act more clearly, not just close the books.",
+    "I'm a business and operations consultant who builds. Across 9+ years in audit, high-growth operations, and private-equity innovation, I've learned how businesses actually make decisions; lately I've spent my time building the AI tools that make those decisions faster and sharper. What energizes me most are the front-office problems: growth, strategy, competitive positioning, and the messy operational questions in between. My finance background (CPA, CFA-track, BIDA-certified) is the foundation that makes what I build trustworthy, but the work I love is helping a business see and act more clearly, not just close the books.",
 
   // Hero stat strip
   stats: [
@@ -44,11 +44,11 @@ export const experience: Experience[] = [
     dates: "Jan 2026 – Present",
     bullets: [
       "Built an AI Resource Hub and automated reporting workflows with Claude Code and Copilot Studio, cutting manual data-extraction time by ~80% for capital markets teams.",
-      "Rebuilt financial models as dynamic, interactive apps in Claude Code — far more visual and explorable than static Excel workbooks, letting stakeholders test scenarios and drill into the drivers.",
+      "Rebuilt financial models as dynamic, interactive apps in Claude Code, far more visual and explorable than static Excel workbooks, letting stakeholders test scenarios and drill into the drivers.",
       "Developed a zero-to-one Market Selection Tool leveraging macro-economic data and LLMs to give investment teams instant competitive assessments and strategic roadmaps for new acquisitions.",
-      "Built a dynamic, interactive Asset Map Explorer plotting all owned assets across markets — drill into asset-manager and tenant detail, and resize market bubbles on the fly by metrics like square footage and rent PSF.",
+      "Built a dynamic, interactive Asset Map Explorer plotting all owned assets across markets: drill into asset-manager and tenant detail, and resize market bubbles on the fly by metrics like square footage and rent PSF.",
       "Built AI document-ingestion pipelines (sales/lease comps and other docs) that auto-write to a database and refresh live deal-volume dashboards by region and property type, plus agentic triage for high-volume shared inboxes.",
-      "Automated accounts payable end-to-end — from shared-mailbox invoice ingestion to the weekly third-party wire-request package — and built dynamic business-review / lookback apps across Copilot Studio, Power Automate, and n8n.",
+      "Automated accounts payable end-to-end (from shared-mailbox invoice ingestion to the weekly third-party wire-request package) and built dynamic business-review / lookback apps across Copilot Studio, Power Automate, and n8n.",
       "Key contact for the Acquisitions AI project, coordinating third-party vendors and internal users on data cleansing and front-end app development.",
     ],
   },
@@ -58,7 +58,7 @@ export const experience: Experience[] = [
     title: "Finance Associate",
     dates: "May 2023 – Dec 2025",
     bullets: [
-      "Owned complex revenue projections for a portfolio of 35+ funds and corporate expense forecasting — the “source of truth” for the CFO and Executive Committee.",
+      "Owned complex revenue projections for a portfolio of 35+ funds and corporate expense forecasting: the “source of truth” for the CFO and Executive Committee.",
       "Redesigned end-to-end financial reporting flows, from source systems to board-ready presentations, using Power Query and AI tools.",
       "Prepared financial review materials for the Executive Committee and external shareholder meetings, distilling complex models into clear strategic narratives.",
     ],
@@ -115,8 +115,8 @@ export const skillGroups: { label: string; items: string[] }[] = [
 ];
 
 export const credentials: string[] = [
-  "BIDA® — Business Intelligence & Data Analyst (CFI)",
-  "CPA — California (inactive)",
-  "CFA Program — Level I completed",
-  "BCom Honours, Accounting Sciences — University of Pretoria",
+  "BIDA®, Business Intelligence & Data Analyst (CFI)",
+  "CPA, California (inactive)",
+  "CFA Program, Level I completed",
+  "BCom Honours, Accounting Sciences, University of Pretoria",
 ];

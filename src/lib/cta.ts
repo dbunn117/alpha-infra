@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 /*
  * Marketing-scale button/link styles built on the semantic design tokens so
  * they stay correct in both light and dark themes. Apply to a native <button>,
- * an <a>, or a Next <Link> via className — no client component required.
+ * an <a>, or a Next <Link> via className, no client component required.
  */
 export const cta = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium transition-colors disabled:pointer-events-none disabled:opacity-60",

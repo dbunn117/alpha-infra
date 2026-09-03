@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /*
- * Alpha Infra mark: an alpha peak rising from foundation layers — a literal
+ * Alpha Infra mark: an alpha peak rising from foundation layers: a literal
  * diagram of "AI foundations that drive meaningful growth." Inlined so it
  * adapts to the theme (bright peak, muted foundations).
  */
@@ -19,7 +19,7 @@ export function BrandMark({ className }: { className?: string }) {
         points="48,16 76,56 20,56"
         className="fill-[#2563EB] dark:fill-[#38BDF8]"
       />
-      {/* Notch — makes the peak read as an "A" */}
+      {/* Notch: makes the peak read as an "A" */}
       <polygon points="48,40 58,56 38,56" className="fill-background" />
       {/* Foundation layers (infra) */}
       <rect

@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 /*
- * Lightweight scroll-in reveal — CSS transition + IntersectionObserver, no
+ * Lightweight scroll-in reveal: CSS transition + IntersectionObserver, no
  * animation library. Fade/slide is applied only when JS is present (the `js`
  * class on <html>, set synchronously in the layout to avoid a flash) and when
  * the user hasn't asked for reduced motion. Without JS, content is always

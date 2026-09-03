@@ -13,15 +13,15 @@ import { Reveal } from "@/components/reveal";
 const PILLARS = [
   {
     title: "Keeps recurring revenue recurring",
-    body: "AI reads across every account — last touchpoint, current-year spend, whether they've gone quiet — and tells him who to follow up with and when, before a customer he could keep decides to leave.",
+    body: "AI reads across every account (last touchpoint, current-year spend, whether they've gone quiet) and tells him who to follow up with and when, before a customer he could keep decides to leave.",
   },
   {
     title: "Wins more of what comes in",
-    body: "Every inbound enquiry is flagged the moment it lands and routed for a fast quote — cutting response time enough to win business that used to go to whoever answered first.",
+    body: "Every inbound enquiry is flagged the moment it lands and routed for a fast quote, cutting response time enough to win business that used to go to whoever answered first.",
   },
   {
     title: "A real pipeline for what's next",
-    body: "Holds the target list — the businesses he wants to win next — so new-business pipeline lives somewhere real, not a notebook.",
+    body: "Holds the target list (the businesses he wants to win next) so new-business pipeline lives somewhere real, not a notebook.",
   },
 ] as const;
 
@@ -30,9 +30,9 @@ export function EntecCaseStudy() {
     <section id="entec" className="section scroll-mt-16 border-b border-border">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Case study — Entec Access Systems"
-          heading="A system built to drive revenue — not just show it to him."
-          intro="Entec Access Systems (Staines, UK — ~15 people, 20 years trading, doors and access systems for retail, healthcare, education, and public-sector customers) ran sales the way most owner-operators do: one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else — and revenue was leaking on both ends: accounts going quiet with nobody noticing, and enquiries sitting too long before a quote went out."
+          eyebrow="Case study: Entec Access Systems"
+          heading="A system built to drive revenue, not just show it to him."
+          intro="Entec Access Systems (Staines, UK, ~15 people, 20 years trading, doors and access systems for retail, healthcare, education, and public-sector customers) ran sales the way most owner-operators do: one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else, and revenue was leaking on both ends: accounts going quiet with nobody noticing, and enquiries sitting too long before a quote went out."
         />
 
         <div className="mt-12 grid gap-5 sm:grid-cols-3">
@@ -55,7 +55,7 @@ export function EntecCaseStudy() {
             <div>
               <h3 className="text-lg font-semibold">How it was built</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Built with Claude Code over eight working sessions across ten weeks — not a spec
+                Built with Claude Code over eight working sessions across ten weeks, not a spec
                 handed over once and delivered blind. The definition of &ldquo;key account&rdquo;
                 changed twice as his actual usage corrected the first guess. That&rsquo;s normal,
                 and it&rsquo;s why this is something he actually opens every morning instead of
@@ -64,7 +64,7 @@ export function EntecCaseStudy() {
               <ul className="mt-5 space-y-2">
                 {[
                   "Live in daily use since July 2026",
-                  "Deterministic automations pull the right data out of three systems that don't talk to each other — AI interprets it and makes the call",
+                  "Deterministic automations pull the right data out of three systems that don't talk to each other; AI interprets it and makes the call",
                   "Every AI-made match is shown as AI-made, never blended in as if a person did it",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -76,12 +76,12 @@ export function EntecCaseStudy() {
             </div>
             <div className="flex flex-col justify-center border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
               <blockquote className="text-lg leading-relaxed text-foreground">
-                &ldquo;It&rsquo;s already caught accounts I would have missed completely — if
+                &ldquo;It&rsquo;s already caught accounts I would have missed completely. If
                 you&rsquo;re running separate systems that don&rsquo;t talk to each other, this is
                 worth doing.&rdquo;
               </blockquote>
               <p className="mt-4 text-sm font-medium text-muted-foreground">
-                William van der Byl (&ldquo;Bylo&rdquo;), Owner — Entec Access Systems
+                William van der Byl (&ldquo;Bylo&rdquo;), Owner, Entec Access Systems
               </p>
             </div>
           </div>

@@ -8,7 +8,7 @@ const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "davibunn@gmail.com";
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-// Simple in-memory rate limit. Per-instance only (resets on cold start) — fine
+// Simple in-memory rate limit. Per-instance only (resets on cold start), fine
 // for a low-traffic solo site; swap for a durable store (Upstash) if needed.
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
@@ -76,12 +76,12 @@ export async function POST(req: Request) {
   }
   if (message.length > 5000) {
     return NextResponse.json(
-      { error: "That message is a bit long — please shorten it." },
+      { error: "That message is a bit long. Please shorten it." },
       { status: 400 }
     );
   }
 
-  const subject = `New Alpha Infra inquiry — ${interest} — ${name}`;
+  const subject = `New Alpha Infra inquiry: ${interest} from ${name}`;
   const lines = [
     `Name: ${name}`,
     `Email: ${email}`,

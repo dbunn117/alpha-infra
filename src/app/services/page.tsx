@@ -7,7 +7,7 @@ import { offerings } from "@/content/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "A custom AI system or a fast quick win to start — training, coaching, and strategy as the relationship grows.",
+    "A custom AI system or a fast quick win to start, with training, coaching, and strategy as the relationship grows.",
   alternates: { canonical: "/services" },
 };
 

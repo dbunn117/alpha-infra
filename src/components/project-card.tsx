@@ -16,7 +16,7 @@ export function ProjectCard({
 
   return (
     <article className="group surface flex h-full flex-col overflow-hidden transition-colors hover:border-accent-bright/40">
-      {/* Media — only shown for projects with a real screenshot */}
+      {/* Media: only shown for projects with a real screenshot */}
       {project.image ? (
         <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-secondary">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -82,8 +82,8 @@ export function ProjectCard({
           <div className="mt-3 border-t border-border pt-3">
             <span className="text-xs text-muted-foreground">
               {variant === "professional"
-                ? "Confidential engagement — details on request."
-                : "Personal project — happy to walk through it."}
+                ? "Confidential engagement. Details on request."
+                : "Personal project. Happy to walk through it."}
             </span>
           </div>
         )}

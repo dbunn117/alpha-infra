@@ -30,7 +30,7 @@ export function ContactForm() {
     >;
 
     if (STATIC_MODE) {
-      const subject = `Alpha Infra inquiry — ${data.interest || "General"} — ${data.name || ""}`;
+      const subject = `Alpha Infra inquiry: ${data.interest || "General"} from ${data.name || ""}`;
       const body = [
         `Name: ${data.name || ""}`,
         `Email: ${data.email || ""}`,
@@ -91,7 +91,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="surface space-y-5 p-6 sm:p-8" noValidate>
-      {/* Honeypot — hidden from users; bots fill it and get rejected server-side */}
+      {/* Honeypot: hidden from users; bots fill it and get rejected server-side */}
       <div className="absolute left-[-9999px]" aria-hidden>
         <label htmlFor="company_url">Do not fill this in</label>
         <input

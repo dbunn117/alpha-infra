@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Decorative background — static, cheap, and purely aesthetic */}
+      {/* Decorative background: static, cheap, and purely aesthetic */}
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 grid-bg opacity-60" />
         <div className="absolute inset-x-0 top-0 h-[560px] hero-glow" />

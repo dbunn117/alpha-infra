@@ -24,7 +24,7 @@ export const professionalProjects: Project[] = [
     tag: "Investment strategy",
     icon: "Globe2",
     blurb:
-      "Weights and scores macro-economic and demographic data into a market scorecard, then uses AI to write the narrative behind the trends — nationally, by market, and by property sector.",
+      "Weights and scores macro-economic and demographic data into a market scorecard, then uses AI to write the narrative behind the trends: nationally, by market, and by property sector.",
     tools: ["Claude Code", "Macro-economic data", "Python", "Agentic analysis"],
   },
   {
@@ -32,7 +32,7 @@ export const professionalProjects: Project[] = [
     tag: "Financial modeling",
     icon: "Calculator",
     blurb:
-      "Financial models rebuilt in Claude Code — stakeholders explore scenarios and get answers in real time, instead of waiting days for an update.",
+      "Financial models rebuilt in Claude Code: stakeholders explore scenarios and get answers in real time, instead of waiting days for an update.",
     tools: ["Claude Code", "Financial modeling", "Interactive apps"],
   },
   {
@@ -40,7 +40,7 @@ export const professionalProjects: Project[] = [
     tag: "Real estate · BI",
     icon: "Map",
     blurb:
-      "An interactive map of an entire real-estate portfolio — resize market bubbles by metrics like square footage or rent PSF and drill into tenant detail.",
+      "An interactive map of an entire real-estate portfolio: resize market bubbles by metrics like square footage or rent PSF and drill into tenant detail.",
     tools: ["Claude Code", "Leaflet", "Interactive apps"],
   },
   {
@@ -48,7 +48,7 @@ export const professionalProjects: Project[] = [
     tag: "AI education",
     icon: "BookOpen",
     blurb:
-      "An internal hub for staying current on AI — the latest news pulled in automatically on a scheduled Codex run, alongside curated learning paths, prompt techniques, thought leaders, and research.",
+      "An internal hub for staying current on AI, with the latest news pulled in automatically on a scheduled Codex run, alongside curated learning paths, prompt techniques, thought leaders, and research.",
     tools: ["Codex", "Scheduled automation", "Knowledge base"],
   },
   {
@@ -56,7 +56,7 @@ export const professionalProjects: Project[] = [
     tag: "Capital markets · BI",
     icon: "TrendingUp",
     blurb:
-      "Feeds hundreds of weekly \"call for offers\" emails into a Power Automate workflow and a shared database, then charts deal volume by region and property type in Power BI — giving capital-markets teams a read on recent activity before deciding when to bring a new deal to market.",
+      "Feeds hundreds of weekly \"call for offers\" emails into a Power Automate workflow and a shared database, then charts deal volume by region and property type in Power BI, giving capital-markets teams a read on recent activity before deciding when to bring a new deal to market.",
     tools: ["Power Automate", "Power BI", "SharePoint"],
   },
   {
@@ -64,7 +64,7 @@ export const professionalProjects: Project[] = [
     tag: "Investor relations · diligence",
     icon: "ClipboardCheck",
     blurb:
-      "Surfaces how the team answered the same due-diligence questions before — including a side-by-side view of how an answer has shifted over the last three years — so investor relations can draft new responses from precedent instead of a blank page.",
+      "Surfaces how the team answered the same due-diligence questions before, including a side-by-side view of how an answer has shifted over the last three years, so investor relations can draft new responses from precedent instead of a blank page.",
     tools: ["Claude Code", "Semantic search", "Investor relations"],
   },
   {
@@ -72,7 +72,7 @@ export const professionalProjects: Project[] = [
     tag: "Email automation",
     icon: "Inbox",
     blurb:
-      "Routes high-volume shared-inbox mail through Power Automate workflows — rule-based where the pattern is clear, AI-classified where judgment is needed — so the right item reaches the right person automatically.",
+      "Routes high-volume shared-inbox mail through Power Automate workflows, rule-based where the pattern is clear, AI-classified where judgment is needed, so the right item reaches the right person automatically.",
     tools: ["Power Automate", "AI classification", "Copilot Studio"],
   },
   {
@@ -88,7 +88,7 @@ export const professionalProjects: Project[] = [
     tag: "Finance automation",
     icon: "Receipt",
     blurb:
-      "Ingests invoices from a shared mailbox, extracts and validates the details, and automates the weekly wire-request package — a manual process turned scheduled run.",
+      "Ingests invoices from a shared mailbox, extracts and validates the details, and automates the weekly wire-request package: a manual process turned scheduled run.",
     tools: ["AI extraction", "Power Automate"],
   },
   {
@@ -96,7 +96,7 @@ export const professionalProjects: Project[] = [
     tag: "Interactive apps",
     icon: "BarChart3",
     blurb:
-      "Lets portfolio managers compare each asset's actual performance against its underwriting model, spot outperformers and underperformers at a glance, and drill into what's actually driving that performance — interactive and visual instead of a static variance report.",
+      "Lets portfolio managers compare each asset's actual performance against its underwriting model, spot outperformers and underperformers at a glance, and drill into what's actually driving that performance: interactive and visual instead of a static variance report.",
     tools: ["Claude Code", "Interactive apps"],
   },
 ];
@@ -104,8 +104,8 @@ export const professionalProjects: Project[] = [
 export const PERSONAL_PROJECT_GROUPS: { label: string; note?: string }[] = [
   { label: "Sports & market intelligence" },
   {
-    label: "Hermes — personal agent platform",
-    note: "Scout, Heath, and Paula each maintain their own folder in my Obsidian vault — durable memory that gives them context, builds history, and lets them get sharper over time instead of starting from zero every conversation. It's the same idea I'd bring to a business: a shared knowledge base that makes the whole system smarter as it goes, not just smart at launch.",
+    label: "Hermes: personal agent platform",
+    note: "Scout, Heath, and Paula each maintain their own folder in my Obsidian vault: durable memory that gives them context, builds history, and lets them get sharper over time instead of starting from zero every conversation. It's the same idea I'd bring to a business: a shared knowledge base that makes the whole system smarter as it goes, not just smart at launch.",
   },
 ];
 
@@ -116,7 +116,7 @@ export const personalProjects: Project[] = [
     icon: "Trophy",
     group: "Sports & market intelligence",
     blurb:
-      "AI-powered cricket stats and analytics on ball-by-ball Cricsheet data — ask natural-language stat questions and get answers, powered by Claude. Built with Next.js and Supabase.",
+      "AI-powered cricket stats and analytics on ball-by-ball Cricsheet data: ask natural-language stat questions and get answers, powered by Claude. Built with Next.js and Supabase.",
     tools: ["Next.js", "Supabase", "Claude", "Cricsheet"],
     href: "https://cricfanai-web.vercel.app",
   },
@@ -126,7 +126,7 @@ export const personalProjects: Project[] = [
     icon: "Globe2",
     group: "Sports & market intelligence",
     blurb:
-      "Scores and ranks US markets for cricket business opportunity — blending Census, business-pattern, and OpenStreetMap data into audience, commercial, and infrastructure-gap signals.",
+      "Scores and ranks US markets for cricket business opportunity, blending Census, business-pattern, and OpenStreetMap data into audience, commercial, and infrastructure-gap signals.",
     tools: ["Python", "Census & public data", "OpenStreetMap", "Interactive maps"],
     href: "https://dbunn117.github.io/pitchmap/",
   },
@@ -134,18 +134,18 @@ export const personalProjects: Project[] = [
     title: "Scout",
     tag: "Admin & operations agent",
     icon: "Compass",
-    group: "Hermes — personal agent platform",
+    group: "Hermes: personal agent platform",
     blurb:
-      "Carries my household's operational load — researches and shortlists travel, appointments, and renewals, then waits for my yes before it books or pays. Handles routine calls, triages its own inbox, and sends a daily sports briefing, with its own email address and Google Workspace.",
+      "Carries my household's operational load: researches and shortlists travel, appointments, and renewals, then waits for my yes before it books or pays. Handles routine calls, triages its own inbox, and sends a daily sports briefing, with its own email address and Google Workspace.",
     tools: ["Hermes Agent", "Google Workspace", "AgentMail"],
   },
   {
     title: "Heath",
     tag: "Health agent",
     icon: "Activity",
-    group: "Hermes — personal agent platform",
+    group: "Hermes: personal agent platform",
     blurb:
-      "My health coach, not a dashboard — pulls Glooko, WHOOP, and DEXA data into one picture, holds an actual point of view on what to do next, and reaches out proactively when something's worth acting on. It won't touch insulin dosing — that stays with my endocrinologist — but it'll build the evidence case for that conversation.",
+      "My health coach, not a dashboard. Pulls Glooko, WHOOP, and DEXA data into one picture, holds an actual point of view on what to do next, and reaches out proactively when something's worth acting on. It won't touch insulin dosing (that stays with my endocrinologist), but it'll build the evidence case for that conversation.",
     tools: ["Hermes Agent", "WHOOP API", "Glooko"],
     href: "https://dbunn117.github.io/health-dashboard/",
   },
@@ -153,18 +153,18 @@ export const personalProjects: Project[] = [
     title: "Paula",
     tag: "Parenting agent",
     icon: "Baby",
-    group: "Hermes — personal agent platform",
+    group: "Hermes: personal agent platform",
     blurb:
-      "A parenting coach for our toddlers, not a search engine for activity ideas — it has opinions about what to try next, tracks whether it worked, and keeps a living playbook of scripts and activities that gets sharper as it learns what actually works for each kid individually.",
+      "A parenting coach for our toddlers, not a search engine for activity ideas. It has opinions about what to try next, tracks whether it worked, and keeps a living playbook of scripts and activities that gets sharper as it learns what actually works for each kid individually.",
     tools: ["Hermes Agent", "Obsidian", "Telegram"],
   },
   {
     title: "Podcast OS",
     tag: "Personal digest",
     icon: "Podcast",
-    group: "Hermes — personal agent platform",
+    group: "Hermes: personal agent platform",
     blurb:
-      "Pulls RSS history for my favorite shows (All-In, Prof G Markets, Diary of a CEO, and more), summarizes each episode, and flags what's actually relevant to me or Alpha Infra — always current, never a backlog.",
+      "Pulls RSS history for my favorite shows (All-In, Prof G Markets, Diary of a CEO, and more), summarizes each episode, and flags what's actually relevant to me or Alpha Infra: always current, never a backlog.",
     tools: ["Python", "RSS", "Static site"],
     href: "https://dbunn117.github.io/podcast-digest/",
   },
@@ -172,9 +172,9 @@ export const personalProjects: Project[] = [
     title: "Personal CRM from LinkedIn",
     tag: "Personal agent",
     icon: "Users",
-    group: "Hermes — personal agent platform",
+    group: "Hermes: personal agent platform",
     blurb:
-      "A personal CRM built from my own LinkedIn connection data — structured, searchable, and enriched so I can actually work my network instead of scrolling it.",
+      "A personal CRM built from my own LinkedIn connection data: structured, searchable, and enriched so I can actually work my network instead of scrolling it.",
     tools: ["Python", "LLMs", "Data enrichment"],
   },
 ];

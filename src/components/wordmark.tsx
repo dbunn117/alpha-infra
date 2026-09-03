@@ -17,7 +17,7 @@ export function Wordmark({
   return (
     <Link
       href={href}
-      aria-label="Alpha Infra — home"
+      aria-label="Alpha Infra home"
       className={cn("inline-flex items-center gap-2.5", className)}
     >
       <BrandMark className="size-8" />

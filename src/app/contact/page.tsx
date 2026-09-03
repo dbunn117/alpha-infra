@@ -7,7 +7,7 @@ import { contact } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a 30-minute discovery call or send a message. No pressure, no jargon — just a clear next step.",
+    "Book a 30-minute discovery call or send a message. No pressure, no jargon, just a clear next step.",
   alternates: { canonical: "/contact" },
 };
 
@@ -25,7 +25,7 @@ export default function ContactPage() {
         <section id="book" className="scroll-mt-24">
           <h2 className="text-2xl font-semibold">Book a discovery call</h2>
           <p className="mt-2 text-muted-foreground">
-            Pick a time that works — 30 minutes, free.
+            Pick a time that works (30 minutes, free).
           </p>
           <BookingEmbed className="mt-6" />
         </section>

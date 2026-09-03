@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/section-heading";
 const TESTIMONIALS: { quote: string; name: string; role: string }[] = [];
 
 export function Testimonials() {
-  // No blank-placeholder fallback on purpose — three empty cards under "what
+  // No blank-placeholder fallback on purpose: three empty cards under "what
   // people say" reads worse than no section at all. Render nothing until
   // TESTIMONIALS has real, approved quotes in it.
   if (TESTIMONIALS.length === 0) return null;
