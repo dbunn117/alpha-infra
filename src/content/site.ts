@@ -200,7 +200,7 @@ export const fitCheck = {
   eyebrow: "Is this you?",
   heading: "Who this is for.",
   intro:
-    "I'm selective about the businesses I take on, because the work only pays off when it's a real fit.",
+    "Eight in ten people say AI makes them more productive. Only 37 percent of businesses can point to any effect on profit. The difference is a handful of decisions made before anything is built, so I'm selective about who I make them with.",
   forYou: [
     {
       title: "Your data lives in three or more places, and nobody has the full picture.",

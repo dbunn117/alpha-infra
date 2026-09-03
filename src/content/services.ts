@@ -38,6 +38,13 @@ export type Service = {
   whatYouGet: string[];
   /* Up to three deliverables surfaced on the homepage card (flagship only) */
   highlights?: string[];
+  /* "Why most AI projects stall" ledger (flagship only) */
+  stalls?: {
+    heading: string;
+    intro: string;
+    items: { fail: string; body: string; counter: string }[];
+    source: { label: string; href: string };
+  };
   howItWorks: { title: string; body: string }[];
   whoItsFor: string;
   pricing: string;
@@ -62,6 +69,42 @@ export const SERVICES: Service[] = [
       "A live system that tells you what to do next",
       "Your operating memory, written down and yours to keep",
     ],
+    stalls: {
+      heading: "Why most AI projects stall, and why this one is built not to.",
+      intro:
+        "Eight in ten people say AI makes them personally more productive. Only 37 percent of organisations can point to any effect on profit, a number that has not moved in a year, and just 6 percent get significant value from it. That gap is not the technology. It is five decisions that get skipped. I have made each of these mistakes at least once, which is why the Alpha System is built around not repeating them.",
+      items: [
+        {
+          fail: "It started with the tool, not the number.",
+          body: "\"Let's use AI\" is a project with no finish line. Nobody can say what moved, so nothing is defended when the pilot budget runs out.",
+          counter: "We name one number before anything is built, and the engagement exists to move it.",
+        },
+        {
+          fail: "AI was layered onto the old workflow.",
+          body: "A chatbot bolted onto a process designed for spreadsheets saves minutes and changes nothing. The organisations that see profit from AI redesign the work around it, nearly three-quarters of them, against a quarter of everyone else.",
+          counter: "We trace the data and the decisions behind the number, then rebuild that flow, not the whole business.",
+        },
+        {
+          fail: "Nobody wrote down how the business actually decides.",
+          body: "What counts as a key account, when a quote is late, which customer gets a call first. If that lives only in the owner's head, the AI guesses, and the owner stops trusting it.",
+          counter: "Your operating memory: your rules, definitions, and judgment written down, so the system works the way you would, and you keep it.",
+        },
+        {
+          fail: "The owner was not in the room.",
+          body: "Delegated to IT or a vendor, the build drifts toward what is easy to demonstrate rather than what changes the number. At Entec the definition of a key account changed twice in ten weeks, because the owner was there to correct it.",
+          counter: "Eight working sessions with you, not a spec handed over once.",
+        },
+        {
+          fail: "It went live and nobody measured or stayed.",
+          body: "Without a measured number and someone close by when the business changes, the system stops being used.",
+          counter: "We go live, we watch the number, and the operating memory keeps growing with optional maintenance.",
+        },
+      ],
+      source: {
+        label: "McKinsey Global Survey, \"The state of AI in 2026: On the road to ROI,\" 25 August 2026. 1,719 respondents in 97 countries, fielded 4 May to 8 June 2026.",
+        href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      },
+    },
     h1: "Pick the number that matters. I\u00a0build the system that moves it.",
     subhead:
       "One outcome per engagement. We start with the constraint, not the tools, then connect and synthesize the data behind it into one live system built around your decisions. It's the approach that took Entec Access Systems from three disconnected tools to a system that keeps recurring revenue recurring.",

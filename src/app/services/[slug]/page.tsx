@@ -7,6 +7,7 @@ import { PageHero } from "@/components/page-hero";
 import { ServiceIcon } from "@/components/service-icon";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { Reveal } from "@/components/reveal";
+import { StallLedger } from "@/components/stall-ledger";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 
@@ -64,6 +65,8 @@ export default async function ServicePage({
               </p>
             </section>
           </Reveal>
+
+          {service.stalls ? <StallLedger stalls={service.stalls} /> : null}
 
           <Reveal>
             <section>
