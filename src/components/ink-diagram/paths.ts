@@ -62,8 +62,14 @@ export const SOURCES: Source[] = [
 export const PLATE = {
   outline:
     "M312,200 h176 a12,12 0 0 1 12,12 v96 a12,12 0 0 1 -12,12.5 h-176.5 a12,12 0 0 1 -12,-12 v-96 a12,12 0 0 1 12,-12.5 z",
-  rows: ["M324,264 h120", "M324,282 h96", "M324,300 h140"],
-  label: { x: 400, y: 240 },
+  /* three action rows: a short pen dash, then the label */
+  rows: [
+    { y: 268, dash: "M324,264 h9" },
+    { y: 288, dash: "M324,284 h9.5" },
+    { y: 308, dash: "M324,304 h9" },
+  ],
+  rowText: { x: 341, fontSize: 12.5 },
+  label: { x: 400, y: 236 },
 };
 
 export const ANNOTATION = {

@@ -5,13 +5,13 @@ import { Reveal } from "@/components/reveal";
 import { DrawnCross, DrawnTick } from "@/components/drawn-mark";
 
 /*
- * First paper sheet: folds over the Ink peak. Two ledger columns, no cards.
+ * Two ledger columns, no cards.
  * Each "might be you" row gets a tick drawn in ink; each "not a fit" row a
  * drawn cross. Marks draw as rows reveal, with a small stagger.
  */
 export function FitLedger() {
   return (
-    <Chapter id="fit" title="Fit" className="fold-top">
+    <Chapter id="fit" title="Fit">
       <div className="container-page">
         <SectionHeading
           eyebrow={fitCheck.eyebrow}

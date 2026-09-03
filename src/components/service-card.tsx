@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Service } from "@/content/services";
 import { InkDiagramStatic } from "@/components/ink-diagram/ink-diagram-static";
+import { DrawnTick } from "@/components/drawn-mark";
 import { cn } from "@/lib/utils";
 
 const LIFT =
@@ -84,10 +85,20 @@ export function ServiceCard({
             <p className="measure mt-5 leading-relaxed text-muted-foreground">
               {service.tagline}
             </p>
+            {service.highlights ? (
+              <ul className="mt-5 space-y-2">
+                {service.highlights.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
+                    <DrawnTick className="mt-0.5 size-4" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
             <p className="mt-4 text-sm text-foreground">
               <span className="text-muted-foreground">Best for:</span> {service.bestFor}
             </p>
-            <div className="mt-auto flex items-center justify-between gap-4 border-t border-border pt-5 pt-6">
+            <div className="mt-auto flex items-center justify-between gap-4 border-t border-border pt-6">
               <span className="font-heading text-xl">{service.priceDisplay}</span>
               <LearnMore service={service} />
             </div>

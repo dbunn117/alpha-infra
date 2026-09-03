@@ -56,6 +56,9 @@ export function Hero() {
             <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>
+        <p className="rise measure mt-5 text-sm text-muted-foreground" style={riseDelay(0.46)}>
+          {hero.ctaNote}
+        </p>
       </ScrollFade>
     </section>
   );

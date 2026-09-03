@@ -7,23 +7,11 @@
  * proposal, or anywhere else with real traffic.
  */
 import { CheckCircle2 } from "lucide-react";
+import { proof } from "@/content/site";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 
-const PILLARS = [
-  {
-    title: "Keeps recurring revenue recurring",
-    body: "AI reads across every account (last touchpoint, current-year spend, whether they've gone quiet) and tells him who to follow up with and when, before a customer he could keep decides to leave.",
-  },
-  {
-    title: "Wins more of what comes in",
-    body: "Every inbound enquiry is flagged the moment it lands and routed for a fast quote, cutting response time enough to win business that used to go to whoever answered first.",
-  },
-  {
-    title: "A real pipeline for what's next",
-    body: "Holds the target list (the businesses he wants to win next) so new-business pipeline lives somewhere real, not a notebook.",
-  },
-] as const;
+const PILLARS = proof.pillars;
 
 export function EntecCaseStudy() {
   return (

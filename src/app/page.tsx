@@ -2,6 +2,7 @@ import { MotionProvider } from "@/components/motion/motion-provider";
 import { ChapterFolio } from "@/components/chapter-folio";
 import { Hero } from "@/components/hero";
 import { InkPeak } from "@/components/ink-diagram/ink-peak";
+import { ProofPlate } from "@/components/proof-plate";
 import { FitLedger } from "@/components/fit-ledger";
 import { ServicesSection } from "@/components/services-section";
 import { ProcessRail } from "@/components/process-rail";
@@ -24,6 +25,7 @@ export default function HomePage() {
         <Hero />
         <InkPeak />
       </div>
+      <ProofPlate />
       <FitLedger />
       <ServicesSection />
       <ProcessRail />

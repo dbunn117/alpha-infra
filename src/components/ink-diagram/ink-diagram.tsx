@@ -116,7 +116,7 @@ function Plate({ p }: { p: Progress }) {
   const fill = useRange(p, STAGES.plateFill[0], STAGES.plateFill[1]);
   const fillOpacity = useTransform(fill, [0, 1], [0, 0.06]);
   const outlineOpacity = useTransform(outline, [0, 0.02], [0, 1], { clamp: true });
-  const rowsOpacity = useTransform(fill, [0, 1], [0, 0.45]);
+  const rowsOpacity = useTransform(fill, [0, 1], [0, 0.85]);
   return (
     <g>
       <m.path
@@ -125,8 +125,20 @@ function Plate({ p }: { p: Progress }) {
         style={{ pathLength: outline, fillOpacity, opacity: outlineOpacity }}
       />
       <m.g style={{ opacity: rowsOpacity }}>
-        {PLATE.rows.map((d) => (
-          <path key={d} d={d} strokeWidth={1.5} />
+        {PLATE.rows.map((row, i) => (
+          <g key={row.y}>
+            <path d={row.dash} strokeWidth={1.5} />
+            <text
+              x={PLATE.rowText.x}
+              y={row.y}
+              fill="currentColor"
+              stroke="none"
+              className="font-sans"
+              fontSize={PLATE.rowText.fontSize}
+            >
+              {inkPeak.actions[i]}
+            </text>
+          </g>
         ))}
       </m.g>
       <m.g style={{ opacity: fill }}>

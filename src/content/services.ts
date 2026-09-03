@@ -36,6 +36,8 @@ export type Service = {
   whatHeading: string;
   what: string;
   whatYouGet: string[];
+  /* Up to three deliverables surfaced on the homepage card (flagship only) */
+  highlights?: string[];
   howItWorks: { title: string; body: string }[];
   whoItsFor: string;
   pricing: string;
@@ -55,6 +57,11 @@ export const SERVICES: Service[] = [
     bestFor: "owners who can name the one number they want to move, and whose data to move it lives in three or more tools.",
     priceDisplay: "Starting at $5,000",
     mostPopular: true,
+    highlights: [
+      "One outcome, named up front, with the number we're moving",
+      "A live system that tells you what to do next",
+      "Your operating memory, written down and yours to keep",
+    ],
     h1: "Pick the number that matters. I\u00a0build the system that moves it.",
     subhead:
       "One outcome per engagement. We start with the constraint, not the tools, then connect and synthesize the data behind it into one live system built around your decisions. It's the approach that took Entec Access Systems from three disconnected tools to a system that keeps recurring revenue recurring.",

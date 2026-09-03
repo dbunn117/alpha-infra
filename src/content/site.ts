@@ -38,6 +38,8 @@ export const hero = {
     "Name the number you want to move. Wherever the data behind it lives, I connect it into one AI system built to move it: more revenue, more output, or higher quality.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
+  ctaNote:
+    "Thirty minutes to name the number worth moving and check the data is there to move it.",
   stats: [
     { value: "$25B+", label: "market-cap audit client at PwC" },
     { value: "10+ yrs", label: "in finance, operations & data before AI" },
@@ -63,7 +65,43 @@ export const inkPeak = {
     "One system built to move it.",
   ],
   systemLabel: "One running system",
+  /* The three rows inside the system plate: decisions, not data */
+  actions: ["Who to call", "What to quote", "What to fix"],
   annotation: "in daily use since Jul 2026",
+} as const;
+
+/*
+ * Homepage proof plate (first paper chapter after the peak). Pillars are
+ * shared with the /work case study. TODO(David): fill `metric` with one
+ * before/after number from Entec (quote turnaround, accounts recovered, or
+ * hours saved per week) and `image` with a blurred screenshot of the live
+ * system placed in public/ (referenced through asset()). Both render nothing
+ * while null; the image slot shows a dashed placeholder in the meantime.
+ */
+export const proof = {
+  client: "Entec Access Systems",
+  eyebrow: "Live at Entec Access Systems since Jul 2026",
+  heading: "A system built to drive revenue, not just show it to him.",
+  context:
+    "Fifteen people, twenty years trading, one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else, and revenue was leaking on both ends.",
+  built: "Built with Claude Code over eight working sessions across ten weeks, with the owner in the room.",
+  pillars: [
+    {
+      title: "Keeps recurring revenue recurring",
+      body: "AI reads across every account (last touchpoint, current-year spend, whether they've gone quiet) and tells him who to follow up with and when, before a customer he could keep decides to leave.",
+    },
+    {
+      title: "Wins more of what comes in",
+      body: "Every inbound enquiry is flagged the moment it lands and routed for a fast quote, cutting response time enough to win business that used to go to whoever answered first.",
+    },
+    {
+      title: "A real pipeline for what's next",
+      body: "Holds the target list (the businesses he wants to win next) so new-business pipeline lives somewhere real, not a notebook.",
+    },
+  ],
+  metric: null as null | { value: string; label: string },
+  image: null as null | { src: string; alt: string },
+  link: { label: "Read the case study", href: "/work" },
 } as const;
 
 export const principles = {
@@ -243,7 +281,7 @@ export const socialProof = {
 export const finalCta = {
   heading: "Ready to find your first AI win?",
   subhead:
-    "Book a 30-minute discovery call, or send a note and I'll get back to you. No pressure, no jargon, just a clear next step.",
+    "Thirty minutes to name the number worth moving and check the data is there to move it. Or send a note and I'll reply within one business day. No pressure, no jargon, just a clear next step.",
   primaryCta: "Book a discovery call",
   secondaryCta: "Send a message",
 } as const;

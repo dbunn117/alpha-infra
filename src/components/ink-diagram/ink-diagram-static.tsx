@@ -51,8 +51,21 @@ export function InkDiagramStatic({
           </g>
         ))}
         <path d={PLATE.outline} fill="currentColor" fillOpacity={0.06} />
-        {PLATE.rows.map((d) => (
-          <path key={d} d={d} opacity={0.45} strokeWidth={1.5} />
+        {PLATE.rows.map((row, i) => (
+          <g key={row.y}>
+            <path d={row.dash} strokeWidth={1.5} />
+            <text
+              x={PLATE.rowText.x}
+              y={row.y}
+              fill="currentColor"
+              stroke="none"
+              className="font-sans"
+              fontSize={PLATE.rowText.fontSize}
+              opacity={0.85}
+            >
+              {inkPeak.actions[i]}
+            </text>
+          </g>
         ))}
         <text
           x={PLATE.label.x}
