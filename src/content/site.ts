@@ -100,17 +100,15 @@ export const proof = {
     },
   ],
   /*
-   * PLACEHOLDER, pending Bylo's sign-off before this branch goes to the
-   * domain. Preferred metric: recurring revenue recovered from accounts the
+   * Left null until Bylo signs off a figure; renders nothing while null.
+   * Preferred metric: recurring revenue recovered from accounts the
    * system flagged as gone quiet (the outcome the flagship promises).
    * Fallbacks, in order: (2) quote turnaround, e.g. "Every enquiry quoted
    * inside 48 hours, down from N days"; (3) hours per week the owner no
    * longer spends piecing the picture together by hand.
    */
-  metric: {
-    value: "£XX,000",
-    label: "recurring revenue recovered from accounts that had gone quiet (placeholder, pending sign-off)",
-  } as null | { value: string; label: string },
+  metric: null as null | { value: string; label: string },
+  // e.g. { value: "£42,000", label: "recurring revenue recovered from accounts that had gone quiet" }
   image: {
     src: "/entec-sales-hub.webp",
     alt: "Entec's Sales Intelligence Hub: five sales channels on one dashboard, with today's priority actions ranked across key accounts, inbound enquiries, public tenders, and target list, plus an ask-anything panel over the live data. Account names and figures blurred.",
