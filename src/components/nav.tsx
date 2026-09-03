@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { nav } from "@/content/site";
 import { Wordmark } from "@/components/wordmark";
@@ -9,8 +10,34 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { cn } from "@/lib/utils";
 
+const NAV_HEIGHT = 64;
+
+type Ground = "ink" | "paper";
+
+/*
+ * Sticky header. While any [data-ground="ink"] section (the homepage title
+ * page and peak) sits under the 64px header band, the header takes the Ink
+ * ground itself: transparent, paper text, mono mark. Everywhere else it is a
+ * blurred paper strip. The hero's inline script sets data-ground="ink" before
+ * first paint on hard loads; this observer owns it after hydration.
+ */
 export function Nav() {
   const [open, setOpen] = React.useState(false);
+  const [ground, setGround] = React.useState<Ground | undefined>(undefined);
+  const headerRef = React.useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
+  // The attribute is written to the DOM directly (not rendered as a prop):
+  // the hero's inline script sets it before hydration, and React would never
+  // remove an attribute it did not render.
+  const applyGround = React.useCallback((next: Ground) => {
+    const el = headerRef.current;
+    if (el) {
+      if (next === "ink") el.setAttribute("data-ground", "ink");
+      else el.removeAttribute("data-ground");
+    }
+    setGround(next);
+  }, []);
 
   // Lock body scroll while the mobile menu is open.
   React.useEffect(() => {
@@ -20,18 +47,74 @@ export function Nav() {
     };
   }, [open]);
 
+  React.useEffect(() => {
+    const targets = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        '[data-ground="ink"]:not([data-site-nav])'
+      )
+    );
+    let raf = 0;
+    if (targets.length === 0) {
+      raf = requestAnimationFrame(() => applyGround("paper"));
+      return () => cancelAnimationFrame(raf);
+    }
+
+    const intersecting = new Set<Element>();
+    let io: IntersectionObserver | null = null;
+
+    const build = () => {
+      io?.disconnect();
+      intersecting.clear();
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) intersecting.add(entry.target);
+            else intersecting.delete(entry.target);
+          }
+          applyGround(intersecting.size > 0 ? "ink" : "paper");
+        },
+        {
+          rootMargin: `0px 0px -${Math.max(0, window.innerHeight - NAV_HEIGHT)}px 0px`,
+          threshold: 0,
+        }
+      );
+      for (const t of targets) io.observe(t);
+    };
+    build();
+
+    const onResize = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(build);
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      io?.disconnect();
+      window.removeEventListener("resize", onResize);
+      cancelAnimationFrame(raf);
+    };
+  }, [pathname, applyGround]);
+
+  const current = (href: string) =>
+    pathname === href || pathname === `${href}/` ? "page" : undefined;
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+    <header
+      ref={headerRef}
+      data-site-nav=""
+      suppressHydrationWarning
+      className="site-nav sticky top-0 z-50 text-foreground"
+    >
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Wordmark />
+        <Wordmark tone={ground === "ink" ? "mono" : "red"} />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
           {nav.links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              aria-current={current(link.href)}
+              className="link-draw py-1 text-sm font-medium text-foreground/80 transition-colors duration-150 hover:text-foreground aria-[current=page]:text-foreground"
             >
               {link.label}
             </Link>
@@ -47,40 +130,73 @@ export function Nav() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
             className="inline-flex size-10 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            <span className="grid size-5 place-items-center [&>svg]:col-start-1 [&>svg]:row-start-1">
+              <Menu
+                className={cn(
+                  "size-5 transition-[opacity,transform] duration-300 ease-out-soft",
+                  open ? "rotate-90 scale-75 opacity-0" : "rotate-0 opacity-100"
+                )}
+                aria-hidden
+              />
+              <X
+                className={cn(
+                  "size-5 transition-[opacity,transform] duration-300 ease-out-soft",
+                  open ? "rotate-0 opacity-100" : "-rotate-90 scale-75 opacity-0"
+                )}
+                aria-hidden
+              />
+            </span>
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlays the page (absolute) so opening it never grows
+          the header or shifts the content under it; grid-rows animates the
+          reveal without touching `height`. */}
       <div
+        id="mobile-menu"
+        inert={!open}
         className={cn(
-          "md:hidden",
-          open ? "block" : "hidden"
+          "absolute inset-x-0 top-full grid transition-[grid-template-rows,opacity] duration-300 ease-out-soft md:hidden",
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         )}
       >
-        <nav className="container-page flex flex-col gap-1 border-t border-border py-4">
-          {nav.links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
+        <div className="min-h-0 overflow-hidden">
+          <nav
+            aria-label="Primary"
+            className="container-page flex flex-col gap-1 border-y border-border bg-background py-4 shadow-elev-2"
+          >
+            {nav.links.map((link, i) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={current(link.href)}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: open ? `${60 + i * 40}ms` : "0ms" }}
+                className={cn(
+                  "rounded-lg px-3 py-3 text-base font-medium text-foreground transition-[opacity,transform,background-color] duration-300 ease-out-soft hover:bg-muted",
+                  open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div
+              className={cn(
+                "px-1 pt-2 transition-[opacity,transform] duration-300 ease-out-soft",
+                open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+              )}
+              style={{ transitionDelay: open ? `${60 + nav.links.length * 40}ms` : "0ms" }}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
             >
-              {link.label}
-            </Link>
-          ))}
-          <div className="px-1 pt-2" onClick={() => setOpen(false)}>
-            <BookACallButton
-              label="Book a call"
-              size="md"
-              className="w-full"
-            />
-          </div>
-        </nav>
+              <BookACallButton label="Book a call" size="md" className="w-full" />
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );

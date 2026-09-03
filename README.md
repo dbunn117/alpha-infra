@@ -1,8 +1,9 @@
 # Alpha Infra — marketing website
 
 Marketing site for Alpha Infra, a one-person AI consulting practice.
-Built with **Next.js (App Router) + TypeScript + Tailwind CSS v4 + shadcn/ui**,
-`framer-motion`, `lucide-react`, `next-themes`, and Resend for the contact form.
+Built with **Next.js (App Router) + TypeScript + Tailwind CSS v4 + shadcn/ui**
+(Base UI primitives), `motion` for the homepage's scroll-driven chapters,
+`lucide-react`, `next-themes`, and Resend for the contact form.
 
 > The build brief and copy deck live in [`docs/`](./docs).
 
@@ -48,21 +49,34 @@ All copy lives in typed objects — no need to touch layout:
 
 - `src/content/site.ts` — hero, problem/POV, how-it-works, pricing rows, about,
   footer, and site config.
-- `src/content/services.ts` — all seven offerings (cards + full service pages).
+- `src/content/services.ts` — all five offerings (cards + full service pages).
+- `src/content/projects.ts` and `src/content/profile.ts` — the `/work` catalogue
+  and the `/about` timeline, skills, and credentials.
+- `inkPeak` in `src/content/site.ts` — captions and labels for the homepage's
+  scroll-drawn ink diagram (all lifted from copy that exists elsewhere).
 
 ## Placeholders to fill later
 
-- **Headshot** — `AboutBlock` and `/about` show a placeholder (spec §9 `FOUNDER_PHOTO`).
 - **Testimonials** — add entries to the `TESTIMONIALS` array in
-  `src/components/testimonials.tsx`.
-- **Wordmark** — currently styled text; a compass/needle mark can be added in
-  `src/components/wordmark.tsx`.
+  `src/components/testimonials.tsx` (the section renders nothing while empty).
+- **Booking link** — set `NEXT_PUBLIC_BOOKING_URL` (see above).
 
 ## Design system
 
-Dark is the default/hero theme with a light-mode toggle (`next-themes`). Tokens
-are CSS variables in `src/app/globals.css` (spec §7.1). Brand accent is electric
-blue; button fills use blue-600 so labels clear WCAG AA contrast.
+"Paper, ink, and one red pen." Paper (light) is the default theme; Ink (dark)
+is the toggle (`next-themes`). Tokens are CSS variables in
+`src/app/globals.css`. Signal Red appears once per viewport, in the brand mark
+(or, on the homepage peak, in the drawn tick while the nav mark goes mono).
+Depth comes from tinted shadows, edge light, overlap, and grain, never glows or
+gradients. Any element with `data-ground="ink"` takes the Ink tokens, which is
+how the homepage title page and peak sit dark on a paper page.
+
+The homepage is a chaptered, scroll-driven page: a pinned ink diagram is the
+one visual peak, and the margin folio (`chapter-folio.tsx`) ticks chapters off
+as they are read. Only `src/components/ink-diagram/*`, `process-rail.tsx`, and
+`src/components/motion/*` import `motion`; everything else animates with CSS.
+In development, `?motion=reduced` on any URL exercises the reduced-motion
+branch without changing OS settings.
 
 ## Deploy (Vercel)
 

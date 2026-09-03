@@ -1,56 +1,57 @@
 import Link from "next/link";
-import { aboutBlock } from "@/content/site";
+import { aboutBlock, hero } from "@/content/site";
+import { Chapter } from "@/components/chapter";
 import { SectionHeading } from "@/components/section-heading";
+import { Reveal } from "@/components/reveal";
+import { FactsLine } from "@/components/facts-line";
+import { ToolsLedger } from "@/components/tools-ledger";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
 
+/*
+ * About plate: the photo overlaps the chapter's top hairline (depth by
+ * overlap, with grain), copy at reading measure, the three real figures as a
+ * facts line, and the tools as a typeset ledger.
+ */
 export function AboutBlock() {
   return (
-    <section id="about" className="section scroll-mt-16">
+    <Chapter id="about" title="About">
       <div className="container-page">
-        <div className="grid items-start gap-10 lg:grid-cols-[320px_1fr] lg:gap-14">
-          <div className="mx-auto w-full max-w-[320px]">
-            <div className="surface aspect-square overflow-hidden">
+        <div className="border-t border-border" />
+        <div className="grid gap-10 lg:grid-cols-[300px_1fr] lg:gap-16">
+          <Reveal className="-mt-8 lg:-mt-12">
+            <div className="grain surface surface-raised relative mx-auto aspect-[4/5] w-full max-w-[300px] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset("/david-bunn.jpg")}
                 alt="David Bunn"
                 width={600}
-                height={600}
+                height={750}
                 className="size-full object-cover"
               />
             </div>
-          </div>
+          </Reveal>
 
-          <div>
-            <SectionHeading eyebrow="About" heading={aboutBlock.heading} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+          <div className="pt-2 lg:pt-12">
+            <SectionHeading heading={aboutBlock.heading} />
+            <p className="measure mt-6 text-lg leading-relaxed text-muted-foreground">
               {aboutBlock.body}
             </p>
-
-            <ul className="mt-7 flex flex-wrap gap-2">
-              {aboutBlock.credibility.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-sm text-muted-foreground"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-
+            <p className="mt-6 text-sm text-muted-foreground">
+              {aboutBlock.credibility.join(" · ")}
+            </p>
             <div className="mt-8">
-              <Link
-                href="/about"
-                className={cn(cta({ variant: "outline", size: "md" }))}
-              >
+              <Link href="/about" className={cn(cta({ variant: "link", size: "md" }))}>
                 More about Alpha Infra
               </Link>
             </div>
           </div>
         </div>
+
+        <FactsLine stats={hero.stats} className="mt-14" />
+        <ToolsLedger className="mt-10" />
       </div>
-    </section>
+    </Chapter>
   );
 }

@@ -1,27 +1,37 @@
+import { MotionProvider } from "@/components/motion/motion-provider";
+import { ChapterFolio } from "@/components/chapter-folio";
 import { Hero } from "@/components/hero";
-import { Principles } from "@/components/principles";
-import { FitCheck } from "@/components/fit-check";
+import { InkPeak } from "@/components/ink-diagram/ink-peak";
+import { FitLedger } from "@/components/fit-ledger";
 import { ServicesSection } from "@/components/services-section";
-import { HowItWorks } from "@/components/how-it-works";
-import { ToolsStrip } from "@/components/tools-strip";
+import { ProcessRail } from "@/components/process-rail";
+import { PrinciplesLedger } from "@/components/principles-ledger";
 import { AboutBlock } from "@/components/about-block";
 import { Testimonials } from "@/components/testimonials";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 
+/*
+ * Chaptered editorial: an Ink title page and peak, then a paper sheet folds
+ * over and the rest reads as chapters. The MotionProvider lives here, not in
+ * the layout, so inner pages ship no animation runtime.
+ */
 export default function HomePage() {
   return (
-    <>
-      <Hero />
-      <Principles />
-      <FitCheck />
+    <MotionProvider>
+      <ChapterFolio />
+      <div data-ground="ink" className="-mt-16 bg-background text-foreground">
+        <Hero />
+        <InkPeak />
+      </div>
+      <FitLedger />
       <ServicesSection />
-      <HowItWorks />
-      <ToolsStrip />
+      <ProcessRail />
+      <PrinciplesLedger />
       <AboutBlock />
       <Testimonials />
       <Faq />
       <FinalCta />
-    </>
+    </MotionProvider>
   );
 }

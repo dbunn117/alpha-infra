@@ -32,6 +32,8 @@ export const nav = {
 export const hero = {
   eyebrow: "Practical AI systems for growing businesses",
   headline: "Unlock the value hiding in the systems you already run.",
+  // Line breaks for the title page; the single-string headline stays for metadata.
+  headlineLines: ["Unlock the value hiding", "in the systems you already run."],
   subhead:
     "Wherever your data already lives, I connect it into one AI system built to drive real outcomes: more revenue, more output, or higher quality.",
   primaryCta: "Book a discovery call",
@@ -41,6 +43,27 @@ export const hero = {
     { value: "10+ yrs", label: "in finance, operations & data before AI" },
     { value: "Jul 2026", label: "system live in daily use at Entec Access Systems" },
   ],
+} as const;
+
+/*
+ * Homepage peak: the scroll-drawn ink diagram. Every string here is lifted
+ * from copy that already exists on the site (fitCheck.forYou[0], the Alpha
+ * System h1, hero.stats[2]) so the diagram narrates the pitch, not new copy.
+ */
+export const inkPeak = {
+  sources: [
+    { id: "crm", label: "CRM" },
+    { id: "sheets", label: "Spreadsheets" },
+    { id: "email", label: "Email" },
+    { id: "accounting", label: "Accounting" },
+  ],
+  captions: [
+    "Your data lives in three or more places,",
+    "and nobody has the full picture.",
+    "One system that knows your whole business.",
+  ],
+  systemLabel: "One running system",
+  annotation: "in daily use since Jul 2026",
 } as const;
 
 export const principles = {

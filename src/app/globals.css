@@ -2,7 +2,13 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+/*
+  Ink tokens apply under the html theme class (next-themes) AND inside any
+  element that declares data-ground="ink": the homepage title page and the
+  peak are Ink sections on a Paper page, and the nav flips to Ink while it
+  overlaps one.
+*/
+@custom-variant dark (&:is(.dark *, [data-ground="ink"] *));
 
 /*
   Alpha Infra design system: "paper, ink, and one red pen" brand guide
@@ -10,12 +16,15 @@
   inverted variant.
 
   Signal Red (#C4283C) is reserved for the mark alone (the checkmark in
-  BrandMark/wordmark, favicon, and OG image, hardcoded there, not driven by
-  these tokens): a red pen, not a highlighter, appearing once per page in the
-  logo. Every other former "accent" use, eyebrows, stat numbers, badges,
-  links, and the primary button, now resolves to ink (Paper theme) or paper
-  (Ink theme) via --primary/--accent-bright/--ring below, so no page has more
-  than that one red mark.
+  BrandMark/wordmark, favicon, OG image, and the drawn tick in the homepage
+  ink diagram; hardcoded there, not driven by these tokens): a red pen, not a
+  highlighter, appearing once per viewport. Every other former "accent" use,
+  eyebrows, stat numbers, badges, links, and the primary button, resolves to
+  ink (Paper theme) or paper (Ink theme) via --primary/--accent-bright/--ring.
+
+  Depth comes from five tools only: tinted offset shadows (--elev-*), edge
+  light (--edge-light), overlap (.fold-top, plates), grain (.grain), and the
+  hero headline's scroll drift. No glows, no gradient text.
 */
 @theme inline {
   --color-background: var(--background);
@@ -45,6 +54,15 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-edge-light: var(--edge-light);
+
+  --shadow-elev-1: var(--elev-1);
+  --shadow-elev-2: var(--elev-2);
+  --shadow-elev-3: var(--elev-3);
+
+  --ease-out-soft: var(--ease-out);
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -58,9 +76,11 @@
 :root {
   --background: #f5f1e8;
   --foreground: #14120f;
-  --card: #f5f1e8;
+  --surface-1: #faf7f0;
+  --surface-2: #fcfaf5;
+  --card: var(--surface-1);
   --card-foreground: #14120f;
-  --popover: #f5f1e8;
+  --popover: var(--surface-2);
   --popover-foreground: #14120f;
   --primary: #14120f;
   --primary-foreground: #f5f1e8;
@@ -78,15 +98,31 @@
   --input: #dcd5c8;
   --ring: #14120f;
   --radius: 0.5rem;
+
+  --edge-light: rgb(255 255 255 / 0.65);
+  --shadow-tint: oklch(35% 0.03 75);
+  --elev-1:
+    0 1px 2px color-mix(in oklab, var(--shadow-tint) 10%, transparent),
+    0 8px 24px -12px color-mix(in oklab, var(--shadow-tint) 22%, transparent);
+  --elev-2:
+    0 2px 4px color-mix(in oklab, var(--shadow-tint) 12%, transparent),
+    0 16px 40px -16px color-mix(in oklab, var(--shadow-tint) 30%, transparent);
+  --elev-3:
+    0 4px 8px color-mix(in oklab, var(--shadow-tint) 14%, transparent),
+    0 32px 64px -24px color-mix(in oklab, var(--shadow-tint) 38%, transparent);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Ink variant (dark, inverted) */
-.dark {
+/* Ink variant (dark, inverted): the html theme class, or a section ground */
+.dark,
+[data-ground="ink"] {
   --background: #14120f;
   --foreground: #f5f1e8;
-  --card: #14120f;
+  --surface-1: #1b1814;
+  --surface-2: #221f1a;
+  --card: var(--surface-1);
   --card-foreground: #f5f1e8;
-  --popover: #14120f;
+  --popover: var(--surface-2);
   --popover-foreground: #f5f1e8;
   --primary: #f5f1e8;
   --primary-foreground: #14120f;
@@ -103,24 +139,33 @@
   --border: rgba(245, 241, 232, 0.14);
   --input: rgba(245, 241, 232, 0.18);
   --ring: #f5f1e8;
+
+  --edge-light: rgb(245 241 232 / 0.08);
+  --shadow-tint: oklch(5% 0.01 75);
+  color-scheme: dark;
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+  html {
+    @apply font-sans scroll-smooth;
+  }
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
-  }
-  html {
-    @apply font-sans scroll-smooth;
   }
   h1,
   h2,
   h3,
   h4 {
     @apply font-heading tracking-tight;
+  }
+  /* Ink grounds read lighter: open the leading a touch and track slightly */
+  [data-ground="ink"] p,
+  [data-ground="ink"] li {
+    letter-spacing: 0.005em;
   }
   /* Visible, consistent focus ring for keyboard users */
   :focus-visible {
@@ -135,42 +180,131 @@
   }
   /* Generous vertical section rhythm (spec: 96–128px desktop) */
   .section {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-20 md:py-24 lg:py-28;
   }
-  /* Subtle card border + glow used across surfaces */
+  /* Reading measure for body copy */
+  .measure {
+    max-width: 62ch;
+  }
+  /* Tracked mono label: eyebrows, folios, ledger labels. Max three per page. */
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground;
+  }
+  /* Elevated paper plate: edge light on top, tinted offset shadow below */
   .surface {
     @apply rounded-2xl border border-border bg-card;
+    box-shadow:
+      inset 0 1px 0 var(--edge-light),
+      var(--elev-1);
+  }
+  .surface-raised {
+    box-shadow:
+      inset 0 1px 0 var(--edge-light),
+      var(--elev-2);
   }
   /* Big-number motif */
   .stat-number {
     @apply font-heading text-accent-bright tabular-nums;
   }
-  /* Hero background: a paper texture, not a tech glow (kept flat under the
-     new brand; the old dual-color radial glow doesn't fit a paper surface). */
-  .hero-glow {
-    background: radial-gradient(
-      70% 60% at 50% 0%,
-      color-mix(in oklab, var(--foreground) 4%, transparent) 0%,
-      transparent 70%
-    );
+  /* Paper sheet folding over an Ink section: overlap + edge light + shadow */
+  .fold-top {
+    position: relative;
+    z-index: 1;
+    margin-top: -1.5rem;
+    border-radius: 1.25rem 1.25rem 0 0;
+    background: var(--background);
+    box-shadow:
+      inset 0 1px 0 var(--edge-light),
+      0 -24px 48px -24px rgb(0 0 0 / 0.55);
+  }
+  /* Paper grain: a static noise tile, multiplied onto paper, overlaid on ink.
+     The host must be positioned (relative/sticky) so the overlay can fill it. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    border-radius: inherit;
+  }
+  .dark .grain::after,
+  [data-ground="ink"] .grain::after,
+  .grain[data-ground="ink"]::after {
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+  }
+  /* Text link with a 1px underline that draws in from the left */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s var(--ease-out);
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible,
+  .link-draw[aria-current="page"],
+  .group:hover .link-draw {
+    background-size: 100% 1px;
+  }
+  /* Site nav: paper backdrop by default, transparent while over an Ink ground */
+  .site-nav {
+    background: color-mix(in oklab, var(--background) 85%, transparent);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition:
+      background-color 0.25s var(--ease-out),
+      border-color 0.25s var(--ease-out),
+      color 0.25s var(--ease-out);
+  }
+  .site-nav[data-ground="ink"] {
+    background: transparent;
+    border-bottom-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  /* Load-in rise for title pages. Only animates when JS is present. */
+  .js .rise {
+    animation: rise 0.7s var(--ease-out) both;
+    animation-delay: var(--rise-delay, 0s);
   }
   /* Scroll-in reveal (see components/reveal.tsx). Only hides when JS is on. */
   .reveal {
     transition:
-      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.5s var(--ease-out),
+      transform 0.5s var(--ease-out);
   }
   .js .reveal:not(.is-visible) {
     opacity: 0;
     transform: translateY(16px);
   }
-  .grid-bg {
-    background-image:
-      linear-gradient(to right, var(--border) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-    background-size: 56px 56px;
-    -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000 0%, transparent 75%);
-    mask-image: radial-gradient(70% 60% at 50% 0%, #000 0%, transparent 75%);
+  /* Drawn strokes: any path with data-stroke and pathLength="1" draws itself
+     when its Reveal wrapper becomes visible, or when it gets .is-drawn. */
+  .js [data-stroke] {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.7s var(--ease-out);
+    transition-delay: var(--draw-delay, 0s);
+  }
+  .js .is-visible [data-stroke],
+  .js .is-drawn [data-stroke],
+  .js [data-stroke].is-drawn {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -184,9 +318,39 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  /* Never leave reveal content hidden for reduced-motion users. */
+  /* Never leave reveal content or drawn strokes hidden for reduced-motion users. */
   .js .reveal {
     opacity: 1 !important;
     transform: none !important;
   }
+  .js [data-stroke] {
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* Pinned-act spans, in viewport heights (see ink-diagram/ink-peak.tsx) */
+.peak-span {
+  --peak-span: 2;
+}
+@media (min-width: 768px) {
+  .peak-span {
+    --peak-span: 2.8;
+  }
+}
+
+/* No-JS fallback for the scrubbed diagram: show the final frame */
+html:not(.js) .ink-diagram path {
+  stroke-dasharray: none !important;
+  stroke-dashoffset: 0 !important;
+}
+html:not(.js) .ink-diagram g,
+html:not(.js) .ink-diagram text,
+html:not(.js) [data-caption] {
+  opacity: 1 !important;
+  clip-path: none !important;
+  transform: none !important;
+}
+html:not(.js) [data-caption] {
+  position: static;
+  margin-top: 0.75rem;
 }

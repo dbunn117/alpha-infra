@@ -9,6 +9,9 @@ import { cn } from "@/lib/utils";
  * class on <html>, set synchronously in the layout to avoid a flash) and when
  * the user hasn't asked for reduced motion. Without JS, content is always
  * visible; reduced-motion users skip straight to the resting state.
+ *
+ * Any descendant <path data-stroke pathLength="1"> draws itself when the
+ * wrapper becomes visible (see .js [data-stroke] in globals.css).
  */
 export function Reveal({
   children,
@@ -19,7 +22,7 @@ export function Reveal({
   children: React.ReactNode;
   delay?: number;
   className?: string;
-  as?: "div" | "section" | "li" | "article";
+  as?: "div" | "section" | "li" | "article" | "span" | "ol" | "ul" | "figure";
 }) {
   const ref = React.useRef<HTMLElement>(null);
   const [visible, setVisible] = React.useState(false);
@@ -54,7 +57,11 @@ export function Reveal({
     <Tag
       ref={ref as React.Ref<never>}
       className={cn("reveal", visible && "is-visible", className)}
-      style={delay ? { transitionDelay: `${delay}s` } : undefined}
+      style={
+        delay
+          ? ({ transitionDelay: `${delay}s`, "--draw-delay": `${delay + 0.2}s` } as React.CSSProperties)
+          : undefined
+      }
     >
       {children}
     </Tag>

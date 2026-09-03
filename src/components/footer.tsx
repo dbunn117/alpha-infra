@@ -16,60 +16,60 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
+/* Masthead close: hairline, lockup, two ledger columns, mono colophon line. */
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="mt-auto border-t border-border">
-      <div className="container-page py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-sm">
-            <Wordmark />
-            <p className="mt-3 text-sm text-muted-foreground">
+      <div className="container-page py-14">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <Wordmark tone="mono" />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {footer.tagline}
             </p>
           </div>
 
-          <nav className="flex flex-wrap gap-x-8 gap-y-2">
+          <nav aria-label="Footer" className="flex flex-col items-start gap-2">
+            <p className="eyebrow mb-1">Pages</p>
             {footer.links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="link-draw text-sm text-foreground/80 transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-start gap-2">
+            <p className="eyebrow mb-1">Contact</p>
             <a
               href={`mailto:${site.ownerEmail}`}
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 text-sm text-foreground/80 transition-colors hover:text-foreground"
             >
               <Mail className="size-4" aria-hidden />
-              {site.ownerEmail}
+              <span className="link-draw">{site.ownerEmail}</span>
             </a>
             <a
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 text-sm text-foreground/80 transition-colors hover:text-foreground"
             >
               <LinkedInIcon className="size-4" />
-              LinkedIn
+              <span className="link-draw">LinkedIn</span>
             </a>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} Alpha Infra LLC. All rights reserved.
+            © {year} · {site.legalName} · California
           </p>
-          <Link
-            href="/privacy"
-            className="transition-colors hover:text-foreground"
-          >
+          <Link href="/privacy" className="link-draw transition-colors hover:text-foreground">
             Privacy
           </Link>
         </div>

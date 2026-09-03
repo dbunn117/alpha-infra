@@ -10,18 +10,20 @@ import { BrandMark } from "@/components/brand-mark";
 export function Wordmark({
   className,
   href = "/",
+  tone = "red",
 }: {
   className?: string;
   href?: string;
+  tone?: "red" | "mono";
 }) {
   return (
     <Link
       href={href}
       aria-label="Alpha Infra home"
-      className={cn("inline-flex items-center gap-2.5", className)}
+      className={cn("inline-flex items-center gap-2.5 text-foreground", className)}
     >
-      <BrandMark className="size-8" />
-      <span className="font-heading text-lg font-medium tracking-tight text-foreground">
+      <BrandMark className="size-8" tone={tone} />
+      <span className="font-heading text-lg font-medium tracking-tight">
         alpha infra
       </span>
     </Link>

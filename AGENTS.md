@@ -31,9 +31,25 @@ placeholder and the contact form logs instead of emailing.
 - **Copy and offerings** — `src/content/site.ts` and `src/content/services.ts`.
   These are typed objects; changing copy should almost never require touching a
   component. Reach for the content files first.
-- **Design tokens** — CSS variables in `src/app/globals.css`. Dark is the default
-  theme, light is a toggle. Brand accent is electric blue; button fills use
-  blue-600 to clear WCAG AA on their labels.
+- **Design tokens** — CSS variables in `src/app/globals.css`. "Paper, ink, and
+  one red pen": Paper (light) is the default, Ink (dark) is the toggle, and
+  Signal Red (`#C4283C`) appears at most once per viewport (the brand mark, or
+  the drawn tick in the homepage peak while the nav mark goes mono). No glows,
+  no gradient text; depth only via `--elev-*` shadows, `--edge-light`,
+  overlap (`.fold-top`), and `.grain`. `data-ground="ink"` on any element
+  scopes the Ink tokens to it (the `dark` variant matches inside it too).
+- **Motion** — the homepage is scroll-driven with the `motion` package, mounted
+  only in `src/app/page.tsx` via `MotionProvider` (`LazyMotion` + `m`, strict).
+  Only `src/components/ink-diagram/*`, `process-rail.tsx`, and
+  `src/components/motion/*` may import `motion`; everything else uses CSS
+  transitions, `Reveal`, and `[data-stroke]` drawn paths. Never animate
+  width/height/top/left or use `transition: all`. `?motion=reduced` (dev only)
+  forces the reduced-motion branch for checking.
+- **Verifying the homepage** — walk it at every half viewport on desktop, on a
+  390px mobile viewport, in the Ink theme, and with `?motion=reduced`; check
+  for console errors, horizontal overflow, dead scroll (identical consecutive
+  frames outside pinned holds), copy stuck below full opacity, more than one
+  red per frame, and that the nav flips exactly at the paper fold.
 - **CTA wiring** — `src/lib/cta.ts`, `src/components/booking-embed.tsx`.
 
 ## Deploy: two targets, and they differ
