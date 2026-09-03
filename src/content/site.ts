@@ -9,7 +9,7 @@ export const site = {
   legalName: "Alpha Infra LLC",
   tagline: "AI foundations that drive meaningful growth.",
   description:
-    "Custom AI systems that turn the data scattered across your business into revenue, insight, and better service, built for small and mid-sized businesses ready to move the needle.",
+    "AI systems built to move one number at a time. I connect the data scattered across your business into a live system that drives revenue, output, or quality, for small and mid-sized businesses ready to move the needle.",
   founder: "David Bunn",
   // Config: override via env (.env.local). See .env.example.
   ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
@@ -35,7 +35,7 @@ export const hero = {
   // Line breaks for the title page; the single-string headline stays for metadata.
   headlineLines: ["Unlock the value hiding", "in the systems you already run."],
   subhead:
-    "Wherever your data already lives, I connect it into one AI system built to drive real outcomes: more revenue, more output, or higher quality.",
+    "Name the number you want to move. Wherever the data behind it lives, I connect it into one AI system built to move it: more revenue, more output, or higher quality.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   stats: [
@@ -46,9 +46,9 @@ export const hero = {
 } as const;
 
 /*
- * Homepage peak: the scroll-drawn ink diagram. Every string here is lifted
- * from copy that already exists on the site (fitCheck.forYou[0], the Alpha
- * System h1, hero.stats[2]) so the diagram narrates the pitch, not new copy.
+ * Homepage peak: the scroll-drawn ink diagram. The captions narrate the
+ * flagship offer's spine (name the number, trace the data, build the system);
+ * the annotation is hero.stats[2].
  */
 export const inkPeak = {
   sources: [
@@ -58,9 +58,9 @@ export const inkPeak = {
     { id: "accounting", label: "Accounting" },
   ],
   captions: [
-    "Your data lives in three or more places,",
-    "and nobody has the full picture.",
-    "One system that knows your whole business.",
+    "Name the number you want to move.",
+    "Find the data behind it, wherever it lives.",
+    "One system built to move it.",
   ],
   systemLabel: "One running system",
   annotation: "in daily use since Jul 2026",
@@ -113,7 +113,7 @@ export const principles = {
 export const offerings = {
   heading: "Start where you are. Grow as far as you want.",
   intro:
-    "Two ways to start: a fast win, or the full system. As we work together, some clients bring me in to train their team or shape AI strategy at the leadership level.",
+    "Two ways to start: one process automated fast, or one number moved with the full system. As we work together, some clients bring me in to train their team or shape AI strategy at the leadership level.",
   footnote:
     'Ask about value-based pricing (fees tied to the savings I create) and adding 30–90 days of follow-up "office hours" to any workshop or build.',
 } as const;

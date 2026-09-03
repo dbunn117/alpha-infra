@@ -51,54 +51,54 @@ export const SERVICES: Service[] = [
     icon: "LineChart",
     eyebrow: "Build & Deliver",
     tagline:
-      "My flagship build: I connect the data scattered across your CRM, ops, finance, and email into one system built to drive real outcomes: more revenue, more output, or higher quality.",
-    bestFor: "owners and teams who want one system that knows their whole business, instead of five disconnected tools.",
+      "My flagship build. We name the one number you want to move, find the data that drives it across your CRM, ops, finance, and email, and I build a live system that tells you what to do next to move it.",
+    bestFor: "owners who can name the one number they want to move, and whose data to move it lives in three or more tools.",
     priceDisplay: "Starting at $5,000",
     mostPopular: true,
-    h1: "One system that knows your whole business.",
+    h1: "Pick the number that matters. I\u00a0build the system that moves it.",
     subhead:
-      "I connect the tools you already run into a single live system, built around your real decisions. It's the same approach that took Entec Access Systems from three disconnected tools to one place that manages sales.",
+      "One outcome per engagement. We start with the constraint, not the tools, then connect and synthesize the data behind it into one live system built around your decisions. It's the approach that took Entec Access Systems from three disconnected tools to a system that keeps recurring revenue recurring.",
     problemHeading: "The problem",
     problem:
-      "Most businesses run on scattered, stale data. Key numbers live in five different tools, reports are out of date the moment they're sent, and nobody has one place that shows what actually needs attention today. You end up making today's decisions on last week's picture, or missing what matters because it's buried in an inbox nobody's watching.",
+      "Most owners can name the number that's hurting: accounts quietly leaving, quotes going out too slowly, margin nobody can see until quarter end. The data to move it already exists, but it's split across a CRM, a spreadsheet, an accounting package, and an inbox, so nobody sees the whole picture in time to act. You end up managing the number from memory and last month's report.",
     whatHeading: "What The Alpha System is",
     what:
-      "Before I build anything, I map how the work actually happens: the workflows, the tools, the decisions that matter, the same way I did with Entec Access Systems' owner before building his sales system. Then I connect your existing tools into one live system: a place that shows account history, flags what needs a response, and holds your pipeline for what's next. Interactive, always current, and designed around the decisions you actually make, not a generic dashboard template.",
+      "Not a dashboard, and not a data integration project. We start by naming the one outcome you want to move and what would have to be true to move it. Then I trace the data that predicts and drives that outcome, wherever it lives, and use AI to connect and synthesize it into one live system that tells you what to do next: who to call, what to quote, what to fix. Underneath it sits your operating memory: your rules, definitions, and judgment written down so the AI works the way you would, not the way a template would. That's how Entec's owner got a system that flags which accounts have gone quiet before they leave.",
     whatYouGet: [
-      "One system wired to your real data sources, no more logging into five places",
-      "Built around the decisions you actually make, not a generic template",
-      "Interactivity built in: filters, drill-downs, and the specific views your work requires",
+      "One outcome, named up front, with the number we're moving and how we'll measure it",
+      "The data behind that outcome connected from the tools you already run, no rip-and-replace",
+      "A live system that tells you what to do next, not a report you have to interpret",
+      "Your operating memory: the rules, definitions, and judgment the system runs on, written down and yours to keep",
       "Every AI-made match or suggestion clearly marked as AI-made, never blended in as if a person did it",
       "A short walkthrough so your team uses it with confidence from day one",
-      "Optional ongoing maintenance and iteration as your needs change",
     ],
     howItWorks: [
       {
-        title: "Discovery",
-        body: "I learn how the work actually happens and what \"done right\" looks like for you, and assess the right tech stack, working inside the systems you already run wherever it makes sense.",
+        title: "Name the number",
+        body: "We agree the one outcome this engagement exists to move, what's constraining it today, and how we'll know it moved.",
+      },
+      {
+        title: "Trace the data",
+        body: "I map where the data that predicts and drives that outcome lives, how the work actually happens, and which decisions change the number. I assess the right stack, working inside the systems you already run wherever it makes sense.",
       },
       {
         title: "Build",
-        body: "I connect your existing tools and build the system around your real decisions, not a generic template.",
+        body: "I connect and synthesize that data with AI into one live system, and write down your operating memory so it runs on your judgment, not a template's.",
       },
       {
         title: "Test",
         body: "I check it against real scenarios and real data before you ever rely on it day to day.",
       },
       {
-        title: "Go live",
-        body: "I connect it to your live data and get your team using it for real.",
-      },
-      {
-        title: "Handover",
-        body: "You own it outright. If you're comfortable with tools like Claude Code, I can set you up to maintain simple changes yourself, or I stay on with optional ongoing maintenance from $500/mo.",
+        title: "Go live and measure",
+        body: "I connect it to your live data, get your team using it for real, and we watch the number. You own it outright. If you're comfortable with tools like Claude Code, I can set you up to maintain simple changes yourself, or I stay on with optional ongoing maintenance from $500/mo, which also keeps the operating memory current as the business changes.",
       },
     ],
     whoItsFor:
-      "Owners and teams who want to stop guessing and start seeing, especially if your data is spread across tools and no one has the full picture in one place.",
+      "Owners who can name the one number they want to move and are tired of managing it from memory, especially when the data to move it is spread across tools and nobody has the full picture in time to act.",
     pricing:
-      "Starting at $5,000, depending on the number of systems and complexity. Optional maintenance from $500/mo.",
-    ctaLine: "Ready to see everything that matters, in one place?",
+      "Starting at $5,000, depending on the number of systems and complexity. Optional maintenance from $500/mo. Ask about value-based pricing tied to the number we move.",
+    ctaLine: "Ready to name the number?",
   },
   {
     slug: "quick-win",
