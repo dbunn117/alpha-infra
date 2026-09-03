@@ -74,9 +74,9 @@ export const inkPeak = {
  * Homepage proof plate (first paper chapter after the peak). Pillars are
  * shared with the /work case study. TODO(David): fill `metric` with one
  * before/after number from Entec (quote turnaround, accounts recovered, or
- * hours saved per week) and `image` with a blurred screenshot of the live
- * system placed in public/ (referenced through asset()). Both render nothing
- * while null; the image slot shows a dashed placeholder in the meantime.
+ * hours saved per week); it renders nothing while null. `image` is the
+ * blurred screenshot in public/ (account names and figures pixelated),
+ * referenced through asset().
  */
 export const proof = {
   client: "Entec Access Systems",
@@ -100,7 +100,10 @@ export const proof = {
     },
   ],
   metric: null as null | { value: string; label: string },
-  image: null as null | { src: string; alt: string },
+  image: {
+    src: "/entec-sales-hub.webp",
+    alt: "Entec's Sales Intelligence Hub: five sales channels on one dashboard, with today's priority actions ranked across key accounts, inbound enquiries, public tenders, and target list, plus an ask-anything panel over the live data. Account names and figures blurred.",
+  } as null | { src: string; alt: string },
   link: { label: "Read the case study", href: "/work" },
 } as const;
 
