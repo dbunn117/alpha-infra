@@ -5,11 +5,17 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  Alpha Infra design system: spec §7.
-  Dark is the hero look (default). Light is a supported variant.
-  Brand accent = electric blue. Button fills use blue-600 (#2563EB) so white
-  labels clear WCAG AA; --accent-bright (blue-500/400) is used for text
-  highlights, big numbers, eyebrows, borders, and glows.
+  Alpha Infra design system: "paper, ink, and one red pen" brand guide
+  (2026-09-02 canvas). Paper (light) is the hero look; Ink (dark) is the
+  inverted variant.
+
+  Signal Red (#C4283C) is reserved for the mark alone (the checkmark in
+  BrandMark/wordmark, favicon, and OG image, hardcoded there, not driven by
+  these tokens): a red pen, not a highlighter, appearing once per page in the
+  logo. Every other former "accent" use, eyebrows, stat numbers, badges,
+  links, and the primary button, now resolves to ink (Paper theme) or paper
+  (Ink theme) via --primary/--accent-bright/--ring below, so no page has more
+  than that one red mark.
 */
 @theme inline {
   --color-background: var(--background);
@@ -18,6 +24,7 @@
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
   --font-mono: var(--font-mono);
+  --font-hand: var(--font-hand);
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -47,56 +54,55 @@
   --radius-3xl: calc(var(--radius) * 2.2);
 }
 
-/* Light variant */
+/* Paper variant (light, default: the hero look under the new brand) */
 :root {
-  --background: #ffffff;
-  --foreground: #0b1020;
-  --card: #ffffff;
-  --card-foreground: #0b1020;
-  --popover: #ffffff;
-  --popover-foreground: #0b1020;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0b1020;
-  --muted: #f4f6fb;
-  --muted-foreground: #4a5578;
-  --accent: #eef2ff;
-  --accent-foreground: #0b1020;
-  --accent-bright: #2563eb;
-  --brand-violet: #7c3aed;
+  --background: #f5f1e8;
+  --foreground: #14120f;
+  --card: #f5f1e8;
+  --card-foreground: #14120f;
+  --popover: #f5f1e8;
+  --popover-foreground: #14120f;
+  --primary: #14120f;
+  --primary-foreground: #f5f1e8;
+  --secondary: #ece5d4;
+  --secondary-foreground: #14120f;
+  --muted: #ece5d4;
+  --muted-foreground: #6b6560;
+  --accent: #ece5d4;
+  --accent-foreground: #14120f;
+  --accent-bright: #14120f;
+  --brand-violet: #14120f;
   --success: #16a34a;
   --destructive: #dc2626;
-  --border: rgba(11, 16, 32, 0.1);
-  --input: rgba(11, 16, 32, 0.14);
-  --ring: #3b82f6;
-  --radius: 0.875rem;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --border: #dcd5c8;
+  --input: #dcd5c8;
+  --ring: #14120f;
+  --radius: 0.5rem;
 }
 
-/* Dark variant: the hero look */
+/* Ink variant (dark, inverted) */
 .dark {
-  --background: #070c1f;
-  --foreground: #f5f7ff;
-  --card: #0f1630;
-  --card-foreground: #f5f7ff;
-  --popover: #0f1630;
-  --popover-foreground: #f5f7ff;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --secondary: #141b34;
-  --secondary-foreground: #f5f7ff;
-  --muted: #141b34;
-  --muted-foreground: #a9b2cf;
-  --accent: #141b34;
-  --accent-foreground: #f5f7ff;
-  --accent-bright: #60a5fa;
-  --brand-violet: #a78bfa;
+  --background: #14120f;
+  --foreground: #f5f1e8;
+  --card: #14120f;
+  --card-foreground: #f5f1e8;
+  --popover: #14120f;
+  --popover-foreground: #f5f1e8;
+  --primary: #f5f1e8;
+  --primary-foreground: #14120f;
+  --secondary: #221f1a;
+  --secondary-foreground: #f5f1e8;
+  --muted: #221f1a;
+  --muted-foreground: #a39c8f;
+  --accent: #221f1a;
+  --accent-foreground: #f5f1e8;
+  --accent-bright: #f5f1e8;
+  --brand-violet: #f5f1e8;
   --success: #22c55e;
   --destructive: #f87171;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.14);
-  --ring: #3b82f6;
+  --border: rgba(245, 241, 232, 0.14);
+  --input: rgba(245, 241, 232, 0.18);
+  --ring: #f5f1e8;
 }
 
 @layer base {
@@ -139,19 +145,14 @@
   .stat-number {
     @apply font-heading text-accent-bright tabular-nums;
   }
-  /* Hero background: soft radial glow + faint grid, both cheap and static */
+  /* Hero background: a paper texture, not a tech glow (kept flat under the
+     new brand; the old dual-color radial glow doesn't fit a paper surface). */
   .hero-glow {
-    background:
-      radial-gradient(
-        60% 55% at 50% 0%,
-        color-mix(in oklab, var(--primary) 22%, transparent) 0%,
-        transparent 70%
-      ),
-      radial-gradient(
-        40% 40% at 85% 20%,
-        color-mix(in oklab, var(--brand-violet) 16%, transparent) 0%,
-        transparent 70%
-      );
+    background: radial-gradient(
+      70% 60% at 50% 0%,
+      color-mix(in oklab, var(--foreground) 4%, transparent) 0%,
+      transparent 70%
+    );
   }
   /* Scroll-in reveal (see components/reveal.tsx). Only hides when JS is on. */
   .reveal {

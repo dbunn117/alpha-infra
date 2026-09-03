@@ -1,8 +1,5 @@
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alpha Infra">
   <title>Alpha Infra favicon</title>
-  <rect x="0" y="0" width="64" height="64" rx="14" fill="#0B1020"/>
-  <polygon points="32,11 50,37 14,37" fill="#38BDF8"/>
-  <polygon points="32,26.5 38.5,37 25.5,37" fill="#0B1020"/>
-  <rect x="14" y="42.5" width="36" height="4.5" rx="2.25" fill="#3A466E"/>
-  <rect x="20.5" y="50.5" width="23" height="4.5" rx="2.25" fill="#3A466E" opacity="0.7"/>
+  <rect x="0" y="0" width="64" height="64" rx="10" fill="#14120F"/>
+  <path d="M15,35 L26,48 L50,16" fill="none" stroke="#C4283C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

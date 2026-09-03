@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils";
 import { BrandMark } from "@/components/brand-mark";
 
 /*
- * Brand lockup: Alpha Infra mark + styled text. The text stays live (Space
- * Grotesk via next/font) rather than baked into an image, so it renders
- * crisply and adapts to the theme alongside the mark.
+ * Brand lockup: Alpha Infra mark + wordmark. Per the 2026-09-02 brand guide,
+ * the wordmark is lowercase "alpha infra" in Newsreader (via next/font),
+ * paired with the checkmark mark, no two-tone color split.
  */
 export function Wordmark({
   className,
@@ -21,8 +21,8 @@ export function Wordmark({
       className={cn("inline-flex items-center gap-2.5", className)}
     >
       <BrandMark className="size-8" />
-      <span className="font-heading text-lg font-semibold tracking-tight text-foreground">
-        Alpha<span className="text-accent-bright">&nbsp;Infra</span>
+      <span className="font-heading text-lg font-medium tracking-tight text-foreground">
+        alpha infra
       </span>
     </Link>
   );

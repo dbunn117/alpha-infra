@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono, Newsreader, Caveat } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 import { SERVICES } from "@/content/services";
@@ -9,15 +9,31 @@ import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { BookingProvider } from "@/components/booking-dialog";
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-heading",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["500"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-hand",
   weight: ["600", "700"],
   display: "swap",
 });
@@ -81,7 +97,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full`}
+      className={`${plexSans.variable} ${newsreader.variable} ${plexMono.variable} ${caveat.variable} h-full`}
     >
       <head>
         {/* Enable scroll-in reveals only when JS is present; set before paint
@@ -95,7 +111,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
