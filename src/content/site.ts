@@ -32,8 +32,6 @@ export const nav = {
 export const hero = {
   eyebrow: "Practical AI systems for growing businesses",
   headline: "Unlock the value hiding in the systems you already run.",
-  // Line breaks for the title page; the single-string headline stays for metadata.
-  headlineLines: ["Unlock the value hiding", "in the systems you already run."],
   subhead:
     "Name the number you want to move. Wherever the data behind it lives, I connect it into one AI system built to move it: more revenue, more output, or higher quality.",
   primaryCta: "Book a discovery call",
@@ -48,9 +46,8 @@ export const hero = {
 } as const;
 
 /*
- * Homepage peak: the scroll-drawn ink diagram. The captions narrate the
- * flagship offer's spine (name the number, trace the data, build the system);
- * the annotation is hero.stats[2].
+ * Hero diagram: the looping ink animation beside the headline. The
+ * annotation is hero.stats[2].
  */
 export const inkPeak = {
   sources: [
@@ -58,11 +55,6 @@ export const inkPeak = {
     { id: "sheets", label: "Spreadsheets" },
     { id: "email", label: "Email" },
     { id: "accounting", label: "Accounting" },
-  ],
-  captions: [
-    "Name the number you want to move.",
-    "Find the data behind it, wherever it lives.",
-    "One system built to move it.",
   ],
   systemLabel: "One running system",
   /* The three rows inside the system plate: decisions, not data */
@@ -168,30 +160,10 @@ export const offerings = {
     'Ask about value-based pricing (fees tied to the savings I create) and adding 30–90 days of follow-up "office hours" to any workshop or build.',
 } as const;
 
+/* The steps themselves live on the flagship service (SERVICES[0].howItWorks
+   in content/services.ts) so the homepage and the offer page never drift. */
 export const howItWorks = {
   heading: 'A clear path from "where do I start?" to "this is running."',
-  steps: [
-    {
-      order: "01",
-      title: "Discover",
-      body: "I learn how your team really works and where AI creates the most value, fastest.",
-    },
-    {
-      order: "02",
-      title: "Redesign",
-      body: "I map the target-state workflow: people on judgment, agents on the repeatable load.",
-    },
-    {
-      order: "03",
-      title: "Build",
-      body: "I build the agents, skills, and automations, or teach your team to build them.",
-    },
-    {
-      order: "04",
-      title: "Enable & adapt",
-      body: "I coach, hand off, and stay close through follow-up so adoption actually sticks.",
-    },
-  ],
 } as const;
 
 export const fitCheck = {

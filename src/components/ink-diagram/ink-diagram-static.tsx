@@ -1,117 +1,160 @@
 import { inkPeak } from "@/content/site";
-import { ANNOTATION, PLATE, SOURCES, TICK, VIEWBOX } from "./paths";
 import { cn } from "@/lib/utils";
+import { ANNOTATION, CLIP_HIDDEN, PLATE, SOURCES, TICK, VIEWBOX } from "./paths";
 
 /*
- * The diagram's final frame with no motion: used as card art, for reduced
- * motion, and as the no-JS fallback. Server component.
+ * The ink diagram, one markup source for both uses:
+ *  - static final frame (reduced motion, no JS);
+ *  - `animated`: the same markup with every drawn element parked in its
+ *    hidden starting state as SVG attributes (motion animates those same
+ *    attributes) and data-ink hooks for ink-animation.tsx to target.
+ * Sources and the annotation are ink; routes and the system plate are blue;
+ * the tick is Signal Red.
  */
 export function InkDiagramStatic({
   className,
-  showAnnotation = true,
-  tickTone = "red",
+  animated = false,
   title = "Four data sources drawn into one running system",
 }: {
   className?: string;
-  showAnnotation?: boolean;
-  /* "mono" keeps the tick in currentColor so a page shows one red at a time */
-  tickTone?: "red" | "mono";
+  animated?: boolean;
   title?: string;
 }) {
+  const a = animated;
+  // Undrawn strokes also start invisible: a zero-length round-capped dash
+  // would otherwise render as a dot at the start of every path.
+  const strokeStart = a ? { strokeDasharray: 1, strokeDashoffset: 1, opacity: 0 } : {};
+  const fadeStart = a ? { opacity: 0 } : {};
+
   return (
     <svg
       viewBox={VIEWBOX}
       role="img"
       aria-label={title}
-      className={cn("ink-diagram h-auto w-full", className)}
+      className={cn("ink-diagram h-auto w-full", a && "ink-animation", className)}
       fill="none"
       stroke="currentColor"
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <g opacity={0.9}>
-        {SOURCES.map((s) => (
-          <g key={s.id}>
-            {s.strokes.map((d) => (
-              <path key={d} d={d} />
-            ))}
-            <text
-              x={s.label.x}
-              y={s.label.y}
-              textAnchor="middle"
+      <g data-ink-stage="">
+        <g className="text-foreground">
+          {SOURCES.map((s) => (
+            <g key={s.id} data-ink-source={s.id}>
+              {s.strokes.map((d, k) => (
+                <path key={d} d={d} pathLength={1} data-ink="stroke" data-ink-i={k} {...strokeStart} />
+              ))}
+              <text
+                x={s.label.x}
+                y={s.label.y}
+                textAnchor="middle"
+                fill="currentColor"
+                stroke="none"
+                className="font-heading italic"
+                fontSize={15}
+                data-ink="fade"
+                {...fadeStart}
+              >
+                {inkPeak.sources.find((x) => x.id === s.id)?.label}
+              </text>
+            </g>
+          ))}
+        </g>
+
+        <g className="text-primary">
+          {SOURCES.map((s) => (
+            <path
+              key={s.id}
+              d={s.route}
+              pathLength={1}
+              data-ink="stroke"
+              data-ink-route={s.id}
+              {...strokeStart}
+            />
+          ))}
+          <g data-ink-plate="">
+            <path
+              d={PLATE.outline}
+              pathLength={1}
               fill="currentColor"
-              stroke="none"
-              className="font-heading italic"
-              fontSize={15}
-            >
-              {inkPeak.sources.find((x) => x.id === s.id)?.label}
-            </text>
-            <path d={s.route} opacity={0.7} />
+              fillOpacity={a ? 0 : 0.06}
+              data-ink="stroke"
+              data-ink-plate-outline=""
+              {...strokeStart}
+            />
+            <g data-ink="fade" {...fadeStart}>
+              <text
+                x={PLATE.label.x}
+                y={PLATE.label.y}
+                textAnchor="middle"
+                fill="currentColor"
+                stroke="none"
+                className="font-heading"
+                fontSize={18}
+              >
+                {inkPeak.systemLabel}
+              </text>
+              {PLATE.rows.map((row, i) => (
+                <g key={row.y}>
+                  <path d={row.dash} strokeWidth={1.5} />
+                  <text
+                    x={PLATE.rowText.x}
+                    y={row.y}
+                    fill="currentColor"
+                    stroke="none"
+                    className="font-sans"
+                    fontSize={PLATE.rowText.fontSize}
+                    opacity={0.9}
+                  >
+                    {inkPeak.actions[i]}
+                  </text>
+                </g>
+              ))}
+            </g>
           </g>
-        ))}
-        <path d={PLATE.outline} fill="currentColor" fillOpacity={0.06} />
-        {PLATE.rows.map((row, i) => (
-          <g key={row.y}>
-            <path d={row.dash} strokeWidth={1.5} />
-            <text
-              x={PLATE.rowText.x}
-              y={row.y}
-              fill="currentColor"
-              stroke="none"
-              className="font-sans"
-              fontSize={PLATE.rowText.fontSize}
-              opacity={0.85}
-            >
-              {inkPeak.actions[i]}
-            </text>
-          </g>
-        ))}
-        <text
-          x={PLATE.label.x}
-          y={PLATE.label.y}
-          textAnchor="middle"
-          fill="currentColor"
-          stroke="none"
-          className="font-heading"
-          fontSize={18}
+        </g>
+
+        <g data-ink-annotation="" className="text-foreground">
+          <text
+            x={ANNOTATION.text.x}
+            y={ANNOTATION.text.y}
+            textAnchor="middle"
+            fill="currentColor"
+            stroke="none"
+            className="font-hand"
+            fontSize={24}
+            data-ink="clip"
+            clipPath={a ? CLIP_HIDDEN : undefined}
+          >
+            {inkPeak.annotation}
+          </text>
+          <path d={ANNOTATION.arrow} strokeWidth={1.75} pathLength={1} data-ink="stroke" data-ink-arrow="" {...strokeStart} />
+          <path d={ANNOTATION.arrowHead} strokeWidth={1.75} pathLength={1} data-ink="stroke" data-ink-arrowhead="" {...strokeStart} />
+        </g>
+
+        <svg
+          x={TICK.x}
+          y={TICK.y}
+          width={TICK.size}
+          height={TICK.size}
+          viewBox="0 0 120 120"
+          overflow="visible"
         >
-          {inkPeak.systemLabel}
-        </text>
-        {showAnnotation ? (
-          <>
-            <text
-              x={ANNOTATION.text.x}
-              y={ANNOTATION.text.y}
-              textAnchor="middle"
-              fill="currentColor"
-              stroke="none"
-              className="font-hand"
-              fontSize={24}
-            >
-              {inkPeak.annotation}
-            </text>
-            <path d={ANNOTATION.arrow} strokeWidth={1.75} />
-            <path d={ANNOTATION.arrowHead} strokeWidth={1.75} />
-          </>
-        ) : null}
+          <g data-ink-tick="">
+            <path
+              d={TICK.d}
+              pathLength={1}
+              stroke={TICK.color}
+              strokeWidth={14}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              data-ink="stroke"
+              {...strokeStart}
+            />
+          </g>
+        </svg>
       </g>
-      <svg
-        x={TICK.x}
-        y={TICK.y}
-        width={TICK.size}
-        height={TICK.size}
-        viewBox="0 0 120 120"
-        overflow="visible"
-      >
-        <path
-          d={TICK.d}
-          stroke={tickTone === "red" ? TICK.color : "currentColor"}
-          strokeWidth={14}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
     </svg>
   );
 }

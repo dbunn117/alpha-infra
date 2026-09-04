@@ -19,9 +19,9 @@ export function FitLedger() {
           intro={fitCheck.intro}
         />
 
-        <div className="mt-14 grid gap-x-16 gap-y-14 lg:grid-cols-[1.25fr_1fr]">
+        <div className="mt-14 grid gap-x-20 gap-y-14 lg:grid-cols-[1.25fr_1fr]">
           <div>
-            <p className="border-b border-border pb-3 font-heading text-lg italic text-muted-foreground">
+            <p className="border-b border-border pb-3 text-sm font-semibold text-muted-foreground">
               This might be you if
             </p>
             <ol className="divide-y divide-border">
@@ -30,11 +30,11 @@ export function FitLedger() {
                   as="li"
                   key={item.title}
                   delay={i * 0.05}
-                  className="grid grid-cols-[2rem_1fr] gap-4 py-6"
+                  className="grid grid-cols-[2rem_1fr] gap-4 py-7"
                 >
-                  <DrawnTick className="mt-1 size-6" />
+                  <DrawnTick className="mt-1 size-6 text-primary" />
                   <div>
-                    <p className="text-balance font-heading text-xl font-medium leading-snug">
+                    <p className="text-balance text-xl font-semibold leading-snug">
                       {item.title}
                     </p>
                     <p className="measure mt-2 leading-relaxed text-muted-foreground">
@@ -47,7 +47,7 @@ export function FitLedger() {
           </div>
 
           <div>
-            <p className="border-b border-border pb-3 font-heading text-lg italic text-muted-foreground">
+            <p className="border-b border-border pb-3 text-sm font-semibold text-muted-foreground">
               Probably not a fit if
             </p>
             <ul className="divide-y divide-border">

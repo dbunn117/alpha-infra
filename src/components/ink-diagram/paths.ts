@@ -87,18 +87,33 @@ export const TICK = {
   color: "#C4283C",
 };
 
-/* Scroll ranges over the pinned act's progress (0..1) */
-export const STAGES = {
-  captionA: { in: [0, 0.1], out: [0.28, 0.34] },
-  captionB: { in: [0.32, 0.4], out: [0.7, 0.76] },
-  captionC: { in: [0.74, 0.82] },
-  sources: [0.04, 0.28],
-  sourceStagger: 0.04,
-  routes: [0.4, 0.68],
-  routeStagger: 0.04,
-  plate: [0.62, 0.72],
-  plateFill: [0.68, 0.76],
-  annotation: [0.8, 0.88],
-  tick: [0.88, 0.96],
-  settleAt: 0.96,
+/* Time-based timeline for the hero animation, in seconds (one loop) */
+export const TIMELINE = {
+  sourceStart: 0,
+  sourceGap: 0.6,
+  strokeDuration: 0.45,
+  strokeStagger: 0.4,
+  labelDuration: 0.4,
+  routesStart: 3.6,
+  routeGap: 0.5,
+  routeDuration: 1.0,
+  plateStart: 5.8,
+  plateDuration: 1.0,
+  plateFillStart: 6.6,
+  plateFillDuration: 0.8,
+  annotationStart: 7.6,
+  annotationDuration: 1.1,
+  arrowStart: 8.0,
+  arrowDuration: 0.5,
+  arrowHeadStart: 8.45,
+  arrowHeadDuration: 0.2,
+  tickStart: 9.0,
+  tickDuration: 0.8,
+  settleStart: 9.8,
+  settleDuration: 0.5,
+  fadeStart: 12.8,
+  fadeDuration: 0.5,
 } as const;
+
+export const CLIP_HIDDEN = "inset(-20% 100% -20% -2%)";
+export const CLIP_SHOWN = "inset(-20% 0% -20% -2%)";

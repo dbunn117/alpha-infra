@@ -23,7 +23,7 @@ export function BookingEmbed({ className }: { className?: string }) {
           <CalendarClock className="size-6" aria-hidden />
         </span>
         <div className="space-y-1">
-          <p className="font-heading text-lg font-semibold">
+          <p className="text-lg font-semibold">
             Booking link coming soon
           </p>
           <p className="mx-auto max-w-md text-sm text-muted-foreground">

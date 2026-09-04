@@ -31,25 +31,30 @@ placeholder and the contact form logs instead of emailing.
 - **Copy and offerings** — `src/content/site.ts` and `src/content/services.ts`.
   These are typed objects; changing copy should almost never require touching a
   component. Reach for the content files first.
-- **Design tokens** — CSS variables in `src/app/globals.css`. "Paper, ink, and
-  one red pen": Paper (light) is the default, Ink (dark) is the toggle, and
-  Signal Red (`#C4283C`) appears at most once per viewport (the brand mark, or
-  the drawn tick in the homepage peak while the nav mark goes mono). No glows,
-  no gradient text; depth only via `--elev-*` shadows, `--edge-light`,
-  overlap (`.fold-top`), and `.grain`. `data-ground="ink"` on any element
-  scopes the Ink tokens to it (the `dark` variant matches inside it too).
-- **Motion** — the homepage is scroll-driven with the `motion` package, mounted
-  only in `src/app/page.tsx` via `MotionProvider` (`LazyMotion` + `m`, strict).
-  Only `src/components/ink-diagram/*`, `process-rail.tsx`, and
-  `src/components/motion/*` may import `motion`; everything else uses CSS
-  transitions, `Reveal`, and `[data-stroke]` drawn paths. Never animate
-  width/height/top/left or use `transition: all`. `?motion=reduced` (dev only)
-  forces the reduced-motion branch for checking.
+- **Design tokens** — CSS variables in `src/app/globals.css`. Paper (warm
+  near-white `#FAF9F6`) is the default, Ink (dark) is the toggle. Ink Blue
+  (`--primary`, `#1D4ED8` on Paper / `#93C5FD` on Ink) is the working accent:
+  buttons, links, `.eyebrow`, highlights, the hero diagram's routes and plate.
+  Signal Red (`#C4283C`) appears only in the brand mark and the diagram's
+  tick, hardcoded there. No glows, no gradient text; depth only via
+  `--elev-*` shadows, `--edge-light`, overlap, and `.grain`.
+- **Type** — Newsreader (`font-heading`) for display only: h1, h2, big
+  numerals, the wordmark. `h3`/`h4` are Plex Sans semibold by base rule.
+  `.eyebrow` is sans, semibold, blue; `.caption` is the only mono use.
+- **Motion** — the hero diagram is a looping, time-based sequence in
+  `src/components/ink-diagram/ink-animation.tsx` (`useAnimate`, explicit
+  `[from, to]` keyframes, hold built into the timeline, paused off-screen via
+  IntersectionObserver). That file is the only importer of `motion`; nothing
+  is scroll-scrubbed. Everything else uses CSS transitions, `Reveal`, and
+  `[data-stroke]` drawn paths. Never animate width/height/top/left or use
+  `transition: all`. `?motion=reduced` (dev only) forces the reduced-motion
+  branch for checking.
 - **Verifying the homepage** — walk it at every half viewport on desktop, on a
   390px mobile viewport, in the Ink theme, and with `?motion=reduced`; check
-  for console errors, horizontal overflow, dead scroll (identical consecutive
-  frames outside pinned holds), copy stuck below full opacity, more than one
-  red per frame, and that the nav flips exactly at the paper fold.
+  for console errors, horizontal overflow, dead scroll, copy stuck below full
+  opacity, any red outside the mark and the tick, that the hero diagram
+  reports `data-ink-state="playing"` at the top and `paused` once scrolled
+  past, and that the reduced branch renders the static frame.
 - **CTA wiring** — `src/lib/cta.ts`, `src/components/booking-embed.tsx`.
 
 ## Deploy: two targets, and they differ

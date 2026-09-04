@@ -10,34 +10,11 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { cn } from "@/lib/utils";
 
-const NAV_HEIGHT = 64;
-
-type Ground = "ink" | "paper";
-
-/*
- * Sticky header. While any [data-ground="ink"] section (the homepage title
- * page and peak) sits under the 64px header band, the header takes the Ink
- * ground itself: transparent, paper text, mono mark. Everywhere else it is a
- * blurred paper strip. The hero's inline script sets data-ground="ink" before
- * first paint on hard loads; this observer owns it after hydration.
- */
+/* Sticky header: blurred paper strip, current page underlined, animated
+   mobile menu that overlays the page rather than pushing it. */
 export function Nav() {
   const [open, setOpen] = React.useState(false);
-  const [ground, setGround] = React.useState<Ground | undefined>(undefined);
-  const headerRef = React.useRef<HTMLElement>(null);
   const pathname = usePathname();
-
-  // The attribute is written to the DOM directly (not rendered as a prop):
-  // the hero's inline script sets it before hydration, and React would never
-  // remove an attribute it did not render.
-  const applyGround = React.useCallback((next: Ground) => {
-    const el = headerRef.current;
-    if (el) {
-      if (next === "ink") el.setAttribute("data-ground", "ink");
-      else el.removeAttribute("data-ground");
-    }
-    setGround(next);
-  }, []);
 
   // Lock body scroll while the mobile menu is open.
   React.useEffect(() => {
@@ -47,65 +24,13 @@ export function Nav() {
     };
   }, [open]);
 
-  React.useEffect(() => {
-    const targets = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        '[data-ground="ink"]:not([data-site-nav])'
-      )
-    );
-    let raf = 0;
-    if (targets.length === 0) {
-      raf = requestAnimationFrame(() => applyGround("paper"));
-      return () => cancelAnimationFrame(raf);
-    }
-
-    const intersecting = new Set<Element>();
-    let io: IntersectionObserver | null = null;
-
-    const build = () => {
-      io?.disconnect();
-      intersecting.clear();
-      io = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) intersecting.add(entry.target);
-            else intersecting.delete(entry.target);
-          }
-          applyGround(intersecting.size > 0 ? "ink" : "paper");
-        },
-        {
-          rootMargin: `0px 0px -${Math.max(0, window.innerHeight - NAV_HEIGHT)}px 0px`,
-          threshold: 0,
-        }
-      );
-      for (const t of targets) io.observe(t);
-    };
-    build();
-
-    const onResize = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(build);
-    };
-    window.addEventListener("resize", onResize);
-    return () => {
-      io?.disconnect();
-      window.removeEventListener("resize", onResize);
-      cancelAnimationFrame(raf);
-    };
-  }, [pathname, applyGround]);
-
   const current = (href: string) =>
     pathname === href || pathname === `${href}/` ? "page" : undefined;
 
   return (
-    <header
-      ref={headerRef}
-      data-site-nav=""
-      suppressHydrationWarning
-      className="site-nav sticky top-0 z-50 text-foreground"
-    >
+    <header className="site-nav sticky top-0 z-50 text-foreground">
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Wordmark tone={ground === "ink" ? "mono" : "red"} />
+        <Wordmark />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
@@ -155,8 +80,7 @@ export function Nav() {
       </div>
 
       {/* Mobile menu overlays the page (absolute) so opening it never grows
-          the header or shifts the content under it; grid-rows animates the
-          reveal without touching `height`. */}
+          the header; grid-rows animates the reveal without touching `height`. */}
       <div
         id="mobile-menu"
         inert={!open}

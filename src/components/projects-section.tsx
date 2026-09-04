@@ -20,7 +20,7 @@ export function ProjectsSection() {
         {/* Professional */}
         <div className="mt-14">
           <div className="mb-6 flex items-center gap-4">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               Professional
             </h3>
             <span className="h-px flex-1 bg-border" />
@@ -37,7 +37,7 @@ export function ProjectsSection() {
         {/* Personal */}
         <div className="mt-16">
           <div className="mb-6 flex items-center gap-4">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               Personal
             </h3>
             <span className="h-px flex-1 bg-border" />

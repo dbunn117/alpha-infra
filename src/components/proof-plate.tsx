@@ -4,17 +4,15 @@ import { Chapter } from "@/components/chapter";
 import { Reveal } from "@/components/reveal";
 import { DrawnTick } from "@/components/drawn-mark";
 import { asset } from "@/lib/asset";
-import { cn } from "@/lib/utils";
 
 /*
- * First paper sheet: folds over the Ink peak with evidence the method has
- * shipped. Left: the Entec outcome ledger. Right: the live system (a dashed
- * slot until the blurred screenshot lands) and, when known, one before/after
- * number. Content and TODOs live in `proof` in content/site.ts.
+ * Proof: the Entec outcome ledger beside the live system (blurred
+ * screenshot) and, when known, one before/after number. Content and the
+ * metric TODO live in `proof` in content/site.ts.
  */
 export function ProofPlate() {
   return (
-    <Chapter id="proof" title="Proof" className="fold-top">
+    <Chapter id="proof" title="Proof">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <div>
@@ -33,9 +31,9 @@ export function ProofPlate() {
                   delay={i * 0.05}
                   className="grid grid-cols-[2rem_1fr] gap-4 py-5"
                 >
-                  <DrawnTick className="mt-0.5" />
+                  <DrawnTick className="mt-0.5 text-primary" />
                   <div>
-                    <p className="font-heading text-xl font-medium leading-snug">{pillar.title}</p>
+                    <p className="text-lg font-semibold leading-snug">{pillar.title}</p>
                     <p className="measure mt-1.5 text-sm leading-relaxed text-muted-foreground">
                       {pillar.body}
                     </p>
@@ -44,7 +42,7 @@ export function ProofPlate() {
               ))}
             </ol>
             <p className="mt-6 text-sm text-muted-foreground">{proof.built}</p>
-            <Link href={proof.link.href} className="link-draw mt-4 inline-block text-sm font-medium">
+            <Link href={proof.link.href} className="link-draw mt-4 inline-block text-sm font-medium text-primary">
               {proof.link.label}
             </Link>
           </div>
@@ -52,36 +50,28 @@ export function ProofPlate() {
           <Reveal delay={0.1} className="lg:pt-10">
             <figure>
               {proof.image ? (
-                <div className="grain surface surface-raised overflow-hidden">
+                <div className="grain surface surface-raised relative overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={asset(proof.image.src)}
-                    alt={proof.image.alt}
-                    className="block w-full"
-                  />
+                  <img src={asset(proof.image.src)} alt={proof.image.alt} className="block w-full" />
                 </div>
               ) : (
                 <div
-                  className={cn(
-                    "flex aspect-[16/10] items-center justify-center rounded-2xl border border-dashed border-border bg-surface-1 p-8 text-center"
-                  )}
+                  className="flex aspect-[16/10] items-center justify-center rounded-2xl border border-dashed border-border bg-surface-1 p-8 text-center"
                   aria-hidden
                 >
-                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    Live system screenshot
-                  </p>
+                  <p className="caption">Live system screenshot</p>
                 </div>
               )}
-              <figcaption className="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+              <figcaption className="caption mt-3">
                 {proof.client} · the system as the owner sees it
               </figcaption>
             </figure>
             {proof.metric ? (
               <dl className="mt-8 border-t border-border pt-6">
-                <dt className="font-heading text-4xl font-medium tabular-nums">{proof.metric.value}</dt>
-                <dd className="mt-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  {proof.metric.label}
-                </dd>
+                <dt className="font-heading text-4xl font-medium tabular-nums text-primary">
+                  {proof.metric.value}
+                </dt>
+                <dd className="caption mt-1">{proof.metric.label}</dd>
               </dl>
             ) : null}
           </Reveal>

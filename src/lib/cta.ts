@@ -12,12 +12,12 @@ export const cta = cva(
     variants: {
       variant: {
         primary:
-          "bg-primary text-primary-foreground shadow-elev-1 hover:-translate-y-px hover:shadow-elev-2",
+          "bg-primary text-primary-foreground shadow-elev-1 hover:-translate-y-px hover:bg-primary-hover hover:shadow-elev-2",
         outline:
-          "border border-border bg-background/40 text-foreground hover:border-foreground/40 hover:bg-muted/60",
+          "border border-border bg-surface-1 text-foreground hover:border-primary/40 hover:text-primary",
         ghost: "text-foreground hover:bg-muted",
-        subtle: "bg-secondary text-secondary-foreground hover:bg-muted",
-        link: "link-draw h-auto rounded-none px-0 text-foreground",
+        subtle: "bg-accent text-accent-foreground hover:bg-accent/70",
+        link: "link-draw h-auto rounded-none px-0 text-primary",
       },
       size: {
         sm: "h-9 px-4 text-sm",

@@ -6,17 +6,15 @@ import { cn } from "@/lib/utils";
 type ChapterRef = { id: string; title: string };
 
 /*
- * The signature interaction: a margin folio listing the chapters. When a
- * chapter's bottom passes the middle of the viewport, an ink tick draws
- * beside it and stays, so by the close the margin reads as a reviewed
- * checklist. Hidden below xl, hidden while an Ink ground fills the middle of
- * the viewport, and ticks appear without drawing under reduced motion.
+ * Margin folio listing the chapters. When a chapter's bottom passes the
+ * middle of the viewport, an ink tick draws beside it and stays, so by the
+ * close the margin reads as a reviewed checklist. Hidden below xl; ticks
+ * appear without drawing under reduced motion.
  */
 export function ChapterFolio() {
   const [chapters, setChapters] = React.useState<ChapterRef[]>([]);
   const [done, setDone] = React.useState<ReadonlySet<string>>(() => new Set());
   const [active, setActive] = React.useState<string | null>(null);
-  const [overInk, setOverInk] = React.useState(true);
 
   React.useEffect(() => {
     const els = Array.from(document.querySelectorAll<HTMLElement>("[data-chapter]"));
@@ -29,8 +27,6 @@ export function ChapterFolio() {
       )
     );
 
-    // Passed: the chapter no longer intersects the lower half of the viewport
-    // and its bottom edge is above the midpoint.
     const ioDone = new IntersectionObserver(
       (entries) => {
         setDone((prev) => {
@@ -67,23 +63,10 @@ export function ChapterFolio() {
       ioDone.observe(el);
       ioActive.observe(el);
     }
-
-    const inks = Array.from(
-      document.querySelectorAll<HTMLElement>('[data-ground="ink"]:not([data-site-nav])')
-    );
-    const ioInk = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) setOverInk(entry.isIntersecting);
-      },
-      { rootMargin: "-50% 0px -49% 0px", threshold: 0 }
-    );
-    for (const el of inks) ioInk.observe(el);
-
     return () => {
       cancelAnimationFrame(raf);
       ioDone.disconnect();
       ioActive.disconnect();
-      ioInk.disconnect();
     };
   }, []);
 
@@ -92,18 +75,15 @@ export function ChapterFolio() {
   return (
     <nav
       aria-label="Chapters"
-      className={cn(
-        "fixed left-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 transition-opacity duration-300 xl:flex",
-        overInk && "pointer-events-none opacity-0"
-      )}
+      className="fixed left-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 xl:flex"
     >
       {chapters.map((chapter, i) => (
         <a
           key={chapter.id}
           href={`#${chapter.id}`}
           className={cn(
-            "group flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-200",
-            active === chapter.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+            "caption group flex items-center gap-2 transition-colors duration-200",
+            active === chapter.id ? "text-primary" : "hover:text-foreground"
           )}
         >
           <svg

@@ -63,20 +63,23 @@ All copy lives in typed objects — no need to touch layout:
 
 ## Design system
 
-"Paper, ink, and one red pen." Paper (light) is the default theme; Ink (dark)
-is the toggle (`next-themes`). Tokens are CSS variables in
-`src/app/globals.css`. Signal Red appears once per viewport, in the brand mark
-(or, on the homepage peak, in the drawn tick while the nav mark goes mono).
-Depth comes from tinted shadows, edge light, overlap, and grain, never glows or
-gradients. Any element with `data-ground="ink"` takes the Ink tokens, which is
-how the homepage title page and peak sit dark on a paper page.
+Paper, ink, one red pen, and blue for the work. Paper (a warm near-white) is
+the default theme; Ink (dark) is the toggle (`next-themes`). Tokens are CSS
+variables in `src/app/globals.css`. Ink Blue (`--primary`) marks anything you
+can act on or should scan first: buttons, links, eyebrows, highlights, and the
+routes and system plate in the hero diagram. Signal Red appears only in the
+brand mark and the diagram's drawn tick. Newsreader is for display only (h1,
+h2, big numerals, the wordmark); IBM Plex Sans does everything else; Plex Mono
+only for tiny captions (`.caption`). Depth comes from tinted shadows, edge
+light, overlap, and grain, never glows or gradients.
 
-The homepage is a chaptered, scroll-driven page: a pinned ink diagram is the
-one visual peak, and the margin folio (`chapter-folio.tsx`) ticks chapters off
-as they are read. Only `src/components/ink-diagram/*`, `process-rail.tsx`, and
-`src/components/motion/*` import `motion`; everything else animates with CSS.
-In development, `?motion=reduced` on any URL exercises the reduced-motion
-branch without changing OS settings.
+The homepage is a chaptered page. The hero's ink diagram is a looping motion
+graphic (`src/components/ink-diagram/ink-animation.tsx`, the only file that
+imports `motion`), paused while off-screen and replaced by its final frame
+under reduced motion. The margin folio (`chapter-folio.tsx`) ticks chapters
+off as they are read. Everything else animates with CSS. In development,
+`?motion=reduced` on any URL exercises the reduced-motion branch without
+changing OS settings.
 
 ## Deploy (Vercel)
 

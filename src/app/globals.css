@@ -2,29 +2,24 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/*
-  Ink tokens apply under the html theme class (next-themes) AND inside any
-  element that declares data-ground="ink": the homepage title page and the
-  peak are Ink sections on a Paper page, and the nav flips to Ink while it
-  overlaps one.
-*/
-@custom-variant dark (&:is(.dark *, [data-ground="ink"] *));
+@custom-variant dark (&:is(.dark *));
 
 /*
-  Alpha Infra design system: "paper, ink, and one red pen" brand guide
-  (2026-09-02 canvas). Paper (light) is the hero look; Ink (dark) is the
-  inverted variant.
+  Alpha Infra design system: paper, ink, one red pen, and blue for the work.
+  Paper (warm near-white) is the default theme; Ink (dark) is the toggle.
 
-  Signal Red (#C4283C) is reserved for the mark alone (the checkmark in
-  BrandMark/wordmark, favicon, OG image, and the drawn tick in the homepage
-  ink diagram; hardcoded there, not driven by these tokens): a red pen, not a
-  highlighter, appearing once per viewport. Every other former "accent" use,
-  eyebrows, stat numbers, badges, links, and the primary button, resolves to
-  ink (Paper theme) or paper (Ink theme) via --primary/--accent-bright/--ring.
+  Roles: Ink for text. Ink Blue (--primary) for anything you can act on or
+  should scan first: buttons, links, eyebrows, highlights, and the routes and
+  system plate in the hero diagram. Signal Red (#C4283C) appears only in the
+  brand mark and the drawn tick of the hero diagram (hardcoded there, never a
+  token).
 
-  Depth comes from five tools only: tinted offset shadows (--elev-*), edge
-  light (--edge-light), overlap (.fold-top, plates), grain (.grain), and the
-  hero headline's scroll drift. No glows, no gradient text.
+  Type: Newsreader for display only (h1, h2, big numerals, the wordmark).
+  IBM Plex Sans for everything else. Plex Mono only for tiny captions
+  (.caption). Caveat only for the diagram's handwritten annotation.
+
+  Depth: tinted offset shadows (--elev-*), edge light (--edge-light),
+  overlap (plates), and grain (.grain). No glows, no gradient text.
 */
 @theme inline {
   --color-background: var(--background);
@@ -41,6 +36,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -48,7 +44,6 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-bright: var(--accent-bright);
-  --color-brand-violet: var(--brand-violet);
   --color-success: var(--success);
   --color-destructive: var(--destructive);
   --color-border: var(--border);
@@ -72,31 +67,31 @@
   --radius-3xl: calc(var(--radius) * 2.2);
 }
 
-/* Paper variant (light, default: the hero look under the new brand) */
+/* Paper (light, default) */
 :root {
-  --background: #f5f1e8;
+  --background: #faf9f6;
   --foreground: #14120f;
-  --surface-1: #faf7f0;
-  --surface-2: #fcfaf5;
+  --surface-1: #ffffff;
+  --surface-2: #fdfcfa;
   --card: var(--surface-1);
   --card-foreground: #14120f;
   --popover: var(--surface-2);
   --popover-foreground: #14120f;
-  --primary: #14120f;
-  --primary-foreground: #f5f1e8;
-  --secondary: #ece5d4;
+  --primary: #1d4ed8;
+  --primary-foreground: #ffffff;
+  --primary-hover: #1e40af;
+  --secondary: #f1efea;
   --secondary-foreground: #14120f;
-  --muted: #ece5d4;
-  --muted-foreground: #6b6560;
-  --accent: #ece5d4;
-  --accent-foreground: #14120f;
-  --accent-bright: #14120f;
-  --brand-violet: #14120f;
-  --success: #16a34a;
+  --muted: #f1efea;
+  --muted-foreground: #55504a;
+  --accent: #e9effc;
+  --accent-foreground: #1d4ed8;
+  --accent-bright: #1d4ed8;
+  --success: #15803d;
   --destructive: #dc2626;
-  --border: #dcd5c8;
-  --input: #dcd5c8;
-  --ring: #14120f;
+  --border: #e4e0d8;
+  --input: #d9d4ca;
+  --ring: #1d4ed8;
   --radius: 0.5rem;
 
   --edge-light: rgb(255 255 255 / 0.65);
@@ -113,9 +108,8 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Ink variant (dark, inverted): the html theme class, or a section ground */
-.dark,
-[data-ground="ink"] {
+/* Ink (dark, toggle) */
+.dark {
   --background: #14120f;
   --foreground: #f5f1e8;
   --surface-1: #1b1814;
@@ -124,21 +118,21 @@
   --card-foreground: #f5f1e8;
   --popover: var(--surface-2);
   --popover-foreground: #f5f1e8;
-  --primary: #f5f1e8;
+  --primary: #93c5fd;
   --primary-foreground: #14120f;
+  --primary-hover: #bfdbfe;
   --secondary: #221f1a;
   --secondary-foreground: #f5f1e8;
   --muted: #221f1a;
-  --muted-foreground: #a39c8f;
-  --accent: #221f1a;
-  --accent-foreground: #f5f1e8;
-  --accent-bright: #f5f1e8;
-  --brand-violet: #f5f1e8;
-  --success: #22c55e;
+  --muted-foreground: #b3aca0;
+  --accent: #1a2030;
+  --accent-foreground: #93c5fd;
+  --accent-bright: #93c5fd;
+  --success: #4ade80;
   --destructive: #f87171;
-  --border: rgba(245, 241, 232, 0.14);
-  --input: rgba(245, 241, 232, 0.18);
-  --ring: #f5f1e8;
+  --border: rgba(245, 241, 232, 0.16);
+  --input: rgba(245, 241, 232, 0.2);
+  --ring: #93c5fd;
 
   --edge-light: rgb(245 241 232 / 0.08);
   --shadow-tint: oklch(5% 0.01 75);
@@ -154,18 +148,17 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-size: 1.0625rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   h1,
-  h2,
-  h3,
-  h4 {
+  h2 {
     @apply font-heading tracking-tight;
   }
-  /* Ink grounds read lighter: open the leading a touch and track slightly */
-  [data-ground="ink"] p,
-  [data-ground="ink"] li {
-    letter-spacing: 0.005em;
+  h3,
+  h4 {
+    @apply font-sans font-semibold tracking-tight;
   }
   /* Visible, consistent focus ring for keyboard users */
   :focus-visible {
@@ -174,11 +167,11 @@
 }
 
 @layer utilities {
-  /* Constrained content column (spec: ~1200px) */
+  /* Constrained content column (~1200px) */
   .container-page {
     @apply mx-auto w-full max-w-[1200px] px-6 sm:px-8;
   }
-  /* Generous vertical section rhythm (spec: 96–128px desktop) */
+  /* Vertical section rhythm */
   .section {
     @apply py-20 md:py-24 lg:py-28;
   }
@@ -186,11 +179,15 @@
   .measure {
     max-width: 62ch;
   }
-  /* Tracked mono label: eyebrows, folios, ledger labels. Max three per page. */
+  /* Section eyebrow: sans, semibold, blue. Ration them. */
   .eyebrow {
-    @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground;
+    @apply font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-primary;
   }
-  /* Elevated paper plate: edge light on top, tinted offset shadow below */
+  /* Tiny mono caption: figcaptions, colophon, ledger labels, order numbers */
+  .caption {
+    @apply font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-muted-foreground;
+  }
+  /* Elevated plate: edge light on top, tinted offset shadow below */
   .surface {
     @apply rounded-2xl border border-border bg-card;
     box-shadow:
@@ -206,19 +203,7 @@
   .stat-number {
     @apply font-heading text-accent-bright tabular-nums;
   }
-  /* Paper sheet folding over an Ink section: overlap + edge light + shadow */
-  .fold-top {
-    position: relative;
-    z-index: 1;
-    margin-top: -1.5rem;
-    border-radius: 1.25rem 1.25rem 0 0;
-    background: var(--background);
-    box-shadow:
-      inset 0 1px 0 var(--edge-light),
-      0 -24px 48px -24px rgb(0 0 0 / 0.55);
-  }
-  /* Paper grain: a static noise tile, multiplied onto paper, overlaid on ink.
-     The host must be positioned (relative/sticky) so the overlay can fill it. */
+  /* Paper grain: a static noise tile. The host must be positioned. */
   .grain::after {
     content: "";
     position: absolute;
@@ -230,9 +215,7 @@
     mix-blend-mode: multiply;
     border-radius: inherit;
   }
-  .dark .grain::after,
-  [data-ground="ink"] .grain::after,
-  .grain[data-ground="ink"]::after {
+  .dark .grain::after {
     opacity: 0.06;
     mix-blend-mode: overlay;
   }
@@ -250,22 +233,12 @@
   .group:hover .link-draw {
     background-size: 100% 1px;
   }
-  /* Site nav: paper backdrop by default, transparent while over an Ink ground */
+  /* Site nav: blurred paper strip */
   .site-nav {
     background: color-mix(in oklab, var(--background) 85%, transparent);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    transition:
-      background-color 0.25s var(--ease-out),
-      border-color 0.25s var(--ease-out),
-      color 0.25s var(--ease-out);
-  }
-  .site-nav[data-ground="ink"] {
-    background: transparent;
-    border-bottom-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
   /* Load-in rise for title pages. Only animates when JS is present. */
   .js .rise {
@@ -308,7 +281,18 @@
   }
 }
 
-/* Respect reduced-motion globally as a safety net (spec §7.3, §10) */
+/* Hero diagram (ink-diagram/ink-animation.tsx): the hidden starting state is
+   written as SVG attributes in the markup because motion animates the same
+   attributes. Without JS there is no animation, so show the final frame. */
+html:not(.js) .ink-animation [data-ink] {
+  stroke-dasharray: none !important;
+  stroke-dashoffset: 0 !important;
+  opacity: 1 !important;
+  clip-path: none !important;
+  fill-opacity: 0.06;
+}
+
+/* Respect reduced-motion globally as a safety net */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -318,7 +302,6 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  /* Never leave reveal content or drawn strokes hidden for reduced-motion users. */
   .js .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -326,31 +309,10 @@
   .js [data-stroke] {
     stroke-dashoffset: 0 !important;
   }
-}
-
-/* Pinned-act spans, in viewport heights (see ink-diagram/ink-peak.tsx) */
-.peak-span {
-  --peak-span: 2;
-}
-@media (min-width: 768px) {
-  .peak-span {
-    --peak-span: 2.8;
+  .ink-animation [data-ink] {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+    clip-path: none !important;
   }
-}
-
-/* No-JS fallback for the scrubbed diagram: show the final frame */
-html:not(.js) .ink-diagram path {
-  stroke-dasharray: none !important;
-  stroke-dashoffset: 0 !important;
-}
-html:not(.js) .ink-diagram g,
-html:not(.js) .ink-diagram text,
-html:not(.js) [data-caption] {
-  opacity: 1 !important;
-  clip-path: none !important;
-  transform: none !important;
-}
-html:not(.js) [data-caption] {
-  position: static;
-  margin-top: 0.75rem;
 }

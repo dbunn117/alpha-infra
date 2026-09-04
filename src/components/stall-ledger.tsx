@@ -19,7 +19,7 @@ export function StallLedger({ stalls }: { stalls: NonNullable<Service["stalls"]>
               <div className="grid grid-cols-[2rem_1fr] gap-4">
                 <DrawnCross className="mt-1 text-muted-foreground" />
                 <div>
-                  <p className="font-heading text-xl font-medium leading-snug">{item.fail}</p>
+                  <p className="text-xl font-semibold leading-snug">{item.fail}</p>
                   <p className="mt-2 leading-relaxed text-muted-foreground">{item.body}</p>
                 </div>
               </div>
@@ -27,7 +27,7 @@ export function StallLedger({ stalls }: { stalls: NonNullable<Service["stalls"]>
                 className="mt-4 grid grid-cols-[2rem_1fr] gap-4"
                 style={{ "--draw-delay": "0.45s" } as React.CSSProperties}
               >
-                <DrawnTick className="mt-0.5" />
+                <DrawnTick className="mt-0.5 text-primary" />
                 <p className="leading-relaxed text-foreground">
                   <span className="font-medium">Here:</span> {item.counter}
                 </p>
@@ -40,7 +40,7 @@ export function StallLedger({ stalls }: { stalls: NonNullable<Service["stalls"]>
             href={stalls.source.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-draw"
+            className="link-draw text-primary"
           >
             {stalls.source.label}
           </a>

@@ -122,6 +122,7 @@ export const SERVICES: Service[] = [
       "Every AI-made match or suggestion clearly marked as AI-made, never blended in as if a person did it",
       "A short walkthrough so your team uses it with confidence from day one",
     ],
+    // Also rendered as the homepage Process section (components/process-section.tsx).
     howItWorks: [
       {
         title: "Name the number",

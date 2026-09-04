@@ -1,21 +1,12 @@
 import { cn } from "@/lib/utils";
 
 /*
- * Alpha Infra mark, per the 2026-09-02 brand guide: a single hand-drawn
- * checkmark in Signal Red, reading as "reviewed/approved." Path and viewBox
- * taken directly from the brand guide artboards, not redrawn.
- *
- * `tone="mono"` draws it in currentColor. The nav uses that while it sits
- * over an Ink section so the homepage peak's drawn tick stays the one red
- * element in the viewport.
+ * Alpha Infra mark, per the brand guide: a single hand-drawn checkmark in
+ * Signal Red, reading as "reviewed/approved." Path and viewBox taken
+ * directly from the brand guide artboards, not redrawn. Red lives here and
+ * in the hero diagram's tick, nowhere else.
  */
-export function BrandMark({
-  className,
-  tone = "red",
-}: {
-  className?: string;
-  tone?: "red" | "mono";
-}) {
+export function BrandMark({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 120 120"
@@ -26,11 +17,10 @@ export function BrandMark({
     >
       <path
         d="M18,64 L46,92 L102,22"
-        stroke={tone === "red" ? "#C4283C" : "currentColor"}
+        stroke="#C4283C"
         strokeWidth="14"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="transition-[stroke] duration-200"
       />
     </svg>
   );

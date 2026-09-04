@@ -25,14 +25,14 @@ export function Footer() {
       <div className="container-page py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <Wordmark tone="mono" />
+            <Wordmark />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {footer.tagline}
             </p>
           </div>
 
           <nav aria-label="Footer" className="flex flex-col items-start gap-2">
-            <p className="eyebrow mb-1">Pages</p>
+            <p className="caption mb-1">Pages</p>
             {footer.links.map((link) => (
               <Link
                 key={link.href}
@@ -45,7 +45,7 @@ export function Footer() {
           </nav>
 
           <div className="flex flex-col items-start gap-2">
-            <p className="eyebrow mb-1">Contact</p>
+            <p className="caption mb-1">Contact</p>
             <a
               href={`mailto:${site.ownerEmail}`}
               className="inline-flex items-center gap-2 text-sm text-foreground/80 transition-colors hover:text-foreground"
@@ -65,7 +65,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="caption mt-12 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} · {site.legalName} · California
           </p>

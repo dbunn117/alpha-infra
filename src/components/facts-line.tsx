@@ -13,7 +13,7 @@ export function FactsLine({
       {stats.map((stat) => (
         <div key={stat.label} className="flex flex-col gap-1">
           <dt className="font-heading text-2xl font-medium tabular-nums">{stat.value}</dt>
-          <dd className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+          <dd className="caption">
             {stat.label}
           </dd>
         </div>

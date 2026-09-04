@@ -43,12 +43,12 @@ export function PrinciplesLedger() {
           intro={principles.intro}
         />
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+        <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-20">
           <div className="hidden lg:block">
             <div className="sticky top-28">
               <span
                 aria-hidden
-                className="grid font-heading text-[11rem] font-medium leading-none tabular-nums text-foreground"
+                className="grid font-heading text-[11rem] font-medium leading-none tabular-nums text-primary"
               >
                 {principles.items.map((item, i) => (
                   <span
@@ -67,13 +67,13 @@ export function PrinciplesLedger() {
 
           <ol ref={listRef} className="divide-y divide-border border-t border-border">
             {principles.items.map((item, i) => (
-              <li key={item.order} data-index={i} className="py-7 md:py-8">
+              <li key={item.order} data-index={i} className="py-8">
                 <Reveal className="grid gap-4 sm:grid-cols-[3rem_1fr]">
-                  <span className="pt-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  <span className="caption pt-2">
                     {item.order}
                   </span>
                   <div>
-                    <h3 className="text-balance font-heading text-2xl font-medium leading-snug tracking-tight sm:text-[1.75rem]">
+                    <h3 className="text-balance text-2xl leading-snug">
                       {item.title}
                     </h3>
                     <p className="measure mt-3 leading-relaxed text-muted-foreground">

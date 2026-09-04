@@ -5,10 +5,9 @@ import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 
 /*
- * Sun/Moon crossfade. The icon state is keyed to the html theme class in CSS
- * (`[html.dark_&]`), not to `dark:`, because inside the Ink-grounded nav the
- * `dark` variant is true even when the site theme is Paper. Keyed to CSS, the
- * server markup is stable and no mounted guard is needed for the visual.
+ * Sun/Moon crossfade keyed to the html theme class via the `dark:` variant,
+ * so the server markup is stable and no mounted guard is needed for the
+ * visual (only for the label).
  */
 const ICON =
   "size-[18px] transition-[opacity,transform] duration-300 ease-out-soft";
@@ -31,11 +30,11 @@ export function ThemeToggle() {
     >
       <span className="grid size-[18px] place-items-center [&>svg]:col-start-1 [&>svg]:row-start-1">
         <Sun
-          className={`${ICON} rotate-90 scale-75 opacity-0 [html.dark_&]:rotate-0 [html.dark_&]:scale-100 [html.dark_&]:opacity-100`}
+          className={`${ICON} rotate-90 scale-75 opacity-0 dark:rotate-0 dark:scale-100 dark:opacity-100`}
           aria-hidden
         />
         <Moon
-          className={`${ICON} rotate-0 scale-100 opacity-100 [html.dark_&]:-rotate-90 [html.dark_&]:scale-75 [html.dark_&]:opacity-0`}
+          className={`${ICON} rotate-0 scale-100 opacity-100 dark:-rotate-90 dark:scale-75 dark:opacity-0`}
           aria-hidden
         />
       </span>

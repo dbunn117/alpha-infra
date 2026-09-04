@@ -18,7 +18,7 @@ export function FaqAccordion({
       {items.map((item, i) => (
         <Accordion.Item key={item.question} value={i} className="group">
           <Accordion.Header className="m-0">
-            <Accordion.Trigger className="flex w-full items-center justify-between gap-6 py-5 text-left font-heading text-xl font-medium leading-snug tracking-tight text-foreground">
+            <Accordion.Trigger className="flex w-full items-center justify-between gap-6 py-5 text-left text-lg font-semibold leading-snug tracking-tight text-foreground">
               {item.question}
               <ChevronDown
                 className="size-4 shrink-0 text-muted-foreground transition-transform duration-300 ease-out-soft group-data-open:rotate-180"
