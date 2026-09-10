@@ -9,7 +9,7 @@ export const site = {
   legalName: "Alpha Infra LLC",
   tagline: "AI foundations that drive meaningful growth.",
   description:
-    "AI systems built to move one number at a time. I connect the data scattered across your business into a live system that drives revenue, output, or quality, for small and mid-sized businesses ready to move the needle.",
+    "I connect the data scattered across your CRM, spreadsheets, accounting package, and inbox into one live AI system that tells you what to do next. Built for owner-led businesses that want one number moved.",
   founder: "David Bunn",
   // Config: override via env (.env.local). See .env.example.
   ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
@@ -31,13 +31,13 @@ export const nav = {
 
 export const hero = {
   eyebrow: "For owners running the business out of a CRM, a spreadsheet, an accounting package, and an inbox",
-  headline: "Unlock the value hiding in the systems you already run.",
+  headline: "Name the number you want to move. I'll build the system that moves it.",
   subhead:
-    "Name the number you want to move. Wherever the data behind it lives, I connect it into one AI system built to move it: more revenue, more output, or higher quality.",
+    "Most owners I speak to have the same setup: jobs in one system, money in another, everything else in email, and nobody with the full picture. I connect what you already run into one live system that tells you what to do next.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
-    "Thirty minutes to name the number worth moving and check the data is there to move it.",
+    "30 minutes. We name the number and check the data is there to move it. If it isn't, I'll say so.",
   stats: [
     { value: "$25B+", label: "market-cap audit client at PwC" },
     { value: "10+ yrs", label: "in finance, operations & data before AI" },
@@ -72,23 +72,23 @@ export const inkPeak = {
  */
 export const proof = {
   client: "Entec Access Systems",
-  eyebrow: "Live at Entec Access Systems since Jul 2026",
+  eyebrow: "Live at Entec Access Systems since July 2026",
   heading: "A system built to drive revenue, not just show it to him.",
   context:
-    "Fifteen people, twenty years trading, one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else, and revenue was leaking on both ends.",
-  built: "Built with Claude Code over eight working sessions, with the owner in the room.",
+    "Entec is a 15-person access-systems business in the UK, 20 years old. SimPRO for jobs and quotes, Xero for the money, Outlook for everything else. None of it talked to each other, so accounts went quiet without anyone noticing and enquiries sat waiting for a quote.",
+  built: "Built with Claude Code and n8n, in his accounts, over eight working sessions with the owner.",
   pillars: [
     {
       title: "Keeps recurring revenue recurring",
-      body: "AI reads across every account (last touchpoint, current-year spend, whether they've gone quiet) and tells him who to follow up with and when, before a customer he could keep decides to leave.",
+      body: "Every morning it reads across every account, last touchpoint, spend this year against last, whether they've gone quiet, and tells him who to call and why. Before a customer he could have kept walks.",
     },
     {
       title: "Wins more of what comes in",
-      body: "Every inbound enquiry is flagged the moment it lands and routed for a fast quote, cutting response time enough to win business that used to go to whoever answered first.",
+      body: "Every enquiry gets flagged the moment it lands and routed for a quote inside a 48-hour target. That work used to go to whoever answered first.",
     },
     {
       title: "A real pipeline for what's next",
-      body: "Holds the target list (the businesses he wants to win next) so new-business pipeline lives somewhere real, not a notebook.",
+      body: "The businesses he wants to win next live in the system, with the public tenders and signals that say when to call, instead of in a notebook.",
     },
   ],
   /*
@@ -110,14 +110,14 @@ export const proof = {
 
 export const principles = {
   eyebrow: "How I think about AI",
-  heading: "Seven things I believe about using AI in a business.",
+  heading: "Seven things I believe about AI in a business.",
   intro:
-    "Not hype, not theory: this is the thinking that shapes how I actually build.",
+    "Not hype and not theory. This is how I actually think when I'm building.",
   items: [
     {
       order: "01",
       title: "Your data is a competitive advantage, if you use it.",
-      body: "Most businesses collect far more data than they act on. It sits in a CRM, a spreadsheet, an inbox, informing nothing. AI is what finally makes it cheap enough to turn that data into decisions in real time, not a quarterly review.",
+      body: "Most businesses collect far more data than they act on. It sits in a CRM, a spreadsheet, and an inbox and nobody looks at it until quarter end. AI is what finally makes it cheap enough to turn that data into decisions while they still matter.",
     },
     {
       order: "02",
@@ -153,17 +153,17 @@ export const principles = {
 } as const;
 
 export const offerings = {
-  heading: "Three ways in. One path.",
+  heading: "Three ways to start.",
   intro:
-    "Start with one workflow, move one number, or decide what to build first. Every door opens with the situation it answers, and each fee is credited if it leads to a build.",
-  examplesHeading: "What a Quick Win looks like",
+    "One workflow, one number, or a plan for what to build first. Each one opens with the situation it's for. If you start small and go on to a build, the first fee comes off the second.",
+  examplesHeading: "What a Quick Win usually looks like",
   examplesIntro:
-    "Six shapes it usually takes, all at the one price. Yours will be one of these or close to it.",
-  extensionsHeading: "For build clients",
+    "These are the shapes it tends to take. All the same price. Yours will be one of these or close to it.",
+  extensionsHeading: "Once there's a system",
   extensionsIntro:
-    "Once there's a system, two things keep it paying: a working day for the team, and monthly care for the system itself.",
+    "Two things keep it paying: a working day with your team, and someone looking after the system every month. Both are for build clients.",
   footnote:
-    "Value-based pricing tied to the number we move is available on any build. Coaching is offered privately to existing clients.",
+    "Fixed fees wherever I can. On builds I'm happy to tie my fee to the number instead. Coaching I do privately with existing clients.",
 } as const;
 
 /* The steps themselves live on the flagship service (getService("system").howItWorks
@@ -176,15 +176,15 @@ export const fitCheck = {
   eyebrow: "Is this you?",
   heading: "Who this is for.",
   intro:
-    "Eight in ten people say AI makes them more productive. Only 37 percent of businesses can point to any effect on profit. The difference is a handful of decisions made before anything is built, so I'm selective about who I make them with.",
+    "Eight in ten people say AI makes them more productive. Only 37 percent of businesses can point to any effect on profit. The difference is a handful of decisions made before anything gets built, so I'm fussy about who I make them with.",
   forYou: [
     {
       title: "Your data lives in three or more places, and nobody has the full picture.",
-      body: "CRM, spreadsheets, email, accounting software that don't talk to each other. You're piecing the real picture together by hand, or not seeing it at all.",
+      body: "CRM, spreadsheets, email, accounting. None of them talk to each other, so someone is piecing the real picture together by hand, or nobody is.",
     },
     {
       title: "You know there's revenue or margin hiding in your data, but no time to dig it out.",
-      body: "You suspect the answer to \"what should we focus on\" is already sitting in your systems somewhere. You just don't have the tools, or the hours, to find it.",
+      body: "The answer to 'what should we focus on' is probably sitting in your systems already. You just don't have the tools or the hours to find it.",
     },
     {
       title: "The same manual process eats hours every week.",
@@ -192,7 +192,7 @@ export const fitCheck = {
     },
     {
       title: "You want something built around how you actually run your business, not a generic template.",
-      body: "Off-the-shelf software makes you bend your workflow to fit the tool. You want the reverse.",
+      body: "Off-the-shelf software makes you bend your process to fit the tool. You'd rather have it the other way round.",
     },
     {
       title: "You're ready to build, not just get diagnosed.",
@@ -212,7 +212,7 @@ export const faq = {
   eyebrow: "FAQ",
   heading: "Common questions.",
   intro:
-    "Straight answers on ownership, data, and how I work. Still unsure? Book a call and ask me directly.",
+    "Straight answers on ownership, data, and how I work. Still not sure? Book a call and ask me.",
   items: [
     {
       question: "Who owns the system and everything it produces?",
@@ -238,8 +238,8 @@ export const faq = {
 } as const;
 
 export const aboutBlock = {
-  heading: "One partner, from first win to full strategy.",
-  body: "I'm David Bunn, a finance and operations leader who spent a decade at PwC, a venture-backed startup, and a real estate private equity firm before AI changed what a small team could do. Today my day job is the work Alpha Infra does: building AI-powered reporting workflows that cut manual effort by 80%, LLM-driven analysis tools, and interactive dashboards that leaders actually open. I'm BIDA®-certified in business intelligence and a (currently inactive) CPA. My belief is simple: AI is at its best when it frees people to do the high-judgment work only they can do. Whether you need a single automation, a team that can build its own, or a strategy for the years ahead, you work directly with me, not a handoff to junior staff.",
+  heading: "One person, from first win to full strategy.",
+  body: "I'm David Bunn. I spent a decade in finance and operations, at PwC, at a venture-backed startup, and at a real estate private equity firm, before AI changed what one person could build. My day job now is the same work Alpha Infra does: AI reporting workflows that cut manual effort by about 80%, LLM tools for analysis, and dashboards leaders actually open. I'm BIDA certified and a CPA (inactive). I think AI is at its best when it frees people up for the judgment work only they can do. You work with me directly. There's nobody to hand you off to.",
   credibility: [
     "10+ years in finance & operations",
     "PwC",
@@ -269,9 +269,9 @@ export const socialProof = {
 } as const;
 
 export const finalCta = {
-  heading: "Ready to find your first AI win?",
+  heading: "Ready to name the number?",
   subhead:
-    "Thirty minutes to name the number worth moving and check the data is there to move it. Or send a note and I'll reply within one business day. No pressure, no jargon, just a clear next step.",
+    "Book a 30-minute call. We'll name the number worth moving and check the data is there to move it. Or send me a note and I'll reply within a business day. No pitch, no jargon.",
   primaryCta: "Book a discovery call",
   secondaryCta: "Send a message",
 } as const;

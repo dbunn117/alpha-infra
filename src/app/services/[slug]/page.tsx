@@ -188,7 +188,7 @@ export default async function ServicePage({
               <section>
                 <h2 className="text-2xl font-semibold">How it earns trust</h2>
                 <p className="mt-3 leading-relaxed text-muted-foreground">
-                  Owners tell surveys their worry isn&apos;t price, it&apos;s accuracy and data. So the system is built to be checked.
+                  The worry I hear most isn&apos;t price. It&apos;s whether the AI gets it right and what happens to the data. So the system is built to be checked.
                 </p>
                 <ul className="mt-5 space-y-3">
                   {service.trust.map((item) => (
