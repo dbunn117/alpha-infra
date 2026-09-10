@@ -43,7 +43,7 @@ export function EntecCaseStudy() {
             <div>
               <h3 className="text-lg font-semibold">How it was built</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Built with Claude Code over eight working sessions across ten weeks, not a spec
+                Built with Claude Code over eight working sessions, not a spec
                 handed over once and delivered blind. The definition of &ldquo;key account&rdquo;
                 changed twice as his actual usage corrected the first guess. That&rsquo;s normal,
                 and it&rsquo;s why this is something he actually opens every morning instead of
