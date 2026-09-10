@@ -57,6 +57,10 @@ export default async function ServicePage({
       <div className="container-page grid gap-12 pb-8 pt-12 lg:grid-cols-[1fr_340px] lg:gap-16">
         {/* Main column */}
         <div className="max-w-2xl space-y-12">
+          <p className="border-l-2 border-primary pl-4 text-lg leading-snug">
+            <span className="font-semibold text-primary">Start here if</span> {service.pain}
+          </p>
+
           <Reveal>
             <section>
               <h2 className="text-2xl font-semibold">{service.problemHeading}</h2>
@@ -95,6 +99,25 @@ export default async function ServicePage({
               </ul>
             </section>
           </Reveal>
+
+          {service.trust ? (
+            <Reveal>
+              <section>
+                <h2 className="text-2xl font-semibold">How it earns trust</h2>
+                <p className="mt-3 leading-relaxed text-muted-foreground">
+                  Owners tell surveys their worry isn&apos;t price, it&apos;s accuracy and data. So the system is built to be checked.
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {service.trust.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <Check className="mt-1 size-5 shrink-0 text-primary" aria-hidden />
+                      <span className="leading-relaxed text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          ) : null}
 
           <Reveal>
             <section>
@@ -135,6 +158,9 @@ export default async function ServicePage({
             <span className="inline-flex size-11 items-center justify-center rounded-xl border border-border bg-secondary text-accent-bright">
               <ServiceIcon name={service.icon} className="size-5" />
             </span>
+            {!service.listed ? (
+              <p className="caption mt-4">Offered privately to existing clients</p>
+            ) : null}
             <h2 className="mt-4 text-lg font-semibold">Pricing</h2>
             <p className="mt-1 text-xl font-semibold text-accent-bright">
               {service.priceDisplay}

@@ -5,6 +5,7 @@ import {
   ClipboardCheck,
   Compass,
   LineChart,
+  LifeBuoy,
   Database,
   type LucideIcon,
 } from "lucide-react";
@@ -16,6 +17,7 @@ const ICONS: Record<string, LucideIcon> = {
   ClipboardCheck,
   Compass,
   LineChart,
+  LifeBuoy,
   Database,
 };
 

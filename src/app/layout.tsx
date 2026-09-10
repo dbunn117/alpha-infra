@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Newsreader, Caveat } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
-import { SERVICES } from "@/content/services";
+import { LISTED_SERVICES } from "@/content/services";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
@@ -82,7 +82,7 @@ const jsonLd = {
   areaServed: "US",
   slogan: site.tagline,
   sameAs: [site.linkedin],
-  makesOffer: SERVICES.map((service) => ({
+  makesOffer: LISTED_SERVICES.map((service) => ({
     "@type": "Offer",
     itemOffered: { "@type": "Service", name: service.name },
   })),

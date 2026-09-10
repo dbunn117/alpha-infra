@@ -30,7 +30,7 @@ export const nav = {
 } as const;
 
 export const hero = {
-  eyebrow: "Practical AI systems for growing businesses",
+  eyebrow: "For owners running the business out of a CRM, a spreadsheet, an accounting package, and an inbox",
   headline: "Unlock the value hiding in the systems you already run.",
   subhead:
     "Name the number you want to move. Wherever the data behind it lives, I connect it into one AI system built to move it: more revenue, more output, or higher quality.",
@@ -153,14 +153,17 @@ export const principles = {
 } as const;
 
 export const offerings = {
-  heading: "Start where you are. Grow as far as you want.",
+  heading: "Three ways in. One path.",
   intro:
-    "Two ways to start: one process automated fast, or one number moved with the full system. As we work together, some clients bring me in to train their team or shape AI strategy at the leadership level.",
+    "Start with one workflow, move one number, or decide what to build first. Every door opens with the situation it answers, and each fee is credited if it leads to a build.",
+  extensionsHeading: "For build clients",
+  extensionsIntro:
+    "Once there's a system, two things keep it paying: a working day for the team, and monthly care for the system itself.",
   footnote:
-    'Ask about value-based pricing (fees tied to the savings I create) and adding 30–90 days of follow-up "office hours" to any workshop or build.',
+    "Value-based pricing tied to the number we move is available on any build. Coaching is offered privately to existing clients.",
 } as const;
 
-/* The steps themselves live on the flagship service (SERVICES[0].howItWorks
+/* The steps themselves live on the flagship service (getService("system").howItWorks
    in content/services.ts) so the homepage and the offer page never drift. */
 export const howItWorks = {
   heading: 'A clear path from "where do I start?" to "this is running."',
@@ -273,11 +276,10 @@ export const finalCta = {
 export const contact = {
   heading: "Tell me what you're working on.",
   interests: [
-    "The Alpha System",
     "Quick Win",
-    "Workshop",
-    "1:1 Coaching",
-    "AI Strategy",
+    "The Alpha System",
+    "Leadership AI Sprint",
+    "Team AI Build Day",
     "Not sure yet",
   ],
   button: "Send message",

@@ -1,32 +1,42 @@
 /*
  * Alpha Infra's offerings. Single source of truth: drives the homepage
- * offering cards, the /services overview, and each dedicated /services/[slug]
- * page. One flagship build (proven on Entec Access Systems) plus a fast entry
- * point are featured first; training, coaching, and strategy are positioned
- * as where the relationship goes next, not competing first-purchase options.
+ * offering cards, the /services overview, each /services/[slug] page, the
+ * homepage Process section (SERVICES[1].howItWorks, the flagship), the
+ * JSON-LD offer list, and the sitemap.
+ *
+ * Architecture (decided 2026-09-09, grounded in Goldman Sachs 10KSB Voices
+ * Mar 2026, Thryv Apr 2026, McKinsey Aug 2026 and consultant pricing guides;
+ * see the vault note "Alpha Infra - Offer Architecture Research - 2026-09-09"):
+ *   three front doors (Start: Quick Win, Build: The Alpha System, Decide:
+ *   Leadership AI Sprint) and two extensions for build clients (Team AI Build
+ *   Day, Alpha System Care). Coaching is kept as an unlisted page and offered
+ *   privately to existing clients. Every door opens with a buyer-pain line.
  */
 
-export type ServiceGroup =
-  | "Build & Deliver"
-  | "Training & Coaching"
-  | "Strategic Partnership";
+export type ServiceGroup = "Front door" | "Extension" | "Private";
 
 export type Service = {
   slug: string;
-  order: string; // "01".."05"
+  order: string; // "01".."06"
   group: ServiceGroup;
+  /** one-word role shown on the card caption: Start, Build, Decide, Extend */
+  role: string;
+  /** false: page still builds (keeps the URL) but nothing links to it */
+  listed: boolean;
   name: string;
   /** lucide-react icon name */
   icon: string;
   eyebrow: string;
+  /** "Start here if" line: the buyer pain this door answers */
+  pain: string;
   /** short one-liner used on homepage/overview cards */
   tagline: string;
   bestFor: string;
   /** display string used on cards + pricing ladder */
   priceDisplay: string;
   mostPopular?: boolean;
-  isEntry?: boolean;
-  isHighEnd?: boolean;
+  /** chip label on the card, e.g. "Flagship", "Build clients only" */
+  chip?: string;
 
   // Dedicated service-page copy
   h1: string;
@@ -36,8 +46,10 @@ export type Service = {
   whatHeading: string;
   what: string;
   whatYouGet: string[];
-  /* Up to three deliverables surfaced on the homepage card (flagship only) */
+  /* Up to three deliverables surfaced on the homepage card */
   highlights?: string[];
+  /* "How it earns trust" list (flagship) */
+  trust?: string[];
   /* "Why most AI projects stall" ledger (flagship only) */
   stalls?: {
     heading: string;
@@ -53,21 +65,92 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "system",
+    slug: "quick-win",
     order: "01",
-    group: "Build & Deliver",
+    group: "Front door",
+    role: "Start",
+    listed: true,
+    name: "Quick Win",
+    icon: "Rocket",
+    eyebrow: "Start",
+    pain: "the same manual process is eating hours every week, and you want one working result before you commit to anything bigger.",
+    tagline:
+      "One repetitive workflow, automated inside the tools you already run, live in two to three weeks. We measure the hours, turnaround, or errors it removes over the first 30 days.",
+    bestFor: "owners who want proof on one workflow before a bigger decision.",
+    priceDisplay: "$2,500 fixed",
+    highlights: [
+      "One workflow, one team, your existing software",
+      "Live in two to three weeks, measured for 30 days",
+      "Fee credited if it leads to an Alpha System",
+    ],
+    h1: "One workflow, automated and measured, in three weeks.",
+    subhead:
+      "A fixed-fee automation for one high-volume, manual process, built in the software you already use and measured against a number you agree up front. If the discovery call can't find a workflow worth it, there is no fee.",
+    problemHeading: "The problem",
+    problem:
+      "Someone on your team does by hand, every week, what software should be doing for them: re-keying quotes, chasing the same emails, moving numbers between a spreadsheet and the accounting package. You don't need a strategy deck to fix that. You need one working win, and a number that proves it worked.",
+    whatHeading: "What I do",
+    what:
+      "We pick one process together on the discovery call, agree the measure (hours, turnaround time, or errors), and I build the automation inside your existing tools: a skill, an agent, or a workflow your team actually uses. It goes live in two to three weeks with one handoff session and two weeks of support, then we read the number at 30 days. It's the smallest version of what I build at full scale: working software, not a slide deck.",
+    whatYouGet: [
+      "One workflow automated, with a measure agreed before we start",
+      "Built in your existing software, at most two tools, no new subscriptions",
+      "One clearly defined input and output, with sensible exception handling",
+      "One training and handoff session, plus two weeks of support",
+      "A 30-day read of the number: hours, turnaround, or errors removed",
+      "A clear view of what's worth building next, if anything",
+    ],
+    howItWorks: [
+      {
+        title: "Pick the workflow",
+        body: "On the discovery call we find the highest-value manual process and agree how we'll measure the change.",
+      },
+      {
+        title: "Build",
+        body: "I build the automation inside your real tools and test it against real cases before you rely on it.",
+      },
+      {
+        title: "Hand off",
+        body: "One session so your team runs it with confidence, then two weeks of support.",
+      },
+      {
+        title: "Measure",
+        body: "At 30 days we read the number together and decide whether there's a next step.",
+      },
+    ],
+    whoItsFor:
+      "Owners and small teams who want a low-risk, fixed-fee start and a real result they can point to before going further.",
+    pricing:
+      "$2,500 fixed. Strictly scoped: one workflow, one team, at most two tools, your existing software, one defined input and output, one handoff session, two weeks of support. No custom interface or historical data migration. If the discovery call can't find a workflow worth it, there is no fee. If it leads to an Alpha System within 90 days, the $2,500 is credited.",
+    ctaLine: "Let's find the first workflow.",
+  },
+  {
+    slug: "system",
+    order: "02",
+    group: "Front door",
+    role: "Build",
+    listed: true,
     name: "The Alpha System",
     icon: "LineChart",
-    eyebrow: "Build & Deliver",
+    eyebrow: "Build",
+    pain: "you can name the number that's hurting, but the data to move it lives in a CRM, a spreadsheet, an accounting package, and an inbox, and you manage it from memory.",
     tagline:
       "My flagship build. We name the one number you want to move, find the data that drives it across your CRM, ops, finance, and email, and I build a live system that tells you what to do next to move it.",
     bestFor: "owners who can name the one number they want to move, and whose data to move it lives in three or more tools.",
-    priceDisplay: "Starting at $5,000",
+    priceDisplay: "From $7,500",
     mostPopular: true,
+    chip: "Flagship",
     highlights: [
       "One outcome, named up front, with the number we're moving",
       "A live system that tells you what to do next",
       "Your operating memory, written down and yours to keep",
+    ],
+    trust: [
+      "Every AI-made match or suggestion is marked as AI-made, never blended in as if a person did it",
+      "It shows the evidence behind each flag, so you can check the call in seconds",
+      "Anything that changes a system of record waits for a human approval you define",
+      "Decisions and rule changes are recorded, so the system's judgment stays inspectable",
+      "When it isn't sure, it says so and escalates rather than guessing",
     ],
     stalls: {
       heading: "Why most AI projects stall, and why this one is built not to.",
@@ -97,7 +180,7 @@ export const SERVICES: Service[] = [
         {
           fail: "It went live and nobody measured or stayed.",
           body: "Without a measured number and someone close by when the business changes, the system stops being used.",
-          counter: "We go live, we watch the number, and the operating memory keeps growing with optional maintenance.",
+          counter: "We go live, we watch the number for 30 days, and Alpha System Care keeps it honest after that.",
         },
       ],
       source: {
@@ -105,7 +188,7 @@ export const SERVICES: Service[] = [
         href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
       },
     },
-    h1: "Pick the number that matters. I\u00a0build the system that moves it.",
+    h1: "Pick the number that matters. I build the system that moves it.",
     subhead:
       "One outcome per engagement. We start with the constraint, not the tools, then connect and synthesize the data behind it into one live system built around your decisions. It's the approach that took Entec Access Systems from three disconnected tools to a system that keeps recurring revenue recurring.",
     problemHeading: "The problem",
@@ -115,14 +198,15 @@ export const SERVICES: Service[] = [
     what:
       "Not a dashboard, and not a data integration project. We start by naming the one outcome you want to move and what would have to be true to move it. Then I trace the data that predicts and drives that outcome, wherever it lives, and use AI to connect and synthesize it into one live system that tells you what to do next: who to call, what to quote, what to fix. Underneath it sits your operating memory: your rules, definitions, and judgment written down so the AI works the way you would, not the way a template would. That's how Entec's owner got a system that flags which accounts have gone quiet before they leave.",
     whatYouGet: [
-      "One outcome, named up front, with the number we're moving and how we'll measure it",
-      "The data behind that outcome connected from the tools you already run, no rip-and-replace",
-      "A live system that tells you what to do next, not a report you have to interpret",
-      "Your operating memory: the rules, definitions, and judgment the system runs on, written down and yours to keep",
-      "Every AI-made match or suggestion clearly marked as AI-made, never blended in as if a person did it",
-      "A short walkthrough so your team uses it with confidence from day one",
+      "One named business number with its baseline, agreed before we build",
+      "A current-state map of the workflow and the data behind the number",
+      "A working system connected to a defined set of your existing tools, no rip-and-replace",
+      "Decision rules and the human approvals the system must ask for, written down",
+      "A visible operating output: a daily queue, digest, or view that says what to do next",
+      "Your operating memory: the rules, definitions, and judgment the system runs on, yours to keep",
+      "Documentation and ownership transfer; you own the system outright",
+      "30 days of measurement and tuning after go-live, reading the number together",
     ],
-    // Also rendered as the homepage Process section (components/process-section.tsx).
     howItWorks: [
       {
         title: "Name the number",
@@ -142,222 +226,250 @@ export const SERVICES: Service[] = [
       },
       {
         title: "Go live and measure",
-        body: "I connect it to your live data, get your team using it for real, and we watch the number. You own it outright. If you're comfortable with tools like Claude Code, I can set you up to maintain simple changes yourself, or I stay on with optional ongoing maintenance from $500/mo, which also keeps the operating memory current as the business changes.",
+        body: "I connect it to your live data, get your team using it for real, and we watch the number for 30 days. You own it outright. If you're comfortable with tools like Claude Code, I can set you up to maintain simple changes yourself. Build clients can then move onto Alpha System Care.",
       },
     ],
     whoItsFor:
       "Owners who can name the one number they want to move and are tired of managing it from memory, especially when the data to move it is spread across tools and nobody has the full picture in time to act.",
     pricing:
-      "Starting at $5,000, depending on the number of systems and complexity. Optional maintenance from $500/mo. Ask about value-based pricing tied to the number we move.",
+      "From $7,500, typically $10,000 to $15,000 depending on how many tools we connect and how much judgment we write down. Value-based pricing tied to the number we move is available. A Quick Win or Leadership AI Sprint fee is credited if the build starts within 90 days. Alpha System Care is offered afterwards to build clients only.",
     ctaLine: "Ready to name the number?",
   },
   {
-    slug: "quick-win",
-    order: "02",
-    group: "Build & Deliver",
-    name: "Quick Win",
-    icon: "Rocket",
-    eyebrow: "Build & Deliver",
+    slug: "strategy",
+    order: "03",
+    group: "Front door",
+    role: "Decide",
+    listed: true,
+    name: "Leadership AI Sprint",
+    icon: "Compass",
+    eyebrow: "Decide",
+    pain: "everyone in the business is using AI in their own way, nobody owns it, and you don't know what to build first.",
     tagline:
-      "A fast, practical first step. We pick one high-volume, manual process and automate it with AI, typically live within 2–3 weeks of our first call.",
-    bestFor: "small teams who want a real win before committing to a bigger build.",
-    priceDisplay: "Starting at $1,500",
-    isEntry: true,
-    h1: "Your first real AI win, typically live in 2–3 weeks.",
+      "A fixed two-week sprint with your leadership team: rank the use cases by benefit, cost, feasibility, and risk, make the build, buy, or do-nothing calls, set the review and data rules, and leave with a 90-day roadmap and one working prototype.",
+    bestFor: "leadership teams who want decisions and a prototype, not a deck.",
+    priceDisplay: "$7,500 fixed",
+    highlights: [
+      "Ranked use cases with benefit, cost, feasibility, and risk",
+      "Build, buy, or do-nothing decisions and a 90-day roadmap",
+      "One working prototype, and half the fee credited to a build",
+    ],
+    h1: "Decide where AI belongs, what to build, and how to run it.",
     subhead:
-      "A fast, practical automation for one high-volume, manual process, typically live within 2–3 weeks, so you have a working result before committing to anything bigger.",
+      "Two weeks with your leadership team, ending in decisions rather than a deck: a ranked portfolio of use cases, the calls on what to build and what to buy, the rules for review and sensitive data, a 90-day roadmap, and one prototype you can put in front of the team.",
     problemHeading: "The problem",
     problem:
-      "You're curious about AI but not ready to commit to a full system yet. Meanwhile the same manual, repetitive task eats hours every week. You don't need a strategy deck. You need one clear, working win.",
-    whatHeading: "What I do",
+      "Three-quarters of small businesses already use AI, and only 14 percent have it running in core operations. In most companies it lives in individual browser tabs: useful, uneven, unowned. The leadership team feels the pressure to do something but can't agree what, so decisions get made tool by tool, or not at all. Reacting isn't a strategy, and a strategy deck isn't a decision.",
+    whatHeading: "What the sprint is",
     what:
-      "We pick one high-volume, currently-manual process and make it dramatically faster with AI: a skill, agent, or automation your team actually uses, typically live within 2–3 weeks. It's the smallest version of what I build at the bigger scale: real, working software, not a slide deck.",
+      "I work directly with your leadership team for two weeks. Week one is interviews and a look at your systems and data: where the hours go, where the errors and delays are, what the numbers say. Week two is a working session where we rank the candidate use cases by expected benefit, cost, feasibility, and risk, make the build, buy, or do-nothing call on each, and write the lightweight rules for human review, accountability, and sensitive data. You leave with a 90-day roadmap your team owns and one working prototype of the first item on it, so the plan is already real.",
     whatYouGet: [
-      "One painful, repetitive process automated with AI",
-      "A working skill, agent, or automation your team uses immediately",
-      "A clear sense of where AI can help next",
+      "A ranked portfolio of AI use cases specific to your business",
+      "Expected benefit, cost, feasibility, and risk for each",
+      "Build, buy, or do-nothing decisions, with the reasoning written down",
+      "The data and systems constraints that shape what's possible",
+      "Human-review, accountability, and acceptable-use rules that fit a business your size",
+      "A 90-day implementation roadmap, sequenced and owned",
+      "One working prototype or validated proof of the first item",
     ],
     howItWorks: [
       {
-        title: "Pick a target",
-        body: "I find the highest-value manual process worth automating first.",
+        title: "Interview",
+        body: "Leadership and the people doing the work: where the hours, errors, and delays actually are.",
       },
       {
-        title: "Build",
-        body: "I build the automation and get it working in your real workflow.",
+        title: "Rank",
+        body: "Candidate use cases scored on benefit, cost, feasibility, and risk, in the open.",
       },
       {
-        title: "Hand off",
-        body: "I make sure your team can run it, and knows what's next.",
+        title: "Decide",
+        body: "Build, buy, or do nothing on each, plus the review and data rules the business will hold to.",
+      },
+      {
+        title: "Prototype",
+        body: "The first item on the roadmap, working, so the plan starts real.",
+      },
+      {
+        title: "Roadmap",
+        body: "Ninety days, sequenced, with owners, handed to your team.",
       },
     ],
     whoItsFor:
-      "Small teams who want a practical, low-risk start, and a real result they can point to before going further.",
+      "Leadership teams of owner-led businesses who want a plan they can lead from, and who would rather see a prototype than a deck.",
     pricing:
-      "Starting at $1,500 for a single automation; larger sprints run $2,500–$5,000.",
-    ctaLine: "Let's get you a first win.",
+      "$7,500 fixed, two weeks. Half is credited toward an Alpha System build started within 90 days.",
+    ctaLine: "Get the plan you can lead from.",
   },
   {
     slug: "workshops",
-    order: "03",
-    group: "Training & Coaching",
-    name: "Small-Group Workshops",
+    order: "04",
+    group: "Extension",
+    role: "Extend",
+    listed: true,
+    name: "Team AI Build Day",
     icon: "Users",
-    eyebrow: "Training & Coaching",
+    eyebrow: "Extension",
+    pain: "your team uses AI, but the quality is uneven, nobody has been trained, and the rules for sensitive data are unwritten.",
     tagline:
-      "A hands-on half-day or full-day for 4–8 people. I cover the fundamentals and best practices, then build reusable agents, skills, and skill files together, around the work your team actually does.",
-    bestFor: "teams that learn by building.",
-    priceDisplay: "Half-day from $3,500 · Full-day from $6,000",
-    h1: "A team that builds with AI, not just talks about it.",
+      "A working day with 4 to 8 people. We redesign two or three of your real workflows, build one reusable agent from your own material, write the team's rules for accuracy and sensitive data, and leave with owners, next actions, and a short playbook. A 30-day follow-up clinic is included.",
+    bestFor: "teams that already have a system or a workflow worth building around.",
+    priceDisplay: "Half-day from $3,500 · Full day from $6,000",
+    h1: "A day your team leaves with working tools, not notes.",
     subhead:
-      "A hands-on half-day or full-day for 4–8 people. I cover the fundamentals and best practices, then build reusable agents, skills, and tools together, around the work your team actually does.",
+      "Not a training course. A working day where 4 to 8 people redesign their own workflows, build one reusable agent from company material, and write the rules they'll hold themselves to. Everyone leaves with something running and a name next to what happens next.",
     problemHeading: "The problem",
     problem:
-      "Generic AI training doesn't stick. People sit through slides, nod along, and go back to doing everything the old way by Thursday. Real capability comes from building something real, with your own work, alongside someone who's done it before.",
-    whatHeading: "What I do",
+      "Seven in ten small-business owners say their people need more training to use AI well, and most of that training currently comes from YouTube. Generic sessions don't stick: people nod along and go back to the old way by Thursday. What sticks is building something real, with your own work, alongside someone who has done it before.",
+    whatHeading: "What the day is",
     what:
-      "I run a focused, hands-on workshop for your team. I start with the fundamentals and best practices (enough to be dangerous), then spend the bulk of the time building reusable solutions together: agents, skills, and skill files aimed at a specific workload your team cares about. Everyone leaves having built something, and knowing how to build the next one.",
+      "I shape the day around two or three workflows your team actually runs. We redesign them in the room: fewer steps, clear handoffs, people reviewing exceptions instead of pushing paper. Then we build one reusable agent or skill from your own documents and data, and write the team's rules for accuracy, review, and sensitive data. The day ends with named owners and next actions, and I come back for a 30-day clinic to see what stuck and fix what didn't.",
     whatYouGet: [
-      "A half-day or full-day session for ~4–8 people, on-site or virtual",
-      "Fundamentals and best practices, taught practically",
-      "Reusable agents, skills, and skill files your team builds during the session",
-      "The confidence and method to keep building after I leave",
-      "Optional 30–90 days of follow-up “office hours” to lock in adoption",
+      "Two or three of your real workflows redesigned, in the room",
+      "One reusable agent or skill built from your own material",
+      "Team rules for accuracy, review, and sensitive data, written down",
+      "Named owners and next actions for each workflow",
+      "A concise internal playbook",
+      "A 30-day follow-up clinic",
     ],
     howItWorks: [
       {
         title: "Tailor",
-        body: "I pick the workload and shape the day around your team's real work.",
+        body: "I pick the workflows with you and gather the material we'll build from.",
       },
       {
-        title: "Teach",
-        body: "Fundamentals and best practices, fast and hands-on.",
+        title: "Redesign",
+        body: "Each workflow rebuilt around AI in the room, with the people who run it.",
       },
       {
         title: "Build",
-        body: "The team builds reusable solutions together, with guidance.",
+        body: "One reusable agent or skill, built together, from your documents and data.",
       },
       {
         title: "Sustain",
-        body: "Optional follow-up office hours keep the momentum going.",
+        body: "Owners, next actions, a playbook, and a clinic 30 days later.",
       },
     ],
     whoItsFor:
-      "Teams of 4–8 who learn by doing and want to leave with working tools, not just notes.",
+      "Teams of 4 to 8, usually alongside or after a build, who learn by doing and want to leave with working tools.",
     pricing:
-      "Half-day from $3,500 · Full-day from $6,000 (up to ~8 people). Per-person options and follow-up office hours available.",
-    ctaLine: "Turn your team into builders.",
+      "Half-day from $3,500. Full day from $6,000. Up to 8 people, on-site on the Peninsula or virtual. Includes the 30-day clinic.",
+    ctaLine: "Book a build day for the team.",
+  },
+  {
+    slug: "care",
+    order: "05",
+    group: "Extension",
+    role: "Extend",
+    listed: true,
+    name: "Alpha System Care",
+    icon: "LifeBuoy",
+    eyebrow: "Extension",
+    pain: "the system is live and you want it to stay accurate, current, and improving as the business changes, without it depending on you remembering to check.",
+    tagline:
+      "For build clients only. Monthly reliability and output-quality review, cost and usage monitoring, rule and model updates, a report against your named number, exception review, an improvement allowance, and a quarterly opportunity session. Capped at a handful of clients.",
+    bestFor: "owners who want the system looked after by the person who built it.",
+    priceDisplay: "From $1,500/mo · build clients only",
+    chip: "Build clients only",
+    h1: "Keep the system honest, current, and improving.",
+    subhead:
+      "AI systems drift: rules go stale, a vendor changes a model, the business changes shape. Care is the monthly routine that catches that, reports against the number we built the system to move, and keeps improving it. Offered only to clients whose system I built.",
+    problemHeading: "The problem",
+    problem:
+      "A system is most at risk in the months after launch. Definitions change, a supplier renames a field, a model update alters an answer, and nobody notices until the owner stops trusting the output. Only 14 percent of small businesses say AI is fully embedded in how they operate, and unmaintained systems are a big part of why.",
+    whatHeading: "What Care is",
+    what:
+      "A monthly routine run by the person who built your system. I review output quality and reliability, watch cost and usage, update rules and models as the business or the vendors change, review the exceptions your team flagged, and report against the named number. Each month includes an allowance for small improvements, and each quarter we sit down to decide what's worth building next. The upper tier adds a monthly working session with you and triage of new opportunities.",
+    whatYouGet: [
+      "Monthly reliability and output-quality review",
+      "Cost and usage monitoring, with token and vendor spend in plain numbers",
+      "Rule, prompt, and model updates as the business and the vendors change",
+      "A monthly report against the number the system was built to move",
+      "Staff feedback and exception review",
+      "A small monthly improvement allowance",
+      "A quarterly opportunity-planning session",
+      "Upper tier: a monthly working session with the owner and opportunity triage",
+    ],
+    howItWorks: [
+      {
+        title: "Monitor",
+        body: "Quality, reliability, cost, and usage, checked every month.",
+      },
+      {
+        title: "Report",
+        body: "One page against the named number, plus what changed and why.",
+      },
+      {
+        title: "Improve",
+        body: "Rules and models updated, exceptions resolved, the allowance spent on what matters.",
+      },
+      {
+        title: "Plan",
+        body: "A quarterly session on what's worth building next.",
+      },
+    ],
+    whoItsFor:
+      "Clients whose Alpha System is live and who want it maintained and improved by the person who built it.",
+    pricing:
+      "$1,500 to $4,000 per month depending on the number of systems and response expectations. Offered only after an Alpha System build, and capped at a handful of clients so each gets real attention. The upper tier adds the monthly owner working session.",
+    ctaLine: "Talk about Care for your system.",
   },
   {
     slug: "coaching",
-    order: "04",
-    group: "Training & Coaching",
+    order: "06",
+    group: "Private",
+    role: "Private",
+    listed: false,
     name: "1:1 Coaching",
     icon: "UserRound",
-    eyebrow: "Training & Coaching",
+    eyebrow: "For existing clients",
+    pain: "you use AI every day and suspect you're getting a fraction of what it can do.",
     tagline:
-      "Personalized coaching for how you work. For executives using AI as a strategy and thought partner, or for analysts getting more from AI while keeping every output accurate and trustworthy. Fundamentals, best practices, and the habits that matter.",
-    bestFor: "individuals who want to level up fast.",
-    priceDisplay: "Sessions from $350 · Packages from $1,500/mo",
+      "Personal coaching for how you work with AI, offered privately to existing clients. Fundamentals, verification habits, and prompt and agent design, only the parts you need.",
+    bestFor: "owners and executives inside a current engagement.",
+    priceDisplay: "Sessions from $350",
     h1: "Get dramatically more out of AI, personally.",
     subhead:
-      "One-on-one coaching tailored to how you work. Whether you're an executive using AI as a thought partner or an analyst getting more from it while keeping every output accurate, I meet you where you are.",
+      "One-on-one coaching tailored to how you work, offered to clients I'm already building with. Whether you use AI as a thought partner or need every output to be accurate, I meet you where you are.",
     problemHeading: "The problem",
     problem:
-      "You use AI, but you suspect you're getting a fraction of what it can do. Generic tips don't fit your actual role, and it's hard to tell good output from confident-but-wrong output. You want to level up fast, with someone who tailors it to you.",
+      "You use AI, but you suspect you're getting a fraction of what it can do. Generic tips don't fit your actual role, and it's hard to tell good output from confident-but-wrong output.",
     whatHeading: "What I do",
     what:
-      "Personalized coaching built around your role and goals. Two common profiles: senior executives use AI as a genuine strategy and thought partner: pressure-testing decisions, drafting, synthesizing, thinking out loud with a capable second mind. Analysts and individual contributors get far more from AI while keeping outputs accurate and trustworthy, with the verification habits that matter. I cover fundamentals, best practices, terminology, and prompt/agent design, only the parts you need.",
+      "Personal coaching built around your role and goals: using AI as a genuine strategy and thought partner, keeping outputs accurate with the verification habits that matter, and designing the prompts and agents you'll actually use. Available inside Alpha System Care or as standalone sessions for existing clients.",
     whatYouGet: [
       "Coaching tailored to your role, tools, and goals",
-      "Fundamentals and best practices without the jargon",
       "Practical prompt, agent, and verification techniques you'll use daily",
       "A faster, more confident, more accurate way of working with AI",
     ],
     howItWorks: [
       {
         title: "Calibrate",
-        body: "I figure out your role, your goals, and where AI can help most.",
+        body: "Your role, your goals, and where AI can help most.",
       },
       {
         title: "Coach",
-        body: "Working sessions focused on real tasks from your actual work.",
+        body: "Working sessions on real tasks from your actual work.",
       },
       {
         title: "Reinforce",
-        body: "Async support between sessions to keep it sticking.",
+        body: "Async support between sessions so it sticks.",
       },
     ],
-    whoItsFor:
-      "Individuals, from the C-suite to analysts, who want to level up their own AI skills quickly.",
+    whoItsFor: "Owners and executives inside a current Alpha Infra engagement.",
     pricing:
-      "Sessions from $350 (60–90 min). Monthly packages from $1,500/mo (multiple sessions plus async support).",
-    ctaLine: "Level up how you work with AI.",
-  },
-  {
-    slug: "strategy",
-    order: "05",
-    group: "Strategic Partnership",
-    name: "AI Strategy",
-    icon: "Compass",
-    eyebrow: "Strategic Partnership",
-    tagline:
-      "I help your leadership team think through how AI reshapes your business, where it creates advantage, where it threatens the current model, and co-build a phased roadmap for adapting to a new world of work.",
-    bestFor: "leadership teams planning the next few years.",
-    priceDisplay: "Custom (book a call)",
-    isHighEnd: true,
-    h1: "A clear AI strategy for a fast-changing world.",
-    subhead:
-      "I help your leadership team think through how AI reshapes your business, where it creates advantage, where it threatens the model, and co-build a phased roadmap for the road ahead.",
-    problemHeading: "The problem",
-    problem:
-      "AI is changing your industry faster than any strategy cycle was built for. Leadership teams feel the pressure but lack a shared, clear-eyed view of what it actually means for their business: where the advantage is, where the threat is, and what to do first. Reacting tool-by-tool isn't a strategy. You need a plan you can lead from.",
-    whatHeading: "What I do",
-    what:
-      "I work directly with your leadership team to think through how AI impacts your business strategy: where it creates durable advantage, where it undermines the current model, and how roles and the organization should evolve. Together I build a phased roadmap for adapting to a new world of work: sequenced, realistic, and owned by your team, not handed down from a consultant.",
-    whatYouGet: [
-      "Executive working sessions that build shared understanding and conviction",
-      "An AI opportunity-and-threat map specific to your business",
-      "A phased adoption roadmap: what to do now, next, and later",
-      "A point of view on how roles and the org evolve as AI takes on more",
-      "Optional ongoing advisory as the landscape (and your plan) moves",
-    ],
-    howItWorks: [
-      {
-        title: "Align",
-        body: "Working sessions to build a shared, honest view across leadership.",
-      },
-      {
-        title: "Map",
-        body: "Where AI creates advantage and where it threatens your model.",
-      },
-      {
-        title: "Roadmap",
-        body: "A phased, sequenced plan your team owns.",
-      },
-      {
-        title: "Advise",
-        body: "Optional ongoing advisory to keep the plan current.",
-      },
-    ],
-    whoItsFor:
-      "Leadership teams planning the next few years, who want a strategy they can actually lead from.",
-    pricing:
-      "Custom multi-week engagement, typically $15,000–$40,000, with an optional ongoing advisory retainer. Book a call and I'll scope it together.",
-    ctaLine: "Build the plan for what's coming.",
+      "Sessions from $350 (60 to 90 minutes), for existing clients. Included in the upper tier of Alpha System Care.",
+    ctaLine: "Ask about coaching inside your engagement.",
   },
 ];
 
-export const SERVICE_GROUPS: ServiceGroup[] = [
-  "Build & Deliver",
-  "Training & Coaching",
-  "Strategic Partnership",
-];
+export const SERVICE_GROUPS: ServiceGroup[] = ["Front door", "Extension", "Private"];
+
+export const LISTED_SERVICES = SERVICES.filter((s) => s.listed);
 
 export function getService(slug: string): Service | undefined {
   return SERVICES.find((s) => s.slug === slug);
 }
 
 export function servicesByGroup(group: ServiceGroup): Service[] {
-  return SERVICES.filter((s) => s.group === group);
+  return SERVICES.filter((s) => s.group === group && s.listed);
 }
