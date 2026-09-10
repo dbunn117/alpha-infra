@@ -76,7 +76,7 @@ export const proof = {
   heading: "A system built to drive revenue, not just show it to him.",
   context:
     "Fifteen people, twenty years trading, one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else, and revenue was leaking on both ends.",
-  built: "Built with Claude Code over eight working sessions across ten weeks, with the owner in the room.",
+  built: "Built with Claude Code over eight working sessions, with the owner in the room.",
   pillars: [
     {
       title: "Keeps recurring revenue recurring",
