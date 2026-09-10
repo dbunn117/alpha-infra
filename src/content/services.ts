@@ -102,37 +102,37 @@ export const SERVICES: Service[] = [
     examples: {
       heading: "What a Quick Win looks like",
       intro:
-        "Six shapes it usually takes, all at the one price. Yours will be one of these or close to it.",
+        "Six shapes it tends to take, across finance, operations, and sales. All the same price, and each one comes with the number we'll measure it by.",
       items: [
+        {
+          title: "Invoice capture and coding",
+          body: "Invoices arrive in a shared mailbox, get read, coded, and matched, and land in the accounting package queued for someone to approve.",
+          tools: "Inbox · Xero or QuickBooks · measured in hours and errors",
+        },
+        {
+          title: "Month-end document chase",
+          body: "The requests, reminders, and collection that month-end waits on, tracked in one place and chased without a person doing the chasing.",
+          tools: "Inbox · Shared drive · measured in days to close",
+        },
+        {
+          title: "Management pack first draft",
+          body: "The numbers pulled from the accounting package and the commentary drafted in your house style, so the team edits instead of starting from a blank page.",
+          tools: "Accounting · Spreadsheets · measured in hours",
+        },
         {
           title: "Enquiry triage and quote routing",
           body: "Every inbound enquiry tagged, summarised, and routed to the right person with a draft reply, so nothing waits past your quote deadline.",
-          tools: "Inbox · CRM",
+          tools: "Inbox · CRM · measured in turnaround time",
         },
         {
-          title: "Quiet-account alerts",
-          body: "Accounts whose spend or contact has dropped against their own pattern, flagged weekly with the evidence.",
-          tools: "Accounting · CRM",
+          title: "Contract and lease intake",
+          body: "Key terms pulled out of the documents that arrive by email, filed where they belong, with renewals and deadlines flagged before they get missed.",
+          tools: "Inbox · Shared drive · measured in hours and misses",
         },
         {
           title: "The Monday digest",
           body: "One page every Monday stitched from three tools: what moved, what's late, what needs a decision.",
-          tools: "Any three tools",
-        },
-        {
-          title: "Month-end document chase",
-          body: "Requests, reminders, and collection of the documents month-end waits on, tracked in one place.",
-          tools: "Inbox · Shared drive",
-        },
-        {
-          title: "Target-list tracker",
-          body: "The businesses you want to win next, with the public signals that say when to call.",
-          tools: "CRM · Public feeds",
-        },
-        {
-          title: "First-draft quotes and proposals",
-          body: "First drafts in your voice from past work and the enquiry itself, ready for review rather than written from a blank page.",
-          tools: "Inbox · Documents",
+          tools: "Any three tools · measured in hours",
         },
       ],
     },
@@ -186,40 +186,40 @@ export const SERVICES: Service[] = [
     name: "The Alpha System",
     icon: "LineChart",
     eyebrow: "Build",
-    pain: "you can name the number that's hurting, but the data to move it lives in a CRM, a spreadsheet, an accounting package, and an inbox, and you're managing it from memory.",
+    pain: "your team spends its day moving information between a CRM, spreadsheets, an accounting package, and an inbox, and you can name the number that suffers for it.",
     tagline:
-      "My flagship build. We name the one number you want to move, find the data behind it across your CRM, ops, finance, and email, and I build a live system that tells you what to do next.",
-    bestFor: "owners who can name the one number they want to move, and whose data to move it lives in three or more tools.",
+      "My flagship build. I connect the tools you already run, write down how the business decides, and build the AI-native system that does the recurring work your team still does by hand. Scoped to one number at a time, so it has a finish line.",
+    bestFor: "finance, operations, and owner-led teams whose work lives in three or more tools.",
     priceDisplay: "From $7,500",
     mostPopular: true,
     chip: "Flagship",
     highlights: [
-      "One number, named up front, with a baseline",
-      "A live system that tells you what to do next",
+      "One number, named up front, so the build has a finish line",
+      "An AI-native system that does the recurring work inside your tools",
       "Your operating memory, written down, yours to keep",
     ],
     glance: {
       input:
         "Your CRM, spreadsheets, accounting package, and inbox, plus public feeds where they matter. Nothing migrates; it reads what you already run.",
       trigger:
-        "Every morning, and the moment something happens: an enquiry lands, an account goes quiet, a quote passes its deadline.",
+        "Every morning, and the moment something happens: an invoice arrives, an enquiry lands, an account goes quiet, a deadline passes.",
       output:
-        "A ranked list of what to do next (who to call, what to quote, what to fix) and the number, read every month.",
+        "The recurring work done: numbers posted, replies drafted, documents filed, exceptions held for a person to approve. And the number, read every month.",
     },
     reality: {
       heading: "The week, by hand",
       items: [
-        "Three systems that don't talk: jobs and quotes in one, the money in another, the conversations in email",
-        "Accounts going quiet with nobody noticing until the renewal doesn't come",
-        "Enquiries waiting on a quote while whoever answers first wins the work",
-        "The list of businesses you want to win next living in a notebook",
-        "The whole picture living in the owner's head, rebuilt from memory every week",
+        "Three systems that don't talk: jobs or deals in one, the money in another, the conversations in email",
+        "Month-end built from exports and a spreadsheet, then checked by the person who built it",
+        "The same numbers keyed twice, in two tools, by two people",
+        "Enquiries and requests waiting on whoever gets to the inbox first",
+        "The whole picture living in one person's head, rebuilt from memory every week",
       ],
     },
     layers: {
       heading: "What it's made of",
       intro:
-        "One system, five layers, foundation first. Each one is useful on its own and makes the next one possible. The Entec build was scoped to sales, but the two layers underneath it, the operating memory and the connections to his email, CRM, and job system, are effectively the company's brain. The next number starts from there rather than from scratch.",
+        "One system, five layers, foundation first. Each one is useful on its own and makes the next one possible. The two layers underneath, the operating memory and the connections to your tools, are effectively the company's brain. Everything after that is built on them, so the next workflow starts from there rather than from scratch.",
       items: [
         {
           name: "01 · Operating memory",
@@ -234,16 +234,16 @@ export const SERVICES: Service[] = [
           points: ["CRM and job systems", "Accounting", "Email, calendar, documents, public feeds"],
         },
         {
-          name: "03 · Signals",
-          title: "It watches and tells you what matters.",
-          body: "Your data plus the operating memory, read by AI every morning and whenever something happens. What comes out is a ranked view of what to do next, with the evidence behind each flag.",
-          points: ["A daily what-to-do-next list", "Alerts for the events you defined", "Evidence shown for every flag"],
+          name: "03 · Intelligence",
+          title: "It reads everything and works out what needs doing.",
+          body: "Your data plus the operating memory, read by AI every morning and whenever something happens. It knows which invoice is due, which enquiry is waiting, which account has gone quiet, and shows its evidence for each.",
+          points: ["Knows what's due and what's waiting", "Alerts for the events you defined", "Evidence shown for every call it makes"],
         },
         {
-          name: "04 · Actions",
-          title: "It does the recurring work, with your approval.",
-          body: "Follow-ups drafted, enquiries routed, reports assembled, records updated, each with a human approval wherever you decided one is needed, and written back into the tools you already use.",
-          points: ["Drafts and routing", "Recurring reports", "Approvals before anything changes a record"],
+          name: "04 · Work",
+          title: "It does the work, with your approval where it matters.",
+          body: "Numbers posted, invoices coded, follow-ups drafted, documents filed, reports assembled, records updated. Each with a human approval wherever you decided one is needed, and written back into the tools you already use.",
+          points: ["Posting, coding, filing, drafting", "Recurring reports and packs", "Approvals before anything changes a record"],
         },
         {
           name: "05 · The number",
@@ -317,7 +317,7 @@ export const SERVICES: Service[] = [
         },
         {
           fail: "The owner was not in the room.",
-          body: "Delegated to IT or a vendor, the build drifts toward what's easy to demo rather than what changes the number. At Entec the definition of a key account changed twice, because the owner was there to correct it.",
+          body: "Delegated to IT or a vendor, the build drifts toward what's easy to demo rather than what changes the number. In the builds I've done, the definitions have changed at least once part-way through, because the owner was there to correct them.",
           counter: "Eight working sessions with you, not a spec handed over once.",
         },
         {
@@ -331,21 +331,21 @@ export const SERVICES: Service[] = [
         href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
       },
     },
-    h1: "Pick the number that matters. I'll build the system that moves it.",
+    h1: "One AI-native system that does the work your team still does by hand.",
     subhead:
-      "One number per engagement. We start with the constraint, not the tools, then connect the data behind it into one live system built around your decisions. It's what took Entec Access Systems from three disconnected tools to a system that keeps recurring revenue recurring.",
+      "I connect the tools you already run, write down how the business decides, and build the layer that does the recurring work: reconciling, drafting, filing, chasing, reporting, with your approvals wherever they matter. Scoped to one number at a time, so it has a finish line.",
     problemHeading: "The problem",
     problem:
       "Most owners I speak to can name the number that's hurting: accounts leaving without anyone noticing, quotes going out too slowly, margin nobody can see until quarter end. The data to move it already exists. The problem is that it's split across a CRM, a spreadsheet, an accounting package, and an inbox, so nobody sees the whole picture in time to act, and the number gets managed from memory and last month's report.",
     whatHeading: "What The Alpha System is",
     what:
-      "It isn't a dashboard and it isn't a data integration project. We start by naming the one outcome you want to move and what would need to be true to move it. Then I trace the data behind that outcome, wherever it lives, and use AI to connect and synthesise it into one live system that tells you what to do next: who to call, what to quote, what to fix. Underneath it sits your operating memory, your rules, definitions, and judgment written down, so the AI works the way you would rather than the way a template would. That's how Entec's owner ended up with a system that flags which accounts have gone quiet before they leave.",
+      "It isn't a dashboard and it isn't a data integration project. It's software, built for your business, that does the recurring work your team does by hand today: reading what arrives in the inbox, posting the numbers, drafting the replies, filing the documents, assembling the pack, and holding anything uncertain for a person to approve. We start by naming the one number you want to move, so the first phase has a finish line. Then I connect the tools you already run and write down your operating memory, your rules, definitions, and judgment, so the AI works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
     whatYouGet: [
       "One business number with its baseline, agreed before we build anything",
       "A current-state map of the workflow and the data behind the number",
       "A working system connected to a defined set of your existing tools, no rip-and-replace",
       "Decision rules and the human approvals the system must ask for, written down",
-      "A visible operating output: a daily queue, digest, or view that says what to do next",
+      "The recurring work done inside your tools, with a visible queue of what it did and what it's holding for a person",
       "Your operating memory: the rules, definitions, and judgment the system runs on, yours to keep",
       "Documentation and a proper handover. You own the system outright",
       "30 days of measurement and tuning after go-live, reading the number together",
@@ -373,7 +373,7 @@ export const SERVICES: Service[] = [
       },
     ],
     whoItsFor:
-      "Owners who can name the number they want to move and are tired of managing it from memory, especially when the data is spread across tools and nobody has the full picture in time to act.",
+      "Finance, operations, and owner-led teams whose work lives in three or more tools, who want the recurring load taken off people, and who can name the number they'd measure it by.",
     pricing:
       "From $7,500, typically $10,000 to $15,000 depending on how many tools we connect and how much judgment we write down. If you'd rather tie my fee to the result, I'm happy to price against the number instead. A Quick Win or Sprint fee comes off if the build starts within 90 days. Alpha System Care is available afterwards, to build clients only.",
     ctaLine: "Ready to name the number?",

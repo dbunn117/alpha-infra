@@ -1,6 +1,6 @@
 import { ChapterFolio } from "@/components/chapter-folio";
 import { Hero } from "@/components/hero";
-import { ProofPlate } from "@/components/proof-plate";
+import { ProofStrip } from "@/components/proof-strip";
 import { FitLedger } from "@/components/fit-ledger";
 import { ServicesSection } from "@/components/services-section";
 import { ProcessSection } from "@/components/process-section";
@@ -20,7 +20,7 @@ export default function HomePage() {
     <>
       <ChapterFolio />
       <Hero />
-      <ProofPlate />
+      <ProofStrip />
       <FitLedger />
       <ServicesSection />
       <ProcessSection />

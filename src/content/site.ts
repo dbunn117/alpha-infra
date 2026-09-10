@@ -9,7 +9,7 @@ export const site = {
   legalName: "Alpha Infra LLC",
   tagline: "AI foundations that drive meaningful growth.",
   description:
-    "I connect the data scattered across your CRM, spreadsheets, accounting package, and inbox into one live AI system that tells you what to do next. Built for owner-led businesses that want one number moved.",
+    "AI-native systems that do the work your team still does by hand. I connect the tools you already run, write down how the business decides, and build the layer that does the recurring work, for finance, operations, and owner-led teams.",
   founder: "David Bunn",
   // Config: override via env (.env.local). See .env.example.
   ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
@@ -30,14 +30,14 @@ export const nav = {
 } as const;
 
 export const hero = {
-  eyebrow: "For owners running the business out of a CRM, a spreadsheet, an accounting package, and an inbox",
-  headline: "Name the number you want to move. I'll build the system that moves it.",
+  eyebrow: "For finance, operations, and owner-led teams still doing by hand what software should do",
+  headline: "The AI system that does the work your team still does by hand.",
   subhead:
-    "Most owners I speak to have the same setup: jobs in one system, money in another, everything else in email, and nobody with the full picture. I connect what you already run into one live system that tells you what to do next.",
+    "Most teams I speak to run on a CRM, a few spreadsheets, an accounting package, and an inbox, with people moving information between them all day. I connect what you already run into one AI-native system that does that work, with your rules and your approvals built in.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
-    "30 minutes. We name the number and check the data is there to move it. If it isn't, I'll say so.",
+    "30 minutes. We find the work worth taking off your team first and check the data is there to do it. If it isn't, I'll say so.",
   stats: [
     { value: "$25B+", label: "market-cap audit client at PwC" },
     { value: "10+ yrs", label: "in finance, operations & data before AI" },
@@ -57,8 +57,8 @@ export const inkPeak = {
     { id: "accounting", label: "Accounting" },
   ],
   systemLabel: "One running system",
-  /* The three rows inside the system plate: decisions, not data */
-  actions: ["Who to call", "What to quote", "What to fix"],
+  /* The three rows inside the system plate: work it does, not advice */
+  actions: ["Posts the numbers", "Drafts the replies", "Flags the exceptions"],
   annotation: "in daily use since Jul 2026",
 } as const;
 
@@ -106,6 +106,43 @@ export const proof = {
     alt: "Entec's Sales Intelligence Hub: five sales channels on one dashboard, with today's priority actions ranked across key accounts, inbound enquiries, public tenders, and target list, plus an ask-anything panel over the live data. Account names and figures blurred.",
   } as null | { src: string; alt: string },
   link: { label: "Read the case study", href: "/work" },
+} as const;
+
+/*
+ * Homepage proof strip: three things I've built, chosen for range (a
+ * services business's sales system, finance operations, PE investor
+ * relations). Entec is one of three, not the whole story. The full catalogue
+ * lives on /work.
+ */
+export const proofStrip = {
+  eyebrow: "Proof",
+  heading: "Real systems, built and shipped.",
+  intro:
+    "Three of the things I've built. The rest are in the work catalogue.",
+  items: [
+    {
+      title: "A sales system for a 15-person services business",
+      body: "Reads SimPRO, Xero, and Outlook every morning, flags accounts going quiet, routes every enquiry for a quote inside 48 hours, and holds the target list. Live at Entec Access Systems since July 2026.",
+      tools: "SimPRO · Xero · Outlook · Claude Code · n8n",
+      image: true,
+      href: "/work",
+    },
+    {
+      title: "Accounts-payable automation for a finance team",
+      body: "Invoices arrive in a shared mailbox, get read and validated by AI, and the weekly wire-request package assembles itself. A manual process turned into a scheduled run.",
+      tools: "AI extraction · Power Automate",
+      image: false,
+      href: "/work",
+    },
+    {
+      title: "Due-diligence app for investor relations",
+      body: "Surfaces how the team answered the same diligence questions before, with a side-by-side view of how an answer has shifted over three years, so new responses start from precedent instead of a blank page.",
+      tools: "Claude Code · Semantic search",
+      image: false,
+      href: "/work",
+    },
+  ],
+  link: { label: "See the work catalogue", href: "/work" },
 } as const;
 
 export const principles = {
@@ -158,7 +195,7 @@ export const offerings = {
     "One workflow, one number, or a plan for what to build first. Each one opens with the situation it's for. If you start small and go on to a build, the first fee comes off the second.",
   examplesHeading: "What a Quick Win usually looks like",
   examplesIntro:
-    "These are the shapes it tends to take. All the same price. Yours will be one of these or close to it.",
+    "Six shapes it tends to take, across finance, operations, and sales. All the same price, and each one comes with the number we'll measure it by.",
   extensionsHeading: "Once there's a system",
   extensionsIntro:
     "Two things keep it paying: a working day with your team, and someone looking after the system every month. Both are for build clients.",
