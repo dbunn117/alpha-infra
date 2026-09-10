@@ -54,6 +54,23 @@ export default async function ServicePage({
         </div>
       </PageHero>
 
+      {service.glance ? (
+        <div className="container-page pt-4">
+          <dl className="surface grid divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
+            {[
+              ["Input", service.glance.input],
+              ["Trigger", service.glance.trigger],
+              ["Output", service.glance.output],
+            ].map(([label, text]) => (
+              <div key={label} className="p-6">
+                <dt className="caption">{label}</dt>
+                <dd className="mt-2 text-sm leading-relaxed text-foreground">{text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ) : null}
+
       <div className="container-page grid gap-12 pb-8 pt-12 lg:grid-cols-[1fr_340px] lg:gap-16">
         {/* Main column */}
         <div className="max-w-2xl space-y-12">
@@ -67,6 +84,19 @@ export default async function ServicePage({
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 {service.problem}
               </p>
+              {service.reality ? (
+                <div className="surface mt-6 p-6">
+                  <p className="caption">{service.reality.heading}</p>
+                  <ul className="mt-3 space-y-2">
+                    {service.reality.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground">
+                        <span aria-hidden className="mt-2.5 h-px w-3 shrink-0 bg-muted-foreground" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
             </section>
           </Reveal>
 

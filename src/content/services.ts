@@ -50,6 +50,10 @@ export type Service = {
   highlights?: string[];
   /* "How it earns trust" list (flagship) */
   trust?: string[];
+  /* At-a-glance strip: what goes in, what sets it off, what comes out (flagship) */
+  glance?: { input: string; trigger: string; output: string };
+  /* "The reality today" cost box: the manual version, in the buyer's facts (flagship) */
+  reality?: { heading: string; items: string[] };
   /* "Why most AI projects stall" ledger (flagship only) */
   stalls?: {
     heading: string;
@@ -145,7 +149,26 @@ export const SERVICES: Service[] = [
       "A live system that tells you what to do next",
       "Your operating memory, written down and yours to keep",
     ],
+    glance: {
+      input:
+        "Your CRM, spreadsheets, accounting package, and inbox, plus public feeds where they matter. Nothing migrates; it reads what you already run.",
+      trigger:
+        "Every morning, and the moment something happens: an enquiry lands, an account goes quiet, a quote passes its deadline.",
+      output:
+        "A ranked list of what to do next (who to call, what to quote, what to fix) and the number, read every month.",
+    },
+    reality: {
+      heading: "The week, by hand",
+      items: [
+        "Three systems that don't talk: jobs and quotes in one, the money in another, the conversations in email",
+        "Accounts going quiet with nobody noticing until the renewal doesn't come",
+        "Enquiries waiting on a quote while whoever answers first wins the work",
+        "The list of businesses you want to win next living in a notebook",
+        "The whole picture living in the owner's head, rebuilt from memory every week",
+      ],
+    },
     trust: [
+      "It runs in your accounts, under your credentials: the tools, the AI subscriptions, and the automation platform are set up in your name, so nothing depends on mine",
       "Every AI-made match or suggestion is marked as AI-made, never blended in as if a person did it",
       "It shows the evidence behind each flag, so you can check the call in seconds",
       "Anything that changes a system of record waits for a human approval you define",
