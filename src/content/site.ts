@@ -156,6 +156,9 @@ export const offerings = {
   heading: "Three ways in. One path.",
   intro:
     "Start with one workflow, move one number, or decide what to build first. Every door opens with the situation it answers, and each fee is credited if it leads to a build.",
+  examplesHeading: "What a Quick Win looks like",
+  examplesIntro:
+    "Six shapes it usually takes, all at the one price. Yours will be one of these or close to it.",
   extensionsHeading: "For build clients",
   extensionsIntro:
     "Once there's a system, two things keep it paying: a working day for the team, and monthly care for the system itself.",

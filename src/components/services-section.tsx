@@ -1,4 +1,4 @@
-import { servicesByGroup } from "@/content/services";
+import { getService, servicesByGroup } from "@/content/services";
 import { Chapter } from "@/components/chapter";
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/service-card";
@@ -16,6 +16,7 @@ export function ServicesSection({
 }) {
   const doors = servicesByGroup("Front door");
   const extensions = servicesByGroup("Extension");
+  const examples = getService("quick-win")?.examples;
 
   return (
     <Chapter id="services" title="Offerings">
@@ -31,6 +32,24 @@ export function ServicesSection({
             </Reveal>
           ))}
         </div>
+
+        {examples ? (
+          <div className="mt-14">
+            <div className="max-w-3xl">
+              <h3 className="text-xl">{offerings.examplesHeading}</h3>
+              <p className="measure mt-2 text-muted-foreground">{offerings.examplesIntro}</p>
+            </div>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {examples.items.map((item, i) => (
+                <Reveal as="li" key={item.title} delay={i * 0.04} className="rounded-xl border border-border bg-surface-2 p-5">
+                  <p className="font-semibold leading-snug">{item.title}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                  <p className="caption mt-3">{item.tools}</p>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         <div className="mt-16">
           <div className="max-w-3xl">

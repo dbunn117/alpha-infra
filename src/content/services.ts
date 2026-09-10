@@ -54,6 +54,18 @@ export type Service = {
   glance?: { input: string; trigger: string; output: string };
   /* "The reality today" cost box: the manual version, in the buyer's facts (flagship) */
   reality?: { heading: string; items: string[] };
+  /* "What it's made of": the layers, foundation first (flagship) */
+  layers?: {
+    heading: string;
+    intro: string;
+    items: { name: string; title: string; body: string; points: string[] }[];
+  };
+  /* A typical engagement, week by week (flagship) */
+  timeline?: { heading: string; intro: string; steps: { when: string; title: string; body: string }[] };
+  /* Tools the system reads and writes back into (flagship) */
+  connects?: { heading: string; note: string; tools: { name: string; icon?: string }[] };
+  /* Worked examples at one price (Quick Win) */
+  examples?: { heading: string; intro: string; items: { title: string; body: string; tools: string }[] };
   /* "Why most AI projects stall" ledger (flagship only) */
   stalls?: {
     heading: string;
@@ -87,6 +99,43 @@ export const SERVICES: Service[] = [
       "Live in two to three weeks, measured for 30 days",
       "Fee credited if it leads to an Alpha System",
     ],
+    examples: {
+      heading: "What a Quick Win looks like",
+      intro:
+        "Six shapes it usually takes, all at the one price. Yours will be one of these or close to it.",
+      items: [
+        {
+          title: "Enquiry triage and quote routing",
+          body: "Every inbound enquiry tagged, summarised, and routed to the right person with a draft reply, so nothing waits past your quote deadline.",
+          tools: "Inbox · CRM",
+        },
+        {
+          title: "Quiet-account alerts",
+          body: "Accounts whose spend or contact has dropped against their own pattern, flagged weekly with the evidence.",
+          tools: "Accounting · CRM",
+        },
+        {
+          title: "The Monday digest",
+          body: "One page every Monday stitched from three tools: what moved, what's late, what needs a decision.",
+          tools: "Any three tools",
+        },
+        {
+          title: "Month-end document chase",
+          body: "Requests, reminders, and collection of the documents month-end waits on, tracked in one place.",
+          tools: "Inbox · Shared drive",
+        },
+        {
+          title: "Target-list tracker",
+          body: "The businesses you want to win next, with the public signals that say when to call.",
+          tools: "CRM · Public feeds",
+        },
+        {
+          title: "First-draft quotes and proposals",
+          body: "First drafts in your voice from past work and the enquiry itself, ready for review rather than written from a blank page.",
+          tools: "Inbox · Documents",
+        },
+      ],
+    },
     h1: "One workflow, automated and measured, in three weeks.",
     subhead:
       "A fixed-fee automation for one high-volume, manual process, built in the software you already use and measured against a number you agree up front. If the discovery call can't find a workflow worth it, there is no fee.",
@@ -165,6 +214,77 @@ export const SERVICES: Service[] = [
         "Enquiries waiting on a quote while whoever answers first wins the work",
         "The list of businesses you want to win next living in a notebook",
         "The whole picture living in the owner's head, rebuilt from memory every week",
+      ],
+    },
+    layers: {
+      heading: "What it's made of",
+      intro:
+        "One system, five layers, foundation first. Each is useful on its own and makes the next one possible. The Entec build was scoped to sales, but the two layers underneath it, the operating memory and the connections to email, the CRM, and the job system, are the company's brain. The next number starts from there, not from scratch.",
+      items: [
+        {
+          name: "01 · Operating memory",
+          title: "The system understands the business.",
+          body: "Your rules, definitions, and judgment, written down: what counts as a key account, when a quote is late, who gets called first, the strategy and the people. Kept as plain-text files (I use Obsidian) that you and any AI can read, so it stays yours and never locks into a vendor.",
+          points: ["Definitions and rules", "Strategy, team, and roles", "Decisions, and why they were made"],
+        },
+        {
+          name: "02 · Connections",
+          title: "It reads the tools you already run.",
+          body: "Secure connectors to your CRM, job or project system, accounting package, inbox, and the public feeds that matter, set up in your accounts under your credentials. Nothing migrates.",
+          points: ["CRM and job systems", "Accounting", "Email, calendar, documents, public feeds"],
+        },
+        {
+          name: "03 · Signals",
+          title: "It watches and tells you what matters.",
+          body: "Data plus operating memory, read by AI every morning and the moment something happens: a ranked view of what to do next, with the evidence behind each flag.",
+          points: ["A daily what-to-do-next list", "Alerts for the events you defined", "Evidence shown for every flag"],
+        },
+        {
+          name: "04 · Actions",
+          title: "It does the recurring work, with your approval.",
+          body: "Follow-ups drafted, enquiries routed, reports assembled, records updated, each with a human approval wherever you decided one is needed, and written back into the tools you already use.",
+          points: ["Drafts and routing", "Recurring reports", "Approvals before anything changes a record"],
+        },
+        {
+          name: "05 · The number",
+          title: "It is measured, and it grows.",
+          body: "The named number, read monthly against its baseline. Once the foundation runs, the next workflow or the next number is a change to the same system, not a new project.",
+          points: ["Monthly read against the baseline", "The next number on the same foundation", "Alpha System Care keeps it current"],
+        },
+      ],
+    },
+    timeline: {
+      heading: "A typical engagement",
+      intro:
+        "Entec ran eight working sessions across ten weeks. Smaller scopes compress the build; larger ones extend it, not the framing.",
+      steps: [
+        { when: "Week 0", title: "Discovery call", body: "Thirty minutes to name the number worth moving and check the data is there to move it." },
+        { when: "Week 1", title: "Name the number, trace the data", body: "Interviews, tool access, the current-state map, and the baseline we'll measure against." },
+        { when: "Weeks 2 to 3", title: "Operating memory and connections", body: "Your rules and definitions written down, your tools connected in your accounts." },
+        { when: "Weeks 4 to 7", title: "Build and test", body: "Weekly working sessions with you. Definitions get corrected by real use, which is the point." },
+        { when: "Week 8", title: "Go live", body: "Live data, your team using it, ownership handed over." },
+        { when: "Weeks 9 to 12", title: "Measure and tune", body: "Thirty days reading the number together, then Care if you want it looked after." },
+      ],
+    },
+    connects: {
+      heading: "Reads the tools you already run",
+      note: "and writes back into them. Set up in your accounts, under your credentials.",
+      tools: [
+        { name: "Xero", icon: "xero" },
+        { name: "QuickBooks", icon: "quickbooks" },
+        { name: "HubSpot", icon: "hubspot" },
+        { name: "Salesforce" },
+        { name: "Pipedrive" },
+        { name: "SimPRO" },
+        { name: "Microsoft 365" },
+        { name: "Google Workspace" },
+        { name: "n8n", icon: "n8n" },
+        { name: "Zapier", icon: "zapier" },
+        { name: "Make", icon: "make" },
+        { name: "Slack" },
+        { name: "Notion", icon: "notion" },
+        { name: "Airtable", icon: "airtable" },
+        { name: "Claude", icon: "claude" },
       ],
     },
     trust: [

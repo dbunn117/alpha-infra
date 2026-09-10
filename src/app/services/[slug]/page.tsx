@@ -8,6 +8,7 @@ import { ServiceIcon } from "@/components/service-icon";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { Reveal } from "@/components/reveal";
 import { StallLedger } from "@/components/stall-ledger";
+import { ToolLogos } from "@/components/tool-logos";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 
@@ -68,6 +69,15 @@ export default async function ServicePage({
               </div>
             ))}
           </dl>
+          {service.connects ? (
+            <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-baseline md:gap-8">
+              <p className="shrink-0 text-sm">
+                <span className="font-semibold">{service.connects.heading}</span>{" "}
+                <span className="text-muted-foreground">{service.connects.note}</span>
+              </p>
+              <ToolLogos tools={service.connects.tools} />
+            </div>
+          ) : null}
         </div>
       ) : null}
 
@@ -110,6 +120,49 @@ export default async function ServicePage({
               </p>
             </section>
           </Reveal>
+
+          {service.layers ? (
+            <Reveal>
+              <section>
+                <h2 className="text-2xl font-semibold">{service.layers.heading}</h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{service.layers.intro}</p>
+                <ol className="mt-6 divide-y divide-border border-y border-border">
+                  {service.layers.items.map((layer) => (
+                    <li key={layer.name} className="grid gap-3 py-6 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                      <p className="caption pt-1.5">{layer.name}</p>
+                      <div>
+                        <h3 className="text-lg">{layer.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{layer.body}</p>
+                        <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+                          {layer.points.map((pt) => (
+                            <li key={pt} className="text-sm text-foreground">· {pt}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            </Reveal>
+          ) : null}
+
+          {service.examples ? (
+            <Reveal>
+              <section>
+                <h2 className="text-2xl font-semibold">{service.examples.heading}</h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{service.examples.intro}</p>
+                <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {service.examples.items.map((item) => (
+                    <li key={item.title} className="rounded-xl border border-border bg-surface-2 p-5">
+                      <p className="font-semibold leading-snug">{item.title}</p>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                      <p className="caption mt-3">{item.tools}</p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          ) : null}
 
           <Reveal>
             <section>
@@ -171,6 +224,26 @@ export default async function ServicePage({
               </ol>
             </section>
           </Reveal>
+
+          {service.timeline ? (
+            <Reveal>
+              <section>
+                <h2 className="text-2xl font-semibold">{service.timeline.heading}</h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{service.timeline.intro}</p>
+                <ol className="mt-6 divide-y divide-border border-y border-border">
+                  {service.timeline.steps.map((step) => (
+                    <li key={step.when} className="grid gap-1 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                      <p className="caption pt-1">{step.when}</p>
+                      <div>
+                        <p className="font-semibold">{step.title}</p>
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            </Reveal>
+          ) : null}
 
           <Reveal>
             <section>
