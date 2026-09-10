@@ -256,14 +256,14 @@ export const SERVICES: Service[] = [
     timeline: {
       heading: "A typical engagement",
       intro:
-        "Entec ran eight working sessions across ten weeks. Smaller scopes compress the build; larger ones extend it, not the framing.",
+        "Typically six weeks to go-live, then thirty days of measurement. Eight working sessions, about an hour of your time each; the rest is mine. Smaller scopes compress the build; larger ones extend it, not the framing.",
       steps: [
         { when: "Week 0", title: "Discovery call", body: "Thirty minutes to name the number worth moving and check the data is there to move it." },
         { when: "Week 1", title: "Name the number, trace the data", body: "Interviews, tool access, the current-state map, and the baseline we'll measure against." },
-        { when: "Weeks 2 to 3", title: "Operating memory and connections", body: "Your rules and definitions written down, your tools connected in your accounts." },
-        { when: "Weeks 4 to 7", title: "Build and test", body: "Weekly working sessions with you. Definitions get corrected by real use, which is the point." },
-        { when: "Week 8", title: "Go live", body: "Live data, your team using it, ownership handed over." },
-        { when: "Weeks 9 to 12", title: "Measure and tune", body: "Thirty days reading the number together, then Care if you want it looked after." },
+        { when: "Week 2", title: "Operating memory and connections", body: "Your rules and definitions written down, your tools connected in your accounts." },
+        { when: "Weeks 3 to 5", title: "Build and test", body: "Weekly working sessions with you. Definitions get corrected by real use, which is the point." },
+        { when: "Week 6", title: "Go live", body: "Live data, your team using it, ownership handed over." },
+        { when: "Weeks 7 to 10", title: "Measure and tune", body: "Thirty days reading the number together, then Care if you want it looked after." },
       ],
     },
     connects: {
