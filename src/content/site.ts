@@ -80,11 +80,11 @@ export const proof = {
   pillars: [
     {
       title: "Keeps recurring revenue recurring",
-      body: "Every morning it reads across every account, last touchpoint, spend this year against last, whether they've gone quiet, and tells him who to call and why. Before a customer he could have kept walks.",
+      body: "Every morning it reads across every account: last touchpoint, spend this year against last, open jobs. Triggers built around customer satisfaction, and priority rules for the key accounts, flag a customer at risk before they go quiet, while there's still time to keep them.",
     },
     {
       title: "Wins more of what comes in",
-      body: "Every enquiry gets flagged the moment it lands and routed for a quote inside a 48-hour target. That work used to go to whoever answered first.",
+      body: "Every inbound enquiry is tracked from the moment it lands, routed for a quote inside a 48-hour target, and assessed for what it could become. The ones that look like high-value clients get flagged, so the owner's selling time goes on converting the right ones.",
     },
     {
       title: "A real pipeline for what's next",
@@ -132,7 +132,7 @@ export const proofStrip = {
           rows: ["Watches every account", "Prioritises key customers", "Scores each new enquiry"],
         },
         outputs: [{ lines: ["Customer", "at risk"] }, { lines: ["High-value", "prospect"] }],
-        annotation: "live since Jul 2026",
+        annotation: "built on the owner's own rules",
       },
     },
     {

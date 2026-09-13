@@ -10,6 +10,7 @@ import { CheckCircle2 } from "lucide-react";
 import { proof } from "@/content/site";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
+import { asset } from "@/lib/asset";
 
 const PILLARS = proof.pillars;
 
@@ -37,6 +38,18 @@ export function EntecCaseStudy() {
             </Reveal>
           ))}
         </div>
+
+        {proof.image ? (
+          <Reveal as="figure" className="mt-10">
+            <div className="grain surface relative overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={asset(proof.image.src)} alt={proof.image.alt} className="block w-full" />
+            </div>
+            <figcaption className="caption mt-3">
+              The owner&rsquo;s morning view. Account names and figures blurred.
+            </figcaption>
+          </Reveal>
+        ) : null}
 
         <Reveal className="mt-10">
           <div className="surface grid gap-8 p-8 lg:grid-cols-2 lg:p-10">

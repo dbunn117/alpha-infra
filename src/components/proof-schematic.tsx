@@ -196,9 +196,9 @@ export function ProofSchematic({ data, title }: { data: Schematic; title: string
 
         {/* Annotation: Caveat, under the plate, with a short arrow up to it */}
         <text
-          x={PLATE.x + PLATE.w / 2 + 12}
+          x={PLATE.x + PLATE.w / 2 - 44}
           y={250}
-          textAnchor="middle"
+          textAnchor="start"
           fill="currentColor"
           stroke="none"
           className="font-hand"
