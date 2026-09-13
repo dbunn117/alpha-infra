@@ -9,7 +9,7 @@ export const site = {
   legalName: "Alpha Infra LLC",
   tagline: "AI foundations that drive meaningful growth.",
   description:
-    "AI-native systems that do the work your team still does by hand. I connect the tools you already run, write down how the business decides, and build the layer that does the recurring work, for finance, operations, and owner-led teams.",
+    "AI-native systems for finance, operations, and owner-led teams. I connect the tools and data you already run, take the repetitive work off your team, and build the layer that helps you win more, deliver better, and decide faster.",
   founder: "David Bunn",
   // Config: override via env (.env.local). See .env.example.
   ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
@@ -30,10 +30,10 @@ export const nav = {
 } as const;
 
 export const hero = {
-  eyebrow: "For finance, operations, and owner-led teams still doing by hand what software should do",
-  headline: "The AI system that does the work your team still does by hand.",
+  eyebrow: "For finance, operations, and owner-led teams",
+  headline: "Put AI to work on the business you already run.",
   subhead:
-    "Most teams I speak to run on a CRM, a few spreadsheets, an accounting package, and an inbox, with people moving information between them all day. I connect what you already run into one AI-native system that does that work, with your rules and your approvals built in.",
+    "Yes, to take the repetitive work off your team's plate. But also to connect the data you already hold, inside the business and out, and use it to win more of the right customers, deliver better, and decide faster. I build the system that does both, on the tools you already run, with your rules built in.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
