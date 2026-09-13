@@ -122,16 +122,16 @@ export const proofStrip = {
   items: [
     {
       title: "A sales system for a 15-person services business",
-      body: "Reads SimPRO, Xero, and Outlook every morning, flags accounts going quiet, routes every enquiry for a quote inside 48 hours, and holds the target list. Live at Entec Access Systems since July 2026.",
+      body: "Reads SimPRO, Xero, and Outlook every morning. Triggers built around customer satisfaction, and priority rules for key accounts, flag a customer at risk before they go quiet. Every inbound enquiry is tracked, assessed, and flagged when it could become a high-value client, so the owner converts more of the right ones. Live at Entec Access Systems since July 2026.",
       tools: "SimPRO · Xero · Outlook · Claude Code · n8n",
       href: "/work",
       schematic: {
         inputs: [{ lines: ["SimPRO"] }, { lines: ["Xero"] }, { lines: ["Outlook"] }],
         plate: {
           title: "Sales system",
-          rows: ["Reads every job and invoice", "Scores each account", "Matches enquiry to quote"],
+          rows: ["Watches every account", "Prioritises key customers", "Scores each new enquiry"],
         },
-        outputs: [{ lines: ["Accounts", "going quiet"] }, { lines: ["Enquiry routed", "for a quote"] }],
+        outputs: [{ lines: ["Customer", "at risk"] }, { lines: ["High-value", "prospect"] }],
         annotation: "live since Jul 2026",
       },
     },
