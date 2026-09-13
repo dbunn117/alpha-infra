@@ -268,6 +268,15 @@
   .js [data-stroke].is-drawn {
     stroke-dashoffset: 0;
   }
+  /* Text beside drawn strokes fades in on the same Reveal, same delay var. */
+  .js [data-fade] {
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-out);
+    transition-delay: var(--draw-delay, 0s);
+  }
+  .js .is-visible [data-fade] {
+    opacity: 1;
+  }
 }
 
 @keyframes rise {
@@ -308,6 +317,9 @@ html:not(.js) .ink-animation [data-ink] {
   }
   .js [data-stroke] {
     stroke-dashoffset: 0 !important;
+  }
+  .js [data-fade] {
+    opacity: 1 !important;
   }
   .ink-animation [data-ink] {
     stroke-dasharray: none !important;

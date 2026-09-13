@@ -64,8 +64,16 @@ export const professionalProjects: Project[] = [
     tag: "Investor relations · diligence",
     icon: "ClipboardCheck",
     blurb:
-      "Surfaces how the team answered the same due-diligence questions before, including a side-by-side view of how an answer has shifted over the last three years, so investor relations can draft new responses from precedent instead of a blank page.",
+      "About 4,000 question-and-answer pairs ingested and tagged by fund, date, client, and more, so investor relations finds how the team answered before in a few clicks, sees how an answer has shifted over the last three years side by side, and drafts new responses from precedent instead of a blank page.",
     tools: ["Claude Code", "Semantic search", "Investor relations"],
+  },
+  {
+    title: "Variance Analysis Tool",
+    tag: "Accounting · month-end",
+    icon: "Calculator",
+    blurb:
+      "Takes raw general-ledger extracts for about 50 properties and does the math and the logic in a web app: investigation thresholds by property and by account, a clear view of which ones need an explanation, and AI-drafted commentary for each flagged account from the GL detail. The team reviews and edits, edits persist, and the final variance package exports.",
+    tools: ["Claude Code", "Claude API", "Interactive apps"],
   },
   {
     title: "Shared-Inbox Triage Automation",
