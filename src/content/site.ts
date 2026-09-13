@@ -241,7 +241,7 @@ export const fitCheck = {
   forYou: [
     {
       title: "Your data lives in three or more places, and nobody has the full picture.",
-      body: "CRM, spreadsheets, email, accounting. None of them talk to each other, so someone is piecing the real picture together by hand, or nobody is.",
+      body: "CRM, spreadsheets, email, accounting. None of them talk to each other, so someone is piecing the real picture together from exports, or nobody is.",
     },
     {
       title: "You know there's revenue or margin hiding in your data, but no time to dig it out.",
@@ -249,7 +249,7 @@ export const fitCheck = {
     },
     {
       title: "The same manual process eats hours every week.",
-      body: "Someone on your team is doing by hand what software should be doing for them, and it's not going away on its own.",
+      body: "Someone on your team spends hours every week on work software could do for them. Those are hours back for the work that grows the business.",
     },
     {
       title: "You want something built around how you actually run your business, not a generic template.",

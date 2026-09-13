@@ -188,14 +188,14 @@ export const SERVICES: Service[] = [
     eyebrow: "Build",
     pain: "your team spends its day moving information between a CRM, spreadsheets, an accounting package, and an inbox, and you can name the number that suffers for it.",
     tagline:
-      "My flagship build. I connect the tools you already run, write down how the business decides, and build the AI-native system that does the recurring work your team still does by hand. Scoped to one number at a time, so it has a finish line.",
+      "My flagship build. I connect the tools you already run, write down how the business decides, and build the AI-native system that does the recurring work and puts your data to work: win more of the right customers, deliver better, decide faster. Scoped to one number at a time, so it has a finish line.",
     bestFor: "finance, operations, and owner-led teams whose work lives in three or more tools.",
     priceDisplay: "From $7,500",
     mostPopular: true,
     chip: "Flagship",
     highlights: [
       "One number, named up front, so the build has a finish line",
-      "An AI-native system that does the recurring work inside your tools",
+      "An AI-native system that does the recurring work and reads across your data for the upside",
       "Your operating memory, written down, yours to keep",
     ],
     glance: {
@@ -207,7 +207,7 @@ export const SERVICES: Service[] = [
         "The recurring work done: numbers posted, replies drafted, documents filed, exceptions held for a person to approve. And the number, read every month.",
     },
     reality: {
-      heading: "The week, by hand",
+      heading: "The week, today",
       items: [
         "Three systems that don't talk: jobs or deals in one, the money in another, the conversations in email",
         "Month-end built from exports and a spreadsheet, then checked by the person who built it",
@@ -331,15 +331,15 @@ export const SERVICES: Service[] = [
         href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
       },
     },
-    h1: "One AI-native system that does the work your team still does by hand.",
+    h1: "One AI-native system that does the recurring work and puts your data to work.",
     subhead:
-      "I connect the tools you already run, write down how the business decides, and build the layer that does the recurring work: reconciling, drafting, filing, chasing, reporting, with your approvals wherever they matter. Scoped to one number at a time, so it has a finish line.",
+      "I connect the tools you already run, write down how the business decides, and build the layer that does the recurring work: reconciling, drafting, filing, chasing, reporting, with your approvals wherever they matter. The same layer reads across everything you hold, inside the business and out, to surface the customers to win, the exceptions to catch, and the decisions to make sooner. Scoped to one number at a time, so it has a finish line.",
     problemHeading: "The problem",
     problem:
       "Most owners I speak to can name the number that's hurting: accounts leaving without anyone noticing, quotes going out too slowly, margin nobody can see until quarter end. The data to move it already exists. The problem is that it's split across a CRM, a spreadsheet, an accounting package, and an inbox, so nobody sees the whole picture in time to act, and the number gets managed from memory and last month's report.",
     whatHeading: "What The Alpha System is",
     what:
-      "It isn't a dashboard and it isn't a data integration project. It's software, built for your business, that does the recurring work your team does by hand today: reading what arrives in the inbox, posting the numbers, drafting the replies, filing the documents, assembling the pack, and holding anything uncertain for a person to approve. We start by naming the one number you want to move, so the first phase has a finish line. Then I connect the tools you already run and write down your operating memory, your rules, definitions, and judgment, so the AI works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
+      "It isn't a dashboard and it isn't a data integration project. It's software, built for your business, that does the recurring work: reading what arrives in the inbox, posting the numbers, drafting the replies, filing the documents, assembling the pack, and holding anything uncertain for a person to approve. It also reads across the data you already hold to find what your team hasn't had time to get to: the account drifting, the enquiry worth chasing, the margin moving. We start by naming the one number you want to move, so the first phase has a finish line. Then I connect the tools you already run and write down your operating memory, your rules, definitions, and judgment, so the AI works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
     whatYouGet: [
       "One business number with its baseline, agreed before we build anything",
       "A current-state map of the workflow and the data behind the number",
