@@ -41,7 +41,7 @@ export const experience: Experience[] = [
     company: "Alpha Infra",
     location: "San Francisco Bay Area",
     title: "Founder",
-    dates: "Jul 2026 to present",
+    dates: "Aug 2026 to present",
     bullets: [
       "AI-native systems for finance, operations, and owner-led teams, built on the tools they already run.",
       "Sales system for Entec Access Systems (UK), in daily use since July 2026.",
