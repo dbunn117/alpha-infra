@@ -38,10 +38,21 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    company: "Alpha Infra",
+    location: "San Francisco Bay Area",
+    title: "Founder",
+    dates: "Jul 2026 to present",
+    bullets: [
+      "AI-native systems for finance, operations, and owner-led teams, built on the tools they already run.",
+      "Sales system for Entec Access Systems (UK), in daily use since July 2026.",
+      "Ongoing AI and technology consulting for Stockbridge Capital Group through Alpha Infra, from August 2026.",
+    ],
+  },
+  {
     company: "Stockbridge Capital Group",
     location: "San Francisco, CA",
     title: "Data & Innovation Associate (CTO Team)",
-    dates: "Jan 2026 – Present",
+    dates: "Jan 2026 to Jul 2026",
     bullets: [
       "Built an AI Resource Hub and automated reporting workflows with Claude Code and Copilot Studio, cutting manual data-extraction time by ~80% for capital markets teams.",
       "Rebuilt financial models as dynamic, interactive apps in Claude Code, far more visual and explorable than static Excel workbooks, letting stakeholders test scenarios and drill into the drivers.",
@@ -56,7 +67,7 @@ export const experience: Experience[] = [
     company: "Stockbridge Capital Group",
     location: "San Francisco, CA",
     title: "Finance Associate",
-    dates: "May 2023 – Dec 2025",
+    dates: "May 2023 to Dec 2025",
     bullets: [
       "Owned complex revenue projections for a portfolio of 35+ funds and corporate expense forecasting: the “source of truth” for the CFO and Executive Committee.",
       "Redesigned end-to-end financial reporting flows, from source systems to board-ready presentations, using Power Query and AI tools.",
@@ -67,7 +78,7 @@ export const experience: Experience[] = [
     company: "Major League Cricket",
     location: "San Francisco, CA",
     title: "Senior Finance Manager",
-    dates: "May 2021 – Apr 2023",
+    dates: "May 2021 to Apr 2023",
     bullets: [
       "Assisted in executing a $120M Series A funding round; led 10-year cash-flow forecasting and group financial-statement preparation across 12 entities.",
       "Scaled the finance function from the ground up, implementing company-wide procurement and approval frameworks through a period of high growth and ambiguity.",
@@ -78,7 +89,7 @@ export const experience: Experience[] = [
     company: "PricewaterhouseCoopers",
     location: "San Francisco & Johannesburg",
     title: "Manager / Senior Associate",
-    dates: "Jan 2016 – Apr 2021",
+    dates: "Jan 2016 to Apr 2021",
     bullets: [
       "Led US GAAP integrated audits for a $25B+ market-cap e-commerce client; managed multi-disciplinary teams across IT, valuations, and tax.",
       "Consistently rated Tier 1 (“Exceeds Expectations”) for managing complex audit phases and budgets, reporting directly to Chief Accounting Officers.",
