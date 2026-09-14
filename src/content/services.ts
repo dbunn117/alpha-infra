@@ -89,15 +89,15 @@ export const SERVICES: Service[] = [
     name: "Quick Win",
     icon: "Rocket",
     eyebrow: "Start",
-    pain: "the same manual job eats hours every week and you'd like proof before committing to anything bigger.",
+    pain: "one manual job eats hours every week and you want proof before anything bigger.",
     tagline:
-      "One repetitive workflow, automated inside the tools you already use, live in two to three weeks. Then we measure what it saved over 30 days.",
+      "One workflow, automated inside the tools you already use. Live in two to three weeks, then measured for 30 days.",
     bestFor: "owners who want proof on one workflow before a bigger decision.",
     priceDisplay: "$2,500 fixed",
     highlights: [
-      "One workflow, one team, your existing software",
-      "Live in two to three weeks, measured for 30 days",
-      "The fee comes off an Alpha System if you go on to build one",
+      "One workflow, your existing software",
+      "Live in two to three weeks",
+      "Fee comes off a later build",
     ],
     examples: {
       heading: "What a Quick Win looks like",
@@ -186,17 +186,17 @@ export const SERVICES: Service[] = [
     name: "The Alpha System",
     icon: "LineChart",
     eyebrow: "Build",
-    pain: "your team spends its day moving information between a CRM, spreadsheets, an accounting package, and an inbox, and you can name the number that suffers for it.",
+    pain: "your work lives in three or more tools and you can name the number that suffers for it.",
     tagline:
-      "My flagship build. I connect the tools you already run, write down how the business decides, and build the AI-native system that does the recurring work and puts your data to work: win more of the right customers, deliver better, decide faster. Scoped to one number at a time, so it has a finish line.",
+      "My flagship build. One AI-native system on the tools you already run: it does the recurring work and puts your data to work, scoped to one number at a time.",
     bestFor: "finance, operations, and owner-led teams whose work lives in three or more tools.",
     priceDisplay: "From $7,500",
     mostPopular: true,
     chip: "Flagship",
     highlights: [
-      "One number, named up front, so the build has a finish line",
-      "An AI-native system that does the recurring work and reads across your data for the upside",
-      "Your operating memory, written down, yours to keep",
+      "One number, named up front",
+      "The recurring work, done inside your tools",
+      "Your operating memory, yours to keep",
     ],
     glance: {
       input:
@@ -387,15 +387,15 @@ export const SERVICES: Service[] = [
     name: "Leadership AI Sprint",
     icon: "Compass",
     eyebrow: "Decide",
-    pain: "everyone in the business is using AI in their own way, nobody owns it, and you don't know what to build first.",
+    pain: "everyone is using AI their own way, nobody owns it, and you don't know what to build first.",
     tagline:
-      "Two weeks with your leadership team. We rank the use cases by benefit, cost, feasibility, and risk, make the build, buy, or do-nothing calls, set the rules for review and sensitive data, and you leave with a 90-day roadmap and one working prototype.",
+      "Two weeks with your leadership team. Rank the use cases, make the build, buy, or do-nothing calls, and leave with a 90-day roadmap and one working prototype.",
     bestFor: "leadership teams who want decisions and a prototype rather than a deck.",
     priceDisplay: "$7,500 fixed",
     highlights: [
-      "Ranked use cases with benefit, cost, feasibility, and risk",
-      "Build, buy, or do-nothing decisions and a 90-day roadmap",
-      "One working prototype, and half the fee credited to a build",
+      "Use cases ranked by benefit, cost, and risk",
+      "A 90-day roadmap and one prototype",
+      "Half the fee credited to a build",
     ],
     h1: "Decide where AI belongs, what to build, and how to run it.",
     subhead:
@@ -452,9 +452,9 @@ export const SERVICES: Service[] = [
     name: "Team AI Build Day",
     icon: "Users",
     eyebrow: "Extension",
-    pain: "your team uses AI, but the quality is uneven, nobody has been trained, and the rules for sensitive data are unwritten.",
+    pain: "your team uses AI, but unevenly, untrained, and without rules.",
     tagline:
-      "A working day with 4 to 8 people. We redesign two or three of your real workflows, build one reusable agent from your own material, write the team's rules for accuracy and sensitive data, and finish with owners, next actions, and a short playbook. I come back 30 days later to see what stuck.",
+      "A working day with 4 to 8 people. Two or three of your real workflows redesigned, one reusable agent built, the team's rules written. I come back 30 days later to see what stuck.",
     bestFor: "teams that already have a system or a workflow worth building around.",
     priceDisplay: "Half-day from $3,500 · Full day from $6,000",
     h1: "A day your team leaves with working tools, not notes.",
@@ -507,9 +507,9 @@ export const SERVICES: Service[] = [
     name: "Alpha System Care",
     icon: "LifeBuoy",
     eyebrow: "Extension",
-    pain: "the system is live and you want it to stay accurate, current, and improving as the business changes, without it depending on you remembering to check.",
+    pain: "the system is live and you want it kept accurate and improving without having to remember to check.",
     tagline:
-      "For build clients only. Every month I check output quality and reliability, watch cost and usage, update rules and models as things change, work through the exceptions your team flagged, and report against your number. Capped at a handful of clients so each one gets real attention.",
+      "For build clients only. Every month I check quality, cost, and reliability, update the rules as the business changes, work the exceptions, and report against your number.",
     bestFor: "owners who want the system looked after by the person who built it.",
     priceDisplay: "From $1,500/mo · build clients only",
     chip: "Build clients only",
