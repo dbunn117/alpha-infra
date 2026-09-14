@@ -169,6 +169,50 @@ export const proofStrip = {
   link: { label: "See the work catalogue", href: "/work" },
 } as const;
 
+/*
+ * The three levels: where a business is with AI and what comes next. Each
+ * level names the offer that gets you there. Drawn as a staircase in
+ * components/levels-ladder.tsx.
+ */
+export const levels = {
+  eyebrow: "Where you are",
+  heading: "Three levels. Every business is on one of them.",
+  intro:
+    "Each level builds on the one below it. Most of the businesses I speak to are somewhere on the first, with a few tools in a few browser tabs. The value is in the second and third.",
+  items: [
+    {
+      order: "1",
+      title: "An AI-native team",
+      subtitle: "The foundation",
+      body: "People who use the tools well, with rules for accuracy and sensitive data written down. Same work, done faster, by a team that knows what the tools are good at.",
+      offer: { name: "Team AI Build Day", slug: "workshops" },
+      annotation: "start here if nobody's been trained",
+    },
+    {
+      order: "2",
+      title: "AI applications",
+      subtitle: "Automation and intelligence",
+      body: "Two kinds, and the difference matters. Productivity AI helps the same team handle more volume. Engineered AI is built into a process where a better signal changes an outcome: a customer kept, a quote won, a close that lands on time.",
+      split: [
+        { label: "Productivity AI", note: "same team, more volume" },
+        { label: "Engineered AI", note: "a better signal changes the outcome" },
+      ],
+      offer: { name: "Quick Win, then The Alpha System", slug: "system" },
+      annotation: "one workflow, then the system",
+    },
+    {
+      order: "3",
+      title: "Connected intelligence",
+      subtitle: "All your data, one system",
+      body: "Everything the business knows, inside and out, connected and read by AI as a whole. Patterns, risks, and opportunities a person wouldn't spot at scale. This is where the Alpha System ends up once the operating memory and the connections are in.",
+      offer: { name: "The Alpha System with Care", slug: "care" },
+      annotation: "kept alive month by month",
+    },
+  ],
+  decideNote: "Not sure which level to build first? That's what the Leadership AI Sprint decides.",
+  decideHref: "/services/strategy",
+} as const;
+
 export const principles = {
   eyebrow: "How I think about AI",
   heading: "Seven things I believe about AI in a business.",
@@ -197,8 +241,8 @@ export const principles = {
     },
     {
       order: "05",
-      title: "Budget for AI like headcount, not software.",
-      body: "Token and compute spend is becoming a real line in the P&L. The businesses that get the most from it budget for it the way they budget for people: by the work it does, not as a cost to minimise.",
+      title: "The models are a commodity. Your data and your process are not.",
+      body: "Every major provider is racing to the same capabilities, and the leader changes every few months. Which model you pick matters less each year. What no vendor can sell you is your data, connected and clean, and the way your business actually decides. That's where the advantage sits, and it's what I build around.",
     },
     {
       order: "06",
