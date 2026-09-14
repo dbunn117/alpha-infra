@@ -9,7 +9,7 @@ export const site = {
   legalName: "Alpha Infra LLC",
   tagline: "AI systems for finance, operations, and owner-led teams.",
   description:
-    "AI-native systems for finance, operations, and owner-led teams. I connect the tools and data you already run, take the repetitive work off your team, and build the layer that helps you win more, deliver better, and decide faster.",
+    "AI-native systems for finance, operations, and owner-led teams. I connect the tools and data you already run, take the repetitive work off your team, and put the hours back into the work that's been waiting.",
   founder: "David Bunn",
   // Config: override via env (.env.local). See .env.example.
   ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
