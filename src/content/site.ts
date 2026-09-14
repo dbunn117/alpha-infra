@@ -9,7 +9,7 @@ export const site = {
   legalName: "Alpha Infra LLC",
   tagline: "AI systems for finance, operations, and owner-led teams.",
   description:
-    "AI-native systems for finance, operations, and owner-led teams. I connect the tools and data you already run, take the repetitive work off your team, and put the hours back into the work that's been waiting.",
+    "AI-native systems for finance, operations, and owner-led teams: the things you'd have built years ago if you'd had the people, the budget, or the technology. Built for your business, and yours to keep.",
   founder: "David Bunn",
   // Config: override via env (.env.local). See .env.example.
   ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
@@ -31,13 +31,13 @@ export const nav = {
 
 export const hero = {
   eyebrow: "For finance, operations, and owner-led teams",
-  headline: "Put AI to work on the business you already run.",
+  headline: "Build what your business couldn't build before.",
   subhead:
-    "Take the repetitive work off your team. Then put the hours back, and the data you already hold, into the work that's been waiting: the analysis nobody gets to, the decision made a week sooner, the project that's sat on the list for years. I build that system on the tools you already run, with your rules built in.",
+    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every account and flags what changed, a financial model that answers a question in minutes instead of days, a month-end variance pack that drafts its own commentary. Built for your business, and yours to keep.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
-    "30 minutes. We find the work worth taking off your team first and check the data is there to do it. If it isn't, I'll say so.",
+    "30 minutes. We find the thing worth building first and check the data is there to build it. If it isn't, I'll say so.",
   stats: [
     { value: "$25B+", label: "market-cap audit client at PwC" },
     { value: "10+ yrs", label: "in finance, operations & data before AI" },
@@ -260,7 +260,7 @@ export const principles = {
 export const offerings = {
   heading: "Three ways to start.",
   intro:
-    "One workflow, one number, or a plan for what to build first. Each one opens with the situation it's for. If you start small and go on to a build, the first fee comes off the second.",
+    "One capability, one number, or a plan for what to build first. Each one opens with the situation it's for. If you start small and go on to a build, the first fee comes off the second.",
   examplesHeading: "What a Quick Win usually looks like",
   examplesIntro:
     "Six shapes it tends to take, across finance, operations, and sales. All the same price, and each one comes with the number we'll measure it by.",
@@ -292,8 +292,8 @@ export const fitCheck = {
       body: "The answer to 'what should we focus on' is probably sitting in your systems already. You just don't have the tools or the hours to find it.",
     },
     {
-      title: "The same manual process eats hours every week.",
-      body: "Someone on your team spends hours every week on work software could do for them. Those are hours back for the work that grows the business.",
+      title: "There's a thing you'd build if you had the people.",
+      body: "The report someone would make if they had a day a week. The flags nobody sets because nobody has time to watch. It's been on the list for years, and it's now a three-week build.",
     },
     {
       title: "You want something built around how you actually run your business, not a generic template.",

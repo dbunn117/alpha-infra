@@ -89,25 +89,25 @@ export const SERVICES: Service[] = [
     name: "Quick Win",
     icon: "Rocket",
     eyebrow: "Start",
-    pain: "one manual job eats hours every week and you want proof before anything bigger.",
+    pain: "there's one thing you'd build if you had the hours, and you want proof before anything bigger.",
     tagline:
-      "One workflow, automated inside the tools you already use. Live in two to three weeks, then measured for 30 days.",
-    bestFor: "owners who want proof on one workflow before a bigger decision.",
+      "One new capability, built in two to three weeks, then measured for 30 days. The smallest version of what I build at full scale.",
+    bestFor: "owners and team leads who want proof on one capability before a bigger decision.",
     priceDisplay: "$2,500 fixed",
     highlights: [
-      "One workflow, your existing software",
-      "Live in two to three weeks",
+      "One capability, live in two to three weeks",
+      "Measured for 30 days",
       "Fee comes off a later build",
     ],
     examples: {
       heading: "What a Quick Win looks like",
       intro:
-        "Six shapes it tends to take, across finance, operations, and sales. All the same price, and each one comes with the number we'll measure it by.",
+        "Six shapes it tends to take, across finance, operations, and sales. Each is something the team could have done by hand and never had the hours for. All the same price, and each comes with the number we'll measure it by.",
       items: [
         {
-          title: "Invoice capture and coding",
-          body: "Invoices arrive in a shared mailbox, get read, coded, and matched, and land in the accounting package queued for someone to approve.",
-          tools: "Inbox · Xero or QuickBooks · measured in hours and errors",
+          title: "Cash position every morning",
+          body: "Bank balances, what's due in, what's going out, and the exceptions, on one page before the day starts, instead of a spreadsheet someone updates on Fridays.",
+          tools: "Bank feed · Xero or QuickBooks · measured in hours",
         },
         {
           title: "Month-end document chase",
@@ -136,18 +136,18 @@ export const SERVICES: Service[] = [
         },
       ],
     },
-    h1: "One workflow, automated and measured, in three weeks.",
+    h1: "One new capability, live and measured, in three weeks.",
     subhead:
-      "A fixed-fee automation for one high-volume manual process, built in the software you already use and measured against a number we agree up front. If the discovery call doesn't turn up a workflow worth doing, there's no fee.",
+      "A fixed fee for one thing your team has wanted and never had the hours to build, live in two to three weeks and measured against a number we agree up front. If the discovery call doesn't turn up something worth building, there's no fee.",
     problemHeading: "The problem",
     problem:
-      "The problem is usually the same. Someone on your team is re-keying quotes, chasing the same emails, or moving numbers between a spreadsheet and the accounting package every week. You don't need a strategy for that. You need it fixed, and a number that shows it worked.",
+      "Every team has one. The report someone would build if they had a spare day a week. The flags nobody sets because nobody has time to watch. The pack assembled by hand at midnight because assembling it properly was never a project anyone could justify. You don't need a strategy for that. You need it built, and a number that shows it worked.",
     whatHeading: "What I do",
     what:
-      "We pick one process on the discovery call and agree how we'll measure it: hours, turnaround time, or errors. I build the automation inside your existing tools, usually with Claude and n8n or Power Automate, as a skill, an agent, or a workflow your team actually uses. It goes live in two to three weeks with one handoff session and two weeks of support, and at 30 days we read the number together. It's the smallest version of what I build at full scale. Working software, not a slide deck.",
+      "We pick the one thing on the discovery call and agree how we'll measure it: hours, turnaround, or misses. I build it, usually with Claude and n8n or Power Automate, connected to the tools you already use, as a skill, an agent, or a workflow your team actually opens. It goes live in two to three weeks with one handoff session and two weeks of support, and at 30 days we read the number together. It's the smallest version of what I build at full scale. Working software, not a slide deck.",
     whatYouGet: [
-      "One workflow automated, with the measure agreed before we start",
-      "Built in your existing software, at most two tools, no new subscriptions",
+      "One capability built, with the measure agreed before we start",
+      "Connected to your existing software, at most two tools",
       "One clear input and output, with sensible handling for the exceptions",
       "One handoff session with your team, plus two weeks of support",
       "A 30-day read of the number: hours, turnaround, or errors removed",
@@ -155,8 +155,8 @@ export const SERVICES: Service[] = [
     ],
     howItWorks: [
       {
-        title: "Pick the workflow",
-        body: "On the discovery call we find the manual process that's costing the most and agree how we'll measure the change.",
+        title: "Pick the thing",
+        body: "On the discovery call we find the one thing worth building first and agree how we'll measure the change.",
       },
       {
         title: "Build",
@@ -172,10 +172,10 @@ export const SERVICES: Service[] = [
       },
     ],
     whoItsFor:
-      "Owners and small teams who want a low-risk, fixed-fee start and a real result to point to before going further.",
+      "Owners and team leads who want a low-risk, fixed-fee start and a real result to point to before going further.",
     pricing:
-      "$2,500 fixed. The scope is deliberately tight: one workflow, one team, at most two tools, your existing software, one defined input and output, one handoff session, two weeks of support. No custom interface and no historical data migration. If the discovery call doesn't find a workflow worth doing, there's no fee. If it leads to an Alpha System within 90 days, the $2,500 comes off.",
-    ctaLine: "Let's find the first workflow.",
+      "$2,500 fixed. The scope is deliberately tight: one capability, one team, at most two tools, one defined input and output, one handoff session, two weeks of support. No historical data migration. If the discovery call doesn't find something worth building, there's no fee. If it leads to an Alpha System within 90 days, the $2,500 comes off.",
+    ctaLine: "Let's find the first thing worth building.",
   },
   {
     slug: "system",
@@ -331,15 +331,15 @@ export const SERVICES: Service[] = [
         href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
       },
     },
-    h1: "One AI-native system that does the recurring work and puts your data to work.",
+    h1: "One AI-native system, built to do what your business couldn't do before.",
     subhead:
-      "I connect the tools you already run, write down how the business decides, and build the layer that does the recurring work: reconciling, drafting, filing, chasing, reporting, with your approvals wherever they matter. Then it puts the hours back into the work that's been waiting: the analysis nobody gets to, the decision made a week sooner, the project that's sat on the list for years. Scoped to one number at a time, so it has a finish line.",
+      "The system you'd have built years ago with more people: it reads across everything you run, applies the judgment you'd apply, and puts what it finds in front of the person who acts on it. Underneath, it does the recurring work that made that impossible to staff: reconciling, drafting, filing, chasing, reporting, with your approvals wherever they matter. Scoped to one number at a time, so it has a finish line.",
     problemHeading: "The problem",
     problem:
       "Most owners I speak to can name the number that's hurting: accounts leaving without anyone noticing, quotes going out too slowly, margin nobody can see until quarter end. The data to move it already exists. The problem is that it's split across a CRM, a spreadsheet, an accounting package, and an inbox, so nobody sees the whole picture in time to act, and the number gets managed from memory and last month's report.",
     whatHeading: "What The Alpha System is",
     what:
-      "It isn't a dashboard and it isn't a data integration project. It's software, built for your business, that does the recurring work: reading what arrives in the inbox, posting the numbers, drafting the replies, filing the documents, assembling the pack, and holding anything uncertain for a person to approve. That's the first half. The second is what the hours go on once they're back. Every team I've worked with has a list of work it never had the resources for: the analysis nobody gets to, the report that would change a decision if it existed, the project that's been on the list for years. The system reads across the data you already hold and does the groundwork, so the team gets to do that work instead of talking about it. We start by naming the one number you want to move, so the first phase has a finish line. Then I connect the tools you already run and write down your operating memory, your rules, definitions, and judgment, so the AI works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
+      "It isn't a dashboard and it isn't a data integration project. It's software, built for your business, to do the thing you'd have done years ago with more people: read every account, every invoice, every enquiry as it lands, apply the judgment you'd apply, and put what it finds in front of the person who acts on it. Underneath, it does the recurring work that made that impossible to staff: posting the numbers, drafting the replies, filing the documents, assembling the pack, holding anything uncertain for a person to approve. We start by naming the one number you want to move, so the first phase has a finish line. Then I connect the tools you already run and write down your operating memory, your rules, definitions, and judgment, so the AI works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
     whatYouGet: [
       "One business number with its baseline, agreed before we build anything",
       "A current-state map of the workflow and the data behind the number",
