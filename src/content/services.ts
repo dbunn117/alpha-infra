@@ -402,7 +402,7 @@ export const SERVICES: Service[] = [
       "Two weeks with your leadership team that end in decisions rather than a deck: a ranked list of use cases, the calls on what to build and what to buy, rules for review and sensitive data, a 90-day roadmap, and one prototype you can put in front of the team.",
     problemHeading: "The problem",
     problem:
-      "Three-quarters of small businesses already use AI. Only 14 percent have it running in core operations. In most companies it lives in individual browser tabs, useful, uneven, and unowned. The leadership team feels the pressure to do something but can't agree what, so decisions get made tool by tool, or not at all. A strategy deck isn't a decision either.",
+      "Most businesses I speak to already use AI. It lives in individual browser tabs: useful, uneven, and unowned. The leadership team feels the pressure to do something but can't agree what, so decisions get made tool by tool, or not at all. A strategy deck isn't a decision either.",
     whatHeading: "What the sprint is",
     what:
       "I work with your leadership team for two weeks. Week one is interviews and a look at your systems and data: where the hours go, where the errors and delays are, what the numbers say. Week two is a working session where we rank the candidate use cases by expected benefit, cost, feasibility, and risk, make the build, buy, or do-nothing call on each, and write the rules for human review, accountability, and sensitive data. You leave with a 90-day roadmap your team owns and a working prototype of the first item on it, so the plan is already real by the time I leave.",
@@ -462,7 +462,7 @@ export const SERVICES: Service[] = [
       "This isn't a training course. It's a working day where 4 to 8 people redesign their own workflows, build one reusable agent from company material, and write the rules they'll hold themselves to. Everyone leaves with something running and a name next to what happens next.",
     problemHeading: "The problem",
     problem:
-      "Seven in ten small-business owners say their people need more training to use AI well, and most of that training comes from YouTube. Generic sessions don't stick. People nod along and go back to the old way by Thursday. What sticks is building something real, with your own work, alongside someone who's done it before.",
+      "Most teams have had some AI training, and most of it came from YouTube. Generic sessions don't stick. People nod along and go back to the old way by Thursday. What sticks is building something real, with your own work, alongside someone who's done it before.",
     whatHeading: "What the day is",
     what:
       "I shape the day around two or three workflows your team actually runs. We redesign them in the room: fewer steps, clearer handoffs, people reviewing the exceptions instead of pushing paper. Then we build one reusable agent or skill from your own documents and data, and write the team's rules for accuracy, review, and sensitive data. The day ends with named owners and next actions. I come back 30 days later to see what stuck and fix what didn't.",
@@ -518,7 +518,7 @@ export const SERVICES: Service[] = [
       "AI systems drift. Rules go stale, a vendor changes a model, the business changes shape. Care is the monthly routine that catches it, reports against the number we built the system to move, and keeps improving it. Only for clients whose system I built.",
     problemHeading: "The problem",
     problem:
-      "A system is most at risk in the months after launch. Definitions change, a supplier renames a field, a model update changes an answer, and nobody notices until the owner stops trusting the output. Only 14 percent of small businesses say AI is properly embedded in how they operate, and unmaintained systems are a big part of why.",
+      "A system is most at risk in the months after launch. Definitions change, a supplier renames a field, a model update changes an answer, and nobody notices until the owner stops trusting the output. Most AI projects don't fail at launch. They fade.",
     whatHeading: "What Care is",
     what:
       "A monthly routine, run by the person who built the system. I review output quality and reliability, watch cost and usage (token spend in plain numbers), update rules and models as the business or the vendors change, work through the exceptions your team flagged, and send a one-page report against the number. Each month includes an allowance for small improvements, and each quarter we sit down and decide what's worth building next. The upper tier adds a monthly working session with you.",

@@ -7,7 +7,7 @@
 export const site = {
   name: "Alpha Infra",
   legalName: "Alpha Infra LLC",
-  tagline: "AI foundations that drive meaningful growth.",
+  tagline: "AI systems for finance, operations, and owner-led teams.",
   description:
     "AI-native systems for finance, operations, and owner-led teams. I connect the tools and data you already run, take the repetitive work off your team, and build the layer that helps you win more, deliver better, and decide faster.",
   founder: "David Bunn",
@@ -182,33 +182,33 @@ export const principles = {
     },
     {
       order: "02",
-      title: "Static artifacts are on their way out.",
-      body: "A PDF or slide deck is stale the moment it's exported. Live dashboards and interactive models that update as the underlying data does are replacing the static report, so the answer is always current, not just the one from last month's review.",
+      title: "Static reports are on their way out.",
+      body: "A PDF is stale the moment it's exported. The teams I work with are moving to live views and models that update as the data does, so the answer is the current one, not last month's.",
     },
     {
       order: "03",
       title: "AI has a jagged edge.",
-      body: "It's brilliant at some things and unreliable at others. The advantage goes to whoever designs the system that knows which is which, not whoever adopts the most tools.",
+      body: "It's brilliant at some things and unreliable at others, and the line moves every few months. The advantage goes to whoever builds the system that knows which is which, not whoever adopts the most tools.",
     },
     {
       order: "04",
-      title: "It does the grunt work and the strategy.",
-      body: "Deterministic automation handles the repeatable load. But AI beat the best chess player alive; it can reason strategically too, if it knows the rules of your business. I use it for both, with your judgment always in the loop, never replaced by it.",
+      title: "It does the grunt work and the thinking.",
+      body: "Plain automation carries the repeatable load. The models can reason too, if they know the rules of your business. I use them for both, with your judgment in the loop on anything that matters.",
     },
     {
       order: "05",
-      title: "Think of AI spend like headcount, not software.",
-      body: "Managing token and compute cost well is becoming a real competitive differentiator. The businesses that win will budget for AI the way they budget for people, not as a line item to minimize.",
+      title: "Budget for AI like headcount, not software.",
+      body: "Token and compute spend is becoming a real line in the P&L. The businesses that get the most from it budget for it the way they budget for people: by the work it does, not as a cost to minimise.",
     },
     {
       order: "06",
-      title: "The benchmark is 10x, not 10%.",
-      body: "If your team can process 10 quotes a day, AI should get you to 100, not 11. That's the order of magnitude I design for.",
+      title: "The benchmark is 10x, not 10 percent.",
+      body: "If your team can process ten quotes a day, the system should get you to a hundred, not eleven. That's the order of magnitude I design for, and it's why I start by naming the number.",
     },
     {
       order: "07",
-      title: "This is a CEO decision, not an IT ticket.",
-      body: "AI strategy shapes how the business competes. It belongs with the person who owns that outcome, not buried in a tooling request.",
+      title: "This is an owner's decision, not an IT ticket.",
+      body: "How the business uses AI shapes how it competes. It belongs with the person who owns that outcome, not in a tooling request.",
     },
   ],
 } as const;
@@ -278,29 +278,39 @@ export const faq = {
     {
       question: "Who owns the system and everything it produces?",
       answer:
-        "You do, completely. The system, the code behind it, and everything it produces belong to you once the engagement is complete. I don't retain rights to it, resell it, or reuse it as a template for another client.",
+        "You do. The system, the code, the rules we wrote down, and everything it produces are yours when the engagement ends. I keep my general methods and templates. I don't resell your system or reuse it as a template for anyone else.",
     },
     {
-      question: "What happens to my data, and is it secure?",
+      question: "What happens to my data?",
       answer:
-        "Your data is used only for your engagement, never combined with another client's, and encrypted in transit and at rest. I keep only what's needed to build and maintain your system, and I'll delete or return anything else on request.",
+        "It's used for your engagement and nothing else, and it never gets mixed with another client's. The system runs in your accounts, under your credentials, so the data stays where it already lives. Anything I hold to build or maintain the system, I return or delete on request.",
     },
     {
       question: "Do you train AI models on my data?",
       answer:
-        "No, never. The AI providers I build with (Anthropic's Claude, OpenAI, and others) don't train their models on business data sent through their commercial APIs by default, and I never use one client's data to build or improve another client's system.",
+        "No. The providers I build with, Anthropic and OpenAI among them, don't train on business data sent through their commercial APIs by default, and I never use one client's data to build another client's system.",
     },
     {
       question: "How accurate is the AI, and what happens when it gets something wrong?",
       answer:
-        "Every system I build has review built in: AI-made matches and suggestions are always clearly marked as AI-made, never blended in as if a person made the call. You and your team stay the final check on anything that matters.",
+        "It gets things wrong, and the system is built assuming it will. Anything the AI decided is shown as AI-made, never blended in as if a person did it. Anything that matters waits for a person to approve. Your team stays the final check, and the rules we wrote down are what it's checked against.",
+    },
+    {
+      question: "Do I have to change the software we use?",
+      answer:
+        "No. I build inside what you already run: your CRM, your accounting package, your inbox, your spreadsheets. Nothing migrates. If something genuinely needs a new tool, I'll say so, and it will be one tool, not a platform.",
+    },
+    {
+      question: "What happens on the discovery call?",
+      answer:
+        "Thirty minutes. You tell me what eats the week. I ask where the data lives and whether it's there to do the work. If it's a fit, I'll tell you which of the three ways to start makes sense and what it costs. If it isn't, I'll say so, and you've lost half an hour.",
     },
   ],
 } as const;
 
 export const aboutBlock = {
-  heading: "One person, from first win to full strategy.",
-  body: "I'm David Bunn. I spent a decade in finance and operations, at PwC, at a venture-backed startup, and at a real estate private equity firm, before AI changed what one person could build. My day job now is the same work Alpha Infra does: AI reporting workflows that cut manual effort by about 80%, LLM tools for analysis, and dashboards leaders actually open. I'm BIDA certified and a CPA (inactive). I think AI is at its best when it frees people up for the judgment work only they can do. You work with me directly. There's nobody to hand you off to.",
+  heading: "One person, start to finish.",
+  body: "I'm David Bunn. Ten years in finance and operations, at PwC, at a venture-backed startup, and at a real estate private equity firm, before the tools got good enough that one person could build real software. So I started building: reporting workflows, financial models as interactive apps, a diligence library, a variance tool, and a sales system now in daily use at a UK business. I'm a CPA (inactive) and BIDA certified. You work with me directly. There's nobody to hand you off to.",
   credibility: [
     "10+ years in finance & operations",
     "PwC",
@@ -315,12 +325,12 @@ export const tools = {
   eyebrow: "Tools & platforms",
   heading: "Built with the right tools for the job.",
   intro:
-    "Vendor-agnostic and hands-on: I work inside your existing tech stack wherever it makes sense, and bring proven, modern tools where new infrastructure is needed.",
+    "I work inside the stack you already run wherever I can, and bring in a small number of proven tools where something new is genuinely needed.",
   groups: [
     { label: "AI & LLMs", items: ["Claude", "ChatGPT", "Claude Code", "Gemini"] },
     { label: "Automation", items: ["Copilot Studio", "Power Automate", "n8n"] },
     { label: "Data & BI", items: ["Power BI", "Python", "SQL", "Power Query"] },
-    { label: "Infrastructure & Hosting", items: ["Supabase", "Vercel", "GitHub"] },
+    { label: "Hosting & code", items: ["Supabase", "Vercel", "GitHub"] },
   ],
 } as const;
 
@@ -381,7 +391,7 @@ export const aboutPage = {
 } as const;
 
 export const footer = {
-  tagline: "AI foundations that drive meaningful growth.",
+  tagline: "AI systems for finance, operations, and owner-led teams.",
   links: [
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
