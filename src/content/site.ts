@@ -178,15 +178,15 @@ export const levels = {
   eyebrow: "Where you are",
   heading: "Three levels. Every business is on one of them.",
   intro:
-    "Each level builds on the one below it. Most of the businesses I speak to are somewhere on the first, with a few tools in a few browser tabs. The value is in the second and third.",
+    "Each level builds on the one below it. Most of the businesses I speak to are somewhere on the first, with a few tools in a few browser tabs. The value is in the second and third, and every engagement lays the first as it goes.",
   items: [
     {
       order: "1",
       title: "An AI-native team",
       subtitle: "The foundation",
-      body: "People who use the tools well, with rules for accuracy and sensitive data written down. Same work, done faster, by a team that knows what the tools are good at.",
-      offer: { name: "Team AI Build Day", slug: "workshops" },
-      annotation: "start here if nobody's been trained",
+      body: "People who use the tools well, with rules for accuracy and sensitive data written down. Every engagement builds this in for the people involved: a Quick Win trains the team on that workflow, the Alpha System writes your rules down as operating memory. The Build Day takes it to everyone else.",
+      offer: { name: "Any of the three ways to start, then Team AI Build Day", slug: "workshops" },
+      annotation: "built into every engagement",
     },
     {
       order: "2",
@@ -266,7 +266,7 @@ export const offerings = {
     "Six shapes it tends to take, across finance, operations, and sales. All the same price, and each one comes with the number we'll measure it by.",
   extensionsHeading: "Once there's a system",
   extensionsIntro:
-    "Two things keep it paying: a working day with your team, and someone looking after the system every month. Both are for build clients.",
+    "Two things keep it paying: a working day that takes what we built to the whole team, and someone looking after the system every month. Both need something already built, a Quick Win counts.",
   footnote:
     "Fixed fees wherever I can. On builds I'm happy to tie my fee to the number instead. Coaching I do privately with existing clients.",
 } as const;
