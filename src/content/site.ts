@@ -33,7 +33,7 @@ export const hero = {
   eyebrow: "For finance, operations, and owner-led teams",
   headline: "Build what your business couldn't build before.",
   subhead:
-    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every account and flags what changed, a financial model that answers a question in minutes instead of days, a month-end variance pack that drafts its own commentary. Built for your business, and yours to keep.",
+    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every account and flags what changed, a month-end variance pack that drafts its own commentary, an answer library that finds how you answered the same question three years ago. Built for your business, and yours to keep.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
