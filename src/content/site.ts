@@ -33,7 +33,7 @@ export const hero = {
   eyebrow: "For finance, operations, and owner-led teams",
   headline: "Put AI to work on the business you already run.",
   subhead:
-    "Take the repetitive work off your team. Then put the data you already hold, inside the business and out, to work: win more of the right customers, deliver better, decide faster. I build that system on the tools you already run, with your rules built in.",
+    "Take the repetitive work off your team. Then put the hours back, and the data you already hold, into the work that's been waiting: the analysis nobody gets to, the decision made a week sooner, the project that's sat on the list for years. I build that system on the tools you already run, with your rules built in.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
