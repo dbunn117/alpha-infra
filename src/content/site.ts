@@ -365,8 +365,12 @@ export const aboutPage = {
       body: "For the last few years my work has centered on innovation: driving AI projects, reimagining how work flows, and replacing manual processes with scalable systems. In practice that has meant building AI-powered reporting workflows that cut manual data work by ~80%, an LLM-driven market-diligence tool that gives investment teams instant competitive assessments, and dynamic, interactive dashboards that let teams drill from the big picture down to a single asset. I'm BIDA®-certified in business intelligence and analysis, a CPA (currently inactive), and I've completed Level I of the CFA program.",
     },
     {
-      heading: "Why Alpha Infra",
+      heading: "Why I started",
       body: "I started Alpha Infra because I kept seeing the same thing: capable teams buried in repetitive work, sitting on data they never use, making today's decisions on last week's numbers. The technology to fix that is finally here, but tools alone don't change anything. It takes someone who understands both the technology and how a business actually runs to redesign the work around it. That's the gap I fill.",
+    },
+    {
+      heading: "The name",
+      body: "Alpha Infra spells A and I, which is a bonus, not the reason. The reason is the two words. Alpha is the finance word for outperformance: the return you earn above the benchmark, through discipline rather than luck. I like what it stands for, which is finding the way to be excellent at something and doing the work to stay there. It's also the name of a gym programme I did and really liked, so the word had already earned its place. Infra is what I believe about AI. On its own it's a clever tool. It only becomes useful to a business when there's structure around it: the connections to your data, the rules you decide by, the process, the checks, the memory of how you work. That structure is what I build. The model is the easy part.",
     },
     {
       heading: "How I work",
