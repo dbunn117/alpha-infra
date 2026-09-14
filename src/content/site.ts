@@ -352,21 +352,21 @@ export const contact = {
 
 export const aboutPage = {
   eyebrow: "About Alpha Infra",
-  h1: "I help teams put people where judgment matters, and let AI do the rest.",
+  h1: "Finance and operations first. AI second. The order matters.",
   subhead:
-    "Alpha Infra is a one-person AI consulting practice run by David Bunn. You work directly with me, start to finish.",
+    "Alpha Infra is me, David Bunn. A one-person practice, so you work with me from the first call to the handover. There's nobody to hand you off to.",
   sections: [
     {
-      heading: "My background",
-      body: "I've spent over a decade at the intersection of finance, operations, and data. I trained as an auditor at PwC, where I led US GAAP integrated audits for a $25B+ market-cap client and was consistently rated Tier 1, then helped build a venture-backed startup from the ground up as one of its first employees, supporting a $120M Series A. Along the way I've owned financial models, redesigned reporting from source systems to the boardroom, and learned how real organizations actually make decisions.",
+      heading: "Where I come from",
+      body: "I trained as a chartered accountant at PwC in Johannesburg, then moved to the San Francisco office and led US GAAP audits for a $25B+ e-commerce client. Audit teaches one thing well: how to walk into a business you've never seen and work out, fast, what actually drives the numbers. In 2021 I joined Major League Cricket as one of the first finance hires, built the finance function from nothing, and helped raise a $120M Series A across twelve entities. The cricket wasn't a coincidence. I played first-class cricket in South Africa before I ever opened a ledger. Then Stockbridge, a real estate private equity firm, where I owned the revenue projections across 35-plus funds and rebuilt the reporting from the source systems to the board pack.",
     },
     {
-      heading: "Where AI comes in",
-      body: "For the last few years my work has centered on innovation: driving AI projects, reimagining how work flows, and replacing manual processes with scalable systems. In practice that has meant building AI-powered reporting workflows that cut manual data work by ~80%, an LLM-driven market-diligence tool that gives investment teams instant competitive assessments, and dynamic, interactive dashboards that let teams drill from the big picture down to a single asset. I'm BIDA®-certified in business intelligence and analysis, a CPA (currently inactive), and I've completed Level I of the CFA program.",
+      heading: "Where AI came in",
+      body: "At some point the tools got good enough that one person with a finance background could build real software. So I started building. At Stockbridge I moved onto the CTO's team and shipped: reporting workflows that cut the manual data work by about 80 percent, financial models rebuilt as interactive apps, a market selection tool that scores the macro data and writes the narrative, a diligence answer library, an accounts-payable run, a variance tool for the accounting team. All of it built with Claude Code, Copilot Studio, Power Automate, and n8n, inside the firm's own accounts. Then Entec, a 15-person access-systems business in the UK run by someone I've known since school, where I built the sales system that's on the Work page. That was the first time I'd built for an owner rather than a firm, and it's the one that convinced me to do this properly.",
     },
     {
       heading: "Why I started",
-      body: "I started Alpha Infra because I kept seeing the same thing: capable teams buried in repetitive work, sitting on data they never use, making today's decisions on last week's numbers. The technology to fix that is finally here, but tools alone don't change anything. It takes someone who understands both the technology and how a business actually runs to redesign the work around it. That's the gap I fill.",
+      body: "Every business I've worked in had the same shape. Good people, buried in repetitive work, sitting on data nobody had time to use, making this week's decisions on last month's numbers. For most of my career the fix was more people, or an expensive system that took a year to land. But that isn't true any more. One person who understands how the business runs, and can build, can now do what used to take a vendor and a project team. That's the gap Alpha Infra fills. I understand the finance and the operations because I've done them. I can build because I've been doing that too.",
     },
     {
       heading: "The name",
@@ -374,10 +374,10 @@ export const aboutPage = {
     },
     {
       heading: "How I work",
-      body: "Direct, practical, and honest. No jargon, no junior-staff handoffs, no boiling the ocean. I find a real win, build it, and let it lead to the next one. My north star is simple: use AI to free your people for the high-judgment work only they can do.",
+      body: "Directly. You get me, start to finish. I'll tell you on the first call if the data isn't there to do what you want, and I'd rather lose the job than build something that gets opened twice. I start small on purpose: one number, one workflow, a finish line. The next one gets built on the same foundation. I name the tools I use, because you should know what's running your business. And I write things down: the rules, the definitions, the way you decide. It's yours to keep when I'm done.",
     },
   ],
-  ctaLine: "Let's find your first win.",
+  ctaLine: "Let's find the first one worth doing.",
 } as const;
 
 export const footer = {

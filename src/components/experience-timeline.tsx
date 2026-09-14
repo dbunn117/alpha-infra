@@ -9,7 +9,7 @@ export function ExperienceTimeline() {
         <SectionHeading
           eyebrow="Experience"
           heading="A decade close to how businesses actually run."
-          intro="From Big Four audit to venture-backed operations to private-equity innovation, the throughline is turning complexity into decisions people can act on."
+          intro="Audit, then a startup, then private equity. The same job each time: work out what actually drives the numbers, and make it visible to the people deciding."
         />
 
         <ol className="mt-14 space-y-4">
