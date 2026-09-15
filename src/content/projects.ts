@@ -60,11 +60,11 @@ export const professionalProjects: Project[] = [
     tools: ["Power Automate", "Power BI", "SharePoint"],
   },
   {
-    title: "Acquisitions Due-Diligence App",
+    title: "Due-Diligence Drafting System",
     tag: "Investor relations · diligence",
     icon: "ClipboardCheck",
     blurb:
-      "About 4,000 question-and-answer pairs ingested and tagged by fund, date, client, and more, so investor relations finds how the team answered before in a few clicks, sees how an answer has shifted over the last three years side by side, and drafts new responses from precedent instead of a blank page.",
+      "About 4,000 past question-and-answer pairs ingested and tagged by fund, date, client, and more. When a new questionnaire arrives, the system drafts the answers from precedent, with three years of history side by side, so investor relations reviews and edits instead of starting from a blank page.",
     tools: ["Claude Code", "Semantic search", "Investor relations"],
   },
   {

@@ -33,7 +33,7 @@ export const hero = {
   eyebrow: "For finance, operations, and owner-led teams",
   headline: "Build what your business couldn't build before.",
   subhead:
-    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every account and flags what changed, a month-end variance pack that drafts its own commentary, an answer library that finds how you answered the same question three years ago. Built for your business, and yours to keep.",
+    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every account and flags what changed, a month-end variance pack that drafts its own commentary, a diligence system that drafts a new questionnaire from every answer you've given before. Built for your business, and yours to keep.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
@@ -151,17 +151,17 @@ export const proofStrip = {
       },
     },
     {
-      title: "Due-diligence answer library for investor relations",
-      body: "About 4,000 question-and-answer pairs ingested and tagged by fund, date, client, and more, so the team finds how they answered before in a few clicks and drafts new responses from precedent, with three years of answers side by side.",
+      title: "Due-diligence drafting system for investor relations",
+      body: "About 4,000 past question-and-answer pairs ingested and tagged by fund, date, client, and more. A new questionnaire comes in, and the system drafts the answers from precedent, with three years of history side by side, so the team reviews instead of starting from a blank page.",
       tools: "Claude Code · Semantic search · Tagging",
       href: "/work",
       schematic: {
         inputs: [{ lines: ["About 4,000", "Q&A pairs"] }],
         plate: {
-          title: "Answer library",
-          rows: ["Tags by fund, date, client", "Finds the past answer", "Shows how it moved"],
+          title: "Diligence system",
+          rows: ["Tags by fund, date, client", "Matches each new question", "Drafts from precedent"],
         },
-        outputs: [{ lines: ["Past answers,", "side by side"] }, { lines: ["New draft", "from precedent"] }],
+        outputs: [{ lines: ["New DDQ,", "drafted"] }, { lines: ["Team reviews,", "history beside it"] }],
         annotation: "three years of answers",
       },
     },
