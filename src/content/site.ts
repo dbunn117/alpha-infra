@@ -33,7 +33,7 @@ export const hero = {
   eyebrow: "For finance, operations, and owner-led teams",
   headline: "Build what your business couldn't build before.",
   subhead:
-    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every account and flags what changed, a month-end variance pack that drafts its own commentary, a diligence system that drafts a new questionnaire from every answer you've given before. Built for your business, and yours to keep.",
+    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every account and flags what changed, a month-end variance pack that drafts its own commentary, a diligence system that drafts the answers to a new questionnaire from every answer you've given before. Built for your business, and yours to keep.",
   primaryCta: "Book a discovery call",
   secondaryCta: "See how I help",
   ctaNote:
@@ -161,7 +161,7 @@ export const proofStrip = {
           title: "Diligence system",
           rows: ["Tags by fund, date, client", "Matches each new question", "Drafts from precedent"],
         },
-        outputs: [{ lines: ["New DDQ,", "drafted"] }, { lines: ["Team reviews,", "history beside it"] }],
+        outputs: [{ lines: ["Answers drafted", "for the new DDQ"] }, { lines: ["Team reviews,", "history beside it"] }],
         annotation: "three years of answers",
       },
     },
