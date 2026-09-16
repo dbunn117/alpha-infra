@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
-import { site } from "@/content/site";
+import { hero, site } from "@/content/site";
+import { MARK, SIGNAL_RED } from "@/components/brand-mark";
 
 // Required for `output: export` (GitHub Pages build); no-op otherwise.
 export const dynamic = "force-static";
@@ -8,8 +9,8 @@ export const alt = `${site.name}: ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Alpha Infra mark, per the brand guide: a single red checkmark on Ink.
-const markSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 120 120" fill="none"><path d="M18,64 L46,92 L102,22" stroke="#C4283C" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+// The signal mark on Ink: paper-white trace, red circle (paths from brand-mark.tsx).
+const markSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="115" height="72" viewBox="${MARK.viewBox}" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="${MARK.trace}" stroke="#f5f1e8" stroke-width="10"/><path d="${MARK.circle}" stroke="${SIGNAL_RED}" stroke-width="7"/></svg>`;
 const markUri = `data:image/svg+xml,${encodeURIComponent(markSvg)}`;
 
 export default function OpengraphImage() {
@@ -29,7 +30,7 @@ export default function OpengraphImage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={markUri} width={72} height={72} alt="" />
+          <img src={markUri} width={115} height={72} alt="" />
           <div style={{ display: "flex", fontSize: 40, fontWeight: 500, color: "#f5f1e8" }}>
             alpha infra
           </div>
@@ -45,7 +46,7 @@ export default function OpengraphImage() {
               maxWidth: 900,
             }}
           >
-            Put your people where judgment matters. Let AI handle the rest.
+            {hero.headline}
           </div>
           <div style={{ fontSize: 32, color: "#a39c8f" }}>{site.tagline}</div>
         </div>

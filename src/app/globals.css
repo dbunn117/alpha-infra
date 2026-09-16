@@ -10,9 +10,9 @@
 
   Roles: Ink for text. Ink Blue (--primary) for anything you can act on or
   should scan first: buttons, links, eyebrows, highlights, and the routes and
-  system plate in the hero diagram. Signal Red (#C4283C) appears only in the
-  brand mark and the drawn tick of the hero diagram (hardcoded there, never a
-  token).
+  system plate in the hero diagram. Signal Red (#C4283C) is the colour of the
+  hand: the brand mark's circle and the red-pen loop in the hero diagram
+  (hardcoded there, never a token).
 
   Type: Newsreader for display only (h1, h2, big numerals, the wordmark).
   IBM Plex Sans for everything else. Plex Mono only for tiny captions
@@ -173,7 +173,7 @@
   }
   /* Vertical section rhythm */
   .section {
-    @apply py-20 md:py-24 lg:py-28;
+    @apply py-14 md:py-16 lg:py-20;
   }
   /* Reading measure for body copy */
   .measure {
@@ -240,20 +240,28 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
-  /* Load-in rise for title pages. Only animates when JS is present. */
+  /* Load-in rise for title pages: a short settle, never hidden, so the
+     first screen reads immediately. Only animates when JS is present. */
   .js .rise {
-    animation: rise 0.7s var(--ease-out) both;
+    animation: rise 0.25s var(--ease-out) both;
     animation-delay: var(--rise-delay, 0s);
   }
-  /* Scroll-in reveal (see components/reveal.tsx). Only hides when JS is on. */
+  /* A row that just changed rank or status in a live demo: a brief wash of
+     the accent tint that fades out. Background-color only. */
+  .is-moved {
+    animation: moved 1.4s var(--ease-out) both;
+  }
+  /* Scroll-in reveal (see components/reveal.tsx): the content is already
+     there, motion is layered on top. Never below 0.85 opacity, a short
+     rise, and a short transition, so a fast scroll never lands on blank. */
   .reveal {
     transition:
-      opacity 0.5s var(--ease-out),
-      transform 0.5s var(--ease-out);
+      opacity 0.35s var(--ease-out),
+      transform 0.35s var(--ease-out);
   }
   .js .reveal:not(.is-visible) {
-    opacity: 0;
-    transform: translateY(16px);
+    opacity: 0.85;
+    transform: translateY(10px);
   }
   /* Drawn strokes: any path with data-stroke and pathLength="1" draws itself
      when its Reveal wrapper becomes visible, or when it gets .is-drawn. */
@@ -268,25 +276,34 @@
   .js [data-stroke].is-drawn {
     stroke-dashoffset: 0;
   }
-  /* Text beside drawn strokes fades in on the same Reveal, same delay var. */
+  /* Text beside drawn strokes settles in on the same Reveal, same delay var.
+     Starts legible; only the strokes are truly drawn from nothing. */
   .js [data-fade] {
-    opacity: 0;
-    transition: opacity 0.5s var(--ease-out);
+    opacity: 0.5;
+    transition: opacity 0.4s var(--ease-out);
     transition-delay: var(--draw-delay, 0s);
   }
-  .js .is-visible [data-fade] {
+  .js .is-visible [data-fade],
+  .js .is-drawn [data-fade] {
     opacity: 1;
   }
 }
 
 @keyframes rise {
   from {
-    opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(6px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes moved {
+  0% {
+    background-color: var(--accent);
+  }
+  100% {
+    background-color: transparent;
   }
 }
 

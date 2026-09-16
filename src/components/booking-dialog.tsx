@@ -28,12 +28,12 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     <BookingContext.Provider value={openBooking}>
       {children}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="w-full sm:max-w-2xl" showCloseButton>
+        <DialogContent className="max-h-[92svh] w-full overflow-y-auto sm:max-w-2xl" showCloseButton>
           <DialogHeader>
             <DialogTitle>Book a discovery call</DialogTitle>
             <DialogDescription>
-              A free 30-minute call to find your first AI win. No pressure, no
-              jargon.
+              A free 30-minute call to find the first opportunity worth
+              building. No pressure, no jargon.
             </DialogDescription>
           </DialogHeader>
           <BookingEmbed className="mt-1" />

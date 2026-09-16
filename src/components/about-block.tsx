@@ -1,17 +1,16 @@
 import Link from "next/link";
-import { aboutBlock, hero } from "@/content/site";
+import { aboutBlock } from "@/content/site";
 import { Chapter } from "@/components/chapter";
-import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
+import { RedPenUnderline } from "@/components/red-pen";
 import { FactsLine } from "@/components/facts-line";
-import { ToolsLedger } from "@/components/tools-ledger";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
 
 /*
  * About plate: the photo overlaps the chapter's top hairline (depth by
- * overlap, with grain), copy at reading measure, the three real figures as a
+ * overlap, with grain), copy at reading measure, the three proof points as a
  * facts line, and the tools as a typeset ledger.
  */
 export function AboutBlock() {
@@ -34,23 +33,34 @@ export function AboutBlock() {
           </Reveal>
 
           <div className="pt-2 lg:pt-12">
-            <SectionHeading heading={aboutBlock.heading} />
+            <Reveal>
+              <h2 className="max-w-3xl text-balance font-heading text-3xl font-medium leading-[1.05] tracking-tight sm:text-4xl lg:text-[2.75rem]">
+                {aboutBlock.heading.startsWith("The business comes before") ? (
+                  <>
+                    The business comes{" "}
+                    <RedPenUnderline delayS={0.3}>before</RedPenUnderline> the technology.
+                  </>
+                ) : (
+                  aboutBlock.heading
+                )}
+              </h2>
+            </Reveal>
+            {/* one paragraph here; the full story is on /about */}
             <p className="measure mt-6 text-lg leading-relaxed text-muted-foreground">
-              {aboutBlock.body}
+              {aboutBlock.body[aboutBlock.body.length - 1]}
             </p>
             <p className="mt-6 text-sm text-muted-foreground">
               {aboutBlock.credibility.join(" · ")}
             </p>
             <div className="mt-8">
               <Link href="/about" className={cn(cta({ variant: "link", size: "md" }))}>
-                More about Alpha Infra
+                {aboutBlock.ctaLine}
               </Link>
             </div>
           </div>
         </div>
 
-        <FactsLine stats={hero.stats} className="mt-14" />
-        <ToolsLedger className="mt-10" />
+        <FactsLine stats={aboutBlock.proofPoints} className="mt-14" />
       </div>
     </Chapter>
   );

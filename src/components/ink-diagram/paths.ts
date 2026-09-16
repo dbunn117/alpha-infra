@@ -78,12 +78,20 @@ export const ANNOTATION = {
   arrowHead: "M404,338 L410,327 L420,331",
 };
 
-/* Brand mark, nested at the plate's top-right corner (see brand-mark.tsx) */
+/* The red pen: a hand-drawn loop around the plate's third row ("Ranks what
+   matters"), the same gesture as the brand mark's circle (see brand-mark.tsx).
+   Nested svg drawn 1:1 with its viewBox; overflow stays visible for the
+   overshoot. The `TICK` name is kept because ink-animation targets it. */
 export const TICK = {
-  x: 464,
-  y: 164,
-  size: 72,
-  d: "M18,64 L46,92 L102,22",
+  x: 326,
+  y: 291,
+  width: 144,
+  height: 36,
+  viewBox: "0 0 144 36",
+  /* sits just under the row above and crosses the plate's bottom edge, the
+     way a real loop crosses a box, rather than clipping the text */
+  d: "M118,6 C96,-3 30,-2 14,11 C0,23 18,35 72,35 C120,35 140,28 134,16 C130,8 118,4 106,4",
+  strokeWidth: 3.25,
   color: "#C4283C",
 };
 

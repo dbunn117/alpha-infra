@@ -8,8 +8,8 @@ export function ExperienceTimeline() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Experience"
-          heading="A decade close to how businesses actually run."
-          intro="Audit, then a startup, then private equity. The same job each time: work out what actually drives the numbers, and make it visible to the people deciding."
+          heading="A decade close to decisions that move the numbers."
+          intro="Audit, a growing startup, private equity, and independent client builds. The work evolved from understanding how a business runs to building systems that make its next decision clearer."
         />
 
         <ol className="mt-14 space-y-4">

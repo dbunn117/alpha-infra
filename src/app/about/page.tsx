@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { aboutPage, aboutBlock } from "@/content/site";
+import { aboutPage, aboutBlock, workCta } from "@/content/site";
 import { PageHero } from "@/components/page-hero";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { Reveal } from "@/components/reveal";
@@ -54,9 +54,11 @@ export default function AboutPage() {
             <Reveal key={s.heading}>
               <section>
                 <h2 className="text-2xl font-semibold">{s.heading}</h2>
-                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                  {s.body}
-                </p>
+                <div className="mt-4 space-y-4 text-lg leading-relaxed text-muted-foreground">
+                  {s.body.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
               </section>
             </Reveal>
           ))}
@@ -66,7 +68,7 @@ export default function AboutPage() {
               {aboutPage.ctaLine}
             </h2>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <BookACallButton label="Book a discovery call" size="lg" />
+              <BookACallButton size="lg" />
               <Link
                 href="/contact#message"
                 className={cn(cta({ variant: "outline", size: "lg" }))}
@@ -80,6 +82,24 @@ export default function AboutPage() {
 
       <ExperienceTimeline />
       <SkillsGrid />
+
+      <section className="section scroll-mt-16">
+        <div className="container-page">
+          <Reveal>
+            <div className="border-t border-border pt-12 md:pt-16">
+              <h2 className="max-w-3xl text-balance font-heading text-4xl font-medium leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+                {workCta.heading}
+              </h2>
+              <p className="measure mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
+                {workCta.subhead}
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-4 text-lg">
+                <BookACallButton label={workCta.primaryCta} size="lg" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

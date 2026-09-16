@@ -59,7 +59,11 @@ export function Reveal({
       className={cn("reveal", visible && "is-visible", className)}
       style={
         delay
-          ? ({ transitionDelay: `${delay}s`, "--draw-delay": `${delay + 0.2}s` } as React.CSSProperties)
+          ? ({
+              // stagger capped so a group settles inside ~180ms
+              transitionDelay: `${Math.min(delay * 0.6, 0.18).toFixed(3)}s`,
+              "--draw-delay": `${(Math.min(delay * 0.6, 0.18) + 0.15).toFixed(3)}s`,
+            } as React.CSSProperties)
           : undefined
       }
     >

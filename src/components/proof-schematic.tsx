@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { SIGNAL_RED } from "@/components/brand-mark";
 
 /*
  * Small system schematic for the proof cards, drawn in the hero diagram's
@@ -194,7 +195,11 @@ export function ProofSchematic({ data, title }: { data: Schematic; title: string
           </g>
         ))}
 
-        {/* Annotation: Caveat, under the plate, with a short arrow up to it */}
+      </g>
+
+      {/* Annotation: the red pen. Handwritten, so Signal Red, under the plate
+          with a short arrow up to it. The card's one red mark. */}
+      <g style={{ color: SIGNAL_RED }}>
         <text
           x={PLATE.x + PLATE.w / 2 - 44}
           y={250}

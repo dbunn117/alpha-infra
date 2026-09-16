@@ -20,7 +20,7 @@ export function PageHero({
 }) {
   return (
     <section className={cn("relative", className)}>
-      <div className="container-page pb-6 pt-12 md:pt-16">
+      <div className="container-page pb-2 pt-8 md:pt-10">
         <div className="border-t border-border pt-6 md:pt-8">
           {eyebrow ? (
             <p className="eyebrow rise" style={riseDelay(0)}>

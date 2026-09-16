@@ -1,5 +1,9 @@
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alpha Infra">
   <title>Alpha Infra favicon</title>
   <rect x="0" y="0" width="64" height="64" rx="10" fill="#14120F"/>
-  <path d="M15,35 L26,48 L50,16" fill="none" stroke="#C4283C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small form of the signal mark: the red circle around one point. Paths copied from brand-mark.tsx MARK_SMALL. -->
+  <g transform="translate(7 7) scale(0.4167)">
+    <circle cx="60" cy="66" r="8" fill="#F5F1E8"/>
+    <path d="M86,28 C60,12 22,28 18,58 C14,88 42,112 74,106 C104,100 116,64 100,42 C96,36 90,30 82,27" fill="none" stroke="#C4283C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
 </svg>

@@ -115,9 +115,15 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <a
+            href="#main"
+            className="sr-only z-[60] rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          >
+            Skip to main content
+          </a>
           <BookingProvider>
             <Nav />
-            <main className="flex-1">{children}</main>
+            <main id="main" tabIndex={-1} className="flex-1 outline-none">{children}</main>
             <Footer />
           </BookingProvider>
           <Toaster position="top-center" />

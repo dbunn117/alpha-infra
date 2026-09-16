@@ -8,7 +8,7 @@ export const profile = {
   name: "David Bunn",
   role: "Business consultant who builds with AI",
   location: "San Francisco Bay Area",
-  email: "davibunn@gmail.com",
+  email: "david@alphainfra.us",
   linkedin: "https://www.linkedin.com/in/davidkcbunn",
   github: "https://github.com/dbunn117",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dbunn117.github.io/portfolio",
@@ -17,7 +17,7 @@ export const profile = {
     "I help businesses solve the problems that actually move the needle (growth, operations, and the decisions leaders make) by building the AI tools to match. A decade across finance and operations keeps it grounded in how a business really runs.",
 
   summary:
-    "I'm a business and operations consultant who builds. Across 9+ years in audit, high-growth operations, and private-equity innovation, I've learned how businesses actually make decisions; lately I've spent my time building the AI tools that make those decisions faster and sharper. What energizes me most are the front-office problems: growth, strategy, competitive positioning, and the messy operational questions in between. My finance background (CPA, CFA-track, BIDA-certified) is the foundation that makes what I build trustworthy, but the work I love is helping a business see and act more clearly, not just close the books.",
+    "I'm a business and operations consultant who builds. Across 9+ years in audit, high-growth operations, and private-equity innovation, I've learned how businesses actually make decisions; lately I've spent my time building the AI tools that make those decisions faster and sharper. What energizes me most are the front-office problems: growth, strategy, competitive positioning, and the messy operational questions in between. My finance background (CPA, inactive; CFA Program underway; BIDA-certified) is the foundation that makes what I build trustworthy, but the work I love is helping a business see and act more clearly, not just close the books.",
 
   // Hero stat strip
   stats: [
@@ -43,24 +43,22 @@ export const experience: Experience[] = [
     title: "Founder",
     dates: "Aug 2026 to present",
     bullets: [
-      "AI-native systems for finance, operations, and owner-led teams, built on the tools they already run.",
-      "Sales system for Entec Access Systems (UK), in daily use since July 2026.",
-      "Ongoing AI and technology consulting for Stockbridge Capital Group through Alpha Infra, from August 2026.",
+      "Build Opportunity AI systems for lean teams making high-value decisions.",
+      "Built Entec Access Systems' five-channel sales intelligence hub, in daily use since July 2026.",
+      "Provide ongoing AI and technology consulting for Stockbridge Capital Group.",
     ],
   },
   {
     company: "Stockbridge Capital Group",
     location: "San Francisco, CA",
-    title: "Data & Innovation Associate (CTO Team)",
+    title: "Data & Innovation Associate, CTO Team",
     dates: "Jan 2026 to Jul 2026",
     bullets: [
-      "Built an AI Resource Hub and automated reporting workflows with Claude Code and Copilot Studio, cutting manual data-extraction time by ~80% for capital markets teams.",
-      "Rebuilt financial models as dynamic, interactive apps in Claude Code, far more visual and explorable than static Excel workbooks, letting stakeholders test scenarios and drill into the drivers.",
-      "Developed a zero-to-one Market Selection Tool leveraging macro-economic data and LLMs to give investment teams instant competitive assessments and strategic roadmaps for new acquisitions.",
-      "Built a dynamic, interactive Asset Map Explorer plotting all owned assets across markets: drill into asset-manager and tenant detail, and resize market bubbles on the fly by metrics like square footage and rent PSF.",
-      "Built AI document-ingestion pipelines (sales/lease comps and other docs) that auto-write to a database and refresh live deal-volume dashboards by region and property type, plus agentic triage for high-volume shared inboxes.",
-      "Automated accounts payable end-to-end (from shared-mailbox invoice ingestion to the weekly third-party wire-request package) and built dynamic business-review / lookback apps across Copilot Studio, Power Automate, and n8n.",
-      "Key contact for the Acquisitions AI project, coordinating third-party vendors and internal users on data cleansing and front-end app development.",
+      "Built a Market Selection Tool that scores macroeconomic and demographic data and drafts the narrative behind the trends, by market and property sector.",
+      "Built an Asset Map Explorer for investigating portfolio exposure across markets and drilling into asset and tenant detail.",
+      "Rebuilt financial models as interactive apps so stakeholders could test scenarios and explore the drivers rather than wait for a spreadsheet update.",
+      "Built reporting and data workflows that reduced manual extraction work by about 80 percent for capital-markets teams.",
+      "Developed systems for document ingestion, diligence, variance analysis, and accounts payable, using AI where interpretation was needed and code where the work was exact.",
     ],
   },
   {
@@ -69,9 +67,9 @@ export const experience: Experience[] = [
     title: "Finance Associate",
     dates: "May 2023 to Dec 2025",
     bullets: [
-      "Owned complex revenue projections for a portfolio of 35+ funds and corporate expense forecasting: the “source of truth” for the CFO and Executive Committee.",
-      "Redesigned end-to-end financial reporting flows, from source systems to board-ready presentations, using Power Query and AI tools.",
-      "Prepared financial review materials for the Executive Committee and external shareholder meetings, distilling complex models into clear strategic narratives.",
+      "Owned revenue projections across more than 35 funds and corporate expense forecasting for the CFO and Executive Committee.",
+      "Rebuilt reporting flows from source systems to CFO and Executive Committee materials.",
+      "Turned complex financial models into clear explanations of what had changed and what deserved attention.",
     ],
   },
   {
@@ -80,9 +78,9 @@ export const experience: Experience[] = [
     title: "Senior Finance Manager",
     dates: "May 2021 to Apr 2023",
     bullets: [
-      "Assisted in executing a $120M Series A funding round; led 10-year cash-flow forecasting and group financial-statement preparation across 12 entities.",
-      "Scaled the finance function from the ground up, implementing company-wide procurement and approval frameworks through a period of high growth and ambiguity.",
-      "Provided financial data and written strategic commentary for investor reporting packages.",
+      "Helped build the finance function as an early hire and supported a $120M Series A through fundraising due diligence.",
+      "Led long-term cash-flow forecasting and group financial-statement preparation across 12 entities.",
+      "Built operating controls and approval processes as the organization grew.",
     ],
   },
   {
@@ -91,43 +89,31 @@ export const experience: Experience[] = [
     title: "Manager / Senior Associate",
     dates: "Jan 2016 to Apr 2021",
     bullets: [
-      "Led US GAAP integrated audits for a $25B+ market-cap e-commerce client; managed multi-disciplinary teams across IT, valuations, and tax.",
-      "Consistently rated Tier 1 (“Exceeds Expectations”) for managing complex audit phases and budgets, reporting directly to Chief Accounting Officers.",
+      "Managed audit workstreams on a $25B+ market-cap e-commerce client's US GAAP integrated audit, as one of four managers on the engagement team.",
+      "Worked across finance, IT, valuations, and tax to understand the systems and judgments behind the reported numbers.",
     ],
   },
 ];
 
 export const skillGroups: { label: string; items: string[] }[] = [
   {
-    label: "AI & LLM tools",
-    items: ["Claude Code", "ChatGPT", "Codex", "Gemini", "Copilot Studio"],
+    label: "Business and finance",
+    items: ["Strategy", "FP&A", "Financial modelling", "Operating processes", "Investment analysis", "Diligence and valuation"],
   },
   {
-    label: "Automation platforms",
-    items: ["Copilot Studio", "Power Automate", "n8n"],
+    label: "Data and software",
+    items: ["Python", "SQL", "Power BI", "Power Query", "Claude Code"],
   },
   {
-    label: "Data & BI",
-    items: ["SQL", "Power BI (DAX)", "Power Query", "Python 3", "VBA"],
+    label: "AI and automation",
+    items: ["Claude", "Copilot Studio", "Power Automate", "n8n"],
   },
   {
-    label: "Systems",
-    items: ["NetSuite", "Workday"],
+    label: "Platforms",
+    items: ["Supabase", "Vercel", "GitHub"],
   },
   {
-    label: "Business & finance",
-    items: [
-      "Strategy & competitive analysis",
-      "Operations & process design",
-      "FP&A & modeling",
-      "Diligence & valuation",
-    ],
+    label: "Training",
+    items: ["BIDA® Certified", "California CPA (inactive)", "CFA Program Level I completed", "BCom Honours in Accounting Sciences"],
   },
-];
-
-export const credentials: string[] = [
-  "BIDA®, Business Intelligence & Data Analyst (CFI)",
-  "CPA, California (inactive)",
-  "CFA Program, Level I completed",
-  "BCom Honours, Accounting Sciences, University of Pretoria",
 ];

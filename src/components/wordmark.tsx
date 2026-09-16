@@ -3,7 +3,9 @@ import { cn } from "@/lib/utils";
 import { BrandMark } from "@/components/brand-mark";
 
 /*
- * Brand lockup: mark + lowercase "alpha infra" in Newsreader, no two-tone.
+ * Brand lockup: the signal mark (trace + red circle) beside lowercase
+ * "alpha infra" in Newsreader, no two-tone. The mark is 1.6:1, so it is
+ * sized by height and takes its own width.
  */
 export function Wordmark({
   className,
@@ -18,7 +20,7 @@ export function Wordmark({
       aria-label="Alpha Infra home"
       className={cn("inline-flex items-center gap-2.5 text-foreground", className)}
     >
-      <BrandMark className="size-8" />
+      <BrandMark className="h-8 w-auto" />
       <span className="font-heading text-lg font-medium tracking-tight">
         alpha infra
       </span>

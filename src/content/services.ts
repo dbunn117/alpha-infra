@@ -8,7 +8,7 @@
  * Mar 2026, Thryv Apr 2026, McKinsey Aug 2026 and consultant pricing guides;
  * see the vault note "Alpha Infra - Offer Architecture Research - 2026-09-09"):
  *   three front doors (Start: Quick Win, Build: The Alpha System, Decide:
- *   Leadership AI Sprint) and two extensions for build clients (Team AI Build
+ *   AI Opportunity Sprint) and two extensions for build clients (Team AI Build
  *   Day, Alpha System Care). Coaching is kept as an unlisted page and offered
  *   privately to existing clients. Every door opens with a buyer-pain line.
  */
@@ -50,10 +50,8 @@ export type Service = {
   highlights?: string[];
   /* "How it earns trust" list (flagship) */
   trust?: string[];
-  /* At-a-glance strip: what goes in, what sets it off, what comes out (flagship) */
-  glance?: { input: string; trigger: string; output: string };
-  /* "The reality today" cost box: the manual version, in the buyer's facts (flagship) */
-  reality?: { heading: string; items: string[] };
+  /* At-a-glance strip: the signals in, the judgment applied, what comes out (flagship) */
+  glance?: { signals: string; judgment: string; output: string };
   /* "What it's made of": the layers, foundation first (flagship) */
   layers?: {
     heading: string;
@@ -62,17 +60,10 @@ export type Service = {
   };
   /* A typical engagement, week by week (flagship) */
   timeline?: { heading: string; intro: string; steps: { when: string; title: string; body: string }[] };
-  /* Tools the system reads and writes back into (flagship) */
-  connects?: { heading: string; note: string; tools: { name: string; icon?: string }[] };
   /* Worked examples at one price (Quick Win) */
   examples?: { heading: string; intro: string; items: { title: string; body: string; tools: string }[] };
-  /* "Why most AI projects stall" ledger (flagship only) */
-  stalls?: {
-    heading: string;
-    intro: string;
-    items: { fail: string; body: string; counter: string }[];
-    source: { label: string; href: string };
-  };
+  /* Short "why projects stall" note (flagship only) */
+  stallsNote?: { heading: string; body: string };
   howItWorks: { title: string; body: string }[];
   whoItsFor: string;
   pricing: string;
@@ -89,10 +80,10 @@ export const SERVICES: Service[] = [
     name: "Quick Win",
     icon: "Rocket",
     eyebrow: "Start",
-    pain: "there's one thing you'd build if you had the hours, and you want proof before anything bigger.",
+    pain: "there's one opportunity, risk, or decision your team can't reliably see today, and you want proof before anything bigger.",
     tagline:
-      "One new capability, built in two to three weeks, then measured for 30 days. The smallest version of what I build at full scale.",
-    bestFor: "owners and team leads who want proof on one capability before a bigger decision.",
+      "One valuable capability, built in two to three weeks, then measured for 30 days. The smallest version of what I build at full scale.",
+    bestFor: "lean teams with one valuable blind spot and the data to see it.",
     priceDisplay: "$2,500 fixed",
     highlights: [
       "One capability, live in two to three weeks",
@@ -100,58 +91,59 @@ export const SERVICES: Service[] = [
       "Fee comes off a later build",
     ],
     examples: {
-      heading: "What a Quick Win looks like",
+      heading: "What a Quick Win can look like",
       intro:
-        "Six shapes it tends to take, across finance, operations, and sales. Each is something the team could have done by hand and never had the hours for. All the same price, and each comes with the number we'll measure it by.",
+        "Six examples of a tightly scoped first capability, across operating, finance, and investment work. Each turns signals the team already has into something it couldn't reliably see or act on before. All the same fixed fee, with the measure agreed before I build.",
       items: [
         {
-          title: "Cash position every morning",
-          body: "Bank balances, what's due in, what's going out, and the exceptions, on one page before the day starts, instead of a spreadsheet someone updates on Fridays.",
-          tools: "Bank feed · Xero or QuickBooks · measured in hours",
+          title: "Cash-pressure early warning",
+          body: "Bank balances, receivables, payables, and near-term commitments brought into one daily view, with the dates and exceptions most likely to create pressure flagged before they become surprises.",
+          tools: "Bank feed · Accounting · measured in days of warning",
         },
         {
-          title: "Month-end document chase",
-          body: "The requests, reminders, and collection that month-end waits on, tracked in one place and chased without a person doing the chasing.",
-          tools: "Inbox · Shared drive · measured in days to close",
+          title: "At-risk customer watchlist",
+          body: "Activity, spend, and contact history read together to surface accounts showing early signs of drift, with the evidence and next action attached.",
+          tools: "CRM · Accounting · measured in accounts acted on before lapse",
         },
         {
-          title: "Management pack first draft",
-          body: "The numbers pulled from the accounting package and the commentary drafted in your house style, so the team edits instead of starting from a blank page.",
-          tools: "Accounting · Spreadsheets · measured in hours",
+          title: "High-value enquiry watch",
+          body: "Every inbound enquiry assessed for urgency, fit, and potential value, with strong opportunities and overdue responses or quotes pushed to the top.",
+          tools: "Inbox · CRM or job system · measured in response or quote time",
         },
         {
-          title: "Enquiry triage and quote routing",
-          body: "Every inbound enquiry tagged, summarised, and routed to the right person with a draft reply, so nothing waits past your quote deadline.",
-          tools: "Inbox · CRM · measured in turnaround time",
+          title: "Installed-base opportunity finder",
+          body: "Completed jobs and existing customers scanned for service, renewal, cross-sell, or follow-on opportunities that nobody is systematically looking for.",
+          tools: "Job system · Accounting · measured in qualified opportunities found",
         },
         {
-          title: "Contract and lease intake",
-          body: "Key terms pulled out of the documents that arrive by email, filed where they belong, with renewals and deadlines flagged before they get missed.",
-          tools: "Inbox · Shared drive · measured in hours and misses",
+          title: "Asset or portfolio exception brief",
+          body: "Every asset compared with its budget, underwriting, or operating plan, with the few that deserve attention surfaced alongside the reason and supporting evidence.",
+          tools: "Portfolio data · Budget or model · measured in time to identify material exceptions",
         },
         {
-          title: "The Monday digest",
-          body: "One page every Monday stitched from three tools: what moved, what's late, what needs a decision.",
-          tools: "Any three tools · measured in hours",
+          title: "Market, tender, or commercial-signal monitor",
+          body: "Defined markets, tender feeds, or commercial signals watched continuously, with relevant changes ranked and explained while there's still time to act.",
+          tools: "Public data feeds · measured in relevant opportunities caught",
         },
       ],
     },
-    h1: "One new capability, live and measured, in three weeks.",
+    h1: "One valuable capability, live in two to three weeks, then measured for 30 days.",
     subhead:
-      "A fixed fee for one thing your team has wanted and never had the hours to build, live in two to three weeks and measured against a number we agree up front. If the discovery call doesn't turn up something worth building, there's no fee.",
+      "A fixed-fee first build for one opportunity, risk, or decision your team can't reliably see today. We agree the outcome and measure up front, build the smallest useful version, and test it on live work. If I don't believe it can create value at this scope, I'll tell you before we start.",
     problemHeading: "The problem",
     problem:
-      "Every team has one. The report someone would build if they had a spare day a week. The flags nobody sets because nobody has time to watch. The pack assembled by hand at midnight because assembling it properly was never a project anyone could justify. You don't need a strategy for that. You need it built, and a number that shows it worked.",
+      "Lean teams rarely lack data. They lack the time and systems to watch all of it. A customer starts to drift, cash pressure forms, an asset moves off plan, or a tender appears, and the signal surfaces late because someone would have had to join the data by hand. A Quick Win builds the smallest useful capability that catches one of those signals in time to act. You may not need a strategy or a major implementation. You need one valuable blind spot removed, and a number that shows whether it helped.",
     whatHeading: "What I do",
     what:
-      "We pick the one thing on the discovery call and agree how we'll measure it: hours, turnaround, or misses. I build it, usually with Claude and n8n or Power Automate, connected to the tools you already use, as a skill, an agent, or a workflow your team actually opens. It goes live in two to three weeks with one handoff session and two weeks of support, and at 30 days we read the number together. It's the smallest version of what I build at full scale. Working software, not a slide deck.",
+      "We choose one outcome and one observable measure: days of warning, response time, accounts acted on, exceptions surfaced, or qualified opportunities found. I connect no more than two data sources, capture the rules that matter, and build a working capability on your live data. It goes live in two to three weeks, with one handoff session and two weeks of support. At 30 days, we review what changed and whether anything larger is worth building. The system and its documentation are yours to keep.",
     whatYouGet: [
-      "One capability built, with the measure agreed before we start",
-      "Connected to your existing software, at most two tools",
-      "One clear input and output, with sensible handling for the exceptions",
-      "One handoff session with your team, plus two weeks of support",
-      "A 30-day read of the number: hours, turnaround, or errors removed",
-      "An honest view of what's worth building next, if anything",
+      "One live capability built around one defined outcome",
+      "Up to two data sources, using your real data",
+      "The rules, measures, and exceptions documented",
+      "Sensible handling when the data is incomplete or uncertain",
+      "One handoff session and two weeks of support",
+      "A 30-day review against the measure agreed up front",
+      "The working system and documentation, yours to keep",
     ],
     howItWorks: [
       {
@@ -172,10 +164,10 @@ export const SERVICES: Service[] = [
       },
     ],
     whoItsFor:
-      "Owners and team leads who want a low-risk, fixed-fee start and a real result to point to before going further.",
+      "Lean teams with one valuable blind spot, accessible data, and someone close enough to the work to know what actually matters. If the outcome depends on several connected systems, decisions, or teams, it's probably an Alpha System instead.",
     pricing:
-      "$2,500 fixed. The scope is deliberately tight: one capability, one team, at most two tools, one defined input and output, one handoff session, two weeks of support. No historical data migration. If the discovery call doesn't find something worth building, there's no fee. If it leads to an Alpha System within 90 days, the $2,500 comes off.",
-    ctaLine: "Let's find the first thing worth building.",
+      "$2,500 fixed. That covers one capability, one team, up to two systems, one defined outcome, one handoff session, and two weeks of support. No historical data migration. If I don't think a useful result fits this scope, I'll tell you before we start. If you move to an Alpha System within 90 days, the full $2,500 is credited.",
+    ctaLine: "Let's find the first capability worth building.",
   },
   {
     slug: "system",
@@ -186,163 +178,99 @@ export const SERVICES: Service[] = [
     name: "The Alpha System",
     icon: "LineChart",
     eyebrow: "Build",
-    pain: "your work lives in three or more tools and you can name the number that suffers for it.",
+    pain: "an important outcome depends on signals scattered across the business, and nobody can watch all of them.",
     tagline:
-      "My flagship build. One AI-native system on the tools you already run: it does the recurring work and puts your data to work, scoped to one number at a time.",
-    bestFor: "finance, operations, and owner-led teams whose work lives in three or more tools.",
-    priceDisplay: "From $7,500",
+      "My flagship build. A live decision system for one high-value outcome. It connects the relevant signals, applies your operating judgment, surfaces what deserves attention, and carries the next action into the work.",
+    bestFor: "teams where an important outcome depends on signals scattered across the business.",
+    priceDisplay: "$10,000 to $15,000 typical",
     mostPopular: true,
     chip: "Flagship",
     highlights: [
-      "One number, named up front",
-      "The recurring work, done inside your tools",
-      "Your operating memory, yours to keep",
+      "One outcome and its measure, named up front",
+      "Opportunities and risks prioritised with the evidence behind them",
+      "The next action put in front of the person who owns the decision",
     ],
     glance: {
-      input:
-        "Your CRM, spreadsheets, accounting package, and inbox, plus public feeds where they matter. Nothing migrates; it reads what you already run.",
-      trigger:
-        "Every morning, and the moment something happens: an invoice arrives, an enquiry lands, an account goes quiet, a deadline passes.",
+      signals:
+        "Your CRM, spreadsheets, accounting package, inbox, and the public feeds that matter. Built around the systems you already use wherever that makes sense, with no unnecessary migration.",
+      judgment:
+        "Your definitions, priorities, and decision rules: what matters, what can wait, and when a person needs to decide.",
       output:
-        "The recurring work done: numbers posted, replies drafted, documents filed, exceptions held for a person to approve. And the number, read every month.",
-    },
-    reality: {
-      heading: "The week, today",
-      items: [
-        "Three systems that don't talk: jobs or deals in one, the money in another, the conversations in email",
-        "Month-end built from exports and a spreadsheet, then checked by the person who built it",
-        "The same numbers keyed twice, in two tools, by two people",
-        "Enquiries and requests waiting on whoever gets to the inbox first",
-        "The whole picture living in one person's head, rebuilt from memory every week",
-      ],
+        "A ranked opportunity, risk, or exception, with the evidence and next action attached. Where appropriate, the system drafts, routes, or updates the work, with your approval before anything consequential happens.",
     },
     layers: {
       heading: "What it's made of",
       intro:
-        "One system, five layers, foundation first. Each one is useful on its own and makes the next one possible. The two layers underneath, the operating memory and the connections to your tools, are effectively the company's brain. Everything after that is built on them, so the next workflow starts from there rather than from scratch.",
+        "One system, five layers, built in this order. Together they turn scattered data into a continuous loop: understand the business, read the signals, identify what matters, carry it into action, and measure what changed.",
       items: [
         {
           name: "01 · Operating memory",
-          title: "The system understands the business.",
-          body: "Your rules, definitions, and judgment, written down. What counts as a key account, when a quote is late, who gets called first, the strategy and the people. I keep it as plain-text files (I use Obsidian) that you and any AI can read, so it stays yours and doesn't lock you into a vendor.",
-          points: ["Definitions and rules", "Strategy, team, and roles", "Decisions, and why they were made"],
+          title: "The system understands how your business decides.",
+          body: "Your definitions, priorities, and judgment, written down: what counts as a key account, when an exception matters, which opportunities deserve attention, and when a person must decide. This becomes portable, readable documentation that you own, not knowledge trapped inside a vendor platform.",
+          points: ["Definitions and decision rules", "Priorities, roles, and approval boundaries", "Important decisions and why they were made"],
         },
         {
-          name: "02 · Connections",
-          title: "It reads the tools you already run.",
-          body: "Secure connectors to your CRM, job or project system, accounting package, inbox, and the public feeds that matter, set up in your accounts under your credentials. Nothing migrates.",
-          points: ["CRM and job systems", "Accounting", "Email, calendar, documents, public feeds"],
+          name: "02 · Connected signals",
+          title: "It keeps the relevant picture current.",
+          body: "Secure connections bring together the operating, financial, and external signals behind the outcome. The system reads what it needs from the software you already use, in accounts you control, without an unnecessary migration.",
+          points: ["CRM, job, project, and portfolio systems", "Accounting, email, and documents", "Relevant internal and public data feeds"],
         },
         {
-          name: "03 · Intelligence",
-          title: "It reads everything and works out what needs doing.",
-          body: "Your data plus the operating memory, read by AI every morning and whenever something happens. It knows which invoice is due, which enquiry is waiting, which account has gone quiet, and shows its evidence for each.",
-          points: ["Knows what's due and what's waiting", "Alerts for the events you defined", "Evidence shown for every call it makes"],
+          name: "03 · Opportunity intelligence",
+          title: "It identifies what deserves attention.",
+          body: "The system reads current signals through the rules and judgment in your operating memory. It identifies opportunities, risks, and exceptions, ranks them by importance, and shows the evidence behind every call it makes.",
+          points: ["Important changes detected as they happen", "Opportunities and risks ranked by your priorities", "Evidence and uncertainty shown clearly"],
         },
         {
-          name: "04 · Work",
-          title: "It does the work, with your approval where it matters.",
-          body: "Numbers posted, invoices coded, follow-ups drafted, documents filed, reports assembled, records updated. Each with a human approval wherever you decided one is needed, and written back into the tools you already use.",
-          points: ["Posting, coding, filing, drafting", "Recurring reports and packs", "Approvals before anything changes a record"],
+          name: "04 · Action loop",
+          title: "It carries the decision into the work.",
+          body: "Once something deserves attention, the system puts the next action in front of the right person. Where appropriate, it can draft the response, create the follow-up, route the exception, or update the record, with human approval wherever you decide it matters.",
+          points: ["A clear owner and next action", "Drafting, routing, and record updates", "Human approval before consequential changes"],
         },
         {
-          name: "05 · The number",
-          title: "It is measured, and it grows.",
-          body: "The number we named, read every month against its baseline. Once the foundation is running, the next workflow or the next number is a change to the same system rather than a new project.",
-          points: ["Monthly read against the baseline", "The next number on the same foundation", "Alpha System Care keeps it current"],
+          name: "05 · Measurement",
+          title: "It shows whether the outcome moved.",
+          body: "The measure agreed at the start is tracked against its baseline after go-live. We use real results to refine the rules, improve the system, and decide whether another capability is worth adding to the same foundation.",
+          points: ["Thirty-day measurement against the baseline", "Rules refined through real use", "The next capability built on the same foundation"],
         },
       ],
     },
     timeline: {
       heading: "A typical engagement",
       intro:
-        "Usually six weeks to go-live, then 30 days of measurement. Eight working sessions, about an hour of your time each. The rest is mine. Smaller scopes go faster; bigger ones add build weeks, not process.",
+        "Most Alpha Systems go live within six weeks. They then run on live data for 30 days while we measure the agreed outcome, tune the rules, and confirm that the system is earning its place. Your involvement is usually six to eight working sessions of about an hour each. The rest is mine.",
       steps: [
-        { when: "Week 0", title: "Discovery call", body: "Thirty minutes to name the number worth moving and check the data is there to move it." },
-        { when: "Week 1", title: "Name the number, trace the data", body: "Interviews, tool access, the current-state map, and the baseline we'll measure against." },
-        { when: "Week 2", title: "Operating memory and connections", body: "Your rules and definitions written down, your tools connected in your accounts." },
-        { when: "Weeks 3 to 5", title: "Build and test", body: "Weekly working sessions with you. Definitions get corrected by real use, which is the point." },
-        { when: "Week 6", title: "Go live", body: "Live data, your team using it, ownership handed over." },
-        { when: "Weeks 7 to 10", title: "Measure and tune", body: "Thirty days reading the number together, then Care if you want it looked after." },
-      ],
-    },
-    connects: {
-      heading: "Reads the tools you already run",
-      note: "and writes back into them. Set up in your accounts, under your credentials.",
-      tools: [
-        { name: "Xero", icon: "xero" },
-        { name: "QuickBooks", icon: "quickbooks" },
-        { name: "HubSpot", icon: "hubspot" },
-        { name: "Salesforce" },
-        { name: "Pipedrive" },
-        { name: "SimPRO" },
-        { name: "Microsoft 365" },
-        { name: "Google Workspace" },
-        { name: "n8n", icon: "n8n" },
-        { name: "Zapier", icon: "zapier" },
-        { name: "Make", icon: "make" },
-        { name: "Slack" },
-        { name: "Notion", icon: "notion" },
-        { name: "Airtable", icon: "airtable" },
-        { name: "Claude", icon: "claude" },
+        { when: "Week 0 · Fit check", title: "Name the opportunity", body: "A 30-minute conversation to identify the outcome worth moving and confirm that the necessary data exists." },
+        { when: "Weeks 1 to 2 · Foundation", title: "Define the outcome and connect the signals", body: "We establish the baseline, map the decisions behind it, capture the important rules, and connect the relevant data." },
+        { when: "Weeks 3 to 5 · Build and test", title: "Build on real cases", body: "I build the working system and test it against representative scenarios and edge cases. Weekly working sessions let us correct the judgment as the system takes shape." },
+        { when: "By week 6 · Go live", title: "Put it into daily use", body: "The system moves onto live data, your team begins using it, and the ownership, documentation, and approval boundaries are handed over." },
+        { when: "Following 30 days · Prove and tune", title: "Measure what changed", body: "The system is already live. I monitor its quality, refine the rules, and read the agreed measure against its baseline. At the end, we decide whether to maintain it, extend it, or stop there." },
       ],
     },
     trust: [
-      "It runs in your accounts, under your credentials. The tools, the AI subscriptions, and the automation platform are set up in your name, so nothing depends on mine",
-      "Anything the AI matched or suggested is marked as AI-made. It's never blended in as if a person did it",
-      "Every flag shows its evidence, so you can check the call in a few seconds",
-      "Anything that changes a system of record waits for a human approval you've defined",
-      "Decisions and rule changes get recorded, so you can always see why the system did what it did",
-      "When it isn't sure, it says so and escalates rather than guessing",
+      "Calculations, thresholds, permissions, and exact matching are handled with ordinary deterministic code, not left to an AI model",
+      "AI is reserved for work that genuinely requires interpretation: extracting meaning, classifying, summarising, ranking, and drafting",
+      "Before go-live, those AI judgments are tested against representative real cases and known edge cases. The same tests are rerun whenever the model, prompt, rules, or data connections change",
+      "Every AI-generated match, recommendation, or summary is clearly identified and shows the evidence behind it",
+      "When the system is uncertain, it escalates rather than guesses. Anything consequential waits for the human approval you defined",
+      "The system runs in accounts you control, and decisions, approvals, and rule changes remain traceable",
     ],
-    stalls: {
-      heading: "Why most AI projects stall, and why this one is built not to.",
-      intro:
-        "Eight in ten people say AI makes them personally more productive. Only 37 percent of organisations can point to any effect on profit, and that number hasn't moved in a year. That gap isn't the technology. It's five decisions that get skipped. I've made each of these mistakes at least once, which is why the Alpha System is built around not repeating them.",
-      items: [
-        {
-          fail: "It started with the tool, not the number.",
-          body: "'Let's use AI' is a project with no finish line. Nobody can say what moved, so nobody defends it when the pilot budget runs out.",
-          counter: "We name one number before anything gets built, and the whole engagement exists to move it.",
-        },
-        {
-          fail: "AI was layered onto the old workflow.",
-          body: "A chatbot bolted onto a process designed for spreadsheets saves minutes and changes nothing. The organisations that see profit from AI redesign the work around it, nearly three-quarters of them, against a quarter of everyone else.",
-          counter: "We trace the data and the decisions behind the number, then rebuild that flow, not the whole business.",
-        },
-        {
-          fail: "Nobody wrote down how the business actually decides.",
-          body: "What counts as a key account, when a quote is late, which customer gets a call first. If that lives only in the owner's head, the AI guesses, and the owner stops trusting it.",
-          counter: "Your operating memory: your rules, definitions, and judgment written down, so the system works the way you would, and you keep it.",
-        },
-        {
-          fail: "The owner was not in the room.",
-          body: "Delegated to IT or a vendor, the build drifts toward what's easy to demo rather than what changes the number. In the builds I've done, the definitions have changed at least once part-way through, because the owner was there to correct them.",
-          counter: "Eight working sessions with you, not a spec handed over once.",
-        },
-        {
-          fail: "It went live and nobody measured or stayed.",
-          body: "Without a number being measured and someone close by when the business changes, the system stops being used.",
-          counter: "We go live, we watch the number for 30 days, and Alpha System Care keeps it honest after that.",
-        },
-      ],
-      source: {
-        label: "McKinsey Global Survey, \"The state of AI in 2026: On the road to ROI,\" 25 August 2026. 1,719 respondents in 97 countries, fielded 4 May to 8 June 2026.",
-        href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-      },
+    stallsNote: {
+      heading: "Why most AI projects stall",
+      body: "AI projects stall when they start with a tool, bolt AI onto an old workflow, or leave the business's judgment implicit. The Alpha System starts with one measurable outcome, captures the rules behind the decision, and redesigns only the part of the workflow required to move it. The person accountable stays involved while it's built, then it runs on live data and is measured for 30 days after go-live.",
     },
-    h1: "One AI-native system, built to do what your business couldn't do before.",
+    h1: "One live decision system, built to see what your business couldn't see before.",
     subhead:
-      "The system you'd have built years ago with more people: it reads across everything you run, applies the judgment you'd apply, and puts what it finds in front of the person who acts on it. Underneath, it does the recurring work that made that impossible to staff: reconciling, drafting, filing, chasing, reporting, with your approvals wherever they matter. Scoped to one number at a time, so it has a finish line.",
+      "It connects the signals behind one high-value outcome, applies your operating judgment, and continuously surfaces the opportunity, risk, or exception that matters next, with the evidence and action attached. Built in your accounts, owned by you, and measured against a baseline agreed before we start.",
     problemHeading: "The problem",
     problem:
-      "Most owners I speak to can name the number that's hurting: accounts leaving without anyone noticing, quotes going out too slowly, margin nobody can see until quarter end. The data to move it already exists. The problem is that it's split across a CRM, a spreadsheet, an accounting package, and an inbox, so nobody sees the whole picture in time to act, and the number gets managed from memory and last month's report.",
+      "The person accountable for an outcome can usually name what's going wrong: customers drifting, quotes moving too slowly, margin appearing too late, an asset moving off plan, or an opportunity noticed after the window has closed. The signals already exist, but one lives in the operating system, another in the financial data, and another in email or a spreadsheet. Nobody can hold the complete picture in view continuously, so the decision gets made from memory or last month's report.",
     whatHeading: "What The Alpha System is",
     what:
-      "It isn't a dashboard and it isn't a data integration project. It's software, built for your business, to do the thing you'd have done years ago with more people: read every account, every invoice, every enquiry as it lands, apply the judgment you'd apply, and put what it finds in front of the person who acts on it. Underneath, it does the recurring work that made that impossible to staff: posting the numbers, drafting the replies, filing the documents, assembling the pack, holding anything uncertain for a person to approve. We start by naming the one number you want to move, so the first phase has a finish line. Then I connect the tools you already run and write down your operating memory, your rules, definitions, and judgment, so the AI works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
+      "It isn't a dashboard and it isn't a data integration project. It's a live decision system, built for your business, that connects the relevant signals, applies the judgment you'd apply, and puts what deserves attention in front of the person who owns the decision, with the evidence behind it. We start by naming the one outcome you want to move, so the first phase has a finish line. Then I connect the systems that carry the relevant signals and write down your operating memory, your rules, definitions, and judgment, so the system works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
     whatYouGet: [
-      "One business number with its baseline, agreed before we build anything",
-      "A current-state map of the workflow and the data behind the number",
+      "One business outcome with its baseline, agreed before we build anything",
+      "A current-state map of the workflow and the data behind the outcome",
       "A working system connected to a defined set of your existing tools, no rip-and-replace",
       "Decision rules and the human approvals the system must ask for, written down",
       "The recurring work done inside your tools, with a visible queue of what it did and what it's holding for a person",
@@ -352,7 +280,7 @@ export const SERVICES: Service[] = [
     ],
     howItWorks: [
       {
-        title: "Name the number",
+        title: "Name the opportunity",
         body: "We agree the one outcome this engagement exists to move, what's constraining it today, and how we'll know it moved.",
       },
       {
@@ -360,12 +288,12 @@ export const SERVICES: Service[] = [
         body: "I map where the data that predicts and drives that outcome lives, how the work actually happens, and which decisions change the number. I assess the right stack, working inside the systems you already run wherever it makes sense.",
       },
       {
-        title: "Build",
-        body: "I connect and synthesize that data with AI into one live system, and write down your operating memory so it runs on your judgment, not a template's.",
+        title: "Write down the rules",
+        body: "Your operating memory: the definitions, judgment, and rules the business runs on, captured so the system works the way you would, not a template's.",
       },
       {
-        title: "Test",
-        body: "I test it on real scenarios and real data before you have to rely on it day to day.",
+        title: "Build and test",
+        body: "I connect the data, build the system on top of it, and test it on real scenarios and real data before you have to rely on it day to day.",
       },
       {
         title: "Go live and measure",
@@ -373,10 +301,10 @@ export const SERVICES: Service[] = [
       },
     ],
     whoItsFor:
-      "Finance, operations, and owner-led teams whose work lives in three or more tools, who want the recurring load taken off people, and who can name the number they'd measure it by.",
+      "A fit when one measurable outcome depends on several signals, rules, and actions spread across the business, and the person accountable can work with me to define the judgment behind it. If the need is one tightly defined capability using no more than two systems, start with a Quick Win instead. If several capabilities need to work together around the same outcome, that's an Alpha System.",
     pricing:
-      "From $7,500, typically $10,000 to $15,000 depending on how many tools we connect and how much judgment we write down. If you'd rather tie my fee to the result, I'm happy to price against the number instead. A Quick Win or Sprint fee comes off if the build starts within 90 days. Alpha System Care is available afterwards, to build clients only.",
-    ctaLine: "Ready to name the number?",
+      "Typical engagement: $10,000 to $15,000. Focused systems start at $7,500. Final scope depends on the systems being connected, the amount of business judgment being captured, and the actions the system needs to support. A Quick Win or Sprint fee comes off if the build starts within 90 days. Alpha System Care is available afterwards, to build clients only.",
+    ctaLine: "Ready to name the opportunity?",
   },
   {
     slug: "strategy",
@@ -384,64 +312,65 @@ export const SERVICES: Service[] = [
     group: "Front door",
     role: "Decide",
     listed: true,
-    name: "Leadership AI Sprint",
+    name: "AI Opportunity Sprint",
     icon: "Compass",
     eyebrow: "Decide",
-    pain: "everyone is using AI their own way, nobody owns it, and you don't know what to build first.",
+    pain: "several AI opportunities look plausible, different people are advocating different tools, and nobody has a shared basis for deciding what deserves investment.",
     tagline:
-      "Two weeks with your leadership team. Rank the use cases, make the build, buy, or do-nothing calls, and leave with a 90-day roadmap and one working prototype.",
-    bestFor: "leadership teams who want decisions and a prototype rather than a deck.",
+      "A two-week decision sprint: rank the opportunities, make the build, buy, or not-now calls, and leave with a 90-day roadmap and one prototype.",
+    bestFor: "lean leadership teams with more AI opportunities than a way to choose between them.",
     priceDisplay: "$7,500 fixed",
     highlights: [
-      "Use cases ranked by benefit, cost, and risk",
+      "Opportunities ranked by value, feasibility, cost, and risk",
       "A 90-day roadmap and one prototype",
       "Half the fee credited to a build",
     ],
-    h1: "Decide where AI belongs, what to build, and how to run it.",
+    h1: "Decide where AI can create an advantage, and what to build first.",
     subhead:
-      "Two weeks with your leadership team that end in decisions rather than a deck: a ranked list of use cases, the calls on what to build and what to buy, rules for review and sensitive data, a 90-day roadmap, and one prototype you can put in front of the team.",
+      "A two-week decision sprint for lean leadership teams with more possible AI ideas than capacity to pursue them. You leave with a ranked opportunity portfolio, build, buy, or not-now decisions, practical guardrails, a 90-day roadmap, and one prototype that makes the first opportunity tangible.",
     problemHeading: "The problem",
     problem:
-      "Most businesses I speak to already use AI. It lives in individual browser tabs: useful, uneven, and unowned. The leadership team feels the pressure to do something but can't agree what, so decisions get made tool by tool, or not at all. A strategy deck isn't a decision either.",
+      "Most teams don't lack AI ideas. They lack a reliable way to distinguish a productivity improvement from a genuinely valuable new capability, and either from a distraction. Use cases arrive tool by tool. The expected value is rarely tested, the necessary data is discovered too late, and nobody makes an explicit build, buy, or not-now decision. The result is a collection of pilots that never moves a business outcome, or a leadership team that keeps waiting for the answer to become clearer.",
     whatHeading: "What the sprint is",
     what:
-      "I work with your leadership team for two weeks. Week one is interviews and a look at your systems and data: where the hours go, where the errors and delays are, what the numbers say. Week two is a working session where we rank the candidate use cases by expected benefit, cost, feasibility, and risk, make the build, buy, or do-nothing call on each, and write the rules for human review, accountability, and sensitive data. You leave with a 90-day roadmap your team owns and a working prototype of the first item on it, so the plan is already real by the time I leave.",
+      "During week one, I interview the people accountable for the outcomes and the people closest to the work. We identify where revenue, margin, risk, or decision quality is constrained, then turn those problems into specific opportunities, each with an owner, a value hypothesis, a possible measure, and the data it would require. During week two, we rank those opportunities by potential value, feasibility, cost, and risk. Together we make the build, buy, not-now, or do-nothing call on each, select the first opportunity to test, and establish practical rules for human review, accountability, and sensitive data. I build a small prototype using representative data to test the most important assumption. It's evidence for the decision, not a production system. You leave with a 90-day roadmap your team can lead.",
     whatYouGet: [
-      "A ranked portfolio of AI use cases specific to your business",
-      "Expected benefit, cost, feasibility, and risk for each",
-      "Build, buy, or do-nothing decisions, with the reasoning written down",
-      "The data and systems constraints that shape what's possible",
-      "Human-review, accountability, and acceptable-use rules that fit a business your size",
-      "A 90-day implementation roadmap, sequenced and owned",
-      "One working prototype or validated proof of the first item",
+      "A ranked portfolio of opportunities tied to business outcomes",
+      "A value hypothesis and proposed measure for each shortlisted opportunity",
+      "Build, buy, not-now, or do-nothing decisions, with the reasoning recorded",
+      "Data readiness, dependencies, and constraints for the leading options",
+      "Practical rules for human review, accountability, and sensitive information",
+      "A 90-day roadmap with sequence, owners, and decision points",
+      "One prototype using representative data to test the most important assumption",
+      "Success criteria for deciding whether that prototype should become a real build",
     ],
     howItWorks: [
       {
-        title: "Interview",
-        body: "Leadership and the people doing the work: where the hours, errors, and delays actually are.",
+        title: "Find the value",
+        body: "Identify the outcomes worth moving. Interviews with the people accountable for the result and closest to the work: where revenue, margin, risk, time, or decision quality is being constrained.",
       },
       {
-        title: "Rank",
-        body: "Candidate use cases scored on benefit, cost, feasibility, and risk, in the open.",
+        title: "Frame the opportunities",
+        body: "Turn problems into testable use cases. Define the capability, owner, value hypothesis, measure, required data, and important risks for each candidate.",
       },
       {
-        title: "Decide",
-        body: "Build, buy, or do nothing on each, plus the review and data rules the business will hold to.",
+        title: "Make the calls",
+        body: "Build, buy, wait, or do nothing. Rank the opportunities openly and make an explicit decision on each, rather than leaving a list of undifferentiated ideas.",
       },
       {
-        title: "Prototype",
-        body: "The first item on the roadmap, working, so the plan starts real.",
+        title: "Test the first one",
+        body: "Prototype the critical assumption. Build enough, using representative data, to learn whether the first opportunity deserves a production investment.",
       },
       {
-        title: "Roadmap",
-        body: "Ninety days, sequenced, with owners, handed to your team.",
+        title: "Assign the roadmap",
+        body: "Put decisions, owners, and dates behind it. Leave with a 90-day sequence your team owns, including the next decision point for every item.",
       },
     ],
     whoItsFor:
-      "Leadership teams of owner-led businesses who want a plan they can actually lead from, and would rather see a prototype than a deck.",
+      "Lean leadership teams with several plausible AI opportunities, limited capacity to pursue them, and no shared method for deciding what deserves investment. If you already know the capability, the outcome, the required data, and how you'll measure it, skip the Sprint and start with a Quick Win or Alpha System instead.",
     pricing:
       "$7,500 fixed, two weeks. Half is credited toward an Alpha System build started within 90 days.",
-    ctaLine: "Get the plan you can lead from.",
+    ctaLine: "Choose the first opportunity worth building.",
   },
   {
     slug: "workshops",
@@ -465,7 +394,7 @@ export const SERVICES: Service[] = [
       "Most teams have had some AI training, and most of it came from YouTube. Generic sessions don't stick. People nod along and go back to the old way by Thursday. What sticks is building something real, with your own work, alongside someone who's done it before.",
     whatHeading: "What the day is",
     what:
-      "I shape the day around two or three workflows your team actually runs. We redesign them in the room: fewer steps, clearer handoffs, people reviewing the exceptions instead of pushing paper. Then we build one reusable agent or skill from your own documents and data, and write the team's rules for accuracy, review, and sensitive data. The day ends with named owners and next actions. I come back 30 days later to see what stuck and fix what didn't.",
+      "I shape the day around two or three workflows your team actually runs. We redesign them in the room: fewer steps, clearer handoffs, people reviewing the exceptions instead of pushing paper. Then we build one reusable agent or skill from your own documents and data, and write the team's rules for accuracy, review, and sensitive data. A half day covers one workflow and the agent build; a full day adds a second workflow and more time to get the team's rules right. The day ends with named owners and next actions. I come back 30 days later to see what stuck and fix what didn't.",
     whatYouGet: [
       "Two or three of your real workflows redesigned, in the room",
       "One reusable agent or skill built from your own material",
@@ -521,14 +450,14 @@ export const SERVICES: Service[] = [
       "A system is most at risk in the months after launch. Definitions change, a supplier renames a field, a model update changes an answer, and nobody notices until the owner stops trusting the output. Most AI projects don't fail at launch. They fade.",
     whatHeading: "What Care is",
     what:
-      "A monthly routine, run by the person who built the system. I review output quality and reliability, watch cost and usage (token spend in plain numbers), update rules and models as the business or the vendors change, work through the exceptions your team flagged, and send a one-page report against the number. Each month includes an allowance for small improvements, and each quarter we sit down and decide what's worth building next. The upper tier adds a monthly working session with you.",
+      "A monthly routine, run by the person who built the system. I review output quality and reliability, watch cost and usage (token spend in plain numbers), update rules and models as the business or the vendors change, work through the exceptions your team flagged, and send a one-page report against the number. Each month includes a monthly improvement scope agreed with you in advance, and each quarter we sit down and decide what's worth building next. The upper tier adds a monthly working session with you.",
     whatYouGet: [
       "Monthly reliability and output-quality review",
       "Cost and usage monitoring, with token and vendor spend in plain numbers",
       "Rule, prompt, and model updates as the business and the vendors change",
       "A monthly report against the number the system was built to move",
       "Staff feedback and exception review",
-      "A small monthly improvement allowance",
+      "A monthly improvement scope, agreed with you in advance",
       "A quarterly opportunity-planning session",
       "Upper tier: a monthly working session with the owner and opportunity triage",
     ],
@@ -553,7 +482,7 @@ export const SERVICES: Service[] = [
     whoItsFor:
       "Clients whose Alpha System is live and who want it maintained and improved by the person who built it.",
     pricing:
-      "$1,500 to $4,000 per month depending on the number of systems and response expectations. Offered only after an Alpha System build, and capped at a handful of clients so each gets real attention. The upper tier adds the monthly owner working session.",
+      "$1,500 to $4,000 per month depending on the number of systems and a monthly improvement scope agreed in advance. Offered only after an Alpha System build, and capped at a handful of clients so each gets real attention. The upper tier adds the monthly owner working session.",
     ctaLine: "Talk about Care for your system.",
   },
   {

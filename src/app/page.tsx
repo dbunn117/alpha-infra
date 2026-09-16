@@ -1,20 +1,20 @@
 import { ChapterFolio } from "@/components/chapter-folio";
 import { Hero } from "@/components/hero";
+import { PositioningBlock } from "@/components/positioning-block";
 import { ProofStrip } from "@/components/proof-strip";
-import { FitLedger } from "@/components/fit-ledger";
 import { ServicesSection } from "@/components/services-section";
-import { LevelsLadder } from "@/components/levels-ladder";
 import { ProcessSection } from "@/components/process-section";
-import { PrinciplesLedger } from "@/components/principles-ledger";
 import { AboutBlock } from "@/components/about-block";
 import { Testimonials } from "@/components/testimonials";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 
 /*
- * Chaptered homepage: hero with the looping diagram, proof, fit, offerings,
- * levels, process, principles, about, FAQ, close. The margin folio ticks chapters
- * off as they are read.
+ * Chaptered homepage, in the order claim, demonstration, proof: the live
+ * hero, real systems with the owner's quote, the Opportunity vs Productivity
+ * idea, the offers in brief, process, a short founder section, four FAQs,
+ * close. The fit ledger and the full offer detail live on /services. The
+ * margin folio ticks chapters off as they are read.
  */
 export default function HomePage() {
   return (
@@ -22,14 +22,12 @@ export default function HomePage() {
       <ChapterFolio />
       <Hero />
       <ProofStrip />
-      <FitLedger />
-      <ServicesSection />
-      <LevelsLadder />
+      <PositioningBlock />
+      <ServicesSection compact />
       <ProcessSection />
-      <PrinciplesLedger />
       <AboutBlock />
       <Testimonials />
-      <Faq />
+      <Faq featuredOnly />
       <FinalCta />
     </>
   );

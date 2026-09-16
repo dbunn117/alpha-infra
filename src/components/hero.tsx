@@ -2,53 +2,45 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { hero } from "@/content/site";
 import { BookACallButton } from "@/components/book-a-call-button";
-import { InkAnimation } from "@/components/ink-diagram/ink-animation";
-import { cta } from "@/lib/cta";
+import { MorningView } from "@/components/morning-view";
 import { riseDelay } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 /*
- * Hero: copy on the left, the looping ink diagram on the right. Lines rise
- * in on load (JS only). The diagram is hidden below sm, where its labels
- * would be too small to read.
+ * Hero: a headline, two sentences, one button, and the live morning view.
+ * The view is the thesis, not an illustration of it. On phones it stacks
+ * under the copy within the first screen and a half.
  */
 export function Hero() {
   return (
     <section id="top" data-chapter="top" data-chapter-title="Top" className="border-b border-border">
-      <div className="container-page grid min-h-[calc(100svh-4rem)] items-center gap-12 py-16 lg:grid-cols-12 lg:gap-10 lg:py-20">
-        <div className="lg:col-span-7">
+      <div className="container-page grid items-center gap-10 py-12 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-12 lg:gap-12 lg:py-16">
+        <div className="lg:col-span-6">
           <p className="eyebrow rise" style={riseDelay(0)}>
             {hero.eyebrow}
           </p>
           <h1
-            className="rise mt-6 max-w-3xl text-balance font-heading text-[2.5rem] font-medium leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.5rem] xl:text-[4rem]"
+            className="rise mt-6 max-w-3xl text-balance font-heading text-[2.5rem] font-medium leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem]"
             style={riseDelay(0.08)}
           >
             {hero.headline}
           </h1>
           <p
-            className="rise measure mt-7 text-pretty text-lg leading-relaxed text-muted-foreground lg:text-xl"
+            className="rise measure mt-7 text-pretty text-lg leading-relaxed text-muted-foreground"
             style={riseDelay(0.2)}
           >
             {hero.subhead}
           </p>
-          <div
-            className="rise mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
-            style={riseDelay(0.3)}
-          >
+          <div className="rise mt-9 flex flex-wrap items-center gap-x-6 gap-y-4" style={riseDelay(0.3)}>
             <BookACallButton label={hero.primaryCta} size="lg" />
-            <Link href="#services" className={cn(cta({ variant: "outline", size: "lg" }))}>
-              {hero.secondaryCta}
-              <ArrowRight className="size-4" aria-hidden />
+            <Link href="#how-it-works" className="group/link inline-flex items-center gap-1.5 font-medium text-foreground">
+              <span className="link-draw">{hero.secondaryCta}</span>
+              <ArrowRight className="size-4 transition-transform duration-300 ease-out-soft group-hover/link:translate-x-0.5" aria-hidden />
             </Link>
           </div>
-          <p className="rise measure mt-5 text-sm text-muted-foreground" style={riseDelay(0.38)}>
-            {hero.ctaNote}
-          </p>
         </div>
 
-        <div className="rise hidden sm:block lg:col-span-5" style={riseDelay(0.3)}>
-          <InkAnimation className="mx-auto w-full max-w-[640px] lg:max-w-none" />
+        <div className="rise lg:col-span-6" style={riseDelay(0.3)}>
+          <MorningView compact className="mx-auto w-full max-w-[640px] lg:max-w-none" />
         </div>
       </div>
     </section>

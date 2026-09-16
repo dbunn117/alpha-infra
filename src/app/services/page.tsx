@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { ServicesSection } from "@/components/services-section";
-import { LevelsLadder } from "@/components/levels-ladder";
+import { FitLedger } from "@/components/fit-ledger";
+import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 import { offerings } from "@/content/site";
 
@@ -21,7 +22,8 @@ export default function ServicesPage() {
         subhead={offerings.intro}
       />
       <ServicesSection withHeading={false} />
-      <LevelsLadder />
+      <FitLedger />
+      <Faq />
       <FinalCta />
     </>
   );

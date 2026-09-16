@@ -7,8 +7,6 @@ import { PageHero } from "@/components/page-hero";
 import { ServiceIcon } from "@/components/service-icon";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { Reveal } from "@/components/reveal";
-import { StallLedger } from "@/components/stall-ledger";
-import { ToolLogos } from "@/components/tool-logos";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 
@@ -45,7 +43,7 @@ export default async function ServicePage({
     <>
       <PageHero eyebrow={service.eyebrow} title={service.h1} subhead={service.subhead}>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <BookACallButton label="Book a discovery call" size="lg" />
+          <BookACallButton size="lg" />
           <Link
             href="/services"
             className={cn(cta({ variant: "outline", size: "lg" }))}
@@ -59,8 +57,8 @@ export default async function ServicePage({
         <div className="container-page pt-4">
           <dl className="surface grid divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
             {[
-              ["Input", service.glance.input],
-              ["Trigger", service.glance.trigger],
+              ["Signals", service.glance.signals],
+              ["Judgment", service.glance.judgment],
               ["Output", service.glance.output],
             ].map(([label, text]) => (
               <div key={label} className="p-6">
@@ -69,15 +67,6 @@ export default async function ServicePage({
               </div>
             ))}
           </dl>
-          {service.connects ? (
-            <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-baseline md:gap-8">
-              <p className="shrink-0 text-sm">
-                <span className="font-semibold">{service.connects.heading}</span>{" "}
-                <span className="text-muted-foreground">{service.connects.note}</span>
-              </p>
-              <ToolLogos tools={service.connects.tools} />
-            </div>
-          ) : null}
         </div>
       ) : null}
 
@@ -94,23 +83,17 @@ export default async function ServicePage({
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 {service.problem}
               </p>
-              {service.reality ? (
-                <div className="surface mt-6 p-6">
-                  <p className="caption">{service.reality.heading}</p>
-                  <ul className="mt-3 space-y-2">
-                    {service.reality.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground">
-                        <span aria-hidden className="mt-2.5 h-px w-3 shrink-0 bg-muted-foreground" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
             </section>
           </Reveal>
 
-          {service.stalls ? <StallLedger stalls={service.stalls} /> : null}
+          {service.stallsNote ? (
+            <Reveal>
+              <section>
+                <h2 className="text-2xl font-semibold">{service.stallsNote.heading}</h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{service.stallsNote.body}</p>
+              </section>
+            </Reveal>
+          ) : null}
 
           <Reveal>
             <section>
@@ -188,7 +171,7 @@ export default async function ServicePage({
               <section>
                 <h2 className="text-2xl font-semibold">How it earns trust</h2>
                 <p className="mt-3 leading-relaxed text-muted-foreground">
-                  The worry I hear most isn&apos;t price. It&apos;s whether the AI gets it right and what happens to the data. So the system is built to be checked.
+                  A decision system is only valuable if people can trust how it reaches a conclusion and what it is allowed to do. Exact work stays exact, AI judgment is tested, and consequential actions remain visible.
                 </p>
                 <ul className="mt-5 space-y-3">
                   {service.trust.map((item) => (
@@ -202,28 +185,30 @@ export default async function ServicePage({
             </Reveal>
           ) : null}
 
-          <Reveal>
-            <section>
-              <h2 className="text-2xl font-semibold">How it works</h2>
-              <ol className="mt-5 space-y-4">
-                {service.howItWorks.map((step, i) => (
-                  <li key={step.title} className="flex gap-4">
-                    <span className="stat-number text-xl font-semibold">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3 className="font-semibold text-foreground">
-                        {step.title}
-                      </h3>
-                      <p className="mt-1 leading-relaxed text-muted-foreground">
-                        {step.body}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </section>
-          </Reveal>
+          {!service.timeline ? (
+            <Reveal>
+              <section>
+                <h2 className="text-2xl font-semibold">How it works</h2>
+                <ol className="mt-5 space-y-4">
+                  {service.howItWorks.map((step, i) => (
+                    <li key={step.title} className="flex gap-4">
+                      <span className="stat-number text-xl font-semibold">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="font-semibold text-foreground">
+                          {step.title}
+                        </h3>
+                        <p className="mt-1 leading-relaxed text-muted-foreground">
+                          {step.body}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            </Reveal>
+          ) : null}
 
           {service.timeline ? (
             <Reveal>
@@ -272,7 +257,7 @@ export default async function ServicePage({
               {service.pricing}
             </p>
             <div className="mt-6">
-              <BookACallButton label="Book a discovery call" className="w-full" />
+              <BookACallButton className="w-full" />
             </div>
             <Link
               href="/contact#message"
@@ -292,7 +277,7 @@ export default async function ServicePage({
             <h2 className="text-balance text-2xl font-semibold sm:text-3xl">
               {service.ctaLine}
             </h2>
-            <BookACallButton label="Book a discovery call" size="lg" />
+            <BookACallButton size="lg" />
           </div>
         </div>
       </section>

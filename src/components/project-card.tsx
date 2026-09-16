@@ -78,15 +78,13 @@ export function ProjectCard({
               </Link>
             )}
           </div>
-        ) : (
+        ) : variant === "personal" ? (
           <div className="mt-3 border-t border-border pt-3">
             <span className="text-xs text-muted-foreground">
-              {variant === "professional"
-                ? "Confidential engagement. Details on request."
-                : "Personal project. Happy to walk through it."}
+              Personal project. Happy to walk through it.
             </span>
           </div>
-        )}
+        ) : null}
       </div>
     </article>
   );

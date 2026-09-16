@@ -44,6 +44,7 @@ jobs:
           NEXT_PUBLIC_GITHUB_PAGES: "true"
           NEXT_PUBLIC_BASE_PATH: "/alpha-infra"
           NEXT_PUBLIC_SITE_URL: "https://dbunn117.github.io/alpha-infra"
+          NEXT_PUBLIC_BOOKING_URL: "https://cal.com/david-bunn-eta21c/30min"
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3

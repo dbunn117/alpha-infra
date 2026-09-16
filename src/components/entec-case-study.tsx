@@ -10,6 +10,7 @@ import { CheckCircle2 } from "lucide-react";
 import { proof } from "@/content/site";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
+import { Lightbox } from "@/components/lightbox";
 import { asset } from "@/lib/asset";
 
 const PILLARS = proof.pillars;
@@ -20,11 +21,18 @@ export function EntecCaseStudy() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Case study: Entec Access Systems"
-          heading="A system built to drive revenue, not just show it to him."
-          intro="Entec Access Systems (Staines, UK, ~15 people, 20 years trading, doors and access systems for retail, healthcare, education, and public-sector customers) ran sales the way most owner-operators do: one system for jobs and quotes, one for the money, one for email. Nothing talked to anything else, and revenue was leaking on both ends: accounts going quiet with nobody noticing, and enquiries sitting too long before a quote went out."
+          heading="A system built to drive revenue, not just report it."
+          intro="Entec Access Systems is a 15-person, owner-led business in the UK, providing doors and access systems to retail, healthcare, education, and public-sector customers. Its jobs and quotes lived in SimPRO, the money in Xero, and customer conversations in Outlook. Each system worked, but none held the complete commercial picture, which made five revenue motions difficult to manage consistently: protecting key accounts, converting inbound enquiries, developing target customers, turning installations into service revenue, and finding relevant public opportunities in time to act."
         />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+        <Reveal className="mt-10">
+          <div className="surface border-l-2 border-primary p-6">
+            <p className="caption text-primary">{proof.channels.heading}</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{proof.channels.body}</p>
+          </div>
+        </Reveal>
+
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
           {PILLARS.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.05}>
               <div className="surface h-full p-6">
@@ -40,18 +48,28 @@ export function EntecCaseStudy() {
         </div>
 
         {proof.image ? (
-          <Reveal as="figure" className="mt-10">
+          <Reveal as="figure" className="mt-8">
             <div className="grain surface relative overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset(proof.image.src)} alt={proof.image.alt} className="block w-full" />
+              <Lightbox src={asset(proof.image.src)} alt={proof.image.alt} title="Entec's morning view" />
             </div>
             <figcaption className="caption mt-3">
-              The owner&rsquo;s morning view. Account names and figures blurred.
+              The owner&rsquo;s morning view. Account names and figures blurred. Click to enlarge.
             </figcaption>
           </Reveal>
         ) : null}
 
-        <Reveal className="mt-10">
+        {/* The owner's words come before the build notes: the result and the
+            customer's response persuade more than the implementation. */}
+        <Reveal className="mt-8">
+          <blockquote className="max-w-3xl border-l-2 border-primary pl-6">
+            <p className="text-pretty font-heading text-2xl font-medium leading-snug tracking-tight sm:text-[1.75rem]">
+              &ldquo;{proof.testimonial.quote}&rdquo;
+            </p>
+            <footer className="mt-4 text-sm font-medium text-muted-foreground">{proof.testimonial.name}</footer>
+          </blockquote>
+        </Reveal>
+
+        <Reveal className="mt-8">
           <div className="surface grid gap-8 p-8 lg:grid-cols-2 lg:p-10">
             <div>
               <h3 className="text-lg font-semibold">How it was built</h3>
@@ -65,8 +83,8 @@ export function EntecCaseStudy() {
               <ul className="mt-5 space-y-2">
                 {[
                   "Live in daily use since July 2026",
-                  "Deterministic automations pull the right data out of three systems that don't talk to each other; AI interprets it and makes the call",
-                  "Every AI-made match is shown as AI-made, never blended in as if a person did it",
+                  "Deterministic code handles data syncing, calculations, thresholds, and exact matching. AI is used where interpretation is required: extracting enquiry details, summarising correspondence, assessing relevance, and helping rank what deserves attention",
+                  "Every AI-made match or suggestion is identified as AI-made and kept reviewable",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-success" aria-hidden />
@@ -75,15 +93,13 @@ export function EntecCaseStudy() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col justify-center border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-              <blockquote className="text-lg leading-relaxed text-foreground">
-                &ldquo;It&rsquo;s already caught accounts I would have missed completely. If
-                you&rsquo;re running separate systems that don&rsquo;t talk to each other, this is
-                worth doing.&rdquo;
-              </blockquote>
-              <p className="mt-4 text-sm font-medium text-muted-foreground">
-                William van der Byl (&ldquo;Bylo&rdquo;), Owner, Entec Access Systems
-              </p>
+            <div className="border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+              <h3 className="text-lg font-semibold">What the owner sees</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                <li><span className="font-medium text-foreground">Connected information.</span> Jobs, quotes, invoices, and relevant email read together, per account.</li>
+                <li><span className="font-medium text-foreground">Ranked opportunity.</span> Today&rsquo;s priority actions across all five channels, ordered by his own rules.</li>
+                <li><span className="font-medium text-foreground">Evidence and next action.</span> Why each item is there, and the one thing to do about it.</li>
+              </ul>
             </div>
           </div>
         </Reveal>

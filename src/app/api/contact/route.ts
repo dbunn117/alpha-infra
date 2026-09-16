@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "davibunn@gmail.com";
+const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "david@alphainfra.us";
 // Resend requires a verified sender. Their onboarding domain works for testing.
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;

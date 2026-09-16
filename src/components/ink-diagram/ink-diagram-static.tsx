@@ -9,12 +9,12 @@ import { ANNOTATION, CLIP_HIDDEN, PLATE, SOURCES, TICK, VIEWBOX } from "./paths"
  *    hidden starting state as SVG attributes (motion animates those same
  *    attributes) and data-ink hooks for ink-animation.tsx to target.
  * Sources and the annotation are ink; routes and the system plate are blue;
- * the tick is Signal Red.
+ * the red-pen loop around the plate's third row is Signal Red.
  */
 export function InkDiagramStatic({
   className,
   animated = false,
-  title = "Four data sources drawn into one running system",
+  title = "Four data sources drawn into one decision system that reads every signal, applies your rules, and ranks what matters",
 }: {
   className?: string;
   animated?: boolean;
@@ -136,9 +136,9 @@ export function InkDiagramStatic({
         <svg
           x={TICK.x}
           y={TICK.y}
-          width={TICK.size}
-          height={TICK.size}
-          viewBox="0 0 120 120"
+          width={TICK.width}
+          height={TICK.height}
+          viewBox={TICK.viewBox}
           overflow="visible"
         >
           <g data-ink-tick="">
@@ -146,7 +146,7 @@ export function InkDiagramStatic({
               d={TICK.d}
               pathLength={1}
               stroke={TICK.color}
-              strokeWidth={14}
+              strokeWidth={TICK.strokeWidth}
               strokeLinecap="round"
               strokeLinejoin="round"
               data-ink="stroke"

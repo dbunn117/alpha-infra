@@ -98,8 +98,18 @@ export function ChapterFolio() {
             <path d="M4,12.5 L9.5,18 L20,6.5" pathLength={1} data-stroke />
           </svg>
           <span className="tabular-nums">{String(i).padStart(2, "0")}</span>
-          <span className="hidden 2xl:inline">{chapter.title}</span>
-          <span className="sr-only 2xl:hidden">{chapter.title}</span>
+          {/* number by default; the title appears for the active chapter and
+              on hover or focus, so the rail reads as navigation */}
+          <span
+            className={cn(
+              "max-w-0 overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-300 ease-out-soft group-hover:max-w-[10rem] group-hover:opacity-100 group-focus-visible:max-w-[10rem] group-focus-visible:opacity-100",
+              active === chapter.id ? "max-w-[10rem] opacity-100" : "opacity-0"
+            )}
+            aria-hidden={active !== chapter.id}
+          >
+            {chapter.title}
+          </span>
+          <span className="sr-only">{chapter.title}</span>
         </a>
       ))}
     </nav>

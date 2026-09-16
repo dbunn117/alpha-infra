@@ -3,43 +3,55 @@ import { howItWorks } from "@/content/site";
 import { Chapter } from "@/components/chapter";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
+import { RedPenNote } from "@/components/red-pen";
 import { BookACallButton } from "@/components/book-a-call-button";
 
 /*
- * Process as step cards, read from the flagship offer so the homepage and
- * /services/system always agree. The sixth cell is the call to action.
+ * Process as five numbered titles on one drawn line, read from the flagship
+ * offer so the homepage and /services/system always agree. The step detail
+ * lives on the Alpha System page; here the sequence is the point.
  */
 export function ProcessSection() {
   const flagship = getService("system");
   if (!flagship) return null;
+  const steps = flagship.howItWorks;
 
   return (
     <Chapter id="how-it-works" title="Process">
       <div className="container-page">
-        <SectionHeading heading={howItWorks.heading} />
-        <ol className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {flagship.howItWorks.map((step, i) => (
-            <Reveal as="li" key={step.title} delay={i * 0.05}>
-              <div className="surface flex h-full flex-col p-6">
-                <span className="font-heading text-4xl font-medium tabular-nums text-primary">
-                  {String(i + 1).padStart(2, "0")}
+        <SectionHeading eyebrow={howItWorks.eyebrow} heading={howItWorks.heading} />
+
+        <Reveal className="mt-12">
+          <ol className="relative grid gap-8 sm:grid-cols-5 sm:gap-4">
+            {/* the connecting line, drawn as the list reveals */}
+            <svg
+              aria-hidden
+              className="pointer-events-none absolute left-[0.9rem] top-0 hidden h-full w-px sm:left-0 sm:top-[0.6rem] sm:block sm:h-px sm:w-full"
+              viewBox="0 0 100 1"
+              preserveAspectRatio="none"
+            >
+              <path d="M0,0.5 H100" pathLength={1} data-stroke stroke="currentColor" strokeWidth={1} className="text-border" vectorEffect="non-scaling-stroke" />
+            </svg>
+            {steps.map((step, i) => (
+              <li key={step.title} className="relative flex gap-4 sm:block">
+                <span className="relative z-10 flex size-[1.4rem] shrink-0 items-center justify-center rounded-full border border-primary bg-background font-mono text-[0.7rem] font-medium text-primary sm:mb-4">
+                  {i + 1}
                 </span>
-                <h3 className="mt-4 text-xl">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
-              </div>
-            </Reveal>
-          ))}
-          <Reveal as="li" delay={flagship.howItWorks.length * 0.05}>
-            <div className="flex h-full flex-col justify-between rounded-2xl bg-accent p-6 text-accent-foreground">
-              <p className="text-balance font-heading text-2xl font-medium leading-snug">
-                {flagship.ctaLine}
-              </p>
-              <div className="mt-6">
-                <BookACallButton label="Book a discovery call" size="md" />
-              </div>
-            </div>
-          </Reveal>
-        </ol>
+                <div>
+                  <h3 className="text-lg leading-snug sm:pr-4">{step.title}</h3>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+
+        <Reveal delay={0.15} className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-5">
+          <p className="max-w-md text-balance font-heading text-2xl font-medium leading-snug tracking-tight">
+            {flagship.ctaLine}
+          </p>
+          <BookACallButton size="md" />
+          <RedPenNote arrow="left">you own it outright</RedPenNote>
+        </Reveal>
       </div>
     </Chapter>
   );

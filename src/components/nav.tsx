@@ -15,12 +15,23 @@ import { cn } from "@/lib/utils";
 export function Nav() {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
+  const toggleRef = React.useRef<HTMLButtonElement>(null);
 
-  // Lock body scroll while the mobile menu is open.
+  // Lock body scroll while the mobile menu is open; Escape closes it and
+  // returns focus to the button that opened it.
   React.useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -49,9 +60,10 @@ export function Nav() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <div className="hidden md:block">
-            <BookACallButton label="Book a call" size="sm" />
+            <BookACallButton size="sm" />
           </div>
           <button
+            ref={toggleRef}
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -78,6 +90,17 @@ export function Nav() {
           </button>
         </div>
       </div>
+
+      {/* Backdrop: veils the page behind the open menu so the hero's own
+          buttons don't compete with it. Click closes. */}
+      <div
+        aria-hidden
+        onClick={() => setOpen(false)}
+        className={cn(
+          "fixed inset-0 top-16 z-[-1] bg-background/80 backdrop-blur-sm transition-opacity duration-300 ease-out-soft md:hidden",
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        )}
+      />
 
       {/* Mobile menu overlays the page (absolute) so opening it never grows
           the header; grid-rows animates the reveal without touching `height`. */}
@@ -117,7 +140,7 @@ export function Nav() {
               style={{ transitionDelay: open ? `${60 + nav.links.length * 40}ms` : "0ms" }}
               onClick={() => setOpen(false)}
             >
-              <BookACallButton label="Book a call" size="md" className="w-full" />
+              <BookACallButton size="md" className="w-full" />
             </div>
           </nav>
         </div>

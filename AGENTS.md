@@ -32,30 +32,66 @@ placeholder and the contact form logs instead of emailing.
   These are typed objects; changing copy should almost never require touching a
   component. Reach for the content files first.
 - **Design tokens** — CSS variables in `src/app/globals.css`. Paper (warm
-  near-white `#FAF9F6`) is the default, Ink (dark) is the toggle. Ink Blue
-  (`--primary`, `#1D4ED8` on Paper / `#93C5FD` on Ink) is the working accent:
-  buttons, links, `.eyebrow`, highlights, the hero diagram's routes and plate.
-  Signal Red (`#C4283C`) appears only in the brand mark and the diagram's
-  tick, hardcoded there. No glows, no gradient text; depth only via
-  `--elev-*` shadows, `--edge-light`, overlap, and `.grain`.
+  near-white `#FAF9F6`) is the default, Ink (dark) is the toggle. Two accents
+  with fixed roles. **Blue is the system**: Ink Blue (`--primary`, `#1D4ED8`
+  on Paper / `#93C5FD` on Ink) for buttons, links, `.eyebrow`, highlights,
+  the diagram's routes and plate, anything the machine does or the visitor
+  can act on. **Red is the hand**: Signal Red (`#C4283C`, exported as
+  `SIGNAL_RED` from `brand-mark.tsx`, never a token) appears only on
+  handwritten marks: the brand mark's circle and the `RedPen*` components in
+  `src/components/red-pen.tsx` (loop, underline, margin note in `font-hand`).
+  Nothing handwritten is any other colour, and each section gets at most one
+  red mark. No glows, no gradient text; depth only via `--elev-*` shadows,
+  `--edge-light`, overlap, and `.grain`.
+- **The mark** — the signal mark (ink trace, red hand-drawn circle on a
+  mid-line point, line continuing past). Paths live in
+  `src/components/brand-mark.tsx`; `src/app/icon.svg` (circle-only small form)
+  and `src/app/opengraph-image.tsx` copy them, so change all three together.
+  The brand note in the vault records why it was chosen.
 - **Type** — Newsreader (`font-heading`) for display only: h1, h2, big
   numerals, the wordmark. `h3`/`h4` are Plex Sans semibold by base rule.
   `.eyebrow` is sans, semibold, blue; `.caption` is the only mono use.
-- **Motion** — the hero diagram is a looping, time-based sequence in
+  `font-hand` (Caveat for now, to be replaced by David's own handwriting) is
+  reserved for red-pen notes and diagram annotations.
+- **Live demos** — the hero is `src/components/morning-view.tsx` and the
+  second proof card is `src/components/market-scorecard.tsx`: illustrative
+  data in `src/content/morning-view-sample.ts` and inline, deterministic
+  scoring in the browser, no network, no model. Re-ordering is a hand-rolled
+  FLIP on `transform` only, skipped under reduced motion. Keep every name
+  fictional and every figure obviously invented; the labels say so.
+- **Motion** — the ink diagram (now in the positioning section, right column)
+  is a looping, time-based sequence in
   `src/components/ink-diagram/ink-animation.tsx` (`useAnimate`, explicit
   `[from, to]` keyframes, hold built into the timeline, paused off-screen via
   IntersectionObserver). That file is the only importer of `motion`; nothing
   is scroll-scrubbed. Everything else uses CSS transitions, `Reveal`, and
-  `[data-stroke]` drawn paths. Never animate width/height/top/left or use
-  `transition: all`. `?motion=reduced` (dev only) forces the reduced-motion
-  branch for checking.
+  `[data-stroke]` drawn paths (`.is-drawn` draws them without a Reveal).
+  Never animate width/height/top/left or use `transition: all`.
+  `?motion=reduced` (dev only) forces the reduced-motion branch for checking.
+- **Layout grammar** — sections alternate a reading column with a right
+  column that has a job (the diagram, the process CTA, a margin note); cards
+  are for the work catalogue and the two proof cards only. Offers are a
+  ledger (`offer-ledger.tsx`) at `lg` and `ServiceCard` stacks below it.
+  The homepage runs claim, demonstration, proof: hero, proof strip with the
+  owner's quote, the idea, offers in brief (`compact`: no deliverables row,
+  three examples, four `featured` FAQs), process, founder, close. It should
+  stay around ten desktop screens; the fit ledger, full offer detail, all
+  six examples, and the full FAQ live on /services.
+- **First screen** — nothing above the fold is ever parked at opacity 0.
+  `.rise` is a quarter-second settle from 0.6 opacity; `Reveal` is for
+  content further down. Live demos answer every change with a `role=status`
+  line (what changed, how many need attention) and a brief `.is-moved` wash
+  on the rows that moved, plus a Reset control.
 - **Verifying the homepage** — walk it at every half viewport on desktop, on a
   390px mobile viewport, in the Ink theme, and with `?motion=reduced`; check
   for console errors, horizontal overflow, dead scroll, copy stuck below full
-  opacity, any red outside the mark and the tick, that the hero diagram
-  reports `data-ink-state="playing"` at the top and `paused` once scrolled
-  past, and that the reduced branch renders the static frame.
-- **CTA wiring** — `src/lib/cta.ts`, `src/components/booking-embed.tsx`.
+  opacity, red anywhere that is not handwritten, that the diagram reports
+  `data-ink-state="playing"` while in view and `paused` once scrolled past,
+  that the morning view and scorecard re-rank when a rule or weight changes,
+  and that the reduced branch renders the static frame with no FLIP.
+- **CTA wiring** — `src/lib/cta.ts`, `src/components/booking-embed.tsx`
+  (Cal.com embed library for cal.com links, sized to content and themed;
+  iframe fallback for other providers; placeholder until the env var is set).
 
 ## Deploy: two targets, and they differ
 

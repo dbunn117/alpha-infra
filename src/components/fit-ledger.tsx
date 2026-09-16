@@ -3,6 +3,7 @@ import { Chapter } from "@/components/chapter";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { DrawnCross, DrawnTick } from "@/components/drawn-mark";
+import { RedPenNote } from "@/components/red-pen";
 
 /*
  * Two ledger columns, no cards.
@@ -44,6 +45,9 @@ export function FitLedger() {
                 </Reveal>
               ))}
             </ol>
+            <Reveal delay={0.3} className="mt-6">
+              <RedPenNote arrow="up">if you can name the number, call</RedPenNote>
+            </Reveal>
           </div>
 
           <div>

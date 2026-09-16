@@ -2,17 +2,22 @@
  * Site-wide content + config. Homepage section copy is transcribed verbatim
  * from the copy deck (docs/website-copy-and-names.md). Config values read from
  * environment variables with sensible, clearly-marked fallbacks.
+ *
+ * Repositioned 2026-09-14 around Opportunity AI vs Productivity AI (see
+ * ~/Downloads/alpha-infra-content-repositioning-prompt.md and the Claude Code
+ * plan file for that session). Citations older than the standing 90-day rule
+ * are used here under a one-time exception David granted for this pass.
  */
 
 export const site = {
   name: "Alpha Infra",
   legalName: "Alpha Infra LLC",
-  tagline: "AI systems for finance, operations, and owner-led teams.",
+  tagline: "Opportunity AI for lean teams making high-value decisions.",
   description:
-    "AI-native systems for finance, operations, and owner-led teams: the things you'd have built years ago if you'd had the people, the budget, or the technology. Built for your business, and yours to keep.",
+    "Alpha Infra builds Opportunity AI systems for lean teams making high-value decisions, connecting the tools you already run, applying your judgment, and surfacing the customer, market, asset, or margin opportunity worth acting on next.",
   founder: "David Bunn",
   // Config: override via env (.env.local). See .env.example.
-  ownerEmail: process.env.OWNER_EMAIL ?? "davibunn@gmail.com",
+  ownerEmail: process.env.OWNER_EMAIL ?? "david@alphainfra.us",
   linkedin:
     process.env.NEXT_PUBLIC_LINKEDIN_URL ??
     "https://www.linkedin.com/in/davidkcbunn",
@@ -30,24 +35,21 @@ export const nav = {
 } as const;
 
 export const hero = {
-  eyebrow: "For finance, operations, and owner-led teams",
-  headline: "Build what your business couldn't build before.",
+  eyebrow: "Opportunity AI for lean teams",
+  headline: "Build what your business couldn't build until now.",
   subhead:
-    "Not automation of what you do today. The things you'd have done years ago if you'd had the people, the budget, or the technology. Three I've built: a sales system that reads every job, invoice, and email, then flags the customers at risk and the prospects worth winning, a month-end variance pack that drafts its own commentary, a diligence system that drafts the answers to a new questionnaire from every answer you've given before. Built for your business, and yours to keep.",
-  primaryCta: "Book a discovery call",
-  secondaryCta: "See how I help",
+    "Lean teams make high-value decisions with data spread across too many systems. A live view of what to do next used to take more people than most businesses could justify. Now it can be built for yours, and it's yours to keep.",
+  /* the two built examples used to sit in the subhead; the live view beside
+     it and the proof section now carry them */
+  demoLink: { label: "See the real Entec system behind this example", href: "/work#entec" },
+  primaryCta: "Find the first opportunity worth building",
+  secondaryCta: "See how it works",
   ctaNote:
-    "30 minutes. We find the thing worth building first and check the data is there to build it. If it isn't, I'll say so.",
-  stats: [
-    { value: "$25B+", label: "market-cap audit client at PwC" },
-    { value: "10+ yrs", label: "in finance, operations & data before AI" },
-    { value: "Jul 2026", label: "system live in daily use at Entec Access Systems" },
-  ],
+    "30 minutes. We name the opportunity, check the data is there to build it, and decide if it's worth doing. If it isn't, I'll say so.",
 } as const;
 
 /*
- * Hero diagram: the looping ink animation beside the headline. The
- * annotation is hero.stats[2].
+ * Hero diagram: the looping ink animation beside the headline.
  */
 export const inkPeak = {
   sources: [
@@ -56,10 +58,48 @@ export const inkPeak = {
     { id: "email", label: "Email" },
     { id: "accounting", label: "Accounting" },
   ],
-  systemLabel: "One running system",
-  /* The three rows inside the system plate: work it does, not advice */
-  actions: ["Posts the numbers", "Drafts the replies", "Flags the exceptions"],
-  annotation: "in daily use since Jul 2026",
+  systemLabel: "One decision system",
+  /* The three rows inside the system plate: what it does with the signals,
+     in the opportunity framing (read, judge, rank), not productivity work */
+  actions: ["Reads every signal", "Applies your rules", "Ranks what matters"],
+  annotation: "built around your rules",
+} as const;
+
+/*
+ * Opportunity vs Productivity AI: the core distinction the site is built
+ * around. Sits right after the hero. Citations shown with real dates;
+ * McKinsey and BCG only here per the brief's own restraint against
+ * overloading the homepage with evidence.
+ */
+export const positioning = {
+  eyebrow: "The idea",
+  heading: "Productivity is useful. Opportunity creates advantage.",
+  paragraphs: [
+    "Productivity AI helps someone complete an existing task faster: draft the email, summarize the document, prepare the first version. Opportunity AI gives the business a capability it didn't have: read every account, connect every relevant signal, identify what deserves attention, and show the evidence behind the next action.",
+    "It doesn't just draft the email faster. It identifies the customer worth emailing.",
+    "It doesn't just produce the report faster. It shows which market, account, or margin deserves attention.",
+    "It doesn't replace the person making the decision. It makes sure that person sees the opportunity while there's still time to act.",
+  ],
+  note: "The advantage isn't the model. It's your data, connected, and the judgment you bring to it.",
+  /* the homepage shows the evidence as three figures; the full sentence
+     (evidence) and sources stay for the caption and other pages */
+  stats: [
+    { value: "80%", label: "say AI improved their own productivity" },
+    { value: "37%", label: "say it improved their company's profit" },
+    { value: "6%", label: "see real value in lower costs or higher revenue" },
+  ],
+  evidence:
+    "Eighty percent of respondents say AI has improved their individual productivity. Only 37 percent say it has contributed positively to their organization's EBIT. BCG found the same pattern: only 6 percent of companies see real value in lower costs or higher revenue, and the ones that do redesign the process around AI instead of adding tools to the old one.",
+  sources: [
+    {
+      label: "McKinsey Global Survey, \"The state of AI in 2026: On the road to ROI,\" 25 August 2026.",
+      href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+    },
+    {
+      label: "BCG, \"Look past productivity to get real value from AI,\" 31 August 2026.",
+      href: "https://www.bcg.com/publications/2026/why-ai-pilots-rarely-deliver-value",
+    },
+  ],
 } as const;
 
 /*
@@ -73,22 +113,26 @@ export const inkPeak = {
 export const proof = {
   client: "Entec Access Systems",
   eyebrow: "Live at Entec Access Systems since July 2026",
-  heading: "A system built to drive revenue, not just show it to him.",
+  heading: "A system built to drive revenue, not just report it.",
   context:
     "Entec is a 15-person access-systems business in the UK, 20 years old. SimPRO for jobs and quotes, Xero for the money, Outlook for everything else. None of it talked to each other, so accounts went quiet without anyone noticing and enquiries sat waiting for a quote.",
+  channels: {
+    heading: "One morning view across five revenue channels",
+    body: "The system brings key customers, inbound enquiries, target accounts, installation-to-service leads, and public opportunities into one view. Each morning it ranks the actions that matter using rules defined with the owner, from overdue quotes and falling customer spend to service-conversion leads and approaching tender deadlines.",
+  },
   built: "Built with Claude Code and n8n, in his accounts, over eight working sessions with the owner.",
   pillars: [
     {
-      title: "Keeps recurring revenue recurring",
-      body: "Every morning it reads across every account: last touchpoint, spend this year against last, open jobs. Triggers built around customer satisfaction, and priority rules for the key accounts, flag a customer at risk before they go quiet, while there's still time to keep them.",
+      title: "Protects recurring revenue",
+      body: "Job, quote, invoice, and relevant email activity are read together. Owner-defined triggers surface key accounts that need attention: a completed job awaiting feedback, falling spend, an unusually quiet relationship, or an overdue next step. The evidence and recommended action appear together.",
     },
     {
-      title: "Wins more of what comes in",
-      body: "Every inbound enquiry is tracked from the moment it lands, routed for a quote inside a 48-hour target, and assessed for what it could become. The ones that look like high-value clients get flagged, so the owner's selling time goes on converting the right ones.",
+      title: "Converts inbound demand",
+      body: "Every inbound enquiry is filtered, structured, and followed from the first email through response, quote, and outcome. The system tracks response and quote times against Entec's targets, flags potentially valuable or repeat customers, and shows where the next action is overdue.",
     },
     {
-      title: "A real pipeline for what's next",
-      body: "The businesses he wants to win next live in the system, with the public tenders and signals that say when to call, instead of in a notebook.",
+      title: "Builds the next revenue pipeline",
+      body: "Completed installations become service-conversion leads. Target accounts carry their contacts, last touch, current status, and next action. Public tender feeds are scanned and ranked for relevance, so promising opportunities enter the pipeline before someone has to go looking for them.",
     },
   ],
   /*
@@ -105,165 +149,75 @@ export const proof = {
     src: "/entec-sales-hub.webp",
     alt: "Entec's Sales Intelligence Hub: five sales channels on one dashboard, with today's priority actions ranked across key accounts, inbound enquiries, public tenders, and target list, plus an ask-anything panel over the live data. Account names and figures blurred.",
   } as null | { src: string; alt: string },
+  /* Drafted for Bylo to read, edit, and approve (vault: Entec Access Systems
+     - Case Study). Not signed off; David accepted the risk while the site
+     has no real traffic. */
+  testimonial: {
+    quote:
+      "It's already caught accounts I would otherwise have missed. Now I can open one view each morning and see what needs attention, rather than piecing it together across separate systems.",
+    name: "William van der Byl (“Bylo”), Owner, Entec Access Systems",
+  },
   link: { label: "Read the case study", href: "/work" },
 } as const;
 
 /*
- * Homepage proof strip: three things I've built, chosen for range (a
- * services business's sales system, finance operations, PE investor
- * relations). Entec is one of three, not the whole story. The full catalogue
- * lives on /work.
+ * Homepage proof strip: two contrasting examples, chosen to show breadth
+ * without a two-market headline: an operating business (Entec) and an
+ * investment/portfolio tool (the Market Selection Tool, built at
+ * Stockbridge Capital Group). The full catalogue lives on /work.
  */
 export const proofStrip = {
   eyebrow: "Proof",
   heading: "Real systems, built and shipped.",
   intro:
-    "Three of the things I've built. The rest are in the work catalogue.",
+    "Two of the things I've built: one for an operating business, one for an investment team. The rest are in the work catalogue.",
   items: [
     {
-      title: "A sales system for a 15-person services business",
-      body: "Reads SimPRO, Xero, and Outlook every morning. Triggers built around customer satisfaction, and priority rules for key accounts, flag a customer at risk before they go quiet. Every inbound enquiry is tracked, assessed, and flagged when it could become a high-value client, so the owner converts more of the right ones. Live at Entec Access Systems since July 2026.",
-      tools: "SimPRO · Xero · Outlook · Claude Code · n8n",
+      title: "A revenue intelligence system for a 15-person services business",
+      summary: "Jobs, quotes, invoices, email, and public tenders read together. Every morning it ranks what needs the owner's attention, with the evidence.",
+      body: "Connects SimPRO jobs and quotes, Xero invoices and payments, Outlook correspondence, and public tender feeds across five sales channels. Every morning it applies the owner's rules to rank the accounts, enquiries, service-conversion leads, target relationships, and tenders that need attention, showing what changed, why it matters, and the next action.",
+      tools: "SimPRO · Xero · Outlook · Public tenders · Claude Code · n8n",
       href: "/work",
       schematic: {
-        inputs: [{ lines: ["SimPRO"] }, { lines: ["Xero"] }, { lines: ["Outlook"] }],
+        inputs: [{ lines: ["SimPRO"] }, { lines: ["Xero"] }, { lines: ["Outlook"] }, { lines: ["Public", "tenders"] }],
         plate: {
           title: "Sales system",
-          rows: ["Watches every account", "Prioritises key customers", "Scores each new enquiry"],
+          rows: ["Monitors five channels", "Ranks today's priorities", "Shows evidence, next step"],
         },
-        outputs: [{ lines: ["Customer", "at risk"] }, { lines: ["High-value", "prospect"] }],
+        outputs: [{ lines: ["Priority", "action"] }, { lines: ["Evidence", "shown"] }],
         annotation: "built on the owner's own rules",
       },
     },
     {
-      title: "Variance analysis for a 50-property portfolio",
-      body: "Takes raw general-ledger extracts for about 50 properties, applies the investigation thresholds by property and by account, and drafts the commentary for every flagged account from the GL detail. The accounting team reviews, edits, and exports the package. Every edit persists.",
-      tools: "Claude Code · Claude API · Web app",
+      title: "A market scorecard for a real-estate investment team",
+      summary: "Macro and demographic data weighted into a score for every market, with the narrative behind the trend drafted alongside.",
+      body: "Weights macro-economic and demographic data into a score for every market, then drafts the narrative behind the trend, nationally, by market, and by property sector. The investment team gets a ranked read on where to look next instead of a spreadsheet nobody has time to update.",
+      tools: "Macro-economic data · Demographic data · Claude Code · Python",
       href: "/work",
+      /* rendered as the live scorecard demo (market-scorecard.tsx) instead of
+         the schematic, which stays here as the reduced/no-JS fallback */
+      demo: "scorecard",
       schematic: {
-        inputs: [{ lines: ["GL extracts", "50 properties"] }],
+        inputs: [{ lines: ["Macro-economic", "data"] }, { lines: ["Demographic", "data"] }],
         plate: {
-          title: "Variance tool",
-          rows: ["Applies the thresholds", "Flags property and account", "Drafts the commentary"],
+          title: "Market scorecard",
+          rows: ["Weights the signals", "Scores every market", "Drafts the narrative"],
         },
-        outputs: [{ lines: ["Team reviews", "and edits"] }, { lines: ["Package", "exported"] }],
-        annotation: "every edit persists",
-      },
-    },
-    {
-      title: "Due-diligence drafting system for investor relations",
-      body: "About 4,000 past question-and-answer pairs ingested and tagged by fund, date, client, and more. A new questionnaire comes in, and the system drafts the answers from precedent, with three years of history side by side, so the team reviews instead of starting from a blank page.",
-      tools: "Claude Code · Semantic search · Tagging",
-      href: "/work",
-      schematic: {
-        inputs: [{ lines: ["About 4,000", "Q&A pairs"] }],
-        plate: {
-          title: "Diligence system",
-          rows: ["Tags by fund, date, client", "Matches each new question", "Drafts from precedent"],
-        },
-        outputs: [{ lines: ["Answers drafted", "for the new DDQ"] }, { lines: ["Team reviews,", "history beside it"] }],
-        annotation: "three years of answers",
+        outputs: [{ lines: ["Ranked", "scorecard"] }, { lines: ["Narrative", "by market"] }],
+        annotation: "every market, not just the top one",
       },
     },
   ],
   link: { label: "See the work catalogue", href: "/work" },
 } as const;
 
-/*
- * The three levels: where a business is with AI and what comes next. Each
- * level names the offer that gets you there. Drawn as a staircase in
- * components/levels-ladder.tsx.
- */
-export const levels = {
-  eyebrow: "Where you are",
-  heading: "Three levels. Every business is on one of them.",
-  intro:
-    "Each level builds on the one below it. Most of the businesses I speak to are somewhere on the first, with a few tools in a few browser tabs. The value is in the second and third, and every engagement lays the first as it goes.",
-  items: [
-    {
-      order: "1",
-      title: "An AI-native team",
-      subtitle: "The foundation",
-      body: "People who use the tools well, with rules for accuracy and sensitive data written down. Every engagement builds this in for the people involved: a Quick Win trains the team on that workflow, the Alpha System writes your rules down as operating memory. The Build Day takes it to everyone else.",
-      offer: { name: "Any of the three ways to start, then Team AI Build Day", slug: "workshops" },
-      annotation: "built into every engagement",
-    },
-    {
-      order: "2",
-      title: "AI applications",
-      subtitle: "Automation and intelligence",
-      body: "Two kinds, and the difference matters. Productivity AI helps the same team handle more volume. Engineered AI is built into a process where a better signal changes an outcome: a customer kept, a quote won, a close that lands on time.",
-      split: [
-        { label: "Productivity AI", note: "same team, more volume" },
-        { label: "Engineered AI", note: "a better signal changes the outcome" },
-      ],
-      offer: { name: "Quick Win, then The Alpha System", slug: "system" },
-      annotation: "one workflow, then the system",
-    },
-    {
-      order: "3",
-      title: "Connected intelligence",
-      subtitle: "All your data, one system",
-      body: "Everything the business knows, inside and out, connected and read by AI as a whole. Patterns, risks, and opportunities a person wouldn't spot at scale. This is where the Alpha System ends up once the operating memory and the connections are in.",
-      offer: { name: "The Alpha System with Care", slug: "care" },
-      annotation: "kept alive month by month",
-    },
-  ],
-  decideNote: "Not sure which level to build first? That's what the Leadership AI Sprint decides.",
-  decideHref: "/services/strategy",
-} as const;
-
-export const principles = {
-  eyebrow: "How I think about AI",
-  heading: "Seven things I believe about AI in a business.",
-  intro:
-    "Not hype and not theory. This is how I actually think when I'm building.",
-  items: [
-    {
-      order: "01",
-      title: "Your data is a competitive advantage, if you use it.",
-      body: "Most businesses collect far more data than they act on. It sits in a CRM, a spreadsheet, and an inbox and nobody looks at it until quarter end. AI is what finally makes it cheap enough to turn that data into decisions while they still matter.",
-    },
-    {
-      order: "02",
-      title: "Static reports are on their way out.",
-      body: "A PDF is stale the moment it's exported. The teams I work with are moving to live views and models that update as the data does, so the answer is the current one, not last month's.",
-    },
-    {
-      order: "03",
-      title: "AI has a jagged edge.",
-      body: "It's brilliant at some things and unreliable at others, and the line moves every few months. The advantage goes to whoever builds the system that knows which is which, not whoever adopts the most tools.",
-    },
-    {
-      order: "04",
-      title: "It does the grunt work and the thinking.",
-      body: "Plain automation carries the repeatable load. The models can reason too, if they know the rules of your business. I use them for both, with your judgment in the loop on anything that matters.",
-    },
-    {
-      order: "05",
-      title: "The models are a commodity. Your data and your process are not.",
-      body: "Every major provider is racing to the same capabilities, and the leader changes every few months. Which model you pick matters less each year. What no vendor can sell you is your data, connected and clean, and the way your business actually decides. That's where the advantage sits, and it's what I build around.",
-    },
-    {
-      order: "06",
-      title: "The benchmark is 10x, not 10 percent.",
-      body: "If your team can process ten quotes a day, the system should get you to a hundred, not eleven. That's the order of magnitude I design for, and it's why I start by naming the number.",
-    },
-    {
-      order: "07",
-      title: "This is an owner's decision, not an IT ticket.",
-      body: "How the business uses AI shapes how it competes. It belongs with the person who owns that outcome, not in a tooling request.",
-    },
-  ],
-} as const;
-
 export const offerings = {
-  heading: "Three ways to start.",
+  heading: "Three ways to start. Two ways to extend what works.",
   intro:
     "One capability, one number, or a plan for what to build first. Each one opens with the situation it's for. If you start small and go on to a build, the first fee comes off the second.",
-  examplesHeading: "What a Quick Win usually looks like",
+  examplesHeading: "What a Quick Win can look like",
   examplesIntro:
-    "Six shapes it tends to take, across finance, operations, and sales. All the same price, and each one comes with the number we'll measure it by.",
+    "Six examples of a tightly scoped first capability, across operating, finance, and investment work. All the same fixed fee, with the measure agreed before I build.",
   extensionsHeading: "Once there's a system",
   extensionsIntro:
     "Two things keep it paying: a working day that takes what we built to the whole team, and someone looking after the system every month. Both need something already built, a Quick Win counts.",
@@ -274,34 +228,36 @@ export const offerings = {
 /* The steps themselves live on the flagship service (getService("system").howItWorks
    in content/services.ts) so the homepage and the offer page never drift. */
 export const howItWorks = {
+  eyebrow: "Building The Alpha System",
   heading: 'A clear path from "where do I start?" to "this is running."',
+  intro: "The path for a full build. Quick Win runs a simpler version of it, over two to three weeks.",
 } as const;
 
 export const fitCheck = {
   eyebrow: "Is this you?",
-  heading: "Who this is for.",
+  heading: "Built for lean teams making high-value decisions.",
   intro:
-    "Eight in ten people say AI makes them more productive. Only 37 percent of businesses can point to any effect on profit. The difference is a handful of decisions made before anything gets built, so I'm fussy about who I make them with.",
+    "Usually, the person accountable for the result is close to the work: an owner, partner, CFO, COO, finance or operations leader, or investment lead.",
   forYou: [
     {
-      title: "Your data lives in three or more places, and nobody has the full picture.",
-      body: "CRM, spreadsheets, email, accounting. None of them talk to each other, so someone is piecing the real picture together from exports, or nobody is.",
+      title: "Your data is split across systems that don't talk to each other.",
+      body: "CRM, spreadsheets, email, accounting, job or portfolio systems. Someone is piecing the real picture together from exports, or nobody is.",
     },
     {
-      title: "You know there's revenue or margin hiding in your data, but no time to dig it out.",
-      body: "The answer to 'what should we focus on' is probably sitting in your systems already. You just don't have the tools or the hours to find it.",
+      title: "Opportunities or risks get missed because nobody can watch everything.",
+      body: "There's more worth monitoring than the team has hours for, so the things that matter surface late, or not at all.",
     },
     {
-      title: "There's a thing you'd build if you had the people.",
-      body: "The report someone would make if they had a day a week. The flags nobody sets because nobody has time to watch. It's been on the list for years, and it's now a three-week build.",
+      title: "You can name the number this would move.",
+      body: "Revenue, margin, retention, turnaround, or investment conviction. If you can name it, I can build toward it.",
     },
     {
-      title: "You want something built around how you actually run your business, not a generic template.",
+      title: "You're close enough to the work to define the rules yourself.",
+      body: "The person accountable for the result needs to be in the room, defining what counts as a key account, a late quote, a market worth a second look.",
+    },
+    {
+      title: "You want something built around how you actually operate, not a generic subscription.",
       body: "Off-the-shelf software makes you bend your process to fit the tool. You'd rather have it the other way round.",
-    },
-    {
-      title: "You're ready to build, not just get diagnosed.",
-      body: "You don't need another slide deck telling you what's wrong. You need it fixed.",
     },
   ],
   notForYou: [
@@ -309,7 +265,6 @@ export const fitCheck = {
     "You need a large enterprise rollout with a formal procurement or RFP process.",
     "You already have an in-house data or engineering team that owns this.",
     "You're looking for a slide deck and a roadmap, not working software.",
-    "You're not the decision-maker and can't move without multi-stakeholder sign-off.",
   ],
 } as const;
 
@@ -317,24 +272,27 @@ export const faq = {
   eyebrow: "FAQ",
   heading: "Common questions.",
   intro:
-    "Straight answers on ownership, data, and how I work. Still not sure? Book a call and ask me.",
+    "Straight answers on ownership, data, and how I work. Still not sure? Send a note and ask me directly.",
   items: [
     {
+      featured: true,
       question: "Who owns the system and everything it produces?",
       answer:
         "You do. The system, the code, the rules we wrote down, and everything it produces are yours when the engagement ends. I keep my general methods and templates. I don't resell your system or reuse it as a template for anyone else.",
     },
     {
+      featured: true,
       question: "What happens to my data?",
       answer:
-        "It's used for your engagement and nothing else, and it never gets mixed with another client's. The system runs in your accounts, under your credentials, so the data stays where it already lives. Anything I hold to build or maintain the system, I return or delete on request.",
+        "It's used for your engagement and nothing else, and it never gets mixed with another client's. Your source data stays in the systems you already use, and the system reads only what's needed, through connections you own. Some selected data may be processed by the AI or automation providers I use to build it; before launch I document what's sent, where it's processed, how long it's retained, and how to revoke access. Anything I hold directly, I return or delete on request.",
     },
     {
       question: "Do you train AI models on my data?",
       answer:
-        "No. The providers I build with, Anthropic and OpenAI among them, don't train on business data sent through their commercial APIs by default, and I never use one client's data to build another client's system.",
+        "No. I never use one client's data to build another client's system. When a system uses a commercial AI API, I document the provider and its data settings: Anthropic and OpenAI both state that commercial API inputs and outputs aren't used to train their models by default. Training and retention are separate questions, so how long data is kept is documented as part of each system's design.",
     },
     {
+      featured: true,
       question: "How accurate is the AI, and what happens when it gets something wrong?",
       answer:
         "It gets things wrong, and the system is built assuming it will. Anything the AI decided is shown as AI-made, never blended in as if a person did it. Anything that matters waits for a person to approve. Your team stays the final check, and the rules we wrote down are what it's checked against.",
@@ -345,6 +303,12 @@ export const faq = {
         "No. I build inside what you already run: your CRM, your accounting package, your inbox, your spreadsheets. Nothing migrates. If something genuinely needs a new tool, I'll say so, and it will be one tool, not a platform.",
     },
     {
+      question: "What about ongoing software or API costs?",
+      answer:
+        "Any AI or automation costs the system runs on are yours, not mine. I estimate them up front, you approve them before go-live, and Care, if you take it, keeps an eye on them every month. I don't mark them up.",
+    },
+    {
+      featured: true,
       question: "What happens on the discovery call?",
       answer:
         "Thirty minutes. You tell me what eats the week. I ask where the data lives and whether it's there to do the work. If it's a fit, I'll tell you which of the three ways to start makes sense and what it costs. If it isn't, I'll say so, and you've lost half an hour.",
@@ -353,29 +317,19 @@ export const faq = {
 } as const;
 
 export const aboutBlock = {
-  heading: "One person, start to finish.",
-  body: "I'm David Bunn. Ten years in finance and operations, at PwC, at a venture-backed startup, and at a real estate private equity firm, before the tools got good enough that one person could build real software. So I started building: reporting workflows, financial models as interactive apps, a diligence library, a variance tool, and a sales system now in daily use at a UK business. I'm a CPA (inactive) and BIDA certified. You work with me directly. There's nobody to hand you off to.",
-  credibility: [
-    "10+ years in finance & operations",
-    "PwC",
-    "Major League Cricket (early employee)",
-    "Private equity",
-    "BIDA® Certified",
-    "CPA (inactive)",
+  heading: "The business comes before the technology.",
+  body: [
+    "I spent more than a decade in finance and operations, at PwC, Major League Cricket, and a real estate private equity firm, working close to the decisions that move revenue, margin, and capital.",
+    "When AI made it possible for one person to build real software, I began turning the data, rules, and judgment behind those decisions into working systems: market-selection and portfolio tools, interactive financial models, diligence workflows, and the sales intelligence system now used daily by a 15-person UK business.",
+    "The common thread is turning scattered information into a live view of what deserves attention and what to do next. You work with me directly, from the first conversation to the handover.",
   ],
-} as const;
-
-export const tools = {
-  eyebrow: "Tools & platforms",
-  heading: "Built with the right tools for the job.",
-  intro:
-    "I work inside the stack you already run wherever I can, and bring in a small number of proven tools where something new is genuinely needed.",
-  groups: [
-    { label: "AI & LLMs", items: ["Claude", "ChatGPT", "Claude Code", "Gemini"] },
-    { label: "Automation", items: ["Copilot Studio", "Power Automate", "n8n"] },
-    { label: "Data & BI", items: ["Power BI", "Python", "SQL", "Power Query"] },
-    { label: "Hosting & code", items: ["Supabase", "Vercel", "GitHub"] },
+  credibility: ["PwC", "Major League Cricket", "Private equity", "BIDA® Certified", "CPA (inactive)"],
+  proofPoints: [
+    { value: "10+ years", label: "Inside finance, operations, and data" },
+    { value: "35+ funds", label: "Revenue projections and decision reporting in private equity" },
+    { value: "15-person team", label: "Running a sales intelligence system I built, in daily use" },
   ],
+  ctaLine: "More about David and Alpha Infra",
 } as const;
 
 export const socialProof = {
@@ -384,19 +338,22 @@ export const socialProof = {
 } as const;
 
 export const finalCta = {
-  heading: "Ready to name the number?",
+  heading: "Ready to name the opportunity?",
   subhead:
-    "Book a 30-minute call. We'll name the number worth moving and check the data is there to move it. Or send me a note and I'll reply within a business day. No pitch, no jargon.",
-  primaryCta: "Book a discovery call",
+    "Send a note and I'll name the opportunity worth moving and check the data is there to move it. I'll reply within a business day. No pitch, no jargon.",
+  primaryCta: "Find the first opportunity worth building",
   secondaryCta: "Send a message",
 } as const;
 
 export const contact = {
-  heading: "Tell me what you're working on.",
+  heading: "What should the business be able to see or do?",
+  prompt:
+    "A rough description is enough. If you can, tell me the outcome that matters, what gets missed or decided too late today, and where the relevant data may live. You don't need to know which service fits.",
+  note: "Please don't include confidential, financial, or personal data in this first message. We can agree on a secure way to share anything sensitive later.",
   interests: [
     "Quick Win",
     "The Alpha System",
-    "Leadership AI Sprint",
+    "AI Opportunity Sprint",
     "Team AI Build Day",
     "Not sure yet",
   ],
@@ -404,38 +361,58 @@ export const contact = {
   success: "Thanks, your message is in. I'll reply within one business day.",
 } as const;
 
+export const contactNext = {
+  heading: "What happens next?",
+  body: "I'll reply personally within one business day. If there appears to be something worth exploring, we'll arrange a 30-minute conversation to name the outcome, check whether the relevant data exists, and decide whether anything is worth building. There's nothing to prepare, and you don't need to provide system access. If I don't think the opportunity justifies the work, I'll say so.",
+} as const;
+
 export const aboutPage = {
   eyebrow: "About Alpha Infra",
   h1: "Finance and operations first. AI second. The order matters.",
   subhead:
-    "Alpha Infra is me, David Bunn. A one-person practice, so you work with me from the first call to the handover. There's nobody to hand you off to.",
+    "I spent more than a decade in finance and operations learning where the numbers come from, what moves them, and how decisions actually get made. Today I build systems that connect those signals, apply the business's judgment, and surface opportunities worth acting on. You work with me directly, from the first conversation to the handover.",
   sections: [
     {
       heading: "Where I come from",
-      body: "I trained as a chartered accountant at PwC in Johannesburg, then moved to the San Francisco office and led US GAAP audits for a $25B+ e-commerce client. Audit teaches one thing well: how to walk into a business you've never seen and work out, fast, what actually drives the numbers. In 2021 I joined Major League Cricket as one of the first finance hires, built the finance function from nothing, and helped raise a $120M Series A across twelve entities. The cricket wasn't a coincidence. I played first-class cricket in South Africa before I ever opened a ledger. Then Stockbridge, a real estate private equity firm, where I owned the revenue projections across 35-plus funds and rebuilt the reporting from the source systems to the board pack.",
+      body: ["I trained in audit at PwC in Johannesburg, then moved to San Francisco and managed workstreams on the US GAAP integrated audit for a $25B+ e-commerce client. Audit taught me to walk into an unfamiliar business, follow the numbers back to their source, and work out what actually drives them. At Major League Cricket, I was one of the first finance hires. I helped build the finance function and supported a $120M Series A through fundraising due diligence. That put me closer to the operating reality of a lean team: decisions couldn't wait for another department or a perfect system. Then at Stockbridge, a real estate private equity firm, I owned revenue projections across more than 35 funds and rebuilt reporting from source systems through to what the CFO and Executive Committee saw. The questions were rarely just \"What is the number?\" They were \"What changed, why, and where should we focus next?\""],
     },
     {
       heading: "Where AI came in",
-      body: "At some point the tools got good enough that one person with a finance background could build real software. So I started building. At Stockbridge I moved onto the CTO's team and shipped: reporting workflows that cut the manual data work by about 80 percent, financial models rebuilt as interactive apps, a market selection tool that scores the macro data and writes the narrative, a diligence answer library, an accounts-payable run, a variance tool for the accounting team. All of it built with Claude Code, Copilot Studio, Power Automate, and n8n, inside the firm's own accounts. Then Entec, a 15-person access-systems business in the UK run by someone I've known since school, where I built the sales system that's on the Work page. That was the first time I'd built for an owner rather than a firm, and it's the one that convinced me to do this properly.",
+      body: [
+        "The turning point came from rebuilding something I already knew intimately.",
+        "In corporate finance at Stockbridge, I spent six to nine months developing a Power BI dashboard for the CFO. It brought the firm's financial and operating picture into one place: revenue and expenses against plan, cash and distribution projections, hiring, acquisitions and sales, assets under management, investor concentration, and more. From the company-level summary, the CFO could drill into a business unit, fund, asset, account, or underlying general-ledger detail.",
+        "Building it properly required far more than making charts. The data had to be mapped, reconciled, and modelled, the definitions had to be agreed, and every view had to survive questions from people who understood the numbers.",
+        "Then Claude Code arrived. I tried using it to build a similar way of exploring financial data and had a useful interactive first version within hours. It wasn't a like-for-like replacement for the production dashboard, since the data still needed validation, controls, and testing, but it changed my sense of what one person could afford to build. Something that had previously required a specialist platform and a long project could now be explored in a day.",
+        "The second moment came with roughly 700MB of macroeconomic and demographic Excel data. In about 10 to 15 minutes, Claude Code produced a first pass of the charts, analysis, key takeaways, and narrative behind the trends. Those outputs still needed to be checked, but instead of spending a week assembling the initial view, I could immediately start asking the more valuable question: which markets deserved attention, and why?",
+        "That was when the larger opportunity became clear to me. AI wasn't only a faster way to produce the same dashboard or report. It dramatically lowered the cost of turning a business question into a working decision tool. Capabilities that previously required an analyst team, a specialist developer, or a long internal project had become practical for much leaner teams.",
+        "That conviction is what led me to start building these systems full time: connecting a business's data and judgment so it can see, decide, and act in ways it couldn't justify building before.",
+      ],
     },
     {
-      heading: "Why I started",
-      body: "Every business I've worked in had the same shape. Good people, buried in repetitive work, sitting on data nobody had time to use, making this week's decisions on last month's numbers. For most of my career the fix was more people, or an expensive system that took a year to land. But that isn't true any more. One person who understands how the business runs, and can build, can now do what used to take a vendor and a project team. That's the gap Alpha Infra fills. I understand the finance and the operations because I've done them. I can build because I've been doing that too.",
+      heading: "Why I started Alpha Infra",
+      body: ["Productivity gains from AI are useful, but what convinced me to start Alpha Infra was the possibility of something larger: building capabilities a lean team could never previously justify staffing or commissioning. The signals behind an important decision often already exist. They sit in job records, accounting data, email, spreadsheets, or public sources. What's missing is a system that keeps the relevant picture current, applies the business's rules, and shows an opportunity or risk while there's still time to act. That's what I mean by Opportunity AI: not just producing the old report faster, but giving a business a new way to see, decide, and act. I build toward one measurable outcome at a time."],
     },
     {
       heading: "The name",
-      body: "Alpha Infra spells A and I, which is a bonus, not the reason. The reason is the two words. Alpha is the finance word for outperformance: the return you earn above the benchmark, through discipline rather than luck. I like what it stands for, which is finding the way to be excellent at something and doing the work to stay there. It's also the name of a gym programme I did and really liked, so the word had already earned its place. Infra is what I believe about AI. On its own it's a clever tool. It only becomes useful to a business when there's structure around it: the connections to your data, the rules you decide by, the process, the checks, the memory of how you work. That structure is what I build. The model is the easy part.",
+      body: ["Alpha is the finance word for outperformance. I like the idea that advantage is earned through better decisions and consistent work, not luck. Infra is the structure that makes AI useful to a business: connected data, clear definitions, decision rules, checks, approvals, and a record of how the business works. The model matters, but that business-specific structure is what makes a system worth relying on."],
     },
     {
       heading: "How I work",
-      body: "Directly. You get me, start to finish. I'll tell you on the first call if the data isn't there to do what you want, and I'd rather lose the job than build something that gets opened twice. I start small on purpose: one number, one workflow, a finish line. The next one gets built on the same foundation. I name the tools I use, because you should know what's running your business. And I write things down: the rules, the definitions, the way you decide. It's yours to keep when I'm done.",
+      body: ["I start with the outcome, not the tool. We agree what's worth moving, trace the signals behind it, and write down the judgment the system needs to apply. If the data isn't there, or the opportunity isn't worth building at the proposed scope, I'll say so before we start. I use ordinary code for calculations and other exact work, and AI where interpretation is genuinely needed. I test the system on real cases, show the evidence behind its calls, and keep a person in control of consequential actions. I build in accounts you control, document the rules, and hand over the working system. You work with me throughout; there's no team to hand you off to."],
     },
   ],
-  ctaLine: "Let's find the first one worth doing.",
+  ctaLine: "Let's find the first opportunity worth building.",
+} as const;
+
+export const workCta = {
+  heading: "See a decision your team should be able to make better?",
+  subhead:
+    "The first conversation is about the outcome, the signals behind it, and whether there's something worth building. If there isn't, I'll say so.",
+  primaryCta: "Find the first opportunity worth building",
 } as const;
 
 export const footer = {
-  tagline: "AI systems for finance, operations, and owner-led teams.",
+  tagline: "Opportunity AI for lean teams making high-value decisions.",
   links: [
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },

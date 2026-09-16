@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { site } from "@/content/site";
 
+/*
+ * This page is a plain-English summary, not legal advice. Before any real
+ * launch decision, have it reviewed by a lawyer for the jurisdictions this
+ * business operates in; nothing generated here should be presented as
+ * legal advice on its own.
+ */
+
 export const metadata: Metadata = {
   title: "Privacy",
   description: "How Alpha Infra handles the information you share.",
@@ -24,9 +31,12 @@ export default function PrivacyPage() {
               What I collect
             </h2>
             <p className="mt-2">
-              Only what you choose to send: the details you enter in the contact
-              form (name, email, optional company, area of interest, and your
-              message) and anything you share when booking a call.
+              On this website: only what you choose to send, the details you
+              enter in the contact form (name, email, optional company, area of
+              interest, and your message) and anything you share when booking a
+              call. This is separate from any data processed once we&apos;re
+              working together on an engagement, which is governed by our own
+              agreement and documented for that engagement specifically.
             </p>
           </div>
           <div>
@@ -35,9 +45,12 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-2">
               To reply to you and, if we work together, to deliver the
-              engagement. I don&apos;t sell your information or share it with
-              third parties beyond the tools used to run this site (for example,
-              the email and scheduling providers that deliver your messages).
+              engagement. I don&apos;t sell your information. Beyond what it
+              takes to run this site and reply to you, it may be shared with the
+              processors involved: email delivery, scheduling (once connected),
+              hosting, and analytics. Any engagement work that relies on AI or
+              automation providers is documented separately, provider by
+              provider, before that work starts.
             </p>
           </div>
           <div>
@@ -54,8 +67,7 @@ export default function PrivacyPage() {
             </p>
           </div>
           <p className="text-sm">
-            This page is a general summary, not legal advice. Replace it with a
-            full policy before launch if your jurisdiction requires one.
+            This page is a general summary, not legal advice.
           </p>
         </div>
       </div>
