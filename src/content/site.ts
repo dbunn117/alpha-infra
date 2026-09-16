@@ -155,7 +155,7 @@ export const proof = {
   testimonial: {
     quote:
       "It's already caught accounts I would otherwise have missed. Now I can open one view each morning and see what needs attention, rather than piecing it together across separate systems.",
-    name: "William van der Byl (“Bylo”), Owner, Entec Access Systems",
+    name: "William van der Byl, Owner, Entec Access Systems",
   },
   link: { label: "Read the case study", href: "/work" },
 } as const;
