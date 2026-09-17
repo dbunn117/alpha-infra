@@ -7,6 +7,7 @@ import { PageHero } from "@/components/page-hero";
 import { ServiceIcon } from "@/components/service-icon";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { Reveal } from "@/components/reveal";
+import { InkAnimation } from "@/components/ink-diagram/ink-animation";
 import { cta } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 
@@ -107,6 +108,11 @@ export default async function ServicePage({
           {service.layers ? (
             <Reveal>
               <section>
+                {/* the system in one drawing, before the five layers name its parts */}
+                <figure className="mb-10 max-w-xl">
+                  <InkAnimation className="w-full" />
+                  <figcaption className="caption mt-2">Four sources, one decision system</figcaption>
+                </figure>
                 <h2 className="text-2xl font-semibold">{service.layers.heading}</h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">{service.layers.intro}</p>
                 <ol className="mt-6 divide-y divide-border border-y border-border">

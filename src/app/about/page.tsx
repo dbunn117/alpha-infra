@@ -26,14 +26,14 @@ export const metadata: Metadata = {
 const MOMENTS = [
   {
     label: "A CFO dashboard, rebuilt",
-    before: "6 to 9 months",
-    after: "hours",
+    before: "6 months",
+    after: "days",
     note: "to a working first version",
   },
   {
     label: "700MB of market data, read",
     before: "a week",
-    after: "10 to 15 minutes",
+    after: "hours",
     note: "to a first pass of charts, takeaways, and narrative",
   },
 ] as const;

@@ -95,32 +95,32 @@ export const TICK = {
   color: "#C4283C",
 };
 
-/* Time-based timeline for the hero animation, in seconds (one loop) */
+/* Timeline for the one-time draw, in seconds. The whole diagram is legible
+   inside about 0.6s and finished by about 1.2s; it then holds its final
+   frame for good (no loop, no fade), so it never reads as empty. */
 export const TIMELINE = {
   sourceStart: 0,
-  sourceGap: 0.6,
-  strokeDuration: 0.45,
-  strokeStagger: 0.4,
-  labelDuration: 0.4,
-  routesStart: 3.6,
-  routeGap: 0.5,
-  routeDuration: 1.0,
-  plateStart: 5.8,
-  plateDuration: 1.0,
-  plateFillStart: 6.6,
-  plateFillDuration: 0.8,
-  annotationStart: 7.6,
-  annotationDuration: 1.1,
-  arrowStart: 8.0,
-  arrowDuration: 0.5,
-  arrowHeadStart: 8.45,
-  arrowHeadDuration: 0.2,
-  tickStart: 9.0,
-  tickDuration: 0.8,
-  settleStart: 9.8,
-  settleDuration: 0.5,
-  fadeStart: 12.8,
-  fadeDuration: 0.5,
+  sourceGap: 0.05,
+  strokeDuration: 0.28,
+  strokeStagger: 0.04,
+  labelDuration: 0.2,
+  routesStart: 0.2,
+  routeGap: 0.04,
+  routeDuration: 0.32,
+  plateStart: 0.3,
+  plateDuration: 0.3,
+  plateFillStart: 0.42,
+  plateFillDuration: 0.25,
+  annotationStart: 0.6,
+  annotationDuration: 0.35,
+  arrowStart: 0.68,
+  arrowDuration: 0.22,
+  arrowHeadStart: 0.86,
+  arrowHeadDuration: 0.1,
+  tickStart: 0.78,
+  tickDuration: 0.35,
+  settleStart: 1.1,
+  settleDuration: 0.25,
 } as const;
 
 export const CLIP_HIDDEN = "inset(-20% 100% -20% -2%)";

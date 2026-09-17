@@ -14,7 +14,7 @@ export function Faq({ featuredOnly = false }: { featuredOnly?: boolean }) {
   const items = featuredOnly ? faq.items.filter((i) => "featured" in i && i.featured) : faq.items;
   const rest = faq.items.length - items.length;
   return (
-    <Chapter id="faq" title="FAQ">
+    <Chapter id="faq" title="FAQ" tight>
       <div className="container-page">
         <SectionHeading
           eyebrow={faq.eyebrow}

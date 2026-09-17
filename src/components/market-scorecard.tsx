@@ -120,14 +120,17 @@ export function MarketScorecard({ className }: { className?: string }) {
   return (
     <div className={cn("text-foreground", className)}>
       <div className="flex items-center justify-between gap-3">
-        <p className="caption">Illustrative markets</p>
+        <p className="flex items-center gap-2">
+          <span className="caption">Illustrative markets</span>
+          <span className="rounded-md border border-primary/40 px-1.5 py-0.5 text-[0.7rem] font-semibold text-primary">Interactive · try it</span>
+        </p>
         <button
           type="button"
           onClick={() => apply(DEFAULT, true)}
           disabled={isDefault}
           className="text-[0.7rem] font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline disabled:invisible"
         >
-          Reset
+          Reset example
         </button>
       </div>
 

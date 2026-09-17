@@ -15,7 +15,7 @@ import { asset } from "@/lib/asset";
 export function ProofStrip() {
   const [entec, market] = proofStrip.items;
   return (
-    <Chapter id="proof" title="Proof">
+    <Chapter id="proof" title="Proof" tone="ink">
       <div className="container-page">
         <SectionHeading eyebrow={proofStrip.eyebrow} heading={proofStrip.heading} />
 

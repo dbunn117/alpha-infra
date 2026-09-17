@@ -34,6 +34,8 @@ export type Service = {
   bestFor: string;
   /** display string used on cards + pricing ladder */
   priceDisplay: string;
+  /* the three-cell scan line and the path-finder choice (front doors only) */
+  scan?: { outcome: string; time: string; choice: string };
   mostPopular?: boolean;
   /** chip label on the card, e.g. "Flagship", "Build clients only" */
   chip?: string;
@@ -85,6 +87,7 @@ export const SERVICES: Service[] = [
       "One valuable capability, built in two to three weeks, then measured for 30 days. The smallest version of what I build at full scale.",
     bestFor: "lean teams with one valuable blind spot and the data to see it.",
     priceDisplay: "$2,500 fixed",
+    scan: { outcome: "One measured capability", time: "2 to 3 weeks", choice: "We know the one capability we need" },
     highlights: [
       "One capability, live in two to three weeks",
       "Measured for 30 days",
@@ -183,6 +186,7 @@ export const SERVICES: Service[] = [
       "My flagship build. A live decision system for one high-value outcome. It connects the relevant signals, applies your operating judgment, surfaces what deserves attention, and carries the next action into the work.",
     bestFor: "teams where an important outcome depends on signals scattered across the business.",
     priceDisplay: "$10,000 to $15,000 typical",
+    scan: { outcome: "One live decision system", time: "About 6 weeks to go live", choice: "A high-value outcome depends on scattered signals" },
     mostPopular: true,
     chip: "Flagship",
     highlights: [
@@ -320,6 +324,7 @@ export const SERVICES: Service[] = [
       "A two-week decision sprint: rank the opportunities, make the build, buy, or not-now calls, and leave with a 90-day roadmap and one prototype.",
     bestFor: "lean leadership teams with more AI opportunities than a way to choose between them.",
     priceDisplay: "$7,500 fixed",
+    scan: { outcome: "A ranked roadmap and one prototype", time: "2 weeks", choice: "We have several plausible AI opportunities" },
     highlights: [
       "Opportunities ranked by value, feasibility, cost, and risk",
       "A 90-day roadmap and one prototype",

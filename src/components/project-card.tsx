@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import type { Project } from "@/content/projects";
 import { ProjectIcon } from "@/components/project-icon";
+import { ProjectGlyph } from "@/components/project-glyph";
 import { asset } from "@/lib/asset";
 
 export function ProjectCard({
@@ -15,7 +16,14 @@ export function ProjectCard({
   const internal = Boolean(project.internalHref);
 
   return (
-    <article className="group surface flex h-full flex-col overflow-hidden transition-colors hover:border-accent-bright/40">
+    <article
+      className={
+        external || internal
+          ? "group surface flex h-full flex-col overflow-hidden transition-colors hover:border-accent-bright/40"
+          : // no link, so no lift: a flat ruled panel that doesn't promise a click
+            "flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card"
+      }
+    >
       {/* Media: only shown for projects with a real screenshot */}
       {project.image ? (
         <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-secondary">
@@ -26,6 +34,13 @@ export function ProjectCard({
             loading="lazy"
             className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           />
+        </div>
+      ) : null}
+
+      {/* Featured cards open with a small drawn glyph of the artifact's shape */}
+      {!project.image && project.glyph ? (
+        <div className="grain relative border-b border-border bg-surface-2 px-5 py-4">
+          <ProjectGlyph kind={project.glyph} />
         </div>
       ) : null}
 
@@ -41,20 +56,29 @@ export function ProjectCard({
         </div>
 
         <h3 className="mt-2.5 text-base font-semibold">{project.title}</h3>
-        <p className="mt-1.5 flex-1 text-sm leading-snug text-muted-foreground">
-          {project.blurb}
-        </p>
+        {project.decision ? (
+          /* what the system is for leads; the technology is a footnote */
+          <dl className="mt-2.5 flex-1 space-y-2 text-sm leading-snug">
+            <div>
+              <dt className="caption">Decision supported</dt>
+              <dd className="mt-0.5 text-foreground">{project.decision}</dd>
+            </div>
+            {project.signals ? (
+              <div>
+                <dt className="caption">Signals connected</dt>
+                <dd className="mt-0.5 text-muted-foreground">{project.signals}</dd>
+              </div>
+            ) : null}
+          </dl>
+        ) : (
+          <p className="mt-1.5 flex-1 text-sm leading-snug text-muted-foreground">
+            {project.blurb}
+          </p>
+        )}
 
-        <ul className="mt-3 flex flex-wrap gap-1.5">
-          {project.tools.slice(0, 3).map((t) => (
-            <li
-              key={t}
-              className="rounded-md border border-border px-2 py-0.5 text-xs text-muted-foreground"
-            >
-              {t}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-3 text-xs text-muted-foreground">
+          {project.tools.slice(0, 3).join(" · ")}
+        </p>
 
         {external || internal ? (
           <div className="mt-3 border-t border-border pt-3">

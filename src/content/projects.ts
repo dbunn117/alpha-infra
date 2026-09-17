@@ -18,6 +18,12 @@ export type Project = {
   image?: string; // /shots/*.png
   linkLabel?: string;
   group?: string; // see PROFESSIONAL_PROJECT_GROUPS
+  /* featured cards lead with the decision and the signals (both restate the
+     blurb, no new claims) and carry a small drawn glyph */
+  featured?: boolean;
+  decision?: string;
+  signals?: string;
+  glyph?: "bars" | "compare" | "map" | "waterfall" | "draft" | "flow";
 };
 
 export const PROFESSIONAL_PROJECT_GROUPS: { label: string }[] = [
@@ -28,6 +34,12 @@ export const PROFESSIONAL_PROJECT_GROUPS: { label: string }[] = [
 export const professionalProjects: Project[] = [
   {
     title: "Market Selection Tool",
+    internalHref: "/work#scorecard",
+    linkLabel: "Try a scorecard like it",
+    featured: true,
+    glyph: "bars",
+    decision: "Which markets deserve a closer look next",
+    signals: "Macro-economic and demographic data",
     tag: "Investment strategy",
     icon: "Globe2",
     group: "Decision and opportunity systems",
@@ -37,6 +49,10 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "Business Review & Lookback Apps",
+    featured: true,
+    glyph: "compare",
+    decision: "Which assets are beating or missing their underwriting, and why",
+    signals: "Underwriting models and actual asset performance",
     tag: "Interactive apps",
     icon: "BarChart3",
     group: "Decision and opportunity systems",
@@ -46,6 +62,10 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "Asset Map Explorer",
+    featured: true,
+    glyph: "map",
+    decision: "Where the portfolio's exposure sits, market by market",
+    signals: "Portfolio, rent, and tenant data",
     tag: "Real estate · BI",
     icon: "Map",
     group: "Decision and opportunity systems",
@@ -64,6 +84,10 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "Variance Analysis Tool",
+    featured: true,
+    glyph: "waterfall",
+    decision: "Which variances need an explanation this month",
+    signals: "General-ledger extracts for about 50 properties",
     tag: "Accounting · month-end",
     icon: "Calculator",
     group: "Decision and opportunity systems",
@@ -82,6 +106,10 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "Due-Diligence Drafting System",
+    featured: true,
+    glyph: "draft",
+    decision: "How to answer a new investor questionnaire",
+    signals: "About 4,000 past question-and-answer pairs",
     tag: "Investor relations · diligence",
     icon: "ClipboardCheck",
     group: "Workflow and knowledge infrastructure",
@@ -100,6 +128,10 @@ export const professionalProjects: Project[] = [
   },
   {
     title: "Shared-Inbox Triage Automation",
+    featured: true,
+    glyph: "flow",
+    decision: "Who should handle each message",
+    signals: "High-volume shared-inbox mail",
     tag: "Email automation",
     icon: "Inbox",
     group: "Workflow and knowledge infrastructure",

@@ -10,65 +10,49 @@ import { CheckCircle2 } from "lucide-react";
 import { proof } from "@/content/site";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { Lightbox } from "@/components/lightbox";
-import { asset } from "@/lib/asset";
+import { EntecWalkthrough } from "@/components/entec-walkthrough";
 
-const PILLARS = proof.pillars;
+const FACTS = ["15-person team", "SimPRO + Xero + Outlook", "Five revenue channels", "One morning view"] as const;
 
 export function EntecCaseStudy() {
   return (
-    <section id="entec" className="section scroll-mt-16 border-b border-border">
+    <section id="entec" className="scroll-mt-16 border-b border-border pb-14 pt-8 md:pb-16 md:pt-10 lg:pb-20 lg:pt-12">
       <div className="container-page">
         <SectionHeading
           eyebrow="Case study: Entec Access Systems"
           heading="A system built to drive revenue, not just report it."
-          intro="Entec Access Systems is a 15-person, owner-led business in the UK, providing doors and access systems to retail, healthcare, education, and public-sector customers. Its jobs and quotes lived in SimPRO, the money in Xero, and customer conversations in Outlook. Each system worked, but none held the complete commercial picture, which made five revenue motions difficult to manage consistently: protecting key accounts, converting inbound enquiries, developing target customers, turning installations into service revenue, and finding relevant public opportunities in time to act."
         />
 
+        {/* The setup as four facts, then three sentences, so the artifact
+            arrives early. The five channels are named after the walkthrough. */}
+        <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 border-y border-border py-4 sm:grid-cols-4">
+          {FACTS.map((f) => (
+            <li key={f} className="text-sm font-semibold leading-snug">{f}</li>
+          ))}
+        </ul>
+        <p className="measure mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
+          Entec Access Systems is an owner-led business in the UK, providing doors and access systems to retail, healthcare, education, and public-sector customers. Its jobs and quotes lived in SimPRO, the money in Xero, and customer conversations in Outlook. Each system worked, but none held the complete commercial picture.
+        </p>
+      </div>
+
+      {/* The signature moment: the real screen on an ink band, three revenue
+          motions lit in turn, closing on the owner's quote. */}
+      <div className="dark mt-8 border-y border-border bg-background py-8 text-foreground lg:py-10">
+        <div className="container-page">
+          <EntecWalkthrough />
+        </div>
+      </div>
+
+      <div className="container-page">
         <Reveal className="mt-10">
           <div className="surface border-l-2 border-primary p-6">
             <p className="caption text-primary">{proof.channels.heading}</p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{proof.channels.body}</p>
           </div>
         </Reveal>
+      </div>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-3">
-          {PILLARS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.05}>
-              <div className="surface h-full p-6">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-bright">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {p.body}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        {proof.image ? (
-          <Reveal as="figure" className="mt-8">
-            <div className="grain surface relative overflow-hidden">
-              <Lightbox src={asset(proof.image.src)} alt={proof.image.alt} title="Entec's morning view" />
-            </div>
-            <figcaption className="caption mt-3">
-              The owner&rsquo;s morning view. Account names and figures blurred. Click to enlarge.
-            </figcaption>
-          </Reveal>
-        ) : null}
-
-        {/* The owner's words come before the build notes: the result and the
-            customer's response persuade more than the implementation. */}
-        <Reveal className="mt-8">
-          <blockquote className="max-w-3xl border-l-2 border-primary pl-6">
-            <p className="text-pretty font-heading text-2xl font-medium leading-snug tracking-tight sm:text-[1.75rem]">
-              &ldquo;{proof.testimonial.quote}&rdquo;
-            </p>
-            <footer className="mt-4 text-sm font-medium text-muted-foreground">{proof.testimonial.name}</footer>
-          </blockquote>
-        </Reveal>
-
+      <div className="container-page">
         <Reveal className="mt-8">
           <div className="surface grid gap-8 p-8 lg:grid-cols-2 lg:p-10">
             <div>

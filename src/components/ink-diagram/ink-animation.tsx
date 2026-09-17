@@ -8,12 +8,11 @@ import { InkDiagramStatic } from "./ink-diagram-static";
 import { CLIP_HIDDEN, CLIP_SHOWN, SOURCES, TIMELINE as T } from "./paths";
 
 /*
- * The hero's motion graphic: one looping animation sequence that draws four
- * sources, routes them into one system, annotates it by hand, ticks it in
- * red, holds, fades, and starts again. Every segment uses explicit
- * [from, to] keyframes so each loop restarts from a clean slate. The hold is
- * part of the timeline (not repeatDelay) so browser-native animation stays
- * available. Paused while off-screen; reduced motion shows the final frame.
+ * The ink diagram's motion: one quick sequence that draws four sources,
+ * routes them into one system, annotates it by hand, and loops the key row
+ * in red, then holds the finished frame for good. Every segment uses
+ * explicit [from, to] keyframes. Paused until it is first in view; reduced
+ * motion shows the final frame.
  */
 /* A stroke draws over [at, at+duration]; it also flips from invisible to
    visible at `at` so its round caps never show as a dot beforehand. */
@@ -57,7 +56,6 @@ function buildSequence(): AnimationSequence {
   draw(seq, "[data-ink-tick] path", T.tickStart, T.tickDuration);
   seq.push(["[data-ink-tick]", { scale: [1, 1.06, 1] }, { duration: T.settleDuration, at: T.settleStart }]);
 
-  seq.push(["[data-ink-stage]", { opacity: [1, 0] }, { duration: T.fadeDuration, at: T.fadeStart }]);
   return seq;
 }
 
@@ -69,8 +67,8 @@ export function InkAnimation({ className }: { className?: string }) {
     if (reduced) return;
     const el = scope.current;
     if (!el) return;
+    // Draws once and holds the finished frame; paused until first in view.
     const controls = animate(buildSequence(), {
-      repeat: Infinity,
       defaultTransition: { ease: EASE_OUT },
     });
     const io = new IntersectionObserver(

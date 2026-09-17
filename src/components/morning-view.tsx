@@ -207,7 +207,10 @@ export function MorningView({
     <div className={cn("grain surface surface-raised relative overflow-hidden", className)}>
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-border px-5 py-3">
         <p className="caption">Today · illustrative data</p>
-        <p className="text-xs text-muted-foreground">Change the rule. The list answers.</p>
+        <p className="flex items-center gap-2 text-xs text-muted-foreground">
+          <span className="rounded-md border border-primary/40 px-1.5 py-0.5 font-semibold text-primary">Interactive · try it</span>
+          <span className="hidden sm:inline">Change the rule. The list answers.</span>
+        </p>
       </div>
 
       <div className="flex flex-col gap-2 border-b border-border bg-surface-2 px-5 py-3">

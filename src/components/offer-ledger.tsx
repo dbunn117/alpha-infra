@@ -32,22 +32,30 @@ export function OfferLedger({
   services,
   variant = "door",
   showHighlights = true,
+  highlight = null,
+  mobile = true,
 }: {
   services: Service[];
   variant?: "door" | "extension";
   /* the "You get" row; the homepage omits it and lets /services carry it */
   showHighlights?: boolean;
+  /* slug of the column the path finder chose; its cells get a tint */
+  highlight?: string | null;
+  /* render the stacked cards below lg (the path finder supplies its own) */
+  mobile?: boolean;
 }) {
   const door = variant === "door" && showHighlights;
   const cols = services.length;
   const grid = cols === 3 ? "lg:grid-cols-[7.5rem_repeat(3,minmax(0,1fr))]" : "lg:grid-cols-[7.5rem_repeat(2,minmax(0,1fr))]";
-  const cell = "px-5 py-5 first:pl-0";
+  const base = "px-5 py-5 transition-colors duration-300";
+  const cellFor = (slug: string) => cn(base, highlight === slug && "bg-accent/60");
+  const hasScan = services.every((sv) => sv.scan);
   const label = "caption pt-5";
 
   return (
     <>
       {/* Stacked cards below lg */}
-      <div className={cn("grid gap-5 lg:hidden", cols === 3 ? "md:grid-cols-3" : "md:grid-cols-2")}>
+      <div className={cn("grid gap-5 lg:hidden", !mobile && "hidden", cols === 3 ? "md:grid-cols-3" : "md:grid-cols-2")}>
         {services.map((service, i) => (
           <Reveal key={service.slug} delay={i * 0.05}>
             <ServiceCard service={service} variant={variant} />
@@ -60,7 +68,7 @@ export function OfferLedger({
         {/* header row: order, name, tagline */}
         <div aria-hidden />
         {services.map((s) => (
-          <div key={s.slug} className={cn(cell, "pt-0")}>
+          <div key={s.slug} className={cn(cellFor(s.slug), "rounded-t-xl pt-5")}>
             <div className="flex items-center justify-between gap-3">
               <p className="caption">{s.order} · {s.role}</p>
               {s.chip ? (
@@ -79,10 +87,28 @@ export function OfferLedger({
           </div>
         ))}
 
+        {/* the scan line: outcome and time, read across the offers */}
+        {hasScan ? (
+          <>
+            <p className={cn(label, "border-t border-border")}>Outcome</p>
+            {services.map((s) => (
+              <div key={s.slug} className={cn(cellFor(s.slug), "border-t border-border")}>
+                <p className="text-sm font-semibold leading-snug text-foreground">{s.scan?.outcome}</p>
+              </div>
+            ))}
+            <p className={cn(label, "border-t border-border")}>Time</p>
+            {services.map((s) => (
+              <div key={s.slug} className={cn(cellFor(s.slug), "border-t border-border")}>
+                <p className="text-sm leading-snug text-foreground">{s.scan?.time}</p>
+              </div>
+            ))}
+          </>
+        ) : null}
+
         {/* start here if */}
         <p className={cn(label, "border-t border-border")}>Start here if</p>
         {services.map((s) => (
-          <div key={s.slug} className={cn(cell, "border-t border-border")}>
+          <div key={s.slug} className={cn(cellFor(s.slug), "border-t border-border")}>
             <p className="text-sm leading-snug text-foreground">{s.pain}</p>
           </div>
         ))}
@@ -92,7 +118,7 @@ export function OfferLedger({
           <>
             <p className={cn(label, "border-t border-border")}>You get</p>
             {services.map((s) => (
-              <div key={s.slug} className={cn(cell, "border-t border-border")}>
+              <div key={s.slug} className={cn(cellFor(s.slug), "border-t border-border")}>
                 <ul className="space-y-2">
                   {s.highlights?.map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
@@ -111,7 +137,7 @@ export function OfferLedger({
         {/* price on one line, link on the next, in every column, so the
             links line up whatever the price string's length */}
         {services.map((s) => (
-          <div key={s.slug} className={cn(cell, "flex flex-col gap-2 border-y border-border")}>
+          <div key={s.slug} className={cn(cellFor(s.slug), "flex flex-col gap-2 rounded-b-xl border-y border-border")}>
             <span className="text-lg font-semibold tabular-nums">{s.priceDisplay}</span>
             <LearnMore service={s} />
           </div>

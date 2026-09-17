@@ -59,12 +59,14 @@ placeholder and the contact form logs instead of emailing.
   scoring in the browser, no network, no model. Re-ordering is a hand-rolled
   FLIP on `transform` only, skipped under reduced motion. Keep every name
   fictional and every figure obviously invented; the labels say so.
-- **Motion** — the ink diagram (now in the positioning section, right column)
-  is a looping, time-based sequence in
+- **Motion** — the ink diagram (now on the Alpha System page, above the five
+  layers) draws once
+  in about a second and holds its finished frame, in
   `src/components/ink-diagram/ink-animation.tsx` (`useAnimate`, explicit
-  `[from, to]` keyframes, hold built into the timeline, paused off-screen via
-  IntersectionObserver). That file is the only importer of `motion`; nothing
-  is scroll-scrubbed. Everything else uses CSS transitions, `Reveal`, and
+  `[from, to]` keyframes, paused until first in view). That file is the only
+  importer of `motion`; nothing is scroll-scrubbed. Scroll-led pieces (the
+  Entec walkthrough) switch discrete steps with an IntersectionObserver and
+  animate opacity and pen strokes only. Everything else uses CSS transitions, `Reveal`, and
   `[data-stroke]` drawn paths (`.is-drawn` draws them without a Reveal).
   Never animate width/height/top/left or use `transition: all`.
   `?motion=reduced` (dev only) forces the reduced-motion branch for checking.
@@ -77,6 +79,29 @@ placeholder and the contact form logs instead of emailing.
   three examples, four `featured` FAQs), process, founder, close. It should
   stay around ten desktop screens; the fit ledger, full offer detail, all
   six examples, and the full FAQ live on /services.
+- **Interactive moments** — three, and no more: the morning view (hero),
+  the Entec walkthrough on /work (`entec-walkthrough.tsx`: the real
+  screenshot pinned on an ink band, three regions lit in turn by percentage
+  boxes measured on the image, closing on the owner's quote), and the
+  Services path finder (`offer-explorer.tsx`: one question, three answers,
+  tints the chosen ledger column and opens only that offer on phones).
+  Anything that accepts input carries an "Interactive · try it" chip. The
+  idea section is deliberately not interactive: one comparison of two
+  models of AI (`positioning-block.tsx`), Productivity AI as the small flat
+  panel and Opportunity AI as the dominant one, ending in a visible output
+  (the ranked opportunity, reusing the hero's illustrative Northgate
+  account) that carries the section's red-pen mark. It stacks on phones.
+- **Section tones** — `Chapter` takes `tone`: "paper" for narrative,
+  "system" (a few percent of Ink Blue) for how-the-machine-works sections,
+  "ink" (class `dark` re-scopes the tokens) for one proof moment per page,
+  and `tight` for FAQ and catalogues. White elevated surfaces are for live
+  artifacts only.
+- **Work catalogue** — `work-catalogue.tsx`: six `featured` projects first,
+  each with a drawn glyph (`project-glyph.tsx`), the decision supported and
+  the signals connected (both restate the blurb; add no new claims), tech as
+  a footnote; filters by group; the Lab stays in its own labelled panel.
+- **Copy rule** — avoid the rhetorical "this, not that" contrast in new
+  copy; state the thing itself. No em or en dashes as punctuation.
 - **First screen** — nothing above the fold is ever parked at opacity 0.
   `.rise` is a quarter-second settle from 0.6 opacity; `Reveal` is for
   content further down. Live demos answer every change with a `role=status`

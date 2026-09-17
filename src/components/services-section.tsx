@@ -4,6 +4,7 @@ import { getService, servicesByGroup } from "@/content/services";
 import { Chapter } from "@/components/chapter";
 import { SectionHeading } from "@/components/section-heading";
 import { OfferLedger } from "@/components/offer-ledger";
+import { OfferExplorer } from "@/components/offer-explorer";
 import { Reveal } from "@/components/reveal";
 import { RedPenLoop } from "@/components/red-pen";
 import { offerings } from "@/content/site";
@@ -81,7 +82,7 @@ export function ServicesSection({
         ) : null}
 
         <div className={withHeading ? "mt-12" : undefined}>
-          <OfferLedger services={doors} variant="door" />
+          <OfferExplorer services={doors} />
         </div>
 
         {examples ? (

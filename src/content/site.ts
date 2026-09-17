@@ -66,24 +66,49 @@ export const inkPeak = {
 } as const;
 
 /*
- * Opportunity vs Productivity AI: the core distinction the site is built
- * around. Sits right after the hero. Citations shown with real dates;
- * McKinsey and BCG only here per the brief's own restraint against
- * overloading the homepage with evidence.
+ * The idea: one comparison between two models of AI. It answers "what was
+ * fundamentally different about what I just saw?" after the hero and the
+ * proof. Productivity AI starts with a task; Opportunity AI watches the
+ * signals behind an outcome and surfaces the next action. The Opportunity
+ * side ends in a visible output, which reuses the hero's illustrative
+ * Northgate account so the two agree. No survey figures: the site's own
+ * systems are the evidence (removed 2026-09-17).
  */
 export const positioning = {
   eyebrow: "The idea",
-  heading: "Productivity is useful. Opportunity creates advantage.",
-  paragraphs: [
-    "Productivity AI helps someone complete an existing task faster: draft the email, summarize the document, prepare the first version. Opportunity AI gives the business a capability it didn't have: read every account, connect every relevant signal, identify what deserves attention, and show the evidence behind the next action.",
-    "It doesn't just draft the email faster. It identifies the customer worth emailing.",
-    "It doesn't just produce the report faster. It shows which market, account, or margin deserves attention.",
-    "It doesn't replace the person making the decision. It makes sure that person sees the opportunity while there's still time to act.",
-  ],
+  heading: "The real opportunity isn't doing the work faster. It's seeing what to do next.",
+  intro:
+    "Productivity AI starts with a task. An Alpha System watches the signals behind an important outcome, applies the way your business thinks, and brings the right action to the surface.",
+  productivity: {
+    label: "Productivity AI",
+    prompt: "Draft this customer email.",
+    flow: ["One prompt", "One task", "Faster output"],
+    points: ["Starts when someone prompts it", "Improves one task", "Produces a faster first draft"],
+    verdict: "Useful efficiency",
+  },
+  bridge: "From a faster task to better business visibility",
+  opportunity: {
+    label: "Opportunity AI",
+    prompt: "Which customer needs attention, and why?",
+    sources: ["CRM", "Email", "Finance", "Operations"],
+    rules: "Your rules",
+    output: {
+      label: "Ranked opportunity",
+      title: "Northgate needs attention",
+      evidence: "Invoicing 18% behind pace",
+      action: "Next action: call the account",
+      caption: "Illustrative",
+    },
+    annotation: "this is where value moves",
+    points: [
+      "Reads signals across your systems",
+      "Applies your operating rules",
+      "Ranks what deserves attention",
+      "Carries the next action into the work",
+    ],
+    verdict: "A capability the business didn't have before",
+  },
   note: "The advantage isn't the model. It's your data, connected, and the judgment you bring to it.",
-  /* Survey evidence (McKinsey 25 Aug 2026, BCG 31 Aug 2026) was removed on
-     2026-09-17: the site's own systems are the evidence, and the 90-day
-     citation rule made the figures a maintenance cost for little return. */
 } as const;
 
 /*
@@ -365,10 +390,10 @@ export const aboutPage = {
       heading: "Where AI came in",
       body: [
         "The turning point came from rebuilding something I already knew intimately.",
-        "In corporate finance at Stockbridge, I spent six to nine months developing a Power BI dashboard for the CFO. It brought the firm's financial and operating picture into one place: revenue and expenses against plan, cash and distribution projections, hiring, acquisitions and sales, assets under management, investor concentration, and more. From the company-level summary, the CFO could drill into a business unit, fund, asset, account, or underlying general-ledger detail.",
+        "In corporate finance at Stockbridge, I spent about six months developing a Power BI dashboard for the CFO. It brought the firm's financial and operating picture into one place: revenue and expenses against plan, cash and distribution projections, hiring, acquisitions and sales, assets under management, investor concentration, and more. From the company-level summary, the CFO could drill into a business unit, fund, asset, account, or underlying general-ledger detail.",
         "Building it properly required far more than making charts. The data had to be mapped, reconciled, and modelled, the definitions had to be agreed, and every view had to survive questions from people who understood the numbers.",
-        "Then Claude Code arrived. I tried using it to build a similar way of exploring financial data and had a useful interactive first version within hours. It wasn't a like-for-like replacement for the production dashboard, since the data still needed validation, controls, and testing, but it changed my sense of what one person could afford to build. Something that had previously required a specialist platform and a long project could now be explored in a day.",
-        "The second moment came with roughly 700MB of macroeconomic and demographic Excel data. In about 10 to 15 minutes, Claude Code produced a first pass of the charts, analysis, key takeaways, and narrative behind the trends. Those outputs still needed to be checked, but instead of spending a week assembling the initial view, I could immediately start asking the more valuable question: which markets deserved attention, and why?",
+        "Then Claude Code arrived. I tried using it to build a similar way of exploring financial data and had a useful interactive first version within days. It wasn't a like-for-like replacement for the production dashboard, since the data still needed validation, controls, and testing, but it changed my sense of what one person could afford to build. Something that had previously required a specialist platform and a long project could now be explored in a day.",
+        "The second moment came with roughly 700MB of macroeconomic and demographic Excel data. Within hours, Claude Code produced a first pass of the charts, analysis, key takeaways, and narrative behind the trends. Those outputs still needed to be checked, but instead of spending a week assembling the initial view, I could immediately start asking the more valuable question: which markets deserved attention, and why?",
         "That was when the larger opportunity became clear to me. AI wasn't only a faster way to produce the same dashboard or report. It dramatically lowered the cost of turning a business question into a working decision tool. Capabilities that previously required an analyst team, a specialist developer, or a long internal project had become practical for much leaner teams.",
         "That conviction is what led me to start building these systems full time: connecting a business's data and judgment so it can see, decide, and act in ways it couldn't justify building before.",
       ],
