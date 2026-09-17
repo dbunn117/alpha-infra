@@ -249,6 +249,7 @@ export const fitCheck = {
     "You need a large enterprise rollout with a formal procurement or RFP process.",
     "You already have an in-house data or engineering team that owns this.",
     "You're looking for a slide deck and a roadmap, not working software.",
+    "You want a contractor embedded in your team rather than a defined, project-based build.",
   ],
 } as const;
 

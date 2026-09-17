@@ -47,13 +47,16 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        {/* Lab: independent work */}
-        <div className="mt-16">
-          <div className="mb-6 flex items-center gap-4">
+        {/* Lab: independent work, set apart from the client and professional
+            work above so a buyer scanning for proof never mistakes the two. */}
+        <div className="mt-16 rounded-2xl border border-dashed border-border bg-surface-2/60 p-6 sm:p-8">
+          <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               Lab
             </h3>
-            <span className="h-px flex-1 bg-border" />
+            <span className="rounded-md border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
+              Personal projects, not client work
+            </span>
           </div>
           <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Independent systems where I test patterns before applying them in
