@@ -76,7 +76,7 @@ export const inkPeak = {
  */
 export const positioning = {
   eyebrow: "The idea",
-  heading: "The real opportunity isn't doing the work faster. It's seeing what to do next.",
+  heading: "The real opportunity is seeing what to do next.",
   intro:
     "Productivity AI starts with a task. An Alpha System watches the signals behind an important outcome, applies the way your business thinks, and brings the right action to the surface.",
   productivity: {
