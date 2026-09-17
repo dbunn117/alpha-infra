@@ -74,12 +74,12 @@ export function EntecCaseStudy() {
             <div>
               <h3 className="text-lg font-semibold">How it was built</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Built with Claude Code over eight working sessions between June and August 2026,
-                not a spec handed over once and delivered blind. The definitions were set with
-                the owner and revised as the system met real use. Key accounts, for example,
-                started as the top 20 by spend; by the fifth session they read his own Diamond and
-                Gold customer tiers in SimPRO instead, because his tiering captures strategic
-                importance that spend alone misses. Approved for daily use at the end of July.
+                Built with Claude Code over eight working sessions between June and August 2026.
+                The definitions were set with the owner and revised as the system met real use.
+                Key accounts, for example, started as the top 20 by spend; by the fifth session
+                they read his own Diamond and Gold customer tiers in SimPRO, because his tiering
+                captures strategic importance that spend alone misses. Approved for daily use at
+                the end of July.
               </p>
               <ul className="mt-5 space-y-2">
                 {[

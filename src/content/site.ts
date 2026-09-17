@@ -175,7 +175,7 @@ export const proofStrip = {
     {
       title: "A market scorecard for a real-estate investment team",
       summary: "Macro and demographic data weighted into a score for every market, with the narrative behind the trend drafted alongside.",
-      body: "Weights macro-economic and demographic data into a score for every market, then drafts the narrative behind the trend, nationally, by market, and by property sector. The investment team gets a ranked read on where to look next instead of a spreadsheet nobody has time to update.",
+      body: "Weights macro-economic and demographic data into a score for every market, then drafts the narrative behind the trend, nationally, by market, and by property sector. The investment team gets a ranked read on where to look next.",
       tools: "Macro-economic data · Demographic data · Claude Code · Python",
       href: "/work",
       /* rendered as the live scorecard demo (market-scorecard.tsx) instead of
@@ -188,7 +188,7 @@ export const proofStrip = {
           rows: ["Weights the signals", "Scores every market", "Drafts the narrative"],
         },
         outputs: [{ lines: ["Ranked", "scorecard"] }, { lines: ["Narrative", "by market"] }],
-        annotation: "every market, not just the top one",
+        annotation: "ranked, with the reasons shown",
       },
     },
   ],
@@ -249,7 +249,7 @@ export const fitCheck = {
     "You need a large enterprise rollout with a formal procurement or RFP process.",
     "You already have an in-house data or engineering team that owns this.",
     "You're looking for a slide deck and a roadmap, not working software.",
-    "You want a contractor embedded in your team rather than a defined, project-based build.",
+    "You need someone embedded in your team full time. Every engagement here is a defined, project-based build.",
   ],
 } as const;
 
