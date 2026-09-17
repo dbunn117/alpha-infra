@@ -1,7 +1,14 @@
+import { ChevronDown } from "lucide-react";
 import { experience } from "@/content/profile";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 
+/*
+ * Experience as a timeline, not a stack of cards: dates in the margin, one
+ * ink line, a marker per role, title and company on the line. The bullets
+ * open on request, so the page shows the arc at a glance and the detail
+ * only to whoever wants it.
+ */
 export function ExperienceTimeline() {
   return (
     <section id="experience" className="section scroll-mt-16">
@@ -9,24 +16,25 @@ export function ExperienceTimeline() {
         <SectionHeading
           eyebrow="Experience"
           heading="A decade close to decisions that move the numbers."
-          intro="Audit, a growing startup, private equity, and independent client builds. The work evolved from understanding how a business runs to building systems that make its next decision clearer."
         />
 
-        <ol className="mt-14 space-y-4">
+        <ol className="relative mt-12 max-w-3xl border-l border-border pl-8 sm:ml-32 sm:pl-10">
           {experience.map((role, i) => (
-            <Reveal key={`${role.company}-${role.title}`} delay={i * 0.04} as="li">
-              <div className="surface p-6 md:p-8">
-                <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold">{role.title}</h3>
-                    <p className="text-accent-bright">{role.company}</p>
-                  </div>
-                  <div className="text-sm text-muted-foreground md:text-right">
-                    <p>{role.dates}</p>
-                    <p>{role.location}</p>
-                  </div>
-                </div>
-                <ul className="mt-4 space-y-2">
+            <Reveal key={`${role.company}-${role.title}`} delay={i * 0.04} as="li" className="relative pb-9 last:pb-0">
+              {/* marker on the line */}
+              <span aria-hidden className="absolute -left-[calc(2rem+0.3rem)] top-2 size-2.5 rounded-full border border-primary bg-background sm:-left-[calc(2.5rem+0.3rem)]" />
+              {/* dates in the margin at sm+ */}
+              <p className="caption sm:absolute sm:-left-[calc(8rem+2.5rem)] sm:top-1.5 sm:w-28 sm:text-right">{role.dates}</p>
+              <h3 className="mt-1 text-lg font-semibold leading-snug sm:mt-0">{role.title}</h3>
+              <p className="text-sm text-muted-foreground">
+                {role.company} · {role.location}
+              </p>
+              <details className="group mt-2">
+                <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm font-medium text-primary [&::-webkit-details-marker]:hidden">
+                  <span className="link-draw">What I did</span>
+                  <ChevronDown className="size-4 transition-transform duration-300 ease-out-soft group-open:rotate-180" aria-hidden />
+                </summary>
+                <ul className="mt-3 space-y-2">
                   {role.bullets.map((b) => (
                     <li
                       key={b}
@@ -36,7 +44,7 @@ export function ExperienceTimeline() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </details>
             </Reveal>
           ))}
         </ol>

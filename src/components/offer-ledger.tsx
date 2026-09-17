@@ -42,7 +42,7 @@ export function OfferLedger({
   const cols = services.length;
   const grid = cols === 3 ? "lg:grid-cols-[7.5rem_repeat(3,minmax(0,1fr))]" : "lg:grid-cols-[7.5rem_repeat(2,minmax(0,1fr))]";
   const cell = "px-5 py-5 first:pl-0";
-  const label = "caption pt-6";
+  const label = "caption pt-5";
 
   return (
     <>
@@ -108,8 +108,10 @@ export function OfferLedger({
 
         {/* fee */}
         <p className={cn(label, "border-y border-border")}>Fee</p>
+        {/* price on one line, link on the next, in every column, so the
+            links line up whatever the price string's length */}
         {services.map((s) => (
-          <div key={s.slug} className={cn(cell, "flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-y border-border")}>
+          <div key={s.slug} className={cn(cell, "flex flex-col gap-2 border-y border-border")}>
             <span className="text-lg font-semibold tabular-nums">{s.priceDisplay}</span>
             <LearnMore service={s} />
           </div>

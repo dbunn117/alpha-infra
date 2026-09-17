@@ -81,25 +81,9 @@ export const positioning = {
     "It doesn't replace the person making the decision. It makes sure that person sees the opportunity while there's still time to act.",
   ],
   note: "The advantage isn't the model. It's your data, connected, and the judgment you bring to it.",
-  /* the homepage shows the evidence as three figures; the full sentence
-     (evidence) and sources stay for the caption and other pages */
-  stats: [
-    { value: "80%", label: "say AI improved their own productivity" },
-    { value: "37%", label: "say it improved their company's profit" },
-    { value: "6%", label: "see real value in lower costs or higher revenue" },
-  ],
-  evidence:
-    "Eighty percent of respondents say AI has improved their individual productivity. Only 37 percent say it has contributed positively to their organization's EBIT. BCG found the same pattern: only 6 percent of companies see real value in lower costs or higher revenue, and the ones that do redesign the process around AI instead of adding tools to the old one.",
-  sources: [
-    {
-      label: "McKinsey Global Survey, \"The state of AI in 2026: On the road to ROI,\" 25 August 2026.",
-      href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-    },
-    {
-      label: "BCG, \"Look past productivity to get real value from AI,\" 31 August 2026.",
-      href: "https://www.bcg.com/publications/2026/why-ai-pilots-rarely-deliver-value",
-    },
-  ],
+  /* Survey evidence (McKinsey 25 Aug 2026, BCG 31 Aug 2026) was removed on
+     2026-09-17: the site's own systems are the evidence, and the 90-day
+     citation rule made the figures a maintenance cost for little return. */
 } as const;
 
 /*
@@ -340,7 +324,7 @@ export const socialProof = {
 export const finalCta = {
   heading: "Ready to name the opportunity?",
   subhead:
-    "Send a note and I'll name the opportunity worth moving and check the data is there to move it. I'll reply within a business day. No pitch, no jargon.",
+    "Bring the outcome you'd like to move. Together we'll name the opportunity, check the data is there to build it, and decide if it's worth doing. If it isn't, I'll say so.",
   primaryCta: "Find the first opportunity worth building",
   secondaryCta: "Send a message",
 } as const;

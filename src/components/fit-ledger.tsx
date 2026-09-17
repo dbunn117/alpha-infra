@@ -6,9 +6,9 @@ import { DrawnCross, DrawnTick } from "@/components/drawn-mark";
 import { RedPenNote } from "@/components/red-pen";
 
 /*
- * Two ledger columns, no cards.
- * Each "might be you" row gets a tick drawn in ink; each "not a fit" row a
- * drawn cross. Marks draw as rows reveal, with a small stagger.
+ * Two ledger columns, no cards, one line per row: five ticks, four crosses.
+ * The explanatory sentences under each "might be you" item were dropped so
+ * the columns balance and the section scans in seconds.
  */
 export function FitLedger() {
   return (
@@ -20,7 +20,7 @@ export function FitLedger() {
           intro={fitCheck.intro}
         />
 
-        <div className="mt-14 grid gap-x-20 gap-y-14 lg:grid-cols-[1.25fr_1fr]">
+        <div className="mt-12 grid gap-x-16 gap-y-10 lg:grid-cols-2">
           <div>
             <p className="border-b border-border pb-3 text-sm font-semibold text-muted-foreground">
               This might be you if
@@ -31,21 +31,14 @@ export function FitLedger() {
                   as="li"
                   key={item.title}
                   delay={i * 0.05}
-                  className="grid grid-cols-[2rem_1fr] gap-4 py-7"
+                  className="grid grid-cols-[2rem_1fr] gap-4 py-4"
                 >
-                  <DrawnTick className="mt-1 size-6 text-primary" />
-                  <div>
-                    <p className="text-balance text-xl font-semibold leading-snug">
-                      {item.title}
-                    </p>
-                    <p className="measure mt-2 leading-relaxed text-muted-foreground">
-                      {item.body}
-                    </p>
-                  </div>
+                  <DrawnTick className="mt-0.5 size-6 text-primary" />
+                  <p className="text-balance text-lg font-semibold leading-snug">{item.title}</p>
                 </Reveal>
               ))}
             </ol>
-            <Reveal delay={0.3} className="mt-6">
+            <Reveal delay={0.3} className="mt-5">
               <RedPenNote arrow="up">if you can name the number, call</RedPenNote>
             </Reveal>
           </div>
@@ -60,10 +53,10 @@ export function FitLedger() {
                   as="li"
                   key={item}
                   delay={0.1 + i * 0.05}
-                  className="grid grid-cols-[2rem_1fr] gap-4 py-5"
+                  className="grid grid-cols-[2rem_1fr] gap-4 py-4"
                 >
                   <DrawnCross className="mt-0.5 text-muted-foreground" />
-                  <p className="leading-relaxed text-muted-foreground">{item}</p>
+                  <p className="text-lg leading-snug text-muted-foreground">{item}</p>
                 </Reveal>
               ))}
             </ul>

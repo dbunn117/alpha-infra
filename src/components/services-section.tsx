@@ -31,7 +31,7 @@ export function ServicesSection({
           <SectionHeading heading={offerings.heading} />
           <ol className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-3">
             {doors.map((s, i) => (
-              <Reveal as="li" key={s.slug} delay={i * 0.06} className="border-t border-border pt-5">
+              <Reveal as="li" key={s.slug} delay={i * 0.06} className="flex flex-col border-t border-border pt-5">
                 <p className="caption">{s.order} · {s.role}</p>
                 <h3 className="mt-3 text-2xl leading-snug">
                   {s.chip === "Flagship" ? (
@@ -42,7 +42,8 @@ export function ServicesSection({
                   ) : s.name}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.tagline}</p>
-                <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                {/* mt-auto keeps the three fees on one baseline whatever the tagline length */}
+                <div className="mt-auto flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 pt-5">
                   <span className="text-lg font-semibold tabular-nums">{s.priceDisplay}</span>
                   <Link href={`/services/${s.slug}`} className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                     <span className="link-draw">Learn more</span>
@@ -89,12 +90,12 @@ export function ServicesSection({
               <h3 className="text-xl">{offerings.examplesHeading}</h3>
               <p className="measure mt-2 text-muted-foreground">{offerings.examplesIntro}</p>
             </div>
-            <ul className="mt-4 grid gap-x-12 sm:grid-cols-2">
+            {/* title and the measure only: enough to scan, the detail is on the Quick Win page */}
+            <ul className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
               {examples.items.map((item, i) => (
-                <Reveal as="li" key={item.title} delay={i * 0.04} className="border-t border-border py-5">
+                <Reveal as="li" key={item.title} delay={i * 0.04} className="border-t border-border pt-4">
                   <p className="font-semibold leading-snug">{item.title}</p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-                  <p className="caption mt-3">{item.tools}</p>
+                  <p className="caption mt-2">{item.tools}</p>
                 </Reveal>
               ))}
             </ul>

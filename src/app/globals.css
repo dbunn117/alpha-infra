@@ -298,6 +298,63 @@
   }
 }
 
+/* Process strip: the runner crosses the list's width (container units) on a
+   7s loop; each marker lifts and fills as the runner reaches it (markers sit
+   at 0, 20, 40, 60, 80% of the width, so the i-th fires at i * 1.4s).
+   Paused until the strip's Reveal fires; the reduced-motion rule below
+   stops both. */
+.process {
+  container-type: inline-size;
+}
+.js .process-runner {
+  animation: process-run 7s linear infinite;
+  animation-play-state: paused;
+}
+.js .process-mark {
+  animation: process-mark 7s var(--ease-out) infinite;
+  animation-delay: calc(var(--i, 0) * 1.4s);
+  animation-play-state: paused;
+  transition: none;
+}
+.js .is-visible .process-runner,
+.js .is-visible .process-mark {
+  animation-play-state: running;
+}
+@keyframes process-run {
+  0% {
+    transform: translate(0, -50%);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100cqw - 0.5rem), -50%);
+    opacity: 0;
+  }
+}
+@keyframes process-mark {
+  0%,
+  100% {
+    transform: scale(1);
+    background-color: var(--background);
+    color: var(--primary);
+  }
+  3% {
+    transform: scale(1.35);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  12% {
+    transform: scale(1);
+    background-color: var(--background);
+    color: var(--primary);
+  }
+}
+
 @keyframes moved {
   0% {
     background-color: var(--accent);
