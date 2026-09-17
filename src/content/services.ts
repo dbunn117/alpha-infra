@@ -109,8 +109,8 @@ export const SERVICES: Service[] = [
           tools: "CRM · Accounting · measured in accounts acted on before lapse",
         },
         {
-          title: "High-value enquiry watch",
-          body: "Every inbound enquiry assessed for urgency, fit, and potential value, with strong opportunities and overdue responses or quotes pushed to the top.",
+          title: "High-value inquiry watch",
+          body: "Every inbound inquiry assessed for urgency, fit, and potential value, with strong opportunities and overdue responses or quotes pushed to the top.",
           tools: "Inbox · CRM or job system · measured in response or quote time",
         },
         {
@@ -191,7 +191,7 @@ export const SERVICES: Service[] = [
     chip: "Flagship",
     highlights: [
       "One outcome and its measure, named up front",
-      "Opportunities and risks prioritised with the evidence behind them",
+      "Opportunities and risks prioritized with the evidence behind them",
       "The next action put in front of the person who owns the decision",
     ],
     glance: {
@@ -253,7 +253,7 @@ export const SERVICES: Service[] = [
     },
     trust: [
       "Calculations, thresholds, permissions, and exact matching are handled with ordinary deterministic code, not left to an AI model",
-      "AI is reserved for work that genuinely requires interpretation: extracting meaning, classifying, summarising, ranking, and drafting",
+      "AI is reserved for work that genuinely requires interpretation: extracting meaning, classifying, summarizing, ranking, and drafting",
       "Before go-live, those AI judgments are tested against representative real cases and known edge cases. The same tests are rerun whenever the model, prompt, rules, or data connections change",
       "Every AI-generated match, recommendation, or summary is clearly identified and shows the evidence behind it",
       "When the system is uncertain, it escalates rather than guesses. Anything consequential waits for the human approval you defined",
@@ -307,7 +307,7 @@ export const SERVICES: Service[] = [
     whoItsFor:
       "A fit when one measurable outcome depends on several signals, rules, and actions spread across the business, and the person accountable can work with me to define the judgment behind it. If the need is one tightly defined capability using no more than two systems, start with a Quick Win instead. If several capabilities need to work together around the same outcome, that's an Alpha System.",
     pricing:
-      "Typical engagement: $10,000 to $15,000. Focused systems start at $7,500. Final scope depends on the systems being connected, the amount of business judgment being captured, and the actions the system needs to support. A Quick Win or Sprint fee comes off if the build starts within 90 days. Alpha System Care is available afterwards, to build clients only.",
+      "Typical engagement: $10,000 to $15,000. Focused systems start at $7,500. Final scope depends on the systems being connected, the amount of business judgment being captured, and the actions the system needs to support. A Quick Win or Sprint fee comes off if the build starts within 90 days. Alpha System Care is available afterward, to build clients only.",
     ctaLine: "Ready to name the opportunity?",
   },
   {

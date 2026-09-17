@@ -40,7 +40,7 @@ export const QUOTE_TARGETS = [24, 48] as const;
 
 export const KIND_LABEL: Record<ItemKind, string> = {
   account: "key account",
-  enquiry: "enquiry",
+  enquiry: "inquiry",
   tender: "tender",
   service: "service lead",
 };

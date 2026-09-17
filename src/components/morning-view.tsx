@@ -236,7 +236,7 @@ export function MorningView({
         {!compact ? (
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
             <Segmented
-              label="Quote every enquiry within"
+              label="Quote every inquiry within"
               options={QUOTE_TARGETS}
               value={rules.quote}
               onChange={(quote) => apply({ ...rules, quote })}

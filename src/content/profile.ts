@@ -98,7 +98,7 @@ export const experience: Experience[] = [
 export const skillGroups: { label: string; items: string[] }[] = [
   {
     label: "Business and finance",
-    items: ["Strategy", "FP&A", "Financial modelling", "Operating processes", "Investment analysis", "Diligence and valuation"],
+    items: ["Strategy", "FP&A", "Financial modeling", "Operating processes", "Investment analysis", "Diligence and valuation"],
   },
   {
     label: "Data and software",

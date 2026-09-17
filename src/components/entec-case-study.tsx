@@ -67,7 +67,7 @@ export function EntecCaseStudy() {
               </p>
               <ul className="mt-5 space-y-2">
                 {[
-                  "Deterministic code handles data syncing, calculations, thresholds, and exact matching. AI is used where interpretation is required: extracting enquiry details, summarising correspondence, assessing relevance, and helping rank what deserves attention",
+                  "Deterministic code handles data syncing, calculations, thresholds, and exact matching. AI is used where interpretation is required: extracting inquiry details, summarizing correspondence, assessing relevance, and helping rank what deserves attention",
                   "Every AI-made match or suggestion is identified as AI-made and kept reviewable",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">

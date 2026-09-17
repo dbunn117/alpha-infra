@@ -124,10 +124,10 @@ export const proof = {
   eyebrow: "Live at Entec Access Systems since July 2026",
   heading: "A system built to drive revenue, not just report it.",
   context:
-    "Entec is a 15-person access-systems business in the UK, 20 years old. SimPRO for jobs and quotes, Xero for the money, Outlook for everything else. None of it talked to each other, so accounts went quiet without anyone noticing and enquiries sat waiting for a quote.",
+    "Entec is a 15-person access-systems business in the UK, 20 years old. SimPRO for jobs and quotes, Xero for the money, Outlook for everything else. None of it talked to each other, so accounts went quiet without anyone noticing and inquiries sat waiting for a quote.",
   channels: {
     heading: "One morning view across five revenue channels",
-    body: "The system brings key customers, inbound enquiries, target accounts, installation-to-service leads, and public opportunities into one view. Each morning it ranks the actions that matter using rules defined with the owner, from overdue quotes and falling customer spend to service-conversion leads and approaching tender deadlines.",
+    body: "The system brings key customers, inbound inquiries, target accounts, installation-to-service leads, and public opportunities into one view. Each morning it ranks the actions that matter using rules defined with the owner, from overdue quotes and falling customer spend to service-conversion leads and approaching tender deadlines.",
   },
   built: "Built with Claude Code and n8n, in his accounts, over eight working sessions with the owner.",
   pillars: [
@@ -137,7 +137,7 @@ export const proof = {
     },
     {
       title: "Converts inbound demand",
-      body: "Every inbound enquiry is filtered, structured, and followed from the first email through response, quote, and outcome. The system tracks response and quote times against Entec's targets, flags potentially valuable or repeat customers, and shows where the next action is overdue.",
+      body: "Every inbound inquiry is filtered, structured, and followed from the first email through response, quote, and outcome. The system tracks response and quote times against Entec's targets, flags potentially valuable or repeat customers, and shows where the next action is overdue.",
     },
     {
       title: "Builds the next revenue pipeline",
@@ -148,7 +148,7 @@ export const proof = {
    * Left null until Bylo signs off a figure; renders nothing while null.
    * Preferred metric: recurring revenue recovered from accounts the
    * system flagged as gone quiet (the outcome the flagship promises).
-   * Fallbacks, in order: (2) quote turnaround, e.g. "Every enquiry quoted
+   * Fallbacks, in order: (2) quote turnaround, e.g. "Every inquiry quoted
    * inside 48 hours, down from N days"; (3) hours per week the owner no
    * longer spends piecing the picture together by hand.
    */
@@ -156,7 +156,7 @@ export const proof = {
   // e.g. { value: "£42,000", label: "recurring revenue recovered from accounts that had gone quiet" }
   image: {
     src: "/entec-sales-hub.webp",
-    alt: "Entec's Sales Intelligence Hub: five sales channels on one dashboard, with today's priority actions ranked across key accounts, inbound enquiries, public tenders, and target list, plus an ask-anything panel over the live data. Account names and figures blurred.",
+    alt: "Entec's Sales Intelligence Hub: five sales channels on one dashboard, with today's priority actions ranked across key accounts, inbound inquiries, public tenders, and target list, plus an ask-anything panel over the live data. Account names and figures blurred.",
   } as null | { src: string; alt: string },
   /* Drafted for Bylo to read, edit, and approve (vault: Entec Access Systems
      - Case Study). Not signed off; David accepted the risk while the site
@@ -179,12 +179,12 @@ export const proofStrip = {
   eyebrow: "Proof",
   heading: "Real systems, built and shipped.",
   intro:
-    "Two of the things I've built: one for an operating business, one for an investment team. The rest are in the work catalogue.",
+    "Two of the things I've built: one for an operating business, one for an investment team. The rest are in the work catalog.",
   items: [
     {
       title: "A revenue intelligence system for a 15-person services business",
       summary: "Jobs, quotes, invoices, email, and public tenders read together. Every morning it ranks what needs the owner's attention, with the evidence.",
-      body: "Connects SimPRO jobs and quotes, Xero invoices and payments, Outlook correspondence, and public tender feeds across five sales channels. Every morning it applies the owner's rules to rank the accounts, enquiries, service-conversion leads, target relationships, and tenders that need attention, showing what changed, why it matters, and the next action.",
+      body: "Connects SimPRO jobs and quotes, Xero invoices and payments, Outlook correspondence, and public tender feeds across five sales channels. Every morning it applies the owner's rules to rank the accounts, inquiries, service-conversion leads, target relationships, and tenders that need attention, showing what changed, why it matters, and the next action.",
       tools: "SimPRO · Xero · Outlook · Public tenders · Claude Code · n8n",
       href: "/work",
       schematic: {
@@ -217,7 +217,7 @@ export const proofStrip = {
       },
     },
   ],
-  link: { label: "See the work catalogue", href: "/work" },
+  link: { label: "See the work catalog", href: "/work" },
 } as const;
 
 export const offerings = {
@@ -391,7 +391,7 @@ export const aboutPage = {
       body: [
         "The turning point came from rebuilding something I already knew intimately.",
         "In corporate finance at Stockbridge, I spent about six months developing a Power BI dashboard for the CFO. It brought the firm's financial and operating picture into one place: revenue and expenses against plan, cash and distribution projections, hiring, acquisitions and sales, assets under management, investor concentration, and more. From the company-level summary, the CFO could drill into a business unit, fund, asset, account, or underlying general-ledger detail.",
-        "Building it properly required far more than making charts. The data had to be mapped, reconciled, and modelled, the definitions had to be agreed, and every view had to survive questions from people who understood the numbers.",
+        "Building it properly required far more than making charts. The data had to be mapped, reconciled, and modeled, the definitions had to be agreed, and every view had to survive questions from people who understood the numbers.",
         "Then Claude Code arrived. I tried using it to build a similar way of exploring financial data and had a useful interactive first version within days. It wasn't a like-for-like replacement for the production dashboard, since the data still needed validation, controls, and testing, but it changed my sense of what one person could afford to build. Something that had previously required a specialist platform and a long project could now be explored in a day.",
         "The second moment came with roughly 700MB of macroeconomic and demographic Excel data. Within hours, Claude Code produced a first pass of the charts, analysis, key takeaways, and narrative behind the trends. Those outputs still needed to be checked, but instead of spending a week assembling the initial view, I could immediately start asking the more valuable question: which markets deserved attention, and why?",
         "That was when the larger opportunity became clear to me. AI wasn't only a faster way to produce the same dashboard or report. It dramatically lowered the cost of turning a business question into a working decision tool. Capabilities that previously required an analyst team, a specialist developer, or a long internal project had become practical for much leaner teams.",

@@ -10,7 +10,7 @@ import { workCta } from "@/content/site";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Real systems built and shipped: a client case study and a catalogue of professional and independent AI work.",
+    "Real systems built and shipped: a client case study and a catalog of professional and independent AI work.",
   alternates: { canonical: "/work" },
 };
 
