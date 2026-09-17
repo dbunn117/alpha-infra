@@ -38,7 +38,7 @@ export const hero = {
   eyebrow: "Opportunity AI for lean teams",
   headline: "Build what your business couldn't build until now.",
   subhead:
-    "Lean teams make high-value decisions with data spread across too many systems. A live view of what to do next used to take more people than most businesses could justify. Now it can be built for yours, and it's yours to keep.",
+    "Lean teams make high-value decisions with data spread across too many systems. A live view of what to do next used to take a team and a budget most businesses couldn't justify. Now it can be built for yours, and it's yours to keep.",
   /* the two built examples used to sit in the subhead; the live view beside
      it and the proof section now carry them */
   demoLink: { label: "See the real Entec system behind this example", href: "/work#entec" },
