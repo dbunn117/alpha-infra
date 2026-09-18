@@ -288,7 +288,7 @@ export const faq = {
       featured: true,
       question: "Who owns the system and everything it produces?",
       answer:
-        "You do. The system, the code, the rules we wrote down, and everything it produces are yours when the engagement ends. I keep my general methods and templates. I don't resell your system or reuse it as a template for anyone else.",
+        "You do. The system, the code, the rules we captured, and everything it produces are yours when the engagement ends. I keep my general methods and templates. I don't resell your system or reuse it as a template for anyone else.",
     },
     {
       featured: true,
@@ -305,7 +305,7 @@ export const faq = {
       featured: true,
       question: "How accurate is the AI, and what happens when it gets something wrong?",
       answer:
-        "It gets things wrong, and the system is built assuming it will. Anything the AI decided is shown as AI-made, never blended in as if a person did it. Anything that matters waits for a person to approve. Your team stays the final check, and the rules we wrote down are what it's checked against.",
+        "It gets things wrong, and the system is built assuming it will. Anything the AI decided is shown as AI-made, never blended in as if a person did it. Anything that matters waits for a person to approve. Your team stays the final check, and the rules we captured are what it's checked against.",
     },
     {
       question: "Do I have to change the software we use?",
@@ -408,7 +408,7 @@ export const aboutPage = {
     },
     {
       heading: "How I work",
-      body: ["I start with the outcome, not the tool. We agree what's worth moving, trace the signals behind it, and write down the judgment the system needs to apply. If the data isn't there, or the opportunity isn't worth building at the proposed scope, I'll say so before we start. I use ordinary code for calculations and other exact work, and AI where interpretation is genuinely needed. I test the system on real cases, show the evidence behind its calls, and keep a person in control of consequential actions. I build in accounts you control, document the rules, and hand over the working system. You work with me throughout; there's no team to hand you off to."],
+      body: ["I start with the outcome, not the tool. We agree what's worth moving, trace the signals behind it, and capture the judgment the system needs to apply. If the data isn't there, or the opportunity isn't worth building at the proposed scope, I'll say so before we start. I use ordinary code for calculations and other exact work, and AI where interpretation is genuinely needed. I test the system on real cases, show the evidence behind its calls, and keep a person in control of consequential actions. I build in accounts you control, document the rules, and hand over the working system. You work with me throughout; there's no team to hand you off to."],
     },
   ],
   ctaLine: "Let's find the first opportunity worth building.",

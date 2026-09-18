@@ -210,7 +210,7 @@ export const SERVICES: Service[] = [
         {
           name: "01 · Operating memory",
           title: "The system understands how your business decides.",
-          body: "Your definitions, priorities, and judgment, written down: what counts as a key account, when an exception matters, which opportunities deserve attention, and when a person must decide. This becomes portable, readable documentation that you own, not knowledge trapped inside a vendor platform.",
+          body: "Your definitions, priorities, and judgment, captured: what counts as a key account, when an exception matters, which opportunities deserve attention, and when a person must decide. This becomes portable, readable documentation that you own, not knowledge trapped inside a vendor platform.",
           points: ["Definitions and decision rules", "Priorities, roles, and approval boundaries", "Important decisions and why they were made"],
         },
         {
@@ -245,7 +245,7 @@ export const SERVICES: Service[] = [
         "Most Alpha Systems go live within six weeks. They then run on live data for 30 days while we measure the agreed outcome, tune the rules, and confirm that the system is earning its place. Your involvement is usually six to eight working sessions of about an hour each. The rest is mine.",
       steps: [
         { when: "Week 0 · Fit check", title: "Name the opportunity", body: "A 30-minute conversation to identify the outcome worth moving and confirm that the necessary data exists." },
-        { when: "Weeks 1 to 2 · Foundation", title: "Define the outcome and connect the signals", body: "We establish the baseline, map the decisions behind it, capture the important rules, and connect the relevant data." },
+        { when: "Weeks 1 to 2 · Foundation", title: "Define the outcome and connect the signals", body: "We establish the baseline, map the decisions behind it, capture the important rules, and connect the relevant data. The rules come out of our conversations, so there's nothing for you to write up." },
         { when: "Weeks 3 to 5 · Build and test", title: "Build on real cases", body: "I build the working system and test it against representative scenarios and edge cases. Weekly working sessions let us correct the judgment as the system takes shape." },
         { when: "By week 6 · Go live", title: "Put it into daily use", body: "The system moves onto live data, your team begins using it, and the ownership, documentation, and approval boundaries are handed over." },
         { when: "Following 30 days · Prove and tune", title: "Measure what changed", body: "The system is already live. I monitor its quality, refine the rules, and read the agreed measure against its baseline. At the end, we decide whether to maintain it, extend it, or stop there." },
@@ -271,7 +271,7 @@ export const SERVICES: Service[] = [
       "The person accountable for an outcome can usually name what's going wrong: customers drifting, quotes moving too slowly, margin appearing too late, an asset moving off plan, or an opportunity noticed after the window has closed. The signals already exist, but one lives in the operating system, another in the financial data, and another in email or a spreadsheet. Nobody can hold the complete picture in view continuously, so the decision gets made from memory or last month's report.",
     whatHeading: "What The Alpha System is",
     what:
-      "It isn't a dashboard and it isn't a data integration project. It's a live decision system, built for your business, that connects the relevant signals, applies the judgment you'd apply, and puts what deserves attention in front of the person who owns the decision, with the evidence behind it. We start by naming the one outcome you want to move, so the first phase has a finish line. Then I connect the systems that carry the relevant signals and write down your operating memory, your rules, definitions, and judgment, so the system works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
+      "It isn't a dashboard and it isn't a data integration project. It's a live decision system, built for your business, that connects the relevant signals, applies the judgment you'd apply, and puts what deserves attention in front of the person who owns the decision, with the evidence behind it. We start by naming the one outcome you want to move, so the first phase has a finish line. Then I connect the systems that carry the relevant signals and capture your operating memory, your rules, definitions, and judgment, so the system works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
     whatYouGet: [
       "One business outcome with its baseline, agreed before we build anything",
       "A current-state map of the workflow and the data behind the outcome",
@@ -292,8 +292,8 @@ export const SERVICES: Service[] = [
         body: "I map where the data that predicts and drives that outcome lives, how the work actually happens, and which decisions change the number. I assess the right stack, working inside the systems you already run wherever it makes sense.",
       },
       {
-        title: "Write down the rules",
-        body: "Your operating memory: the definitions, judgment, and rules the business runs on, captured so the system works the way you would, not a template's.",
+        title: "Capture the rules",
+        body: "Your operating memory: the definitions, judgment, and rules the business runs on. We talk them through on a call and I turn the conversation into the rules the system follows, so there's nothing for you to document.",
       },
       {
         title: "Build and test",
