@@ -35,7 +35,7 @@ export function ProofStrip() {
             </article>
           </Reveal>
 
-          {/* The owner's own words. Drafted, not yet signed off by Bylo (see
+          {/* The owner's own words, from his 2026-09-23 voice note (see
               content/site.ts proof.testimonial). */}
           <Reveal as="li" delay={0.12} className="border-t border-border pt-8 md:order-3 md:col-span-2">
             <div className="grid gap-6 lg:grid-cols-12">

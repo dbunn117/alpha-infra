@@ -1,10 +1,8 @@
 /*
- * Testimonial quote below is drafted, not yet reviewed/edited by Bylo
- * directly (see Obsidian: 07 Alpha Infra/Offers & Positioning/Entec Access
- * Systems - Case Study.md). David decided 2026-08-19 it's fine to publish
- * as-is since this URL isn't shared/discoverable anywhere yet. Get his actual
- * sign-off (or a recorded quote) before linking this page from LinkedIn, a
- * proposal, or anywhere else with real traffic.
+ * The testimonial (content/site.ts proof.testimonial) is Bylo's own recorded
+ * quote from 2026-09-23, given for use on the website. Transcript and status
+ * in the vault: 07 Alpha Infra/Strategy & Positioning/Entec Access Systems -
+ * Case Study.md.
  */
 import { CheckCircle2 } from "lucide-react";
 import { proof } from "@/content/site";

@@ -86,7 +86,7 @@ export const experience: Experience[] = [
   {
     company: "PricewaterhouseCoopers",
     location: "San Francisco & Johannesburg",
-    title: "Manager / Senior Associate",
+    title: "Senior Associate, then Manager",
     dates: "Jan 2016 to Apr 2021",
     bullets: [
       "Managed audit workstreams on a $25B+ market-cap e-commerce client's US GAAP integrated audit, as one of four managers on the engagement team.",
@@ -95,14 +95,30 @@ export const experience: Experience[] = [
   },
 ];
 
-export const skillGroups: { label: string; items: string[] }[] = [
+/* Two halves, so the reader can tell what David brings from what he builds
+   with. Reader feedback (2026-09-23): one flat grid with a "Training" box
+   read as a confused mix of experience and stack. */
+export const skillSets: { heading: string; marks?: boolean; groups: { label: string; items: string[] }[] }[] = [
+  {
+    heading: "What I bring",
+    groups: [
   {
     label: "Business and finance",
     items: ["Strategy", "FP&A", "Financial modeling", "Operating processes", "Investment analysis", "Diligence and valuation"],
   },
   {
+    label: "Credentials",
+    items: ["California CPA (inactive)", "BIDA® Certified", "CFA Program Level I completed", "BCom Honours in Accounting Sciences"],
+  },
+    ],
+  },
+  {
+    heading: "What I build with",
+    marks: true,
+    groups: [
+  {
     label: "Data and software",
-    items: ["Python", "SQL", "Power BI", "Power Query", "Claude Code"],
+    items: ["Python", "SQL", "Power BI and Power Query", "Claude Code"],
   },
   {
     label: "AI and automation",
@@ -112,8 +128,6 @@ export const skillGroups: { label: string; items: string[] }[] = [
     label: "Platforms",
     items: ["Supabase", "Vercel", "GitHub"],
   },
-  {
-    label: "Training",
-    items: ["BIDA® Certified", "California CPA (inactive)", "CFA Program Level I completed", "BCom Honours in Accounting Sciences"],
+    ],
   },
 ];

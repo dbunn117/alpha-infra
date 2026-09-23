@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import type { Service } from "@/content/services";
 import { OfferLedger } from "@/components/offer-ledger";
 import { ServiceCard } from "@/components/service-card";
+import { InteractiveChip } from "@/components/interactive-chip";
 import { cn } from "@/lib/utils";
 
 /*
@@ -24,7 +25,7 @@ export function OfferExplorer({ services }: { services: Service[] }) {
       <div className="rounded-2xl border border-border bg-surface-2 p-5 sm:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h3 className="text-xl">Where are you starting?</h3>
-          <p className="caption">Interactive · pick one</p>
+          <InteractiveChip verb="pick one" />
         </div>
         <div role="radiogroup" aria-label="Where are you starting?" className="mt-4 grid gap-3 md:grid-cols-3">
           {services.map((s) => {
@@ -40,7 +41,7 @@ export function OfferExplorer({ services }: { services: Service[] }) {
                   "rounded-xl border px-4 py-3 text-left text-sm font-medium leading-snug transition-[border-color,background-color,color] duration-150",
                   on
                     ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-surface-1 text-foreground hover:border-primary/40"
+                    : "border-primary/40 bg-surface-1 text-foreground hover:border-primary hover:bg-primary/5"
                 )}
               >
                 {s.scan?.choice ?? s.name}

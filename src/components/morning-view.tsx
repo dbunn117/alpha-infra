@@ -12,6 +12,7 @@ import {
 } from "@/content/morning-view-sample";
 import { hero } from "@/content/site";
 import { RedPenLoop, RedPenNote } from "@/components/red-pen";
+import { InteractiveChip } from "@/components/interactive-chip";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
 
@@ -106,7 +107,7 @@ function Segmented<T extends number>({
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
       <span className="text-xs font-medium text-muted-foreground">{label}</span>
-      <div role="radiogroup" aria-label={label} className="inline-flex rounded-lg border border-border bg-surface-1 p-0.5">
+      <div role="radiogroup" aria-label={label} className="inline-flex rounded-lg border border-primary/40 bg-surface-1 p-0.5 shadow-elev-1">
         {options.map((o) => (
           <button
             key={o}
@@ -116,7 +117,7 @@ function Segmented<T extends number>({
             onClick={() => onChange(o)}
             className={cn(
               "rounded-md px-2.5 py-1 text-xs font-semibold tabular-nums transition-[background-color,color] duration-150",
-              o === value ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              o === value ? "bg-primary text-primary-foreground" : "text-foreground/70 hover:bg-primary/10 hover:text-foreground"
             )}
           >
             {format(o)}
@@ -207,9 +208,9 @@ export function MorningView({
     <div className={cn("grain surface surface-raised relative overflow-hidden", className)}>
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-border px-5 py-3">
         <p className="caption">Today · illustrative data</p>
-        <p className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="rounded-md border border-primary/40 px-1.5 py-0.5 font-semibold text-primary">Interactive · try it</span>
-          <span className="hidden sm:inline">Change the rule. The list answers.</span>
+        <p className="flex items-center gap-2 text-xs font-medium text-foreground">
+          <InteractiveChip />
+          <span className="hidden sm:inline">Change a rule and watch the list re-rank.</span>
         </p>
       </div>
 

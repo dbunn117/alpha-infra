@@ -29,7 +29,7 @@ export function ServicesSection({
     return (
       <Chapter id="services" title="Offerings">
         <div className="container-page">
-          <SectionHeading heading={offerings.heading} />
+          <SectionHeading heading={offerings.heading} intro={offerings.compactIntro} />
           <ol className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-3">
             {doors.map((s, i) => (
               <Reveal as="li" key={s.slug} delay={i * 0.06} className="flex flex-col border-t border-border pt-5">

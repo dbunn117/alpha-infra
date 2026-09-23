@@ -28,7 +28,7 @@ export const site = {
 export const nav = {
   links: [
     { label: "Services", href: "/services" },
-    { label: "Work", href: "/work" },
+    { label: "Portfolio", href: "/work" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
@@ -38,7 +38,7 @@ export const hero = {
   eyebrow: "Opportunity AI for lean teams",
   headline: "Build what your business couldn't build until now.",
   subhead:
-    "Lean teams make high-value decisions with data spread across too many systems. A live view of what to do next used to take a team and a budget most businesses couldn't justify. Now it can be built for yours, and it's yours to keep.",
+    "Lean teams make high-value decisions with data spread across too many systems. A live view of what to do next used to require resources most businesses couldn't justify. Now it can be built for yours, and it's yours to keep.",
   /* the two built examples used to sit in the subhead; the live view beside
      it and the proof section now carry them */
   demoLink: { label: "See the real Entec system behind this example", href: "/work#entec" },
@@ -158,12 +158,13 @@ export const proof = {
     src: "/entec-sales-hub.webp",
     alt: "Entec's Sales Intelligence Hub: five sales channels on one dashboard, with today's priority actions ranked across key accounts, inbound inquiries, public tenders, and target list, plus an ask-anything panel over the live data. Account names and figures blurred.",
   } as null | { src: string; alt: string },
-  /* Drafted for Bylo to read, edit, and approve (vault: Entec Access Systems
-     - Case Study). Not signed off; David accepted the risk while the site
-     has no real traffic. */
+  /* Bylo's own words, from the voice note he sent on 2026-09-23 for use on
+     the website (transcript in the vault: Entec Access Systems - Case Study).
+     Lightly tidied from speech with his blanket OK for edits; "sales" became
+     "sales motion" at David's call. */
   testimonial: {
     quote:
-      "It's already caught accounts I would otherwise have missed. Now I can open one view each morning and see what needs attention, rather than piecing it together across separate systems.",
+      "Working with David at Alpha Infra has been fantastic, on two fronts: the output has been great, and so has the experience. I can now track our top 35 customers in much more detail and depth, we understand the ROI on our Google advertising spend, and we have a custom-built CRM. It's a great foundation for our sales motion, and I would highly recommend working with him.",
     name: "William van der Byl, Owner, Entec Access Systems",
   },
   link: { label: "Read the case study", href: "/work" },
@@ -179,7 +180,7 @@ export const proofStrip = {
   eyebrow: "Proof",
   heading: "Real systems, built and shipped.",
   intro:
-    "Two of the things I've built: one for an operating business, one for an investment team. The rest are in the work catalog.",
+    "Two of the things I've built: one for an operating business, one for an investment team. The rest are in the portfolio.",
   items: [
     {
       title: "A revenue intelligence system for a 15-person services business",
@@ -217,13 +218,16 @@ export const proofStrip = {
       },
     },
   ],
-  link: { label: "See the work catalog", href: "/work" },
+  link: { label: "See the full portfolio", href: "/work" },
 } as const;
 
 export const offerings = {
   heading: "Three ways to start. Two ways to extend what works.",
   intro:
-    "One capability, one number, or a plan for what to build first. Each one opens with the situation it's for. If you start small and go on to a build, the first fee comes off the second.",
+    "One capability, one number, or a plan for what to build first. Each is a fixed engagement that ends with a handover, and each opens with the situation it's for. The only ongoing option is Care, further down, and that's yours to add later. If you start small and go on to a build, the first fee comes off the second.",
+  /* the homepage shows the heading and this one line; the full intro is on /services */
+  compactIntro:
+    "Each is a fixed engagement that ends with a handover. The only ongoing option is Care, and that comes after a build.",
   examplesHeading: "What a Quick Win can look like",
   examplesIntro:
     "Six examples of a tightly scoped first capability, across operating, finance, and investment work. All the same fixed fee, with the measure agreed before I build.",
@@ -286,42 +290,42 @@ export const faq = {
   items: [
     {
       featured: true,
-      question: "Who owns the system and everything it produces?",
+      question: "Who owns the system once it's built?",
       answer:
-        "You do. The system, the code, the rules we captured, and everything it produces are yours when the engagement ends. I keep my general methods and templates. I don't resell your system or reuse it as a template for anyone else.",
+        "You do, all of it: the system, the code, the rules we captured, and everything it produces. I build in accounts you control, so there's nothing to hand back at the end. It was yours from day one. I keep my general methods and templates, and I won't resell your system or reuse it for anyone else.",
     },
     {
       featured: true,
       question: "What happens to my data?",
       answer:
-        "It's used for your engagement and nothing else, and it never gets mixed with another client's. Your source data stays in the systems you already use, and the system reads only what's needed, through connections you own. Some selected data may be processed by the AI or automation providers I use to build it; before launch I document what's sent, where it's processed, how long it's retained, and how to revoke access. Anything I hold directly, I return or delete on request.",
+        "Your data stays in the systems you already use. What I build reads only what it needs, through connections you own and can switch off. Some of it does pass through AI or automation providers while the system runs, so before go-live I give you a plain summary of what's sent, where it goes, how long it's kept, and how to revoke access. It's used for your system and nothing else, and anything I hold myself I'll return or delete when you ask.",
     },
     {
-      question: "Do you train AI models on my data?",
+      question: "Will my data be used to train AI models?",
       answer:
-        "No. I never use one client's data to build another client's system. When a system uses a commercial AI API, I document the provider and its data settings: Anthropic and OpenAI both state that commercial API inputs and outputs aren't used to train their models by default. Training and retention are separate questions, so how long data is kept is documented as part of each system's design.",
-    },
-    {
-      featured: true,
-      question: "How accurate is the AI, and what happens when it gets something wrong?",
-      answer:
-        "It gets things wrong, and the system is built assuming it will. Anything the AI decided is shown as AI-made, never blended in as if a person did it. Anything that matters waits for a person to approve. Your team stays the final check, and the rules we captured are what it's checked against.",
-    },
-    {
-      question: "Do I have to change the software we use?",
-      answer:
-        "No. I build inside what you already run: your CRM, your accounting package, your inbox, your spreadsheets. Nothing migrates. If something genuinely needs a new tool, I'll say so, and it will be one tool, not a platform.",
-    },
-    {
-      question: "What about ongoing software or API costs?",
-      answer:
-        "Any AI or automation costs the system runs on are yours, not mine. I estimate them up front, you approve them before go-live, and Care, if you take it, keeps an eye on them every month. I don't mark them up.",
+        "No. The systems I build use commercial AI services from providers like Anthropic and OpenAI, and both state that data sent that way isn't used to train their models by default. I never use one client's data to build another client's system. How long a provider keeps data is a separate question from training, so that's covered in the data summary you get before go-live.",
     },
     {
       featured: true,
-      question: "What happens on the discovery call?",
+      question: "What happens when the AI gets something wrong?",
       answer:
-        "Thirty minutes. You tell me what eats the week. I ask where the data lives and whether it's there to do the work. If it's a fit, I'll tell you which of the three ways to start makes sense and what it costs. If it isn't, I'll say so, and you've lost half an hour.",
+        "It will get things wrong, so the system is built expecting that. Calculations, matching, and anything exact are done with ordinary code. AI is kept for the judgment calls, and whatever it decides is labeled as AI-made so you can see it and check it. Anything that matters waits for a person to approve it. When it does get one wrong, that's a rule to tighten, and tightening the rules is part of the 30 days after go-live.",
+    },
+    {
+      question: "Do we have to change the software we use?",
+      answer:
+        "No. I build around what you already run: your CRM, your accounting package, your inbox, your spreadsheets. Nothing gets migrated. The system itself needs somewhere to live, usually a few accounts in your name, and I set those up with you. If I think a tool you use is holding you back, I'll say so, but that's your call.",
+    },
+    {
+      question: "What does it cost to run once it's live?",
+      answer:
+        "There are running costs, mostly the AI and automation services the system uses, and they're billed to you directly. I estimate them before we start, you approve them before go-live, and I don't add a markup. You can set a spending limit with the provider so there are no surprises. If you take Care, I watch them for you each month.",
+    },
+    {
+      featured: true,
+      question: "What happens on the first call?",
+      answer:
+        "It's thirty minutes. You tell me about the outcome you'd like to move and what gets missed or decided too late today. I'll ask where the data lives and whether there's enough of it to work with. By the end you'll know whether I think it's worth building, which of the three ways to start fits, and what it would cost. If it isn't a fit, I'll tell you on the call.",
     },
   ],
 } as const;
@@ -425,7 +429,7 @@ export const footer = {
   tagline: "Opportunity AI for lean teams making high-value decisions.",
   links: [
     { label: "Services", href: "/services" },
-    { label: "Work", href: "/work" },
+    { label: "Portfolio", href: "/work" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

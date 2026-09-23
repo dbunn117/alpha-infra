@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
     whoItsFor:
       "Lean teams with one valuable blind spot, accessible data, and someone close enough to the work to know what actually matters. If the outcome depends on several connected systems, decisions, or teams, it's probably an Alpha System instead.",
     pricing:
-      "$2,500 fixed. That covers one capability, one team, up to two systems, one defined outcome, one handoff session, and two weeks of support. No historical data migration. If I don't think a useful result fits this scope, I'll tell you before we start. If you move to an Alpha System within 90 days, the full $2,500 is credited.",
+      "$2,500 fixed. That covers one capability, one team, up to two systems, one defined outcome, one handoff session, two weeks of support, and the 30-day review. No historical data migration. If I don't think a useful result fits this scope, I'll tell you before we start. If you move to an Alpha System within 90 days, the full $2,500 is credited.",
     ctaLine: "Let's find the first capability worth building.",
   },
   {

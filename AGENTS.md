@@ -32,7 +32,10 @@ placeholder and the contact form logs instead of emailing.
   These are typed objects; changing copy should almost never require touching a
   component. Reach for the content files first.
 - **Design tokens** — CSS variables in `src/app/globals.css`. Paper (warm
-  near-white `#FAF9F6`) is the default, Ink (dark) is the toggle. Two accents
+  near-white `#FAF9F6`) is the only page ground. Ink (dark) is a section tone
+  (`Chapter tone="ink"`, one proof moment per page), never a site-wide theme:
+  the header's light/dark toggle was removed on 2026-09-23 after reader
+  feedback ("pick a brand"), and `next-themes` now only pins `light`. Two accents
   with fixed roles. **Blue is the system**: Ink Blue (`--primary`, `#1D4ED8`
   on Paper / `#93C5FD` on Ink) for buttons, links, `.eyebrow`, highlights,
   the diagram's routes and plate, anything the machine does or the visitor
@@ -85,7 +88,11 @@ placeholder and the contact form logs instead of emailing.
   boxes measured on the image, closing on the owner's quote), and the
   Services path finder (`offer-explorer.tsx`: one question, three answers,
   tints the chosen ledger column and opens only that offer on phones).
-  Anything that accepts input carries an "Interactive · try it" chip. The
+  Anything that accepts input carries the filled blue `InteractiveChip`
+  (`interactive-chip.tsx`, pointer glyph, "Interactive · try it" or "pick
+  one") plus a one-line instruction with a verb ("Change a rule and watch the
+  list re-rank"), and its controls sit in a blue-bordered group. Readers said
+  the earlier outlined chip "just looks like text". The
   idea section is deliberately not interactive: one comparison of two
   models of AI (`positioning-block.tsx`), Productivity AI as the small flat
   panel and Opportunity AI as the dominant one, ending in a visible output
@@ -96,7 +103,9 @@ placeholder and the contact form logs instead of emailing.
   "ink" (class `dark` re-scopes the tokens) for one proof moment per page,
   and `tight` for FAQ and catalogues. White elevated surfaces are for live
   artifacts only.
-- **Work catalogue** — `work-catalogue.tsx`: six `featured` projects first,
+- **Portfolio** — the `/work` route keeps its URL but is labelled
+  "Portfolio" in the nav, footer, and page hero (readers found "Work" next to
+  "Services" ambiguous). `work-catalogue.tsx`: six `featured` projects first,
   each with a drawn glyph (`project-glyph.tsx`), the decision supported and
   the signals connected (both restate the blurb; add no new claims), tech as
   a footnote; filters by group; the Lab stays in its own labelled panel.
@@ -108,7 +117,7 @@ placeholder and the contact form logs instead of emailing.
   line (what changed, how many need attention) and a brief `.is-moved` wash
   on the rows that moved, plus a Reset control.
 - **Verifying the homepage** — walk it at every half viewport on desktop, on a
-  390px mobile viewport, in the Ink theme, and with `?motion=reduced`; check
+  390px mobile viewport, and with `?motion=reduced`; check
   for console errors, horizontal overflow, dead scroll, copy stuck below full
   opacity, red anywhere that is not handwritten, that the diagram reports
   `data-ink-state="playing"` while in view and `paused` once scrolled past,

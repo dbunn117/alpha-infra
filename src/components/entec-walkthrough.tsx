@@ -60,7 +60,7 @@ function Dots({ count, active, className }: { count: number; active: number; cla
 }
 
 function Quote({ className }: { className?: string }) {
-  /* Drafted, not yet signed off by the owner (see content/site.ts proof.testimonial). */
+  /* The owner's recorded words, 2026-09-23 (see content/site.ts proof.testimonial). */
   return (
     <blockquote className={className}>
       <p className="text-pretty font-heading text-2xl font-medium leading-snug tracking-tight sm:text-[1.75rem]">

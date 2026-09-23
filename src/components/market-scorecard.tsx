@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { RedPenNote } from "@/components/red-pen";
+import { InteractiveChip } from "@/components/interactive-chip";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
 
@@ -120,9 +121,9 @@ export function MarketScorecard({ className }: { className?: string }) {
   return (
     <div className={cn("text-foreground", className)}>
       <div className="flex items-center justify-between gap-3">
-        <p className="flex items-center gap-2">
-          <span className="caption">Illustrative markets</span>
-          <span className="rounded-md border border-primary/40 px-1.5 py-0.5 text-[0.7rem] font-semibold text-primary">Interactive · try it</span>
+        <p className="flex flex-wrap items-center gap-2">
+          <InteractiveChip />
+          <span className="text-xs font-medium text-foreground">Re-weight a signal and watch the markets re-rank.</span>
         </p>
         <button
           type="button"
@@ -138,7 +139,7 @@ export function MarketScorecard({ className }: { className?: string }) {
         {SIGNALS.map((s) => (
           <div key={s.key} className="flex items-center justify-between gap-2">
             <span className="text-[0.7rem] font-medium text-muted-foreground">{s.label}</span>
-            <div role="radiogroup" aria-label={`${s.label} weight`} className="inline-flex shrink-0 rounded-md border border-border bg-surface-1 p-0.5">
+            <div role="radiogroup" aria-label={`${s.label} weight`} className="inline-flex shrink-0 rounded-md border border-primary/40 bg-surface-1 p-0.5">
               {STEPS.map((st) => (
                 <button
                   key={st.v}
@@ -148,7 +149,7 @@ export function MarketScorecard({ className }: { className?: string }) {
                   onClick={() => apply({ ...w, [s.key]: st.v })}
                   className={cn(
                     "rounded px-1.5 py-0.5 text-[0.65rem] font-semibold transition-[background-color,color] duration-150",
-                    w[s.key] === st.v ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                    w[s.key] === st.v ? "bg-primary text-primary-foreground" : "text-foreground/70 hover:bg-primary/10 hover:text-foreground"
                   )}
                 >
                   {st.label}

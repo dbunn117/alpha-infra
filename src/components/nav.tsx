@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { nav } from "@/content/site";
 import { Wordmark } from "@/components/wordmark";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { BookACallButton } from "@/components/book-a-call-button";
 import { cn } from "@/lib/utils";
 
@@ -58,7 +57,6 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <div className="hidden md:block">
             <BookACallButton size="sm" />
           </div>

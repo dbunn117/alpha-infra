@@ -8,9 +8,9 @@ import { BookACallButton } from "@/components/book-a-call-button";
 import { workCta } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: "Portfolio",
   description:
-    "Real systems built and shipped: a client case study and a catalog of professional and independent AI work.",
+    "Real systems built and shipped: a client case study and a portfolio of professional and independent AI work.",
   alternates: { canonical: "/work" },
 };
 
@@ -18,7 +18,7 @@ export default function WorkPage() {
   return (
     <>
       <PageHero
-        eyebrow="Work"
+        eyebrow="Portfolio"
         title="Real systems, built and shipped."
         subhead="Selected client, professional, and independent work. The common thread is turning fragmented data and business judgment into systems people can actually use."
       />
