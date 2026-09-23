@@ -45,7 +45,7 @@ export const hero = {
   primaryCta: "Find the first opportunity worth building",
   secondaryCta: "See how it works",
   ctaNote:
-    "30 minutes. We name the opportunity, check the data is there to build it, and decide if it's worth doing. If it isn't, I'll say so.",
+    "Bring the outcome you'd like to move. We'll talk through how it works today and where the information lives, and you'll leave knowing what I'd build first.",
 } as const;
 
 /*
@@ -307,9 +307,9 @@ export const faq = {
     },
     {
       featured: true,
-      question: "What happens when the AI gets something wrong?",
+      question: "How much of the system is actually AI?",
       answer:
-        "It will get things wrong, so the system is built expecting that. Calculations, matching, and anything exact are done with ordinary code. AI is kept for the judgment calls, and whatever it decides is labeled as AI-made so you can see it and check it. Anything that matters waits for a person to approve it. When it does get one wrong, that's a rule to tighten, and tightening the rules is part of the 30 days after go-live.",
+        "Less than you might expect. Anything rules-based or math-based, the calculations, the matching, the thresholds you set, is built with deterministic code, so it gives the same answer every time and you can check the working. I use AI only in the pieces that need judgment, like reading an inbound inquiry or drafting the reason an account was flagged, and whatever it produces is labeled as AI-made. Anything consequential waits for a person to approve it. When it does get a judgment wrong, that becomes a rule to tighten, which is part of the 30 days after go-live.",
     },
     {
       question: "Do we have to change the software we use?",
@@ -325,7 +325,7 @@ export const faq = {
       featured: true,
       question: "What happens on the first call?",
       answer:
-        "It's thirty minutes. You tell me about the outcome you'd like to move and what gets missed or decided too late today. I'll ask where the data lives and whether there's enough of it to work with. By the end you'll know whether I think it's worth building, which of the three ways to start fits, and what it would cost. If it isn't a fit, I'll tell you on the call.",
+        "We start with the outcome you'd like to move: the customers, margins, or decisions where you suspect something is being missed or handled too late. I'll ask how that works today, who's involved, where the information lives, and what would change if you could see it clearly. From there it's usually possible to name the first opportunity worth building and which way of starting fits it. You'll leave knowing what I'd build first and roughly what it would cost.",
     },
   ],
 } as const;
@@ -354,7 +354,7 @@ export const socialProof = {
 export const finalCta = {
   heading: "Ready to name the opportunity?",
   subhead:
-    "Bring the outcome you'd like to move. Together we'll name the opportunity, check the data is there to build it, and decide if it's worth doing. If it isn't, I'll say so.",
+    "Bring the outcome you'd like to move. We'll talk through how it's handled today, where the information lives, and what would change if you could see it clearly. You'll leave knowing what I'd build first and roughly what it would cost.",
   primaryCta: "Find the first opportunity worth building",
   secondaryCta: "Send a message",
 } as const;

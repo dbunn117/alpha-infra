@@ -70,7 +70,7 @@ export function OfferLedger({
         {services.map((s) => (
           <div key={s.slug} className={cn(cellFor(s.slug), "rounded-t-xl pt-5")}>
             <div className="flex items-center justify-between gap-3">
-              <p className="caption">{s.order} · {s.role}</p>
+              <p className="caption">{s.role}</p>
               {s.chip ? (
                 <span className="rounded-md bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground">{s.chip}</span>
               ) : null}

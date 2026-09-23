@@ -17,7 +17,7 @@ export type ServiceGroup = "Front door" | "Extension" | "Private";
 
 export type Service = {
   slug: string;
-  order: string; // "01".."06"
+  order: string; // "01".."06": data order only. Never shown: the numbers read as a sequence, and the three ways to start are alternatives (David, 2026-09-23)
   group: ServiceGroup;
   /** one-word role shown on the card caption: Start, Build, Decide, Extend */
   role: string;

@@ -40,7 +40,7 @@ export function ServiceCard({
     <article className={cn("group surface flex h-full flex-col p-7", LIFT)}>
       <div className="flex items-center justify-between gap-3">
         <p className="caption">
-          {service.order} · {service.role}
+          {service.role}
         </p>
         {service.chip ? (
           <span className="rounded-md bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground">

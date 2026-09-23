@@ -33,7 +33,7 @@ export function ServicesSection({
           <ol className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-3">
             {doors.map((s, i) => (
               <Reveal as="li" key={s.slug} delay={i * 0.06} className="flex flex-col border-t border-border pt-5">
-                <p className="caption">{s.order} · {s.role}</p>
+                <p className="caption">{s.role}</p>
                 <h3 className="mt-3 text-2xl leading-snug">
                   {s.chip === "Flagship" ? (
                     <span className="relative inline-block">
