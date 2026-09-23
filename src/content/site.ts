@@ -314,7 +314,7 @@ export const faq = {
     {
       question: "Do we have to change the software we use?",
       answer:
-        "No. I build around what you already run: your CRM, your accounting package, your inbox, your spreadsheets. Nothing gets migrated. The system itself needs somewhere to live, usually a few accounts in your name, and I set those up with you. If I think a tool you use is holding you back, I'll say so, but that's your call.",
+        "No. I build around what you already run: your CRM, your accounting package, your inbox, your spreadsheets. Nothing gets migrated. The system itself needs somewhere to live, usually a few accounts in your name, and I set those up with you. If a tool you use is holding you back, I'll tell you what I'd change, and the choice stays yours.",
     },
     {
       question: "What does it cost to run once it's live?",
@@ -377,7 +377,7 @@ export const contact = {
 
 export const contactNext = {
   heading: "What happens next?",
-  body: "I'll reply personally within one business day. If there appears to be something worth exploring, we'll arrange a 30-minute conversation to name the outcome, check whether the relevant data exists, and decide whether anything is worth building. There's nothing to prepare, and you don't need to provide system access. If I don't think the opportunity justifies the work, I'll say so.",
+  body: "I'll reply personally within one business day. From there we'll set up a conversation about the outcome you'd like to move: how it's handled today, where the information lives, and what I'd build first. There's nothing to prepare, and you don't need to provide system access.",
 } as const;
 
 export const aboutPage = {
@@ -412,7 +412,7 @@ export const aboutPage = {
     },
     {
       heading: "How I work",
-      body: ["I start with the outcome, not the tool. We agree what's worth moving, trace the signals behind it, and capture the judgment the system needs to apply. If the data isn't there, or the opportunity isn't worth building at the proposed scope, I'll say so before we start. I use ordinary code for calculations and other exact work, and AI where interpretation is genuinely needed. I test the system on real cases, show the evidence behind its calls, and keep a person in control of consequential actions. I build in accounts you control, document the rules, and hand over the working system. You work with me throughout; there's no team to hand you off to."],
+      body: ["I start with the outcome, not the tool. We agree what's worth moving, trace the signals behind it, and capture the judgment the system needs to apply. Early on we check that the data is there to build on and that the opportunity is worth the scope. I use ordinary code for calculations and other exact work, and AI where interpretation is genuinely needed. I test the system on real cases, show the evidence behind its calls, and keep a person in control of consequential actions. I build in accounts you control, document the rules, and hand over the working system. You work with me throughout; there's no team to hand you off to."],
     },
   ],
   ctaLine: "Let's find the first opportunity worth building.",
@@ -421,7 +421,7 @@ export const aboutPage = {
 export const workCta = {
   heading: "See a decision your team should be able to make better?",
   subhead:
-    "The first conversation is about the outcome, the signals behind it, and whether there's something worth building. If there isn't, I'll say so.",
+    "The first conversation is about the outcome you'd like to move, how it's handled today, and what I'd build first.",
   primaryCta: "Find the first opportunity worth building",
 } as const;
 
