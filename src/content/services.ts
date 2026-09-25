@@ -167,7 +167,7 @@ export const SERVICES: Service[] = [
       },
     ],
     whoItsFor:
-      "Lean teams with one valuable blind spot, accessible data, and someone close enough to the work to know what actually matters. If the outcome depends on several connected systems, decisions, or teams, it's probably an Alpha System instead.",
+      "Lean teams with one valuable blind spot, accessible data, and someone close enough to the work to know what matters. If the outcome depends on several connected systems, decisions, or teams, it's probably an Alpha System instead.",
     pricing:
       "$2,500 fixed. That covers one capability, one team, up to two systems, one defined outcome, one handoff session, two weeks of support, and the 30-day review. No historical data migration. If I don't think a useful result fits this scope, I'll tell you before we start. If you move to an Alpha System within 90 days, the full $2,500 is credited.",
     ctaLine: "Let's find the first capability worth building.",
@@ -252,8 +252,8 @@ export const SERVICES: Service[] = [
       ],
     },
     trust: [
-      "Calculations, thresholds, permissions, and exact matching are handled with ordinary deterministic code, not left to an AI model",
-      "AI is reserved for work that genuinely requires interpretation: extracting meaning, classifying, summarizing, ranking, and drafting",
+      "Calculations, thresholds, permissions, and exact matching are handled with ordinary deterministic code",
+      "AI is reserved for work that needs interpretation: extracting meaning, classifying, summarizing, ranking, and drafting",
       "Before go-live, those AI judgments are tested against representative real cases and known edge cases. The same tests are rerun whenever the model, prompt, rules, or data connections change",
       "Every AI-generated match, recommendation, or summary is clearly identified and shows the evidence behind it",
       "When the system is uncertain, it escalates rather than guesses. Anything consequential waits for the human approval you defined",
@@ -271,7 +271,7 @@ export const SERVICES: Service[] = [
       "The person accountable for an outcome can usually name what's going wrong: customers drifting, quotes moving too slowly, margin appearing too late, an asset moving off plan, or an opportunity noticed after the window has closed. The signals already exist, but one lives in the operating system, another in the financial data, and another in email or a spreadsheet. Nobody can hold the complete picture in view continuously, so the decision gets made from memory or last month's report.",
     whatHeading: "What The Alpha System is",
     what:
-      "It isn't a dashboard and it isn't a data integration project. It's a live decision system, built for your business, that connects the relevant signals, applies the judgment you'd apply, and puts what deserves attention in front of the person who owns the decision, with the evidence behind it. We start by naming the one outcome you want to move, so the first phase has a finish line. Then I connect the systems that carry the relevant signals and capture your operating memory, your rules, definitions, and judgment, so the system works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
+      "It's a live decision system, built for your business, that connects the relevant signals, applies the judgment you'd apply, and puts what deserves attention in front of the person who owns the decision, with the evidence behind it. We start by naming the one outcome you want to move, so the first phase has a finish line. Then I connect the systems that carry the relevant signals and capture your operating memory, your rules, definitions, and judgment, so the system works the way you would rather than the way a template would. Every workflow after the first is built on that same foundation.",
     whatYouGet: [
       "One business outcome with its baseline, agreed before we build anything",
       "A current-state map of the workflow and the data behind the outcome",
@@ -289,7 +289,7 @@ export const SERVICES: Service[] = [
       },
       {
         title: "Trace the data",
-        body: "I map where the data that predicts and drives that outcome lives, how the work actually happens, and which decisions change the number. I assess the right stack, working inside the systems you already run wherever it makes sense.",
+        body: "I map where the data that predicts and drives that outcome lives, how the work happens, and which decisions change the number. I assess the right stack, working inside the systems you already run wherever it makes sense.",
       },
       {
         title: "Capture the rules",
@@ -335,7 +335,7 @@ export const SERVICES: Service[] = [
       "A two-week decision sprint for lean leadership teams with more possible AI ideas than capacity to pursue them. You leave with a ranked opportunity portfolio, build, buy, or not-now decisions, practical guardrails, a 90-day roadmap, and one prototype that makes the first opportunity tangible.",
     problemHeading: "The problem",
     problem:
-      "Most teams don't lack AI ideas. They lack a reliable way to distinguish a productivity improvement from a genuinely valuable new capability, and either from a distraction. Use cases arrive tool by tool. The expected value is rarely tested, the necessary data is discovered too late, and nobody makes an explicit build, buy, or not-now decision. The result is a collection of pilots that never moves a business outcome, or a leadership team that keeps waiting for the answer to become clearer.",
+      "Most teams don't lack AI ideas. They lack a reliable way to distinguish a productivity improvement from a new capability worth having, and either from a distraction. Use cases arrive tool by tool. The expected value is rarely tested, the necessary data is discovered too late, and nobody makes an explicit build, buy, or not-now decision. The result is a collection of pilots that never moves a business outcome, or a leadership team that keeps waiting for the answer to become clearer.",
     whatHeading: "What the sprint is",
     what:
       "During week one, I interview the people accountable for the outcomes and the people closest to the work. We identify where revenue, margin, risk, or decision quality is constrained, then turn those problems into specific opportunities, each with an owner, a value hypothesis, a possible measure, and the data it would require. During week two, we rank those opportunities by potential value, feasibility, cost, and risk. Together we make the build, buy, not-now, or do-nothing call on each, select the first opportunity to test, and establish practical rules for human review, accountability, and sensitive data. I build a small prototype using representative data to test the most important assumption. It's evidence for the decision, not a production system. You leave with a 90-day roadmap your team can lead.",
@@ -360,7 +360,7 @@ export const SERVICES: Service[] = [
       },
       {
         title: "Make the calls",
-        body: "Build, buy, wait, or do nothing. Rank the opportunities openly and make an explicit decision on each, rather than leaving a list of undifferentiated ideas.",
+        body: "Build, buy, wait, or do nothing. Rank the opportunities openly and make an explicit decision on each.",
       },
       {
         title: "Test the first one",
@@ -391,7 +391,7 @@ export const SERVICES: Service[] = [
       "A working day with 4 to 8 people. Two or three of your real workflows redesigned, one reusable agent built, the team's rules written. I come back 30 days later to see what stuck.",
     bestFor: "teams that already have a system or a workflow worth building around.",
     priceDisplay: "Half-day from $3,500 · Full day from $6,000",
-    h1: "A day your team leaves with working tools, not notes.",
+    h1: "A day your team leaves with working tools.",
     subhead:
       "This isn't a training course. It's a working day where 4 to 8 people redesign their own workflows, build one reusable agent from company material, and write the rules they'll hold themselves to. Everyone leaves with something running and a name next to what happens next.",
     problemHeading: "The problem",
@@ -399,7 +399,7 @@ export const SERVICES: Service[] = [
       "Most teams have had some AI training, and most of it came from YouTube. Generic sessions don't stick. People nod along and go back to the old way by Thursday. What sticks is building something real, with your own work, alongside someone who's done it before.",
     whatHeading: "What the day is",
     what:
-      "I shape the day around two or three workflows your team actually runs. We redesign them in the room: fewer steps, clearer handoffs, people reviewing the exceptions instead of pushing paper. Then we build one reusable agent or skill from your own documents and data, and write the team's rules for accuracy, review, and sensitive data. A half day covers one workflow and the agent build; a full day adds a second workflow and more time to get the team's rules right. The day ends with named owners and next actions. I come back 30 days later to see what stuck and fix what didn't.",
+      "I shape the day around two or three workflows your team runs today. We redesign them in the room: fewer steps, clearer handoffs, people reviewing the exceptions instead of pushing paper. Then we build one reusable agent or skill from your own documents and data, and write the team's rules for accuracy, review, and sensitive data. A half day covers one workflow and the agent build; a full day adds a second workflow and more time to get the team's rules right. The day ends with named owners and next actions. I come back 30 days later to see what stuck and fix what didn't.",
     whatYouGet: [
       "Two or three of your real workflows redesigned, in the room",
       "One reusable agent or skill built from your own material",
@@ -512,7 +512,7 @@ export const SERVICES: Service[] = [
       "You use AI, but you suspect you're getting a fraction of what it can do. Generic tips don't fit your actual role, and it's hard to tell good output from confident-but-wrong output.",
     whatHeading: "What I do",
     what:
-      "Personal coaching built around your role and goals: using AI as a genuine strategy and thought partner, keeping outputs accurate with the verification habits that matter, and designing the prompts and agents you'll actually use. Available inside Alpha System Care or as standalone sessions for existing clients.",
+      "Personal coaching built around your role and goals: using AI as a genuine strategy and thought partner, keeping outputs accurate with the verification habits that matter, and designing the prompts and agents you'll use. Available inside Alpha System Care or as standalone sessions for existing clients.",
     whatYouGet: [
       "Coaching tailored to your role, tools, and goals",
       "Practical prompt, agent, and verification techniques you'll use daily",

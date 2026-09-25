@@ -57,7 +57,7 @@ export const professionalProjects: Project[] = [
     icon: "BarChart3",
     group: "Decision and opportunity systems",
     blurb:
-      "Lets portfolio managers compare each asset's actual performance against its underwriting model, spot outperformers and underperformers at a glance, and drill into what's actually driving that performance: interactive and visual instead of a static variance report.",
+      "Lets portfolio managers compare each asset's actual performance against its underwriting model, spot outperformers and underperformers at a glance, and drill into what's driving that performance: interactive and visual instead of a static variance report.",
     tools: ["Claude Code", "Interactive apps"],
   },
   {
@@ -154,7 +154,7 @@ export const professionalProjects: Project[] = [
     icon: "BookOpen",
     group: "Workflow and knowledge infrastructure",
     blurb:
-      "An internal hub for staying current on AI, with the latest news pulled in automatically on a scheduled Codex run, alongside curated learning paths, prompt techniques, thought leaders, and research.",
+      "An internal hub for staying current on AI, with the latest news pulled in automatically on a scheduled Codex run, alongside curated learning paths, prompt techniques, people worth following, and research.",
     tools: ["Codex", "Scheduled automation", "Knowledge base"],
   },
 ];
@@ -214,7 +214,7 @@ export const hermesAgents: Project[] = [
     tag: "Health agent",
     icon: "Activity",
     blurb:
-      "My health coach, not a dashboard. Pulls Glooko, WHOOP, and DEXA data into one picture, holds an actual point of view on what to do next, and reaches out proactively when something's worth acting on. It won't touch insulin dosing (that stays with my endocrinologist), but it'll build the evidence case for that conversation.",
+      "My health coach. Pulls Glooko, WHOOP, and DEXA data into one picture, holds an actual point of view on what to do next, and reaches out proactively when something's worth acting on. It won't touch insulin dosing (that stays with my endocrinologist), but it'll build the evidence case for that conversation.",
     tools: ["Hermes Agent", "WHOOP API", "Glooko"],
     href: "https://dbunn117.github.io/health-dashboard/",
   },
@@ -223,7 +223,7 @@ export const hermesAgents: Project[] = [
     tag: "Parenting agent",
     icon: "Baby",
     blurb:
-      "A parenting coach for our toddlers, not a search engine for activity ideas. It has opinions about what to try next, tracks whether it worked, and keeps a living playbook of scripts and activities that gets sharper as it learns what actually works for each kid individually.",
+      "A parenting coach for our toddlers. It has opinions about what to try next, tracks whether it worked, and keeps a living playbook of scripts and activities that gets sharper as it learns what actually works for each kid individually.",
     tools: ["Hermes Agent", "Obsidian", "Telegram"],
   },
   {

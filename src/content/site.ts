@@ -38,7 +38,7 @@ export const hero = {
   eyebrow: "Opportunity AI for lean teams",
   headline: "Build what your business couldn't build until now.",
   subhead:
-    "Lean teams make high-value decisions with data spread across too many systems. A live view of what to do next used to require resources most businesses couldn't justify. Now it can be built for yours, and it's yours to keep.",
+    "Lean teams make high-value decisions with data spread across too many systems. A live view of what to do next used to require resources most businesses couldn't justify. Now it can be built for your business.",
   /* the two built examples used to sit in the subhead; the live view beside
      it and the proof section now carry them */
   demoLink: { label: "See the real Entec system behind this example", href: "/work#entec" },
@@ -233,7 +233,7 @@ export const problems = {
   eyebrow: "Sound familiar?",
   heading: "The problems people bring me.",
   intro:
-    "Usually an owner, CFO, COO, or investment lead in a team where nobody can watch everything. Recent examples run from a 15-person services business to an investment team.",
+    "Usually an owner, CFO, COO, or investment lead in a team where nobody can watch every signal. Recent examples run from a 15-person services business to an investment team.",
   columns: { problem: "The problem, as people say it", built: "What gets built", measure: "Measured in" },
   rows: [
     { problem: "We find out a key account has gone quiet months too late.", built: "At-risk customer watchlist", measure: "accounts acted on before they lapse" },
@@ -410,11 +410,11 @@ export const aboutPage = {
   eyebrow: "About Alpha Infra",
   h1: "Finance and operations first. AI second. The order matters.",
   subhead:
-    "I spent more than a decade in finance and operations learning where the numbers come from, what moves them, and how decisions actually get made. Today I build systems that connect those signals, apply the business's judgment, and surface opportunities worth acting on. You work with me directly, from the first conversation to the handover.",
+    "I spent more than a decade in finance and operations learning where the numbers come from, what moves them, and how decisions get made. Today I build systems that connect those signals, apply the business's judgment, and surface opportunities worth acting on. You work with me directly, from the first conversation to the handover.",
   sections: [
     {
       heading: "Where I come from",
-      body: ["I trained in audit at PwC in Johannesburg, then moved to San Francisco and managed workstreams on the US GAAP integrated audit for a $25B+ e-commerce client. Audit taught me to walk into an unfamiliar business, follow the numbers back to their source, and work out what actually drives them. At Major League Cricket, I was one of the first finance hires. I helped build the finance function and supported a $120M Series A through fundraising due diligence. That put me closer to the operating reality of a lean team: decisions couldn't wait for another department or a perfect system. Then at Stockbridge, a real estate private equity firm, I owned revenue projections across more than 35 funds and rebuilt reporting from source systems through to what the CFO and Executive Committee saw. The questions were rarely just \"What is the number?\" They were \"What changed, why, and where should we focus next?\""],
+      body: ["I trained in audit at PwC in Johannesburg, then moved to San Francisco and managed workstreams on the US GAAP integrated audit for a $25B+ e-commerce client. Audit taught me to walk into an unfamiliar business, follow the numbers back to their source, and work out what drives them. At Major League Cricket, I was one of the first finance hires. I helped build the finance function and supported a $120M Series A through fundraising due diligence. That put me closer to the operating reality of a lean team: decisions couldn't wait for another department or a perfect system. Then at Stockbridge, a real estate private equity firm, I owned revenue projections across more than 35 funds and rebuilt reporting from source systems through to what the CFO and Executive Committee saw. The questions were rarely just \"What is the number?\" They were \"What changed, why, and where should we focus next?\""],
     },
     {
       heading: "Where AI came in",
@@ -430,7 +430,7 @@ export const aboutPage = {
     },
     {
       heading: "Why I started Alpha Infra",
-      body: ["Productivity gains from AI are useful, but what convinced me to start Alpha Infra was the possibility of something larger: building capabilities a lean team could never previously justify staffing or commissioning. The signals behind an important decision often already exist. They sit in job records, accounting data, email, spreadsheets, or public sources. What's missing is a system that keeps the relevant picture current, applies the business's rules, and shows an opportunity or risk while there's still time to act. That's what I mean by Opportunity AI: not just producing the old report faster, but giving a business a new way to see, decide, and act. I build toward one measurable outcome at a time."],
+      body: ["Productivity gains from AI are useful, but what convinced me to start Alpha Infra was the possibility of something larger: building capabilities a lean team could never previously justify staffing or commissioning. The signals behind an important decision often already exist. They sit in job records, accounting data, email, spreadsheets, or public sources. What's missing is a system that keeps the relevant picture current, applies the business's rules, and shows an opportunity or risk while there's still time to act. That's what I mean by Opportunity AI: a business gets a new way to see, decide, and act, where before the best it could hope for was the old report, faster. I build toward one measurable outcome at a time."],
     },
     {
       heading: "The name",
@@ -438,7 +438,7 @@ export const aboutPage = {
     },
     {
       heading: "How I work",
-      body: ["I start with the outcome, not the tool. We agree what's worth moving, trace the signals behind it, and capture the judgment the system needs to apply. Early on we check that the data is there to build on and that the opportunity is worth the scope. I use ordinary code for calculations and other exact work, and AI where interpretation is genuinely needed. I test the system on real cases, show the evidence behind its calls, and keep a person in control of consequential actions. I build in accounts you control, document the rules, and hand over the working system. You work with me throughout; there's no team to hand you off to."],
+      body: ["I start with the outcome, not the tool. We agree what's worth moving, trace the signals behind it, and capture the judgment the system needs to apply. Early on we check that the data is there to build on and that the opportunity is worth the scope. I use ordinary code for calculations and other exact work, and AI where interpretation is needed. I test the system on real cases, show the evidence behind its calls, and keep a person in control of consequential actions. I build in accounts you control, document the rules, and hand over the working system. You work with me throughout; there's no team to hand you off to."],
     },
   ],
   ctaLine: "Let's find the first opportunity worth building.",
