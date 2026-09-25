@@ -22,7 +22,7 @@ export const site = {
     process.env.NEXT_PUBLIC_LINKEDIN_URL ??
     "https://www.linkedin.com/in/davidkcbunn",
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alphainfra.ai",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alphainfra.us",
 } as const;
 
 export const nav = {

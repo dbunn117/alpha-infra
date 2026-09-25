@@ -11,7 +11,7 @@ export const profile = {
   email: "david@alphainfra.us",
   linkedin: "https://www.linkedin.com/in/davidkcbunn",
   github: "https://github.com/dbunn117",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dbunn117.github.io/portfolio",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alphainfra.us",
 
   tagline:
     "I help businesses solve the problems that actually move the needle (growth, operations, and the decisions leaders make) by building the AI tools to match. A decade across finance and operations keeps it grounded in how a business really runs.",

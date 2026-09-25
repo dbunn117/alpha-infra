@@ -136,8 +136,10 @@ placeholder and the contact form logs instead of emailing.
 
 The README describes a Vercel deploy. That is the **intended** destination, not
 what runs today. What actually ships is `.github/workflows/deploy-pages.yml`:
-every push to `main` builds a static export to GitHub Pages at
-`https://dbunn117.github.io/alpha-infra`.
+every push to `main` builds a static export to GitHub Pages, served on the
+custom domain `https://alphainfra.us` (`public/CNAME`; DNS at GoDaddy, where
+Google Workspace mail for the domain also lives, so never touch the MX or TXT
+records). `https://dbunn117.github.io/alpha-infra` redirects there.
 
 The consequence worth remembering: **a static export cannot run the contact API**,
 so the workflow deletes `src/app/api/` before building. `src/app/api/contact/route.ts`
@@ -147,7 +149,8 @@ until the site moves to Vercel.
 
 `next.config.ts` switches on `GITHUB_PAGES=true`, which the workflow sets and
 local builds don't — so `npm run dev` and `npm run build` keep the full server
-including the API route.
+including the API route. The base path comes from `NEXT_PUBLIC_BASE_PATH`,
+empty on the custom domain.
 
 ## Not in this repo
 

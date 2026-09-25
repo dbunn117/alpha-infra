@@ -30,7 +30,7 @@ Nothing is required to run locally; sensible fallbacks/placeholders are used.
 | `NEXT_PUBLIC_BOOKING_URL` | Cal.com/Calendly link. Until set, booking areas show a placeholder + email fallback. |
 | `OWNER_EMAIL` | Where contact-form submissions are emailed (default `davibunn@gmail.com`). |
 | `RESEND_API_KEY` | Enables real email via [Resend](https://resend.com). If empty, submissions log server-side and the form still succeeds. |
-| `CONTACT_FROM_EMAIL` | Verified Resend sender (e.g. `hello@alphainfra.ai`). |
+| `CONTACT_FROM_EMAIL` | Verified Resend sender (e.g. `hello@alphainfra.us`). |
 | `NEXT_PUBLIC_LINKEDIN_URL` | Footer + structured data. |
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata/sitemap/robots/OG. |
 
@@ -85,4 +85,4 @@ changing OS settings.
 
 1. Push to a Git repo and import into [Vercel](https://vercel.com/new).
 2. Add the environment variables above in the project settings.
-3. Add the custom domain `alphainfra.ai`.
+3. Add the custom domain `alphainfra.us` (already the GitHub Pages domain via `public/CNAME`).
