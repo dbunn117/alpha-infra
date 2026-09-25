@@ -15,10 +15,12 @@ export type Schematic = {
   annotation: string;
 };
 
-const IN = { x: 16, w: 108, h: 40, gap: 16 };
-const PLATE = { x: 166, w: 176, y: 34, h: 176 };
-const OUT = { x: 360, w: 106, h: 40, gap: 16 };
+const IN = { x: 16, w: 108 };
+const PLATE = { x: 150, w: 168, y: 34, h: 176 };
+const OUT = { x: 350, w: 116 };
 const MID = PLATE.y + PLATE.h / 2;
+/* Stacks of four use shorter, single-line boxes so they fit beside the plate. */
+const boxSize = (n: number) => (n >= 4 ? { h: 32, gap: 12 } : { h: 40, gap: 16 });
 
 function delay(s: number): CSSProperties {
   return { "--draw-delay": `${s}s` } as CSSProperties;
@@ -62,10 +64,15 @@ function Label({ x, y, lines, delayS }: { x: number; y: number; lines: readonly 
 }
 
 export function ProofSchematic({ data, title }: { data: Schematic; title: string }) {
-  const inYs = stackYs(data.inputs.length, IN.h, IN.gap);
-  const outYs = stackYs(data.outputs.length, OUT.h, OUT.gap);
-  // Route landing points spread across the plate's left and right edges.
-  const landing = (n: number, i: number) => MID + (i - (n - 1) / 2) * 34;
+  const inBox = boxSize(data.inputs.length);
+  const outBox = boxSize(data.outputs.length);
+  const inYs = stackYs(data.inputs.length, inBox.h, inBox.gap);
+  const outYs = stackYs(data.outputs.length, outBox.h, outBox.gap);
+  // Routes run level with their boxes: a straight line from box to plate
+  // and from plate to box, each ending in a small chevron at the edge it
+  // enters. (Earlier they converged on the plate's mid-line and the S-bends
+  // read as squiggles.)
+  const chevron = (tipX: number, y: number) => `M${tipX - 7},${y - 5} L${tipX},${y} L${tipX - 7},${y + 5}`;
   const plateTitleY = PLATE.y + 34;
   const rowY0 = PLATE.y + 66;
   const rowGap = 34;
@@ -86,8 +93,8 @@ export function ProofSchematic({ data, title }: { data: Schematic; title: string
       <g className="text-foreground">
         {data.inputs.map((input, i) => (
           <g key={input.lines.join(" ")}>
-            <path d={boxPath(IN.x, inYs[i], IN.w, IN.h)} pathLength={1} data-stroke style={delay(i * 0.12)} />
-            <Label x={IN.x + IN.w / 2} y={inYs[i] + IN.h / 2} lines={input.lines} delayS={0.2 + i * 0.12} />
+            <path d={boxPath(IN.x, inYs[i], IN.w, inBox.h)} pathLength={1} data-stroke style={delay(i * 0.12)} />
+            <Label x={IN.x + IN.w / 2} y={inYs[i] + inBox.h / 2} lines={input.lines} delayS={0.2 + i * 0.12} />
           </g>
         ))}
       </g>
@@ -95,19 +102,14 @@ export function ProofSchematic({ data, title }: { data: Schematic; title: string
       {/* Routes and plate: blue */}
       <g className="text-primary">
         {data.inputs.map((input, i) => {
-          const y0 = inYs[i] + IN.h / 2;
-          const y1 = landing(data.inputs.length, i);
+          const y = inYs[i] + inBox.h / 2;
           const x0 = IN.x + IN.w;
           const x1 = PLATE.x;
-          const cx = (x0 + x1) / 2;
           return (
-            <path
-              key={input.lines.join(" ")}
-              d={`M${x0},${y0} C${cx + 2},${y0} ${cx - 2},${y1} ${x1 - 2},${y1}`}
-              pathLength={1}
-              data-stroke
-              style={delay(0.35 + i * 0.08)}
-            />
+            <g key={input.lines.join(" ")}>
+              <path d={`M${x0},${y} H${x1}`} pathLength={1} data-stroke style={delay(0.35 + i * 0.08)} />
+              <path d={chevron(x1, y)} pathLength={1} data-stroke style={delay(0.5 + i * 0.08)} />
+            </g>
           );
         })}
 
@@ -162,25 +164,13 @@ export function ProofSchematic({ data, title }: { data: Schematic; title: string
         })}
 
         {data.outputs.map((output, i) => {
-          const y1 = outYs[i] + OUT.h / 2;
-          const y0 = landing(data.outputs.length, i);
+          const y = outYs[i] + outBox.h / 2;
           const x0 = PLATE.x + PLATE.w;
           const x1 = OUT.x;
-          const cx = (x0 + x1) / 2;
           return (
             <g key={output.lines.join(" ")}>
-              <path
-                d={`M${x0},${y0} C${cx + 2},${y0} ${cx - 2},${y1} ${x1 - 6},${y1}`}
-                pathLength={1}
-                data-stroke
-                style={delay(1.2 + i * 0.08)}
-              />
-              <path
-                d={`M${x1 - 12},${y1 - 5} L${x1 - 6},${y1} L${x1 - 12},${y1 + 5}`}
-                pathLength={1}
-                data-stroke
-                style={delay(1.45 + i * 0.08)}
-              />
+              <path d={`M${x0},${y} H${x1}`} pathLength={1} data-stroke style={delay(1.2 + i * 0.08)} />
+              <path d={chevron(x1, y)} pathLength={1} data-stroke style={delay(1.4 + i * 0.08)} />
             </g>
           );
         })}
@@ -190,8 +180,8 @@ export function ProofSchematic({ data, title }: { data: Schematic; title: string
       <g className="text-foreground">
         {data.outputs.map((output, i) => (
           <g key={output.lines.join(" ")}>
-            <path d={boxPath(OUT.x, outYs[i], OUT.w, OUT.h)} pathLength={1} data-stroke style={delay(1.5 + i * 0.12)} />
-            <Label x={OUT.x + OUT.w / 2} y={outYs[i] + OUT.h / 2} lines={output.lines} delayS={1.7 + i * 0.12} />
+            <path d={boxPath(OUT.x, outYs[i], OUT.w, outBox.h)} pathLength={1} data-stroke style={delay(1.5 + i * 0.12)} />
+            <Label x={OUT.x + OUT.w / 2} y={outYs[i] + outBox.h / 2} lines={output.lines} delayS={1.7 + i * 0.12} />
           </g>
         ))}
 

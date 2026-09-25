@@ -199,26 +199,52 @@ export const proofStrip = {
       },
     },
     {
-      title: "A market scorecard for a real-estate investment team",
-      summary: "Macro and demographic data weighted into a score for every market, with the narrative behind the trend drafted alongside.",
-      body: "Weights macro-economic and demographic data into a score for every market, then drafts the narrative behind the trend, nationally, by market, and by property sector. The investment team gets a ranked read on where to look next.",
-      tools: "Macro-economic data · Demographic data · Claude Code · Python",
+      title: "A market scorecard for an investment team",
+      summary: "Demand, supply, valuation, and macro signals weighted into a score for every market and sector, with the findings written alongside.",
+      body: "Weights demand, supply, valuation, and macro signals into a score for every market, by sector, then writes the findings behind the ranking. Built for a real-estate team, and the same shape fits any set of markets an investment team has to choose between.",
+      tools: "Market and macro data · Claude Code · Python",
       href: "/work",
       /* rendered as the live scorecard demo (market-scorecard.tsx) instead of
          the schematic, which stays here as the reduced/no-JS fallback */
       demo: "scorecard",
+      /* The shape of the real tool, at pattern level: four signal families
+         in, one scoring model, and the views the team works from. No vendors,
+         formulas, market names, or figures (Stockbridge confidentiality). */
       schematic: {
-        inputs: [{ lines: ["Macro-economic", "data"] }, { lines: ["Demographic", "data"] }],
+        inputs: [{ lines: ["Demand growth"] }, { lines: ["Supply pressure"] }, { lines: ["Valuation trend"] }, { lines: ["Macro momentum"] }],
         plate: {
-          title: "Market scorecard",
-          rows: ["Weights the signals", "Scores every market", "Drafts the narrative"],
+          title: "Scoring model",
+          rows: ["Weights the signals", "Scores every market", "Ranks top to bottom"],
         },
-        outputs: [{ lines: ["Ranked", "scorecard"] }, { lines: ["Narrative", "by market"] }],
+        outputs: [{ lines: ["Summary", "scorecard"] }, { lines: ["Deep dive", "per market"] }, { lines: ["Written", "findings"] }],
         annotation: "ranked, with the reasons shown",
       },
     },
   ],
   link: { label: "See the full portfolio", href: "/work" },
+} as const;
+
+/* Homepage, straight after the hero: the problems people bring, in their
+   own words, each paired with what gets built and what it is measured in.
+   Every row restates a Quick Win example or a proof piece; no new claims.
+   Added 2026-09-25 after two readers asked who the site is for and what to
+   bring (see the vault: Website Feedback - 2026-09-23). */
+export const problems = {
+  eyebrow: "Sound familiar?",
+  heading: "The problems people bring me.",
+  intro:
+    "Usually an owner, CFO, COO, or investment lead in a team where nobody can watch everything. Recent examples run from a 15-person services business to an investment team.",
+  columns: { problem: "The problem, as people say it", built: "What gets built", measure: "Measured in" },
+  rows: [
+    { problem: "We find out a key account has gone quiet months too late.", built: "At-risk customer watchlist", measure: "accounts acted on before they lapse" },
+    { problem: "Good inquiries sit in the inbox and get quoted late.", built: "High-value inquiry watch", measure: "response and quote time" },
+    { problem: "We only really see the cash position when the month closes.", built: "Cash-pressure early warning", measure: "days of warning" },
+    { problem: "Nobody is chasing the service and renewal work in our installed base.", built: "Installed-base opportunity finder", measure: "qualified opportunities found" },
+    { problem: "Which of our markets deserves the next hour of analyst time?", built: "Market scorecard", measure: "ranked, with the reasons shown" },
+    { problem: "Which assets are off their underwriting, and why?", built: "Portfolio exception brief", measure: "time to identify material exceptions" },
+  ],
+  note: "bring one of these to the first call",
+  link: { label: "Six examples in full, with the fee", href: "/services#examples" },
 } as const;
 
 export const offerings = {

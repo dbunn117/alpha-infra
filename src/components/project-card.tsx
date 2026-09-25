@@ -39,44 +39,47 @@ export function ProjectCard({
 
       {/* Featured cards open with a small drawn glyph of the artifact's shape */}
       {!project.image && project.glyph ? (
-        <div className="grain relative border-b border-border bg-surface-2 px-5 py-4">
-          <ProjectGlyph kind={project.glyph} />
+        /* fixed height so the sketch stays a motif on phones instead of a
+           third of the screen; the svg keeps its own aspect inside it */
+        <div className="grain relative flex h-24 items-center justify-center border-b border-border bg-surface-2 px-6">
+          <ProjectGlyph kind={project.glyph} className="h-full w-auto max-w-full" />
         </div>
       ) : null}
 
       {/* Body */}
-      <div className="flex flex-1 flex-col p-4">
-        <div className="flex items-center gap-2">
-          <span className="inline-flex size-7 items-center justify-center rounded-lg border border-border bg-secondary text-accent-bright">
-            <ProjectIcon name={project.icon} className="size-4" />
-          </span>
-          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {project.tag}
-          </span>
-        </div>
-
-        <h3 className="mt-2.5 text-base font-semibold">{project.title}</h3>
+      <div className="flex flex-1 flex-col p-5">
         {project.decision ? (
-          /* what the system is for leads; the technology is a footnote */
-          <dl className="mt-2.5 flex-1 space-y-2 text-sm leading-snug">
-            <div>
-              <dt className="caption">Decision supported</dt>
-              <dd className="mt-0.5 text-foreground">{project.decision}</dd>
-            </div>
+          /* Featured: the tag as a caption, the title, then two plain
+             sentences (the question it answers, what it reads). No labels,
+             no icon: the glyph above already carries the shape. */
+          <>
+            <p className="caption">{project.tag}</p>
+            <h3 className="mt-2 text-lg font-semibold leading-snug">{project.title}</h3>
+            <p className="mt-3 text-[0.95rem] leading-relaxed text-foreground">{project.decision}.</p>
             {project.signals ? (
-              <div>
-                <dt className="caption">Signals connected</dt>
-                <dd className="mt-0.5 text-muted-foreground">{project.signals}</dd>
-              </div>
+              <p className="mt-1 flex-1 text-[0.95rem] leading-relaxed text-muted-foreground">
+                Reads {project.signals.charAt(0).toLowerCase() + project.signals.slice(1)}.
+              </p>
             ) : null}
-          </dl>
+          </>
         ) : (
-          <p className="mt-1.5 flex-1 text-sm leading-snug text-muted-foreground">
-            {project.blurb}
-          </p>
+          <>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex size-7 items-center justify-center rounded-lg border border-border bg-secondary text-accent-bright">
+                <ProjectIcon name={project.icon} className="size-4" />
+              </span>
+              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                {project.tag}
+              </span>
+            </div>
+            <h3 className="mt-2.5 text-base font-semibold">{project.title}</h3>
+            <p className="mt-1.5 flex-1 text-sm leading-snug text-muted-foreground">
+              {project.blurb}
+            </p>
+          </>
         )}
 
-        <p className="mt-3 text-xs text-muted-foreground">
+        <p className="mt-4 text-xs text-muted-foreground">
           {project.tools.slice(0, 3).join(" · ")}
         </p>
 

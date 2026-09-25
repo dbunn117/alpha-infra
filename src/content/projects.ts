@@ -45,7 +45,7 @@ export const professionalProjects: Project[] = [
     group: "Decision and opportunity systems",
     blurb:
       "Weights and scores macro-economic and demographic data into a market scorecard, then uses AI to write the narrative behind the trends: nationally, by market, and by property sector.",
-    tools: ["Claude Code", "Macro-economic data", "Python", "Agentic analysis"],
+    tools: ["Claude Code", "Python"],
   },
   {
     title: "Business Review & Lookback Apps",
@@ -53,7 +53,7 @@ export const professionalProjects: Project[] = [
     glyph: "compare",
     decision: "Which assets are beating or missing their underwriting, and why",
     signals: "Underwriting models and actual asset performance",
-    tag: "Interactive apps",
+    tag: "Portfolio performance",
     icon: "BarChart3",
     group: "Decision and opportunity systems",
     blurb:
@@ -66,7 +66,7 @@ export const professionalProjects: Project[] = [
     glyph: "map",
     decision: "Where the portfolio's exposure sits, market by market",
     signals: "Portfolio, rent, and tenant data",
-    tag: "Real estate · BI",
+    tag: "Real estate portfolio",
     icon: "Map",
     group: "Decision and opportunity systems",
     blurb:
@@ -88,7 +88,7 @@ export const professionalProjects: Project[] = [
     glyph: "waterfall",
     decision: "Which variances need an explanation this month",
     signals: "General-ledger extracts for about 50 properties",
-    tag: "Accounting · month-end",
+    tag: "Month-end accounting",
     icon: "Calculator",
     group: "Decision and opportunity systems",
     blurb:
@@ -110,12 +110,12 @@ export const professionalProjects: Project[] = [
     glyph: "draft",
     decision: "How to answer a new investor questionnaire",
     signals: "About 4,000 past question-and-answer pairs",
-    tag: "Investor relations · diligence",
+    tag: "Investor relations",
     icon: "ClipboardCheck",
     group: "Workflow and knowledge infrastructure",
     blurb:
       "About 4,000 past question-and-answer pairs ingested and tagged by fund, date, client, and more. When a new questionnaire arrives, the system drafts the answers from precedent, with three years of history side by side, so investor relations reviews and edits instead of starting from a blank page.",
-    tools: ["Claude Code", "Semantic search", "Investor relations"],
+    tools: ["Claude Code", "Semantic search"],
   },
   {
     title: "Doc Ingestion → Queryable Database",
@@ -132,7 +132,7 @@ export const professionalProjects: Project[] = [
     glyph: "flow",
     decision: "Who should handle each message",
     signals: "High-volume shared-inbox mail",
-    tag: "Email automation",
+    tag: "Operations",
     icon: "Inbox",
     group: "Workflow and knowledge infrastructure",
     blurb:

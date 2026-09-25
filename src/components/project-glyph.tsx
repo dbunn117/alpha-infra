@@ -23,9 +23,9 @@ const MAP_ROWS: readonly (readonly [number, number])[][] = [
   [[11, 13], [22, 22]],
 ];
 
-export function ProjectGlyph({ kind }: { kind: NonNullable<Project["glyph"]> }) {
+export function ProjectGlyph({ kind, className = "block h-auto w-full" }: { kind: NonNullable<Project["glyph"]>; className?: string }) {
   return (
-    <svg viewBox="0 0 200 72" aria-hidden className="block h-auto w-full" {...S} strokeWidth={2}>
+    <svg viewBox="0 0 200 72" aria-hidden className={className} {...S} strokeWidth={2}>
       {kind === "bars" ? (
         <>
           <g className="text-border" stroke="currentColor">

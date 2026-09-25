@@ -37,7 +37,7 @@ export default function WorkPage() {
               A market scorecard you can re-weight.
             </h2>
             <p className="measure mt-5 text-lg leading-relaxed text-muted-foreground">
-              The same shape as the tool built for a real-estate investment team: signals, weights the team sets, a ranked read of where to look next, and a line of narrative for the leader. Fictional markets, invented figures.
+              The same shape as the tool built for an investment team: signals, weights the team sets, a ranked read of where to look next, and a line of narrative for the leader. Fictional markets, invented figures.
             </p>
           </div>
           <div className="lg:col-span-7">

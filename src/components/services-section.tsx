@@ -86,7 +86,7 @@ export function ServicesSection({
         </div>
 
         {examples ? (
-          <div className="mt-14">
+          <div id="examples" className="scroll-mt-16 mt-14">
             <div className="max-w-3xl">
               <h3 className="text-xl">{offerings.examplesHeading}</h3>
               <p className="measure mt-2 text-muted-foreground">{offerings.examplesIntro}</p>

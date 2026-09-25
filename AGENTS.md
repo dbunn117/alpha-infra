@@ -77,7 +77,11 @@ placeholder and the contact form logs instead of emailing.
   column that has a job (the diagram, the process CTA, a margin note); cards
   are for the work catalogue and the two proof cards only. Offers are a
   ledger (`offer-ledger.tsx`) at `lg` and `ServiceCard` stacks below it.
-  The homepage runs claim, demonstration, proof: hero, proof strip with the
+  The homepage runs claim, demonstration, proof: hero, the problems ledger
+  (`problem-ledger.tsx`: six problems in the customer's words, each with what
+  gets built and what it is measured in, every row restating a Quick Win
+  example or a proof piece; added 2026-09-25 after readers asked who the
+  site is for and what to bring), proof strip with the
   owner's quote, the idea, offers in brief (`compact`: no deliverables row,
   three examples, four `featured` FAQs), process, founder, close. It should
   stay around ten desktop screens; the fit ledger, full offer detail, all
@@ -106,9 +110,10 @@ placeholder and the contact form logs instead of emailing.
 - **Portfolio** — the `/work` route keeps its URL but is labelled
   "Portfolio" in the nav, footer, and page hero (readers found "Work" next to
   "Services" ambiguous). `work-catalogue.tsx`: six `featured` projects first,
-  each with a drawn glyph (`project-glyph.tsx`), the decision supported and
-  the signals connected (both restate the blurb; add no new claims), tech as
-  a footnote; filters by group; the Lab stays in its own labelled panel.
+  each with a drawn glyph (`project-glyph.tsx`, fixed-height band), then a
+  caption tag, the title, and two plain sentences: the question it answers
+  and what it reads (both restate the blurb; add no new claims; no labels,
+  no icon), tools as a footnote; filters by group; the Lab stays in its own labelled panel.
 - **Copy rule** — avoid the rhetorical "this, not that" contrast in new
   copy; state the thing itself. No em or en dashes as punctuation.
 - **First screen** — nothing above the fold is ever parked at opacity 0.
