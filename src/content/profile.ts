@@ -1,32 +1,10 @@
 /*
- * David Bunn: profile content (from résumé, June 2026). Single source for the
- * hero, about, experience timeline, and skills sections. Public contact is
- * email + LinkedIn only; no phone or home address per privacy.
+ * David Bunn: experience timeline and skills for /about (from résumé, June
+ * 2026). The old portfolio profile object (tagline, summary, stat strip) was
+ * removed on 2026-09-25: nothing rendered it, and the About copy in
+ * content/site.ts is the source for the bio. Public contact is email +
+ * LinkedIn only; no phone or home address per privacy.
  */
-
-export const profile = {
-  name: "David Bunn",
-  role: "Business consultant who builds with AI",
-  location: "San Francisco Bay Area",
-  email: "david@alphainfra.us",
-  linkedin: "https://www.linkedin.com/in/davidkcbunn",
-  github: "https://github.com/dbunn117",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alphainfra.us",
-
-  tagline:
-    "I help businesses solve the problems that actually move the needle (growth, operations, and the decisions leaders make) by building the AI tools to match. A decade across finance and operations keeps it grounded in how a business really runs.",
-
-  summary:
-    "I'm a business and operations consultant who builds. Across 9+ years in audit, high-growth operations, and private-equity innovation, I've learned how businesses actually make decisions; lately I've spent my time building the AI tools that make those decisions faster and sharper. What energizes me most are the front-office problems: growth, strategy, competitive positioning, and the messy operational questions in between. My finance background (CPA, inactive; CFA Program underway; BIDA-certified) is the foundation that makes what I build trustworthy, but the work I love is helping a business see and act more clearly, not just close the books.",
-
-  // Hero stat strip
-  stats: [
-    { value: "9+ yrs", label: "finance, audit & operations" },
-    { value: "~80%", label: "manual reporting effort eliminated with AI" },
-    { value: "$120M", label: "Series A supported at Major League Cricket" },
-    { value: "$25B+", label: "market-cap audit client at PwC" },
-  ],
-} as const;
 
 export type Experience = {
   company: string;

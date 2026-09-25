@@ -31,7 +31,7 @@ const MOMENTS = [
     note: "to a working first version",
   },
   {
-    label: "700MB of market data, read",
+    label: "25 years of market data across 40+ metros, read",
     before: "a week",
     after: "hours",
     note: "to a first pass of charts, takeaways, and narrative",
