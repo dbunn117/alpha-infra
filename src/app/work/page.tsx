@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { EntecCaseStudy } from "@/components/entec-case-study";
+import { EntecCaseStudyVideo } from "@/components/entec-case-study-video";
 import { MarketScorecard } from "@/components/market-scorecard";
 import { ProjectsSection } from "@/components/projects-section";
 import { Reveal } from "@/components/reveal";
@@ -24,11 +25,7 @@ export default function WorkPage() {
       />
 
       <EntecCaseStudy />
-      {/*
-       * TODO: once the real Entec walkthrough video is recorded (see
-       * "Today's Priority Actions" shot list in the vault case-study note),
-       * embed it here, right after the case study.
-       */}
+      <EntecCaseStudyVideo />
 
       {/* The investment side, live: re-weight the signals and watch the
           markets re-rank. Illustrative markets and figures. */}
