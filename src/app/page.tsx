@@ -1,5 +1,6 @@
 import { ChapterFolio } from "@/components/chapter-folio";
 import { Hero } from "@/components/hero";
+import { LaunchClip } from "@/components/launch-clip";
 import { ProblemLedger } from "@/components/problem-ledger";
 import { PositioningBlock } from "@/components/positioning-block";
 import { ProofStrip } from "@/components/proof-strip";
@@ -12,7 +13,7 @@ import { FinalCta } from "@/components/final-cta";
 
 /*
  * Chaptered homepage, in the order claim, demonstration, proof: the live
- * hero, the problems people bring, real systems with the owner's quote, the Opportunity vs Productivity
+ * hero, the 30-second clip, the problems people bring, real systems with the owner's quote, the Opportunity vs Productivity
  * idea, the offers in brief, process, a short founder section, four FAQs,
  * close. The fit ledger and the full offer detail live on /services. The
  * margin folio ticks chapters off as they are read.
@@ -22,6 +23,7 @@ export default function HomePage() {
     <>
       <ChapterFolio />
       <Hero />
+      <LaunchClip />
       <ProblemLedger />
       <ProofStrip />
       <PositioningBlock />

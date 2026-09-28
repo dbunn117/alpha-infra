@@ -77,7 +77,10 @@ placeholder and the contact form logs instead of emailing.
   column that has a job (the diagram, the process CTA, a margin note); cards
   are for the work catalogue and the two proof cards only. Offers are a
   ledger (`offer-ledger.tsx`) at `lg` and `ServiceCard` stacks below it.
-  The homepage runs claim, demonstration, proof: hero, the problems ledger
+  The homepage runs claim, demonstration, proof: hero, the 30-second clip
+  (`launch-clip.tsx`, a native player with the site's own export from
+  `brag-output/`, which is gitignored; no Reveal, since it can sit in the
+  first screen), the problems ledger
   (`problem-ledger.tsx`: six problems in the customer's words, each with what
   gets built and what it is measured in, every row restating a Quick Win
   example or a proof piece; added 2026-09-25 after readers asked who the

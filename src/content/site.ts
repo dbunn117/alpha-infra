@@ -34,6 +34,18 @@ export const nav = {
   ],
 } as const;
 
+/* The 30-second clip under the hero. Music only, so no captions track; the
+   words on screen are the site's own. Built 2026-09-28 (brag-output/, the
+   source is gitignored; public/media/alpha-infra-clip/ holds the export). */
+export const launchClip = {
+  eyebrow: "Alpha Infra in 30 seconds",
+  meta: "29 s · sound on",
+  label: "Alpha Infra in 30 seconds: the problems people bring, what Opportunity AI means, and how David works",
+  caption: "What Opportunity AI means, and how the work goes from the first conversation to a running system.",
+  video: "/media/alpha-infra-clip/alpha-infra-in-30-seconds.mp4",
+  poster: "/media/alpha-infra-clip/alpha-infra-in-30-seconds-poster.webp",
+} as const;
+
 export const hero = {
   eyebrow: "Opportunity AI for lean teams",
   headline: "Build what your business couldn't build until now.",
