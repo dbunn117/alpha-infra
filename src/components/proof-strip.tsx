@@ -32,6 +32,16 @@ export function ProofStrip() {
               ) : null}
               <h3 className="mt-5 text-lg leading-snug">{entec.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{entec.summary}</p>
+              {"facts" in entec ? (
+                <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-xs font-medium text-foreground">
+                  {entec.facts.map((f, i) => (
+                    <li key={f} className="flex items-center gap-2">
+                      {i > 0 ? <span aria-hidden className="text-border">·</span> : null}
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </article>
           </Reveal>
 
@@ -41,7 +51,7 @@ export function ProofStrip() {
             <div className="grid gap-6 lg:grid-cols-12">
               <blockquote className="lg:col-span-8">
                 <p className="text-pretty font-heading text-2xl font-medium leading-snug tracking-tight sm:text-[1.75rem]">
-                  &ldquo;{proof.testimonial.quote}&rdquo;
+                  &ldquo;{proof.testimonial.short}&rdquo;
                 </p>
                 <footer className="mt-4 text-sm font-medium text-muted-foreground">{proof.testimonial.name}</footer>
               </blockquote>

@@ -100,7 +100,9 @@ export function EntecWalkthrough() {
       {/* ───────── Desktop: pinned screen, scrolling steps ───────── */}
       <div className="hidden lg:block">
         <div className="grid grid-cols-12 gap-x-10">
-          <figure className="sticky top-24 col-span-8 self-start">
+          {/* pinned for the height of the viewport under the header, with the
+              screen centred in it, so tall displays get no dead band below */}
+          <figure className="sticky top-16 col-span-8 flex min-h-[calc(100vh-4rem)] items-center self-start py-8">
             <div className="grain surface relative overflow-hidden">
               <Lightbox src={src} alt={proof.image.alt} title="Entec's morning view" />
               {REGIONS.map((r, i) => (

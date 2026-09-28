@@ -248,11 +248,15 @@
     background-size: 100% 1px;
   }
   /* Site nav: blurred paper strip */
+  /* Any anchor target clears the sticky header (4rem) with a little air. */
+  :where([id]) {
+    scroll-margin-top: 4.5rem;
+  }
   .site-nav {
-    background: color-mix(in oklab, var(--background) 85%, transparent);
+    background: color-mix(in oklab, var(--background) 94%, transparent);
     border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
   }
   /* Load-in rise for title pages: a short settle, never hidden, so the
      first screen reads immediately. Only animates when JS is present. */

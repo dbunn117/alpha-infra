@@ -38,7 +38,7 @@ export const nav = {
    words on screen are the site's own. Built 2026-09-28 (brag-output/, the
    source is gitignored; public/media/alpha-infra-clip/ holds the export). */
 export const launchClip = {
-  eyebrow: "Alpha Infra in 30 seconds",
+  eyebrow: "Alpha Infra in 30 seconds: what I build and how",
   meta: "29 s · sound on",
   label: "Alpha Infra in 30 seconds: the problems people bring, what Opportunity AI means, and how David works",
   caption: "What Opportunity AI means, and how the work goes from the first conversation to a running system.",
@@ -177,6 +177,9 @@ export const proof = {
   testimonial: {
     quote:
       "Working with David at Alpha Infra has been fantastic, on two fronts: the output has been great, and so has the experience. I can now track our top 35 customers in much more detail and depth, we understand the ROI on our Google advertising spend, and we have a custom-built CRM. It's a great foundation for our sales motion, and I would highly recommend working with him.",
+    /* the homepage proof strip shows the first sentence; /work carries the whole quote */
+    short:
+      "Working with David at Alpha Infra has been fantastic, on two fronts: the output has been great, and so has the experience.",
     name: "William van der Byl, Owner, Entec Access Systems",
   },
   link: { label: "Read the case study", href: "/work" },
@@ -199,6 +202,8 @@ export const proofStrip = {
       summary: "Jobs, quotes, invoices, email, and public tenders read together. Every morning it ranks what needs the owner's attention, with the evidence.",
       body: "Connects SimPRO jobs and quotes, Xero invoices and payments, Outlook correspondence, and public tender feeds across five sales channels. Every morning it applies the owner's rules to rank the accounts, inquiries, service-conversion leads, target relationships, and tenders that need attention, showing what changed, why it matters, and the next action.",
       tools: "SimPRO · Xero · Outlook · Public tenders · Claude Code · n8n",
+      /* the result, scannable: every fact is stated elsewhere on the site */
+      facts: ["15-person team", "Five revenue channels", "One morning view", "In daily use since July 2026"],
       href: "/work",
       schematic: {
         inputs: [{ lines: ["SimPRO"] }, { lines: ["Xero"] }, { lines: ["Outlook"] }, { lines: ["Public", "tenders"] }],

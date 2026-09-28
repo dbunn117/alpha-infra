@@ -1,3 +1,6 @@
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { problems } from "@/content/site";
@@ -12,7 +15,11 @@ import { RedPenNote } from "@/components/red-pen";
  * scans in seconds; the quote carries the row. One red-pen note, at the
  * end, pointing at the first call.
  */
+const PHONE_ROWS = 3;
+
 export function ProblemLedger() {
+  /* phones see three rows and a control for the rest; md and up always see six */
+  const [all, setAll] = React.useState(false);
   return (
     <Chapter id="problems" title="Problems">
       <div className="container-page">
@@ -30,7 +37,7 @@ export function ProblemLedger() {
                 as="li"
                 key={row.built}
                 delay={i * 0.05}
-                className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)_minmax(0,3fr)] md:items-baseline"
+                className={`grid gap-x-8 gap-y-2 py-5 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)_minmax(0,3fr)] md:items-baseline ${i >= PHONE_ROWS && !all ? "hidden md:grid" : ""}`}
               >
                 <p className="text-pretty font-heading text-xl font-medium leading-snug tracking-tight sm:text-[1.35rem]">
                   &ldquo;{row.problem}&rdquo;
@@ -46,6 +53,15 @@ export function ProblemLedger() {
               </Reveal>
             ))}
           </ol>
+          {!all ? (
+            <button
+              type="button"
+              onClick={() => setAll(true)}
+              className="link-draw mt-5 text-sm font-medium text-primary md:hidden"
+            >
+              See three more examples
+            </button>
+          ) : null}
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
             <Reveal delay={0.3}>
