@@ -413,12 +413,44 @@ if (contactForm) {
       directions[draft.interest].next;
   }
 }
-contactForm?.addEventListener("submit", (e) => {
+// Set to the form service endpoint (for example a Formspree form URL) to send
+// messages directly. Empty means the form prepares an email draft instead.
+const FORM_ENDPOINT = "";
+if (contactForm && FORM_ENDPOINT) {
+  contactForm.querySelector(".form-actions button").innerHTML =
+    'Send message <span aria-hidden="true">↗</span>';
+  contactForm.querySelector(".form-actions > span").textContent =
+    "Goes straight to David. Nothing else happens with it.";
+}
+function buildMessage(data) {
+  return `Hi David,\n\n${data.get("message")}\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}${data.get("company") ? "\nCompany: " + data.get("company") : ""}\nInterest: ${contactForm.elements.interest.selectedOptions[0].textContent}`;
+}
+function openMailDraft() {
+  $("#email-fallback").hidden = false;
+  location.href = `mailto:david@alphainfra.us?subject=${encodeURIComponent("An idea for my business")}&body=${encodeURIComponent(preparedMessage)}`;
+}
+contactForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!contactForm.reportValidity()) return;
   const data = new FormData(contactForm);
-  preparedMessage = `Hi David,\n\n${data.get("message")}\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}${data.get("company") ? "\nCompany: " + data.get("company") : ""}\nInterest: ${contactForm.elements.interest.selectedOptions[0].textContent}`;
-  $("#email-fallback").hidden = false;
-  location.href = `mailto:david@alphainfra.us?subject=${encodeURIComponent("An idea for my business")}&body=${encodeURIComponent(preparedMessage)}`;
+  preparedMessage = buildMessage(data);
+  if (!FORM_ENDPOINT) return openMailDraft();
+  const button = contactForm.querySelector(".form-actions button");
+  button.disabled = true;
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: data,
+    });
+    if (!res.ok) throw new Error(String(res.status));
+    contactForm.querySelector(".form-row").hidden = true;
+    [...contactForm.querySelectorAll("label, .form-actions, .form-note")].forEach((el) => (el.hidden = true));
+    $("#form-sent").hidden = false;
+  } catch {
+    button.disabled = false;
+    toast("The message could not be sent, so here is an email draft instead.");
+    openMailDraft();
+  }
 });
 $("#copy-message")?.addEventListener("click", () => copyText(preparedMessage));
