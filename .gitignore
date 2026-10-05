@@ -1,47 +1,34 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# generated site (built in CI by `node build.mjs`)
+/site/
 
-# dependencies
+# node
 /node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
+npm-debug.log*
 
 # misc
 .DS_Store
 *.pem
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
+# leftovers from the Next.js site (pinned at tag opportunity-ai-site-2026-10-05)
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
 .env*
 !.env.example
 
 # internal planning docs (build spec, copy deck) — kept out of the public repo
 /docs/
 
+# the launch clip's working files (video comp, score, frames)
+/brag-output/
+
 # personal documents & private planning that may sit in the project folder —
 # never publish these to the public repo
 /*.pdf
 /*.docx
 /*.zip
+/*.png
 /Basic_LinkedInDataExport_*
 /first-clients-strategy.md
 /fable5-business-builder-prompt.md
@@ -52,9 +39,4 @@ yarn-error.log*
 # old North Alpha brand assets — kept locally, not published post-rebrand
 /brand/
 
-# vercel
 .vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts

@@ -1,88 +1,47 @@
-# Alpha Infra — marketing website
+# Alpha Infra — alphainfra.us
 
-Marketing site for Alpha Infra, a one-person AI consulting practice.
-Built with **Next.js (App Router) + TypeScript + Tailwind CSS v4 + shadcn/ui**
-(Base UI primitives), `motion` for the homepage's scroll-driven chapters,
-`lucide-react`, `next-themes`, and Resend for the contact form.
+The website for Alpha Infra LLC, David Bunn's independent AI consulting and
+custom-build practice. A static site: a hand-written Node build script turns the
+templates and copy in `build.mjs` into plain HTML in `site/`, which GitHub Pages
+serves on https://alphainfra.us.
 
-> The build brief and copy deck live in [`docs/`](./docs).
+## Working on it
 
-## Getting started
+Node is only available via nvm on this machine:
 
-```bash
-npm install
-cp .env.example .env.local   # then fill in values (all optional to start)
-npm run dev                  # http://localhost:3000
+```sh
+export PATH="$HOME/.nvm/versions/node/v22.23.2/bin:$PATH"
+npm test                 # syntax check, build into site/, run verify.mjs
+python3 -m http.server 5180 --bind 127.0.0.1 --directory site
 ```
 
-- `npm run dev` — local dev server
-- `npm run build` — production build
-- `npm start` — serve the production build
-- `npm run lint` — ESLint
+Then open http://127.0.0.1:5180/. There are no dependencies to install.
+`site/` is generated and gitignored; edit the source files and rebuild.
 
-## Configuration
+- `build.mjs`: every page template, all copy, the 14 portfolio records, the
+  five offers, the Hermes page, redirects from retired routes, and the
+  sitemap/robots/CNAME output.
+- `styles.css`: the design system (cream, dark green, cobalt; Newsreader-style
+  display serif with a hand-written annotation face).
+- `app.js`: the homepage examples, tabs, project dialogs, portfolio filter,
+  idea explorer drafts (session storage only), and the contact form, which
+  prepares a `mailto:` draft rather than posting anywhere.
+- `verify.mjs`: checks the built HTML (one h1, canonical, og image, no
+  preview wording, no em or en dashes in copy, internal links and anchors
+  resolve, sitemap covers every page, CNAME and robots are right).
+- `assets/`: portrait, the redacted Entec screenshot, the logo, the mark,
+  and the social image (`og.png`, a 1200×630 capture of the homepage).
 
-All config is via environment variables — see [`.env.example`](./.env.example).
-Nothing is required to run locally; sensible fallbacks/placeholders are used.
+## Deploy
 
-| Variable | Purpose |
-| --- | --- |
-| `NEXT_PUBLIC_BOOKING_URL` | Cal.com/Calendly link. Until set, booking areas show a placeholder + email fallback. |
-| `OWNER_EMAIL` | Where contact-form submissions are emailed (default `davibunn@gmail.com`). |
-| `RESEND_API_KEY` | Enables real email via [Resend](https://resend.com). If empty, submissions log server-side and the form still succeeds. |
-| `CONTACT_FROM_EMAIL` | Verified Resend sender (e.g. `hello@alphainfra.us`). |
-| `NEXT_PUBLIC_LINKEDIN_URL` | Footer + structured data. |
-| `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata/sitemap/robots/OG. |
+Every push to `main` runs `.github/workflows/deploy-pages.yml`: `npm test`,
+then the `site/` folder is uploaded to GitHub Pages. DNS is at GoDaddy and
+Google Workspace mail for the domain lives there too, so never touch the MX
+or TXT records.
 
-### Wiring the two CTAs
+## History
 
-- **Book a call** — create a free Cal.com or Calendly link and paste it into
-  `NEXT_PUBLIC_BOOKING_URL`. It powers the nav modal, the hero, `/book`, and
-  `/contact`. The embed is a provider-agnostic iframe (`src/components/booking-embed.tsx`).
-- **Contact form** — posts to `src/app/api/contact/route.ts` (validation +
-  honeypot + rate limit). Add `RESEND_API_KEY` + `CONTACT_FROM_EMAIL` to send
-  real email; otherwise submissions are logged to the server console.
-
-## Editing content
-
-All copy lives in typed objects — no need to touch layout:
-
-- `src/content/site.ts` — hero, problem/POV, how-it-works, pricing rows, about,
-  footer, and site config.
-- `src/content/services.ts` — all five offerings (cards + full service pages).
-- `src/content/projects.ts` and `src/content/profile.ts` — the `/work` catalogue
-  and the `/about` timeline, skills, and credentials.
-- `inkPeak` in `src/content/site.ts` — captions and labels for the homepage's
-  scroll-drawn ink diagram (all lifted from copy that exists elsewhere).
-
-## Placeholders to fill later
-
-- **Testimonials** — add entries to the `TESTIMONIALS` array in
-  `src/components/testimonials.tsx` (the section renders nothing while empty).
-- **Booking link** — set `NEXT_PUBLIC_BOOKING_URL` (see above).
-
-## Design system
-
-Paper, ink, one red pen, and blue for the work. Paper (a warm near-white) is
-the default theme; Ink (dark) is the toggle (`next-themes`). Tokens are CSS
-variables in `src/app/globals.css`. Ink Blue (`--primary`) marks anything you
-can act on or should scan first: buttons, links, eyebrows, highlights, and the
-routes and system plate in the hero diagram. Signal Red appears only in the
-brand mark and the diagram's drawn tick. Newsreader is for display only (h1,
-h2, big numerals, the wordmark); IBM Plex Sans does everything else; Plex Mono
-only for tiny captions (`.caption`). Depth comes from tinted shadows, edge
-light, overlap, and grain, never glows or gradients.
-
-The homepage is a chaptered page. The hero's ink diagram is a looping motion
-graphic (`src/components/ink-diagram/ink-animation.tsx`, the only file that
-imports `motion`), paused while off-screen and replaced by its final frame
-under reduced motion. The margin folio (`chapter-folio.tsx`) ticks chapters
-off as they are read. Everything else animates with CSS. In development,
-`?motion=reduced` on any URL exercises the reduced-motion branch without
-changing OS settings.
-
-## Deploy (Vercel)
-
-1. Push to a Git repo and import into [Vercel](https://vercel.com/new).
-2. Add the environment variables above in the project settings.
-3. Add the custom domain `alphainfra.us` (already the GitHub Pages domain via `public/CNAME`).
+The previous site (Next.js, "Opportunity AI" positioning, live until
+2026-10-05) is pinned at tag `opportunity-ai-site-2026-10-05` and branch
+`opportunity-ai-site`, with a built copy in
+`~/dev/business/alpha-infra-backups/`.

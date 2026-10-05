@@ -10,7 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -20,37 +19,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-
-      - name: Enable GitHub Pages
-        uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v5
         with:
           enablement: true
-
-      - run: npm ci
-
-      # The contact API is server-only; a static export can't include it.
-      # It stays in the repo (for a future Vercel deploy) but is excluded here.
-      - name: Remove server-only API routes for static export
-        run: rm -rf src/app/api
-
-      - name: Build static export
-        env:
-          GITHUB_PAGES: "true"
-          NEXT_PUBLIC_GITHUB_PAGES: "true"
-          # Custom domain (public/CNAME) serves the site at the root, so no base path.
-          NEXT_PUBLIC_BASE_PATH: ""
-          NEXT_PUBLIC_SITE_URL: "https://alphainfra.us"
-          NEXT_PUBLIC_BOOKING_URL: "https://cal.com/david-bunn-eta21c/30min"
-        run: npm run build
-
+      - name: Build and verify the static site
+        run: npm test
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./site
 
   deploy:
     needs: build

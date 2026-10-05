@@ -1,164 +1,72 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
-
 # Alpha Infra — marketing site
 
 Marketing site for **Alpha Infra LLC**, David Bunn's one-person AI consulting
-practice (CA single-member LLC, registered July 2026). This is the public front
-door for the business — it's under active build-out.
+practice (CA single-member LLC, registered July 2026). Live at
+https://alphainfra.us. Positioning since 2026-10-05: an independent AI
+consultant and builder with five starting points (tools, data, workflows,
+team enablement, exploring an idea). "Opportunity AI" survives only as a
+personal point of view on the About page.
 
-Full setup, env vars, and content map: see [`README.md`](./README.md). This file
-covers what the README doesn't.
+Setup and file map: see [`README.md`](./README.md). This file covers what the
+README doesn't.
 
 ## Local environment
 
-Node is **only** available via nvm on this machine — it is not on the default
-PATH. Every shell that runs npm needs:
+Node is **only** available via nvm on this machine:
 
 ```bash
 export PATH="$HOME/.nvm/versions/node/v22.23.2/bin:$PATH"
 ```
 
-`.env.local` exists locally (gitignored, copied from `.env.example`). Every value
-has a fallback, so the site runs with it unfilled — booking areas show a
-placeholder and the contact form logs instead of emailing.
+`npm test` is the whole loop: syntax check, build to `site/`, verify. The
+browser preview config (`.claude/launch.json`, name `dev`) serves `site/` with
+Python's http.server on port 5180; rebuild before reloading, nothing watches.
 
 ## Where things live
 
-- **Copy and offerings** — `src/content/site.ts` and `src/content/services.ts`.
-  These are typed objects; changing copy should almost never require touching a
-  component. Reach for the content files first.
-- **Design tokens** — CSS variables in `src/app/globals.css`. Paper (warm
-  near-white `#FAF9F6`) is the only page ground. Ink (dark) is a section tone
-  (`Chapter tone="ink"`, one proof moment per page), never a site-wide theme:
-  the header's light/dark toggle was removed on 2026-09-23 after reader
-  feedback ("pick a brand"), and `next-themes` now only pins `light`. Two accents
-  with fixed roles. **Blue is the system**: Ink Blue (`--primary`, `#1D4ED8`
-  on Paper / `#93C5FD` on Ink) for buttons, links, `.eyebrow`, highlights,
-  the diagram's routes and plate, anything the machine does or the visitor
-  can act on. **Red is the hand**: Signal Red (`#C4283C`, exported as
-  `SIGNAL_RED` from `brand-mark.tsx`, never a token) appears only on
-  handwritten marks: the brand mark's circle and the `RedPen*` components in
-  `src/components/red-pen.tsx` (loop, underline, margin note in `font-hand`).
-  Nothing handwritten is any other colour, and each section gets at most one
-  red mark. No glows, no gradient text; depth only via `--elev-*` shadows,
-  `--edge-light`, overlap, and `.grain`.
-- **The mark** — the signal mark (ink trace, red hand-drawn circle on a
-  mid-line point, line continuing past). Paths live in
-  `src/components/brand-mark.tsx`; `src/app/icon.svg` (circle-only small form)
-  and `src/app/opengraph-image.tsx` copy them, so change all three together.
-  The brand note in the vault records why it was chosen.
-- **Type** — Newsreader (`font-heading`) for display only: h1, h2, big
-  numerals, the wordmark. `h3`/`h4` are Plex Sans semibold by base rule.
-  `.eyebrow` is sans, semibold, blue; `.caption` is the only mono use.
-  `font-hand` (Caveat for now, to be replaced by David's own handwriting) is
-  reserved for red-pen notes and diagram annotations.
-- **Live demos** — the hero is `src/components/morning-view.tsx` and the
-  second proof card is `src/components/market-scorecard.tsx`: illustrative
-  data in `src/content/morning-view-sample.ts` and inline, deterministic
-  scoring in the browser, no network, no model. Re-ordering is a hand-rolled
-  FLIP on `transform` only, skipped under reduced motion. Keep every name
-  fictional and every figure obviously invented; the labels say so.
-- **Motion** — the ink diagram (now on the Alpha System page, above the five
-  layers) draws once
-  in about a second and holds its finished frame, in
-  `src/components/ink-diagram/ink-animation.tsx` (`useAnimate`, explicit
-  `[from, to]` keyframes, paused until first in view). That file is the only
-  importer of `motion`; nothing is scroll-scrubbed. Scroll-led pieces (the
-  Entec walkthrough) switch discrete steps with an IntersectionObserver and
-  animate opacity and pen strokes only. Everything else uses CSS transitions, `Reveal`, and
-  `[data-stroke]` drawn paths (`.is-drawn` draws them without a Reveal).
-  Never animate width/height/top/left or use `transition: all`.
-  `?motion=reduced` (dev only) forces the reduced-motion branch for checking.
-- **Layout grammar** — sections alternate a reading column with a right
-  column that has a job (the diagram, the process CTA, a margin note); cards
-  are for the work catalogue and the two proof cards only. Offers are a
-  ledger (`offer-ledger.tsx`) at `lg` and `ServiceCard` stacks below it.
-  The homepage runs claim, demonstration, proof: hero, the 30-second clip
-  (`launch-clip.tsx`, a native player with the site's own export from
-  `brag-output/`, which is gitignored; no Reveal, since it can sit in the
-  first screen), the problems ledger
-  (`problem-ledger.tsx`: six problems in the customer's words, each with what
-  gets built and what it is measured in, every row restating a Quick Win
-  example or a proof piece; added 2026-09-25 after readers asked who the
-  site is for and what to bring), proof strip with the
-  owner's quote, the idea, offers in brief (`compact`: no deliverables row,
-  three examples, four `featured` FAQs), process, founder, close. It should
-  stay around ten desktop screens; the fit ledger, full offer detail, all
-  six examples, and the full FAQ live on /services.
-- **Interactive moments** — three, and no more: the morning view (hero),
-  the Entec walkthrough on /work (`entec-walkthrough.tsx`: the real
-  screenshot pinned on an ink band, three regions lit in turn by percentage
-  boxes measured on the image, closing on the owner's quote), and the
-  Services path finder (`offer-explorer.tsx`: one question, three answers,
-  tints the chosen ledger column and opens only that offer on phones).
-  Anything that accepts input carries the filled blue `InteractiveChip`
-  (`interactive-chip.tsx`, pointer glyph, "Interactive · try it" or "pick
-  one") plus a one-line instruction with a verb ("Change a rule and watch the
-  list re-rank"), and its controls sit in a blue-bordered group. Readers said
-  the earlier outlined chip "just looks like text". The
-  idea section is deliberately not interactive: one comparison of two
-  models of AI (`positioning-block.tsx`), Productivity AI as the small flat
-  panel and Opportunity AI as the dominant one, ending in a visible output
-  (the ranked opportunity, reusing the hero's illustrative Northgate
-  account) that carries the section's red-pen mark. It stacks on phones.
-- **Section tones** — `Chapter` takes `tone`: "paper" for narrative,
-  "system" (a few percent of Ink Blue) for how-the-machine-works sections,
-  "ink" (class `dark` re-scopes the tokens) for one proof moment per page,
-  and `tight` for FAQ and catalogues. White elevated surfaces are for live
-  artifacts only.
-- **Portfolio** — the `/work` route keeps its URL but is labelled
-  "Portfolio" in the nav, footer, and page hero (readers found "Work" next to
-  "Services" ambiguous). `work-catalogue.tsx`: six `featured` projects first,
-  each with a drawn glyph (`project-glyph.tsx`, fixed-height band), then a
-  caption tag, the title, and two plain sentences: the question it answers
-  and what it reads (both restate the blurb; add no new claims; no labels,
-  no icon), tools as a footnote; filters by group; the Lab stays in its own labelled panel.
-- **Copy rule** — avoid the rhetorical "this, not that" contrast in new
-  copy; state the thing itself. No em or en dashes as punctuation.
-- **First screen** — nothing above the fold is ever parked at opacity 0.
-  `.rise` is a quarter-second settle from 0.6 opacity; `Reveal` is for
-  content further down. Live demos answer every change with a `role=status`
-  line (what changed, how many need attention) and a brief `.is-moved` wash
-  on the rows that moved, plus a Reset control.
-- **Verifying the homepage** — walk it at every half viewport on desktop, on a
-  390px mobile viewport, and with `?motion=reduced`; check
-  for console errors, horizontal overflow, dead scroll, copy stuck below full
-  opacity, red anywhere that is not handwritten, that the diagram reports
-  `data-ink-state="playing"` while in view and `paused` once scrolled past,
-  that the morning view and scorecard re-rank when a rule or weight changes,
-  and that the reduced branch renders the static frame with no FLIP.
-- **CTA wiring** — `src/lib/cta.ts`, `src/components/booking-embed.tsx`
-  (Cal.com embed library for cal.com links, sized to content and themed;
-  iframe fallback for other providers; placeholder until the env var is set).
+- **Everything content-shaped is in `build.mjs`**: templates, copy, the
+  `projects` records (also emitted as `site/projects.json` for the dialogs),
+  `offers`, `faqs`, `helpAreas`, the About timeline, the Hermes agents, and
+  the `pages` array (route, title, description, body). Copy changes almost
+  never touch `app.js` or `styles.css`.
+- **Routes**: `/`, `/services/` plus `/services/{quick-win,system,strategy,
+  workshops,care}/`, `/work/`, `/work/entec/`, `/hermes/`, `/about/`,
+  `/contact/`, `/explore/`, `/privacy/`, `404.html`. Retired routes from the
+  previous site (`/book/`, `/services/coaching/`) are meta-refresh stubs
+  written from the `redirects` list; add to that list rather than deleting a
+  URL outright.
+- **Production head**: every page gets a canonical URL, `og:*` tags and the
+  social image. `verify.mjs` fails the build on any `noindex`, any "preview"
+  wording, or an em/en dash in visible copy.
+- **Interactive pieces** (`app.js`): three homepage examples with clearly
+  labelled illustrative data, the idea explorer (authored suggestions, no
+  model, session storage only), the portfolio filter and project dialogs, the
+  Entec case-study tabs and image viewer, and the contact form (validates,
+  then opens a `mailto:` draft; there is no backend). The Cal.com link is real.
 
-## Deploy: two targets, and they differ
+## Rules that carry over
 
-The README describes a Vercel deploy. That is the **intended** destination, not
-what runs today. What actually ships is `.github/workflows/deploy-pages.yml`:
-every push to `main` builds a static export to GitHub Pages, served on the
-custom domain `https://alphainfra.us` (`public/CNAME`; DNS at GoDaddy, where
-Google Workspace mail for the domain also lives, so never touch the MX or TXT
-records). `https://dbunn117.github.io/alpha-infra` redirects there.
+- No em or en dashes as punctuation anywhere on the site. Use "to" for
+  ranges ("2 to 3 weeks", "$10,000 to $15,000").
+- Never the word "quietly". Never invent a number.
+- Avoid the rhetorical "this, not that" contrast in new copy.
+- Real Entec customer names never appear; the screenshot is the redacted one.
+- Nothing from the Stockbridge market dashboard beyond pattern-level
+  description.
+- William van der Byl's quote is used with his permission; edits to its
+  wording are allowed, inventing new claims is not.
+- Commit and push only when David asks.
 
-The consequence worth remembering: **a static export cannot run the contact API**,
-so the workflow deletes `src/app/api/` before building. `src/app/api/contact/route.ts`
-still lives in the repo for the eventual server deploy, but it is dead on the
-live site. Don't add server-only features assuming they'll work in production
-until the site moves to Vercel.
+## Deploy
 
-`next.config.ts` switches on `GITHUB_PAGES=true`, which the workflow sets and
-local builds don't — so `npm run dev` and `npm run build` keep the full server
-including the API route. The base path comes from `NEXT_PUBLIC_BASE_PATH`,
-empty on the custom domain.
+`.github/workflows/deploy-pages.yml`: every push to `main` runs `npm test` and
+uploads `site/` to GitHub Pages on the custom domain (`site/CNAME` is written
+by the build). DNS at GoDaddy; Google Workspace mail lives there, so never
+touch the MX or TXT records.
 
 ## Not in this repo
 
-- `docs/` — the build spec and copy deck are deliberately gitignored (the repo is
-  public). They aren't in this clone or on the droplet.
-- Business facts (rates, entity details, positioning, CRM) live in the Obsidian
-  vault under `~/Documents/David OS/07 Alpha Infra/`, not here.
-- Business **finances** are a separate app: `~/dev/business/alpha-ledger`.
+- `docs/` is gitignored (the repo is public).
+- Business facts (rates, entity details, positioning, CRM) live in the
+  Obsidian vault under `~/Documents/David OS/07 Alpha Infra/`.
+- The previous Next.js site is at tag `opportunity-ai-site-2026-10-05`.

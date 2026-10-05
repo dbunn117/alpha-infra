@@ -3,10 +3,9 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "/Users/davidbunn/.nvm/versions/node/v22.23.2/bin/npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 3000,
-      "autoPort": true
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5280", "--bind", "127.0.0.1", "--directory", "site"],
+      "port": 5280
     }
   ]
 }
