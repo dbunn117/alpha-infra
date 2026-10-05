@@ -2,8 +2,8 @@ Typefaces served from this site, all under the SIL Open Font License 1.1
 (https://openfontlicense.org). Files are the latin-subset woff2 builds as
 distributed by Google Fonts on 2026-10-05.
 
-- Libre Caslon Display: Copyright 2020 The Libre Caslon Project Authors
-  (https://github.com/impallari/Libre-Caslon)
+- Newsreader: Copyright 2020 The Newsreader Project Authors
+  (https://github.com/productiontype/Newsreader)
 - DM Sans: Copyright 2014-2023 Indian Type Foundry, Jonny Pinhorn, Colophon Foundry
   (https://github.com/googlefonts/dm-fonts)
 - Caveat: Copyright 2014 The Caveat Project Authors
