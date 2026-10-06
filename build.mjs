@@ -66,7 +66,7 @@ const helpAreas = [
     title: "Improve a workflow",
     short: "Less chasing, copying, sorting, and starting over.",
     detail:
-      "Connect the steps between an inbox, a document, a database, and the person who needs to act. Use AI for interpretation and ordinary code for the exact work.",
+      "Connect the steps between an inbox, a document, a database, and the person who needs to act. Use AI where interpretation helps, and ordinary code for the calculations, matching, and rules.",
     example:
       "Invoice processing. Inbox triage. Document extraction. Follow-up.",
   },
