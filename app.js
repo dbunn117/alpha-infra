@@ -415,7 +415,7 @@ if (contactForm) {
 }
 // Set to the form service endpoint (for example a Formspree form URL) to send
 // messages directly. Empty means the form prepares an email draft instead.
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "https://formspree.io/f/xljggbpy";
 if (contactForm && FORM_ENDPOINT) {
   contactForm.querySelector(".form-actions button").innerHTML =
     'Send message <span aria-hidden="true">↗</span>';
