@@ -105,7 +105,7 @@ const projects = [
       "Five revenue channels brought into one morning view for a 15-person services business.",
     input: "Jobs, quotes, invoices, email, and public tenders.",
     output:
-      "A working hub that tracks key customers, inquiries, and the next commercial action.",
+      "A working hub that tracks key customers and inquiries, and prioritizes the next commercial action.",
     detail:
       "Built with the owner around the way Entec actually works. SimPRO, Xero, and Outlook contribute to a connected commercial picture, with reviewable AI interpretation and owner-defined rules.",
     href: "/work/entec/",
