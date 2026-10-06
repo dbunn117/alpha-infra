@@ -717,9 +717,16 @@ summary:focus-visible {
 }
 .image-note {
   position: absolute;
-  font-size: 22px;
-  bottom: 12px;
-  right: 22px;
+  font-size: 24px;
+  line-height: 1;
+  bottom: 14px;
+  right: 18px;
+  padding: 8px 14px 9px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 6px 16px #1d2b2222;
+  transform: rotate(-3deg);
 }
 .project-card-content {
   padding: 23px;
