@@ -111,7 +111,7 @@ function renderDemo() {
   });
   el.setAttribute("aria-labelledby", "demo-tab-" + demoType);
   if (demoType === "tool")
-    el.innerHTML = `<p class="demo-question">“Could AI pull our<br>customer follow-up into one place?”</p><div class="demo-preview"><div class="preview-title"><b>Today’s customer view</b><span>ILLUSTRATIVE</span></div><div class="demo-stats"><div><small>Key accounts</small><b>35</b></div><div><small>To follow up</small><b id="followup-count">${3 - doneTasks.size}</b></div><div><small>New inquiries</small><b>8</b></div></div>${[
+    el.innerHTML = `<p class="demo-question">“Could AI pull our customer follow-up into one place?”</p><div class="demo-preview"><div class="preview-title"><b>Today’s customer view</b><span>ILLUSTRATIVE</span></div><div class="demo-stats"><div><small>Key accounts</small><b>35</b></div><div><small>To follow up</small><b id="followup-count">${3 - doneTasks.size}</b></div><div><small>New inquiries</small><b>8</b></div></div>${[
       ["Northgate", "Review account activity"],
       ["Hillcrest", "Prepare a service quote"],
       ["Marlow", "Follow up an inquiry"],
@@ -124,10 +124,10 @@ function renderDemo() {
   if (demoType === "data") {
     const values =
       reportMetric === "Revenue" ? [62, 74, 66, 89, 94] : [35, 41, 39, 47, 51];
-    el.innerHTML = `<p class="demo-question">“Could AI let us explore the numbers<br>instead of waiting for a report?”</p><div class="demo-preview"><div class="preview-title"><b>A business view you can explore</b><span>ILLUSTRATIVE · $000</span></div><div class="mini-bars">${values.map((v) => `<div class="mini-bar" style="--h:${v * 0.8}%"><small>${v}</small></div>`).join("")}</div><div class="mini-bar-labels"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div><div class="demo-controls"><label for="report-metric">Change the view</label><select id="report-metric"><option ${reportMetric === "Revenue" ? "selected" : ""}>Revenue</option><option ${reportMetric === "Expenses" ? "selected" : ""}>Expenses</option></select></div></div>`;
+    el.innerHTML = `<p class="demo-question">“Could AI let us explore the numbers instead of waiting for a report?”</p><div class="demo-preview"><div class="preview-title"><b>A business view you can explore</b><span>ILLUSTRATIVE · $000</span></div><div class="mini-bars">${values.map((v) => `<div class="mini-bar" style="--h:${v * 0.8}%"><small>${v}</small></div>`).join("")}</div><div class="mini-bar-labels"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div><div class="demo-controls"><label for="report-metric">Change the view</label><select id="report-metric"><option ${reportMetric === "Revenue" ? "selected" : ""}>Revenue</option><option ${reportMetric === "Expenses" ? "selected" : ""}>Expenses</option></select></div></div>`;
   }
   if (demoType === "flow")
-    el.innerHTML = `<p class="demo-question">“Could AI sort the inbox<br>before we get to it?”</p><div class="demo-preview"><div class="preview-title"><b>Shared inbox</b><span>ILLUSTRATIVE</span></div><div class="flow-demo">${[
+    el.innerHTML = `<p class="demo-question">“Could AI sort the inbox before we get to it?”</p><div class="demo-preview"><div class="preview-title"><b>Shared inbox</b><span>ILLUSTRATIVE</span></div><div class="flow-demo">${[
       ["Invoice from supplier", "Finance"],
       ["New customer inquiry", "Sales"],
       ["Site visit request", "Operations"],

@@ -396,7 +396,8 @@ summary:focus-visible {
 .demo-question {
   font: 30px/1.1 var(--serif);
   margin-bottom: 20px;
-  max-width: 400px;
+  max-width: 520px;
+  text-wrap: balance;
 }
 .demo-preview {
   background: #f5f5ee;
