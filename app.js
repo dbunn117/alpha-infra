@@ -322,7 +322,7 @@ document.addEventListener("click", async (e) => {
       if (!p) return;
       const interest = projectInterest(p.cat);
       showDialog(
-        `<p class="eyebrow">${escapeHTML(p.type)} · ${escapeHTML(p.label)}</p><h2 id="dialog-title">${escapeHTML(p.title)}</h2><p>${escapeHTML(p.detail)}</p><div class="dialog-fact"><h3>The starting material</h3><p>${escapeHTML(p.input)}</p></div><div class="dialog-fact"><h3>What got built</h3><p>${escapeHTML(p.output)}</p></div><div class="dialog-actions">${p.external ? `<a href="${escapeHTML(p.external)}" class="button" target="_blank" rel="noopener noreferrer">Explore the project <span aria-hidden="true">↗</span></a>` : ""}<a href="/contact/?interest=${interest}" class="button blue">Talk about something similar <span aria-hidden="true">↗</span></a></div>`,
+        `<p class="eyebrow">${escapeHTML(p.type)} · ${escapeHTML(p.label)}</p><h2 id="dialog-title">${escapeHTML(p.title)}</h2><p>${escapeHTML(p.detail)}</p>${p.problem ? `<div class="dialog-fact"><h3>The problem</h3><p>${escapeHTML(p.problem)}</p></div>` : ""}<div class="dialog-fact"><h3>The starting material</h3><p>${escapeHTML(p.input)}</p></div><div class="dialog-fact"><h3>What got built</h3><p>${escapeHTML(p.output)}</p></div><div class="dialog-actions">${p.external ? `<a href="${escapeHTML(p.external)}" class="button" target="_blank" rel="noopener noreferrer">Explore the project <span aria-hidden="true">↗</span></a>` : ""}<a href="/contact/?interest=${interest}" class="button blue">Talk about something similar <span aria-hidden="true">↗</span></a></div>`,
       );
     } catch {
       toast("The project details could not load. Please try again.");

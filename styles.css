@@ -759,6 +759,13 @@ summary:focus-visible {
   color: var(--muted);
   margin-bottom: 24px;
 }
+.project-card p b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.project-card .project-problem {
+  margin-bottom: 10px;
+}
 .project-card .text-link {
   align-self: flex-start;
   margin-top: auto;
