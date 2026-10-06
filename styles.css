@@ -700,6 +700,13 @@ summary:focus-visible {
   position: relative;
   align-items: flex-start;
 }
+.market-shot {
+  background: #e4e9e0;
+}
+.market-shot img {
+  border-color: #c3cbbd;
+  box-shadow: 0 8px 22px #2f3f2a22;
+}
 .entec-art img {
   border: 1px solid #b7c2d1;
   box-shadow: 0 8px 22px #31425b25;
