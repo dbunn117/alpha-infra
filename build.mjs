@@ -265,7 +265,7 @@ const projects = [
       "Personal AI agents that retain context and bring work back for human approval.",
     input: "Personal knowledge and connected workflows.",
     output:
-      "Agents for administration, health, parenting, and podcast research.",
+      "Agents for administration, health, and parenting.",
     detail:
       "A personal testing ground for patterns that may be useful in business: remembering context, surfacing useful information, and requiring approval for consequential actions.",
     external: "/hermes/",
@@ -527,9 +527,8 @@ const hermesAgents = [
   ["Scout", "Admin and operations agent", "Carries my household’s operational load: researches and shortlists travel, appointments, and renewals, then waits for my yes before it books or pays. Handles routine calls, triages its own inbox, and sends a daily sports briefing, with its own email address and Google Workspace.", ["Hermes Agent", "Google Workspace", "AgentMail"], ""],
   ["Heath", "Health agent", "My health coach. Pulls Glooko, WHOOP, and DEXA data into one picture, holds an actual point of view on what to do next, and reaches out proactively when something’s worth acting on. It won’t touch insulin dosing (that stays with my endocrinologist), but it will build the evidence case for that conversation.", ["Hermes Agent", "WHOOP API", "Glooko"], "https://dbunn117.github.io/health-dashboard/"],
   ["Paula", "Parenting agent", "A parenting coach for our toddlers. It has opinions about what to try next, tracks whether it worked, and keeps a living playbook of scripts and activities that gets sharper as it learns what works for each kid individually.", ["Hermes Agent", "Obsidian", "Telegram"], ""],
-  ["Podcast OS", "Personal digest", "Pulls RSS history for my favorite shows (All-In, Prof G Markets, Diary of a CEO, and more), summarizes each episode, and flags what is relevant to me or Alpha Infra: always current, never a backlog.", ["Python", "RSS", "Static site"], "https://dbunn117.github.io/podcast-digest/"],
 ];
-const hermes = `<section class="page-intro wrap"><a class="breadcrumb" href="/work/">Selected work / Hermes</a>${eyebrow("INDEPENDENT PROJECT · CUSTOM AI AGENTS")}<h1>Four agents,<br><em>one pattern.</em></h1><p>Scout, Heath, Paula, and Podcast OS each keep their own folder in my Obsidian vault: durable memory that gives them context, builds history, and lets them get sharper over time instead of starting from zero every conversation. Anything consequential comes back to me for approval first. It is the same idea I bring to a business: a shared knowledge base that makes the whole system smarter as it goes, not just smart at launch.</p></section><section class="wrap work-section"><div class="catalog-grid">${hermesAgents
+const hermes = `<section class="page-intro wrap"><a class="breadcrumb" href="/work/">Selected work / Hermes</a>${eyebrow("INDEPENDENT PROJECT · CUSTOM AI AGENTS")}<h1>Three agents,<br><em>one pattern.</em></h1><p>Scout, Heath, and Paula each keep their own folder in my Obsidian vault: durable memory that gives them context, builds history, and lets them get sharper over time instead of starting from zero every conversation. Anything consequential comes back to me for approval first. It is the same idea I bring to a business: a shared knowledge base that makes the whole system smarter as it goes, not just smart at launch.</p></section><section class="wrap work-section"><div class="catalog-grid">${hermesAgents
   .map(
     ([name, role, text, tools, href]) =>
       `<article class="project-card"><div class="project-card-content"><div class="project-meta"><span>${role}</span><span>INDEPENDENT PROJECT</span></div><h3>${name}</h3><p>${text}</p><p class="small-note">${tools.join(" · ")}</p>${href ? `<a class="text-link" href="${href}" target="_blank" rel="noopener noreferrer">See it running ${arrow}</a>` : ""}</div></article>`,
@@ -584,8 +583,8 @@ const pages = [
   ],
   [
     "/hermes/",
-    "Hermes: four personal AI agents",
-    "Four personal agents sharing one pattern: durable memory, proactive outreach, and approval before anything consequential happens.",
+    "Hermes: three personal AI agents",
+    "Three personal agents sharing one pattern: durable memory, proactive outreach, and approval before anything consequential happens.",
     hermes,
   ],
   [

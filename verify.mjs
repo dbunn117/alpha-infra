@@ -53,7 +53,7 @@ for (const file of htmlFiles) {
   assert.ok(sitemap.includes("<loc>https://alphainfra.us" + path + "</loc>"), path + " in sitemap");
 }
 assert.match(await readFile(join(root, "book/index.html"), "utf8"), /url=\/contact\//, "/book redirects to /contact");
-assert.match(await readFile(join(root, "hermes/index.html"), "utf8"), /Podcast OS/, "Hermes page lists the agents");
+assert.match(await readFile(join(root, "hermes/index.html"), "utf8"), /Paula/, "Hermes page lists the agents");
 const projects = JSON.parse(await readFile(join(root, "projects.json"), "utf8"));
 assert.equal(projects.length, 14);
 assert.equal(new Set(projects.map(p => p.id)).size, projects.length);
