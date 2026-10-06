@@ -42,7 +42,8 @@ Python's http.server on port 5180; rebuild before reloading, nothing watches.
   labelled illustrative data, the idea explorer (authored suggestions, no
   model, session storage only), the portfolio filter and project dialogs, the
   Entec case-study tabs and image viewer, and the contact form (validates,
-  then opens a `mailto:` draft; there is no backend). The Cal.com link is real.
+  then posts to Formspree via `FORM_ENDPOINT` in `app.js`, with a
+  `mailto:` draft as the fallback). The Cal.com link is real.
 
 ## Rules that carry over
 
