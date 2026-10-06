@@ -111,7 +111,7 @@ function renderDemo() {
   });
   el.setAttribute("aria-labelledby", "demo-tab-" + demoType);
   if (demoType === "tool")
-    el.innerHTML = `<p class="demo-question">“Could we bring our<br>customer follow-up together?”</p><div class="demo-preview"><div class="preview-title"><b>Today’s customer view</b><span>ILLUSTRATIVE</span></div><div class="demo-stats"><div><small>Key accounts</small><b>35</b></div><div><small>To follow up</small><b id="followup-count">${3 - doneTasks.size}</b></div><div><small>New inquiries</small><b>8</b></div></div>${[
+    el.innerHTML = `<p class="demo-question">“Could AI pull our<br>customer follow-up into one place?”</p><div class="demo-preview"><div class="preview-title"><b>Today’s customer view</b><span>ILLUSTRATIVE</span></div><div class="demo-stats"><div><small>Key accounts</small><b>35</b></div><div><small>To follow up</small><b id="followup-count">${3 - doneTasks.size}</b></div><div><small>New inquiries</small><b>8</b></div></div>${[
       ["Northgate", "Review account activity"],
       ["Hillcrest", "Prepare a service quote"],
       ["Marlow", "Follow up an inquiry"],
