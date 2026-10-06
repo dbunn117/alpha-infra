@@ -330,7 +330,7 @@ document.addEventListener("click", async (e) => {
   }
   if (e.target.closest("[data-enlarge]"))
     showDialog(
-      '<h2 id="dialog-title" class="sr-only">Entec Sales Intelligence Hub</h2><img src="/assets/entec-sales-hub.webp" alt="Entec’s Sales Intelligence Hub, with names and figures blurred.">',
+      '<h2 id="dialog-title" class="sr-only">Entec Sales Intelligence Hub</h2><img src="/assets/entec-sales-hub.webp" alt="Entec’s Sales Intelligence Hub, recreated with fictional names and figures.">',
       true,
     );
 });
