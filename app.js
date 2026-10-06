@@ -205,7 +205,7 @@ const directions = {
   team: {
     title: "Make AI useful in the work your team already does.",
     intro:
-      "Practical sessions around real tasks, better ways to check results, and reusable approaches the team can keep using.",
+      "Sessions built around real tasks, better ways to check results, and reusable approaches the team can keep using.",
     examples: "Hands-on workshops · Reusable assistants",
     question: "What would you like the team to feel more confident doing?",
     next: "Choose a few representative tasks and understand the team’s starting point. Shape a session around actual work and clear takeaways.",
@@ -361,7 +361,7 @@ const caseContent = {
   },
   inquiries: {
     title: "Make the next response visible.",
-    text: "The hub filters incoming inquiries and records their details, then tracks progress through response, quote, and outcome. The system tracks timing against Entec’s targets and highlights where a valuable inquiry may need attention.",
+    text: "The hub filters incoming inquiries and records their details, then follows each one through response, quote, and outcome. It checks timing against Entec’s targets and flags a valuable inquiry that may be slipping.",
     heading: "A promising inquiry is waiting on a quote.",
     signal:
       "The hub compares response and quote timing with Entec’s own targets.",
@@ -369,7 +369,7 @@ const caseContent = {
   },
   pipeline: {
     title: "Find another conversation worth having.",
-    text: "Completed installations become possible service-conversion leads. Target accounts carry contacts, status, last touch, and next actions. Public tenders are scanned and ranked for relevance.",
+    text: "Completed installations become possible service-conversion leads. Target accounts carry contacts, status, last touch, and next actions. The hub scans public tenders and ranks them for relevance.",
     heading: "A completed installation may need ongoing service.",
     signal: "The hub checks completed jobs against existing service agreements.",
     action: "The opportunity enters a reviewable list for the commercial team.",
