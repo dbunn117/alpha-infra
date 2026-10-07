@@ -3,8 +3,8 @@
 Marketing site for **Alpha Infra LLC**, David Bunn's one-person AI consulting
 practice (CA single-member LLC, registered July 2026). Live at
 https://alphainfra.us. Positioning since 2026-10-05: an independent AI
-consultant and builder with five starting points (tools, data, workflows,
-team enablement, exploring an idea). "Opportunity AI" survives only as a
+consultant and builder with six starting points (tools, data, workflows,
+team enablement, exploring an idea, structure around AI). "Opportunity AI" survives only as a
 personal point of view on the About page.
 
 Setup and file map: see [`README.md`](./README.md). This file covers what the
@@ -30,7 +30,7 @@ Python's http.server on port 5180; rebuild before reloading, nothing watches.
   the `pages` array (route, title, description, body). Copy changes almost
   never touch `app.js` or `styles.css`.
 - **Routes**: `/`, `/services/` plus `/services/{quick-win,system,strategy,
-  workshops,care}/`, `/work/`, `/work/entec/`, `/hermes/`, `/about/`,
+  ai-adoption,workshops,care}/`, `/work/`, `/work/entec/`, `/hermes/`, `/about/`,
   `/contact/`, `/explore/`, `/privacy/`, `404.html`. Retired routes from the
   previous site (`/book/`, `/services/coaching/`) are meta-refresh stubs
   written from the `redirects` list; add to that list rather than deleting a
@@ -38,8 +38,9 @@ Python's http.server on port 5180; rebuild before reloading, nothing watches.
 - **Production head**: every page gets a canonical URL, `og:*` tags and the
   social image. `verify.mjs` fails the build on any `noindex`, any "preview"
   wording, or an em/en dash in visible copy.
-- **Interactive pieces** (`app.js`): three homepage examples with clearly
-  labelled illustrative data, the idea explorer (authored suggestions, no
+- **Interactive pieces** (`app.js`): three homepage examples (account briefs
+  and drafts, a variance drill-down, inbox sorting) with fictional data and
+  prewritten outputs, inline detail states, and a Back control, the idea explorer (authored suggestions, no
   model, session storage only), the portfolio filter and project dialogs, the
   Entec case-study tabs and image viewer, and the contact form (validates,
   then posts to Formspree via `FORM_ENDPOINT` in `app.js`, with a
