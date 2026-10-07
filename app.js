@@ -215,7 +215,7 @@ const directions = {
   explore: {
     title: "Let’s work out where AI might help.",
     intro:
-      "You don’t need to know which tool, service, or project you need. We can look at the business and work out where an experiment would be worthwhile.",
+      "You don’t need to know which tool, service, or project you need. We can look at the business, work out where an experiment would be worthwhile, and set some working rules for how the team uses AI along the way.",
     examples: "Build or buy · A first experiment",
     question: "What has made you curious about AI?",
     next: "Talk through your situation, constraints, and ideas. Decide whether the next step is advice, an existing tool, a prototype, or a scoped project.",
