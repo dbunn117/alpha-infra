@@ -35,9 +35,15 @@ Python's http.server on port 5180; rebuild before reloading, nothing watches.
   previous site (`/book/`, `/services/coaching/`) are meta-refresh stubs
   written from the `redirects` list; add to that list rather than deleting a
   URL outright.
-- **Production head**: every page gets a canonical URL, `og:*` tags and the
-  social image. `verify.mjs` fails the build on any `noindex`, any "preview"
-  wording, or an em/en dash in visible copy.
+- **Production head**: every page gets a canonical URL, `og:*` tags, the
+  social image, and a JSON-LD graph (`ldScript` in `build.mjs`: the
+  organization, David as Person, the site, the page, plus per-page extras
+  such as Service and price on offer pages, FAQPage where a FAQ list renders,
+  Article on the Entec study, breadcrumbs). The build also writes
+  `robots.txt` (every crawler allowed, AI crawlers named) and `llms.txt` (a
+  plain-text summary generated from the same data). `verify.mjs` fails the
+  build on any `noindex`, any "preview" wording, an em/en dash in visible
+  copy, missing structured data, or a blocked crawler.
 - **Interactive pieces** (`app.js`): three homepage examples (account briefs
   and drafts, a variance drill-down, inbox sorting) with fictional data and
   prewritten outputs, inline detail states, and a Back control, the idea explorer (authored suggestions, no

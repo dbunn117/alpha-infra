@@ -20,14 +20,58 @@ const tag = (text) => `<span class="tag">${text}</span>`;
 const portrait = `<img src="/assets/david-bunn.jpg" alt="David Bunn" width="800" height="800" loading="lazy">`;
 const scheduler = "https://cal.com/david-bunn-eta21c/30min";
 const siteUrl = "https://alphainfra.us";
+const linkedinPerson = "https://www.linkedin.com/in/davidkcbunn";
+const linkedinCompany = "https://www.linkedin.com/company/alphainfra/";
+const plain = (s) => String(s).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const orgLd = {
+  "@type": "ProfessionalService",
+  "@id": siteUrl + "/#organization",
+  name: "Alpha Infra",
+  legalName: "Alpha Infra LLC",
+  url: siteUrl + "/",
+  logo: siteUrl + "/assets/alpha-infra-logo.svg",
+  image: siteUrl + "/assets/og.png",
+  description:
+    "Independent AI consulting and custom builds for businesses: custom tools and AI agents, reporting, workflow automation, practical help for teams, and structure around how AI gets used. Run by David Bunn in the San Francisco Bay Area.",
+  email: "david@alphainfra.us",
+  founder: { "@id": siteUrl + "/#david" },
+  foundingDate: "2026-07",
+  address: { "@type": "PostalAddress", addressRegion: "CA", addressCountry: "US" },
+  areaServed: ["San Francisco Bay Area", "United States", "Remote"],
+  priceRange: "$2,500 to $15,000",
+  sameAs: [linkedinPerson, linkedinCompany].filter(Boolean),
+  knowsAbout: ["AI consulting", "Custom AI tools", "AI agents", "Business reporting and dashboards", "Workflow automation", "AI adoption and governance", "Finance and operations"],
+};
+const personLd = {
+  "@type": "Person",
+  "@id": siteUrl + "/#david",
+  name: "David Bunn",
+  jobTitle: "Founder",
+  worksFor: { "@id": siteUrl + "/#organization" },
+  url: siteUrl + "/about/",
+  image: siteUrl + "/assets/david-bunn.jpg",
+  email: "david@alphainfra.us",
+  sameAs: [linkedinPerson],
+  description:
+    "Independent AI consultant and builder. Ten years in finance and operations at PwC, Major League Cricket, and Stockbridge Capital Group, now applied to practical AI tools and systems for businesses. CPA (inactive).",
+  knowsAbout: ["AI consulting", "Finance", "Operations", "Power BI", "Claude Code", "Workflow automation"],
+};
+const websiteLd = { "@type": "WebSite", "@id": siteUrl + "/#website", url: siteUrl + "/", name: "Alpha Infra", publisher: { "@id": siteUrl + "/#organization" } };
+const pageTypes = { "/about/": "ProfilePage", "/contact/": "ContactPage" };
+function ldScript(title, description, path, extra) {
+  const page = { "@type": pageTypes[path] || "WebPage", "@id": siteUrl + path + "#webpage", url: siteUrl + path, name: title, description, isPartOf: { "@id": siteUrl + "/#website" }, about: { "@id": siteUrl + "/#organization" } };
+  if (path === "/about/") page.mainEntity = { "@id": siteUrl + "/#david" };
+  const graph = { "@context": "https://schema.org", "@graph": [orgLd, personLd, websiteLd, page, ...extra] };
+  return `<script type="application/ld+json">${JSON.stringify(graph).replace(/</g, "\\u003c")}</script>`;
+}
 const cta = (
   title = "What are you<br>working on?",
   body = "You don’t need a technical brief. Tell me what you’re trying to do, and we’ll work out a sensible next step.",
 ) =>
   `<section class="cta-section"><div class="wrap cta-inner"><div>${eyebrow("LET’S TALK")}<h2>${title}</h2><p>${body}</p></div><div>${link("/contact/", "Tell me what you have in mind", "button blue")}</div></div></section>`;
-function layout(title, description, path, body) {
+function layout(title, description, path, body, ld = []) {
   const section = path.split("/")[1];
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} · Alpha Infra</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#f7f6f2"><link rel="canonical" href="${siteUrl}${path}"><meta property="og:type" content="website"><meta property="og:site_name" content="Alpha Infra"><meta property="og:url" content="${siteUrl}${path}"><meta property="og:title" content="${e(title)} · Alpha Infra"><meta property="og:description" content="${e(description)}"><meta property="og:image" content="${siteUrl}/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="/assets/mark.svg"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head><body><a href="#main" class="skip">Skip to content</a><header class="header"><div class="header-inner">${brand}<nav class="desktop-nav" aria-label="Main navigation">${[
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} · Alpha Infra</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#f7f6f2"><link rel="canonical" href="${siteUrl}${path}"><meta property="og:type" content="website"><meta property="og:site_name" content="Alpha Infra"><meta property="og:url" content="${siteUrl}${path}"><meta property="og:title" content="${e(title)} · Alpha Infra"><meta property="og:description" content="${e(description)}"><meta property="og:image" content="${siteUrl}/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="/assets/mark.svg"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>${ldScript(title, description, path, ld)}</head><body><a href="#main" class="skip">Skip to content</a><header class="header"><div class="header-inner">${brand}<nav class="desktop-nav" aria-label="Main navigation">${[
     ["services", "How I can help"],
     ["work", "Selected work"],
     ["about", "About David"],
@@ -381,6 +425,7 @@ const home = `<section class="home-hero wrap"><div class="hero-copy">${eyebrow("
 const offers = [
   {
     slug: "quick-win",
+    seoTitle: "A focused first AI build for your business",
     name: "A focused first build",
     legacy: "Quick Win",
     label: "START SMALL",
@@ -403,6 +448,7 @@ const offers = [
   },
   {
     slug: "system",
+    seoTitle: "Custom AI tools and systems for your business",
     name: "A custom tool or system",
     legacy: "Custom builds",
     label: "CUSTOM BUILD",
@@ -427,6 +473,7 @@ const offers = [
   },
   {
     slug: "strategy",
+    seoTitle: "AI opportunity sprint: decide what to build",
     name: "An AI opportunity sprint",
     legacy: "AI Opportunity Sprint",
     label: "GET CLEAR",
@@ -449,6 +496,7 @@ const offers = [
   },
   {
     slug: "ai-adoption",
+    seoTitle: "Put structure around AI: strategy, governance, and team enablement",
     name: "Structure around AI",
     legacy: "AI adoption support",
     label: "AI STRATEGY, GOVERNANCE & ENABLEMENT",
@@ -462,6 +510,7 @@ const offers = [
   },
   {
     slug: "workshops",
+    seoTitle: "AI workshops and practical help for your team",
     name: "Practical help for your team",
     legacy: "Team workshops",
     label: "MAKE IT PART OF THE WORK",
@@ -484,6 +533,7 @@ const offers = [
   },
   {
     slug: "care",
+    seoTitle: "Keep improving a custom AI build",
     name: "Keep improving it",
     legacy: "Alpha System Care",
     label: "OPTIONAL · AFTER A BUILD",
@@ -629,46 +679,84 @@ const redirects = [
   ["/book/", "/contact/"],
   ["/services/coaching/", "/services/"],
 ];
+const faqLd = (items) => ({
+  "@type": "FAQPage",
+  mainEntity: items.map(([q, a]) => ({ "@type": "Question", name: plain(q), acceptedAnswer: { "@type": "Answer", text: plain(a) } })),
+});
+const crumbs = (list) => ({
+  "@type": "BreadcrumbList",
+  itemListElement: list.map(([name, path], i) => ({ "@type": "ListItem", position: i + 1, name, item: siteUrl + path })),
+});
+const offerPrice = {
+  "quick-win": { "@type": "Offer", price: 2500, priceCurrency: "USD", description: "Fixed fee" },
+  system: { "@type": "Offer", priceSpecification: { "@type": "PriceSpecification", minPrice: 10000, maxPrice: 15000, priceCurrency: "USD" }, description: "Typical range" },
+  strategy: { "@type": "Offer", price: 7500, priceCurrency: "USD", description: "Fixed fee" },
+  workshops: { "@type": "Offer", priceSpecification: { "@type": "PriceSpecification", minPrice: 3500, priceCurrency: "USD" }, description: "From $3,500 for a half day; full days from $6,000" },
+  care: { "@type": "Offer", priceSpecification: { "@type": "PriceSpecification", minPrice: 1500, priceCurrency: "USD" }, description: "From $1,500 per month, for existing build clients" },
+};
+const serviceLd = (o) => ({
+  "@type": "Service",
+  "@id": siteUrl + "/services/" + o.slug + "/#service",
+  name: o.name,
+  serviceType: o.legacy,
+  description: plain(o.text),
+  url: siteUrl + "/services/" + o.slug + "/",
+  provider: { "@id": siteUrl + "/#organization" },
+  areaServed: ["United States", "Remote"],
+  ...(offerPrice[o.slug] ? { offers: offerPrice[o.slug] } : {}),
+});
+const offerFaqs = { system: [faqs[11], faqs[12], faqs[4]], care: [faqs[12], faqs[10]] };
 const pages = [
   [
     "/",
     "AI consulting and custom builds for your business",
     "Independent AI consultant and builder David Bunn helps businesses with custom tools, reporting, automation, practical AI guidance, and team enablement.",
     home,
+    [faqLd([faqs[0], faqs[6], faqs[7], faqs[11], faqs[8], faqs[9], faqs[10]])],
   ],
   [
     "/services/",
-    "How I can help",
+    "AI consulting services, fees, and timelines",
     "AI consulting, custom software, data and reporting, workflow automation, and practical support for your team.",
     services,
+    [
+      { "@type": "ItemList", name: "Ways to work together", itemListElement: offers.map((o, i) => ({ "@type": "ListItem", position: i + 1, name: o.name, url: siteUrl + "/services/" + o.slug + "/" })) },
+      faqLd(faqs),
+    ],
   ],
   [
     "/work/",
-    "Selected work",
+    "AI tools, reporting, and workflows I’ve built",
     "Explore working tools, reporting applications, and AI workflows built for commercial, finance, investment, and operational teams.",
     work,
+    [{ "@type": "ItemList", name: "Selected work", itemListElement: projects.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.title, ...(p.href ? { url: siteUrl + p.href } : {}) })) }],
   ],
   [
     "/work/entec/",
-    "Entec Sales Intelligence Hub",
+    "Entec sales intelligence hub: a custom AI build",
     "Inside a custom commercial system built with the owner of Entec Access Systems.",
     entec,
+    [
+      { "@type": "Article", "@id": siteUrl + "/work/entec/#article", headline: "A sales intelligence hub for Entec", description: "A custom commercial system built with the owner of Entec Access Systems, a 15-person UK services business, connecting SimPRO, Xero, and Outlook.", image: siteUrl + "/assets/entec-sales-hub.webp", datePublished: "2026-10-05", author: { "@id": siteUrl + "/#david" }, publisher: { "@id": siteUrl + "/#organization" }, about: { "@type": "Organization", name: "Entec Access Systems" }, mainEntityOfPage: siteUrl + "/work/entec/" },
+      crumbs([["Home", "/"], ["Selected work", "/work/"], ["Entec", "/work/entec/"]]),
+    ],
   ],
   [
     "/about/",
-    "Meet David Bunn",
+    "About David Bunn, independent AI consultant",
     "A decade in finance and operations, now applied to practical AI consulting and custom builds.",
     about,
   ],
   [
     "/contact/",
-    "Talk to David",
+    "Contact David Bunn about AI for your business",
     "Bring an idea, a business problem, or a question about AI. Book a conversation or prepare an email to David Bunn.",
     contact,
+    [faqLd([faqs[0], faqs[9], faqs[5]])],
   ],
   [
     "/explore/",
-    "Explore an idea",
+    "Explore where AI could help your business",
     "Find a starting point for a custom tool, reporting improvement, workflow, or practical AI engagement.",
     explore,
   ],
@@ -686,9 +774,10 @@ const pages = [
   ],
   ...offers.map((o) => [
     "/services/" + o.slug + "/",
-    o.title || o.name,
+    o.seoTitle || o.title || o.name,
     o.description || o.text,
     o.slug === "ai-adoption" ? adoptionPage(o) : offerPage(o),
+    [serviceLd(o), crumbs([["Home", "/"], ["How I can help", "/services/"], [o.name, "/services/" + o.slug + "/"]]), ...(offerFaqs[o.slug] ? [faqLd(offerFaqs[o.slug])] : [])],
   ]),
 ];
 await mkdir(join(out, "assets"), { recursive: true });
@@ -702,10 +791,10 @@ await Promise.all(
   ["styles.css", "app.js"].map((f) => copyFile(join(root, f), join(out, f))),
 );
 await writeFile(join(out, "projects.json"), JSON.stringify(projects, null, 2));
-for (const [path, title, description, body] of pages) {
+for (const [path, title, description, body, ld] of pages) {
   const file = join(out, path, "index.html");
   await mkdir(dirname(file), { recursive: true });
-  await writeFile(file, layout(title, description, path, body));
+  await writeFile(file, layout(title, description, path, body, ld));
 }
 await writeFile(
   join(out, "404.html"),
@@ -730,6 +819,53 @@ await writeFile(
     .map(([path]) => `  <url><loc>${siteUrl}${path}</loc></url>`)
     .join("\n")}\n</urlset>\n`,
 );
-await writeFile(join(out, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
+await writeFile(
+  join(out, "robots.txt"),
+  ["*", "Googlebot", "Bingbot", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "anthropic-ai", "PerplexityBot", "Applebot-Extended"]
+    .map((ua) => `User-agent: ${ua}\nAllow: /\n`)
+    .join("\n") + `\nSitemap: ${siteUrl}/sitemap.xml\n`,
+);
+await writeFile(
+  join(out, "llms.txt"),
+  `# Alpha Infra
+
+> Independent AI consulting and custom builds for businesses, run by David Bunn in the San Francisco Bay Area. Alpha Infra LLC, founded July 2026. Site: ${siteUrl}
+
+David helps businesses work out where AI is worth using, then gets it working: custom tools and AI agents, better reporting, workflow automation, practical help for teams, and structure around how AI gets used. Most of what he builds is ordinary software around the business's own data and rules, with AI where interpretation helps, handed over in accounts the client owns. Before this he spent ten years in finance and operations at PwC, Major League Cricket, and Stockbridge Capital Group. CPA (inactive).
+
+## Ways to help
+
+${helpAreas.map((a) => `- ${a.title}: ${plain(a.detail)}`).join("\n")}
+
+## Ways to work together (fees in USD)
+
+${offers.map((o) => `- ${o.name} (${o.legacy}): ${o.price} ${o.suffix}; ${o.time}. ${plain(o.text)} ${siteUrl}/services/${o.slug}/`).join("\n")}
+
+Hosting, model usage, and other third-party costs are discussed separately before a build.
+
+## Selected work
+
+- Entec Access Systems sales intelligence hub: a custom commercial system built with the owner of a 15-person UK services business, connecting SimPRO, Xero, and Outlook so he can track key accounts, follow up inquiries, and prioritize the next commercial action. In daily use since July 2026. ${siteUrl}/work/entec/
+- Portfolio of professional and independent work: ${siteUrl}/work/
+- Hermes, three personal AI agents (admin, health, parenting): ${siteUrl}/hermes/
+
+## Practical questions
+
+${faqs.map(([q, a]) => `- ${plain(q)} ${plain(a)}`).join("\n")}
+
+## Pages
+
+${pages.map(([path, title]) => `- ${title}: ${siteUrl}${path}`).join("\n")}
+
+## Contact
+
+- Email: david@alphainfra.us
+- Book a 30-minute discovery call: ${scheduler}
+- LinkedIn: ${linkedinPerson}
+`,
+);
 await writeFile(join(out, "CNAME"), "alphainfra.us\n");
+// Google Search Console ownership file (URL-prefix property, HTML-file method).
+const googleVerification = "googlefb1fb962a2359c65";
+await writeFile(join(out, googleVerification + ".html"), `google-site-verification: ${googleVerification}.html`);
 console.log(`Built ${pages.length} pages in ${out}`);

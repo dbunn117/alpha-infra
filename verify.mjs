@@ -8,7 +8,7 @@ async function files(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   return (await Promise.all(entries.map(e => e.isDirectory() ? files(join(dir, e.name)) : join(dir, e.name)))).flat();
 }
-const htmlFiles = (await files(root)).filter(f => f.endsWith(".html"));
+const htmlFiles = (await files(root)).filter(f => f.endsWith(".html") && !/\/google[0-9a-f]+\.html$/.test(f));
 let references = 0;
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
@@ -44,7 +44,22 @@ for (const file of htmlFiles) {
   }
 }
 assert.equal((await readFile(join(root, "CNAME"), "utf8")).trim(), "alphainfra.us");
-assert.match(await readFile(join(root, "robots.txt"), "utf8"), /Allow: \/\nSitemap: https:\/\/alphainfra\.us\/sitemap\.xml/);
+const robots = await readFile(join(root, "robots.txt"), "utf8");
+assert.match(robots, /User-agent: \*\nAllow: \//, "robots: everyone allowed");
+assert.match(robots, /Sitemap: https:\/\/alphainfra\.us\/sitemap\.xml/, "robots: sitemap");
+assert.doesNotMatch(robots, /Disallow/, "robots: nothing blocked");
+const llms = await readFile(join(root, "llms.txt"), "utf8");
+assert.match(llms, /^# Alpha Infra/, "llms.txt: heading");
+assert.doesNotMatch(llms, /[\u2013\u2014]/, "llms.txt: no em or en dashes");
+for (const file of htmlFiles) {
+  const html = await readFile(file, "utf8");
+  if (html.includes("data-redirect")) continue;
+  const page = relative(root, file);
+  const ld = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
+  assert.ok(ld, page + ": structured data present");
+  const graph = JSON.parse(ld[1]);
+  assert.ok(Array.isArray(graph["@graph"]) && graph["@graph"].length >= 4, page + ": structured data graph");
+}
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
