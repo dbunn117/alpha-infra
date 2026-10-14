@@ -1,4 +1,5 @@
 const $ = (s) => document.querySelector(s);
+const ARROW = '<span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M3.5 12.5 12.5 3.5M5.5 3.5h7v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 const escapeHTML = (s) =>
   String(s).replace(
@@ -456,7 +457,7 @@ function renderExplorer() {
     "interest-" + draft.interest,
   );
   $("#explorer-panel").innerHTML =
-    `<p class="eyebrow">A POSSIBLE DIRECTION</p><h3>${d.title}</h3><p>${d.intro}</p><div class="suggestion-examples">${d.examples}</div><label for="idea-context">${d.question} <span>(optional)</span></label><textarea id="idea-context" maxlength="2000" placeholder="A sentence or two is plenty…">${escapeHTML(draft.notes[draft.interest] || "")}</textarea><div class="explorer-actions"><button class="button blue" id="prepare-idea">Shape a starting point <span aria-hidden="true">↗</span></button><button class="quiet-button" id="reset-idea">Start over</button></div>`;
+    `<p class="eyebrow">A POSSIBLE DIRECTION</p><h3>${d.title}</h3><p>${d.intro}</p><div class="suggestion-examples">${d.examples}</div><label for="idea-context">${d.question} <span>(optional)</span></label><textarea id="idea-context" maxlength="2000" placeholder="A sentence or two is plenty…">${escapeHTML(draft.notes[draft.interest] || "")}</textarea><div class="explorer-actions"><button class="button blue" id="prepare-idea">Shape a starting point ${ARROW}</button><button class="quiet-button" id="reset-idea">Start over</button></div>`;
 }
 function selectInterest(b) {
   draft.interest = b.dataset.interest;
@@ -488,7 +489,7 @@ $("#explorer-panel")?.addEventListener("click", (e) => {
   if (e.target.closest("#prepare-idea")) {
     const d = directions[draft.interest];
     showDialog(
-      `<p class="eyebrow">YOUR STARTING POINT</p><h2 id="dialog-title">${d.title}</h2><p>${d.intro}</p>${draft.notes[draft.interest] ? `<h3>Your context</h3><p class="draft-context">${escapeHTML(draft.notes[draft.interest])}</p>` : ""}<div class="dialog-fact"><h3>A useful next step</h3><p>${d.next}</p></div><div class="dialog-fact"><h3>Something to explore</h3><p>${d.related}</p><a href="/work/" class="text-link">See the work <span aria-hidden="true">↗</span></a></div><div class="dialog-actions"><a href="/contact/?interest=${draft.interest}&draft=1" class="button blue">Talk this through with David <span aria-hidden="true">↗</span></a><button class="button" id="copy-idea">Copy this starting point</button></div><p class="small-note" style="margin-top:18px;font-size:11px">A suggested direction based on your selections. We’ll agree scope and cost after understanding the job.</p>`,
+      `<p class="eyebrow">YOUR STARTING POINT</p><h2 id="dialog-title">${d.title}</h2><p>${d.intro}</p>${draft.notes[draft.interest] ? `<h3>Your context</h3><p class="draft-context">${escapeHTML(draft.notes[draft.interest])}</p>` : ""}<div class="dialog-fact"><h3>A useful next step</h3><p>${d.next}</p></div><div class="dialog-fact"><h3>Something to explore</h3><p>${d.related}</p><a href="/work/" class="text-link">See the work ${ARROW}</a></div><div class="dialog-actions"><a href="/contact/?interest=${draft.interest}&draft=1" class="button blue">Talk this through with David ${ARROW}</a><button class="button" id="copy-idea">Copy this starting point</button></div><p class="small-note" style="margin-top:18px;font-size:11px">A suggested direction based on your selections. We’ll agree scope and cost after understanding the job.</p>`,
     );
   }
 });
@@ -523,7 +524,7 @@ document.addEventListener("click", async (e) => {
       if (!p) return;
       const interest = projectInterest(p.cat);
       showDialog(
-        `<p class="eyebrow">${escapeHTML(p.type)} · ${escapeHTML(p.label)}</p><h2 id="dialog-title">${escapeHTML(p.title)}</h2><p>${escapeHTML(p.detail)}</p>${p.problem ? `<div class="dialog-fact"><h3>The problem</h3><p>${escapeHTML(p.problem)}</p></div>` : ""}<div class="dialog-fact"><h3>The starting material</h3><p>${escapeHTML(p.input)}</p></div><div class="dialog-fact"><h3>What got built</h3><p>${escapeHTML(p.output)}</p></div><div class="dialog-actions">${p.external ? `<a href="${escapeHTML(p.external)}" class="button" target="_blank" rel="noopener noreferrer">Explore the project <span aria-hidden="true">↗</span></a>` : ""}<a href="/contact/?interest=${interest}" class="button blue">Talk about something similar <span aria-hidden="true">↗</span></a></div>`,
+        `<p class="eyebrow">${escapeHTML(p.type)} · ${escapeHTML(p.label)}</p><h2 id="dialog-title">${escapeHTML(p.title)}</h2><p>${escapeHTML(p.detail)}</p>${p.problem ? `<div class="dialog-fact"><h3>The problem</h3><p>${escapeHTML(p.problem)}</p></div>` : ""}<div class="dialog-fact"><h3>The starting material</h3><p>${escapeHTML(p.input)}</p></div><div class="dialog-fact"><h3>What got built</h3><p>${escapeHTML(p.output)}</p></div><div class="dialog-actions">${p.external ? `<a href="${escapeHTML(p.external)}" class="button" target="_blank" rel="noopener noreferrer">Explore the project ${ARROW}</a>` : ""}<a href="/contact/?interest=${interest}" class="button blue">Talk about something similar ${ARROW}</a></div>`,
       );
     } catch {
       toast("The project details could not load. Please try again.");
@@ -619,7 +620,7 @@ if (contactForm) {
 const FORM_ENDPOINT = "https://formspree.io/f/xljggbpy";
 if (contactForm && FORM_ENDPOINT) {
   contactForm.querySelector(".form-actions button").innerHTML =
-    'Send message <span aria-hidden="true">↗</span>';
+    'Send message ' + ARROW;
   contactForm.querySelector(".form-actions > span").textContent =
     "Goes straight to David. Nothing else happens with it.";
 }

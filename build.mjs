@@ -12,7 +12,7 @@ const e = (s) =>
       ],
   );
 const brand = `<a class="brand" href="/" aria-label="Alpha Infra home"><img class="brand-logo" src="/assets/alpha-infra-logo.svg" alt="" width="344" height="96"></a>`;
-const arrow = '<span aria-hidden="true">↗</span>';
+const arrow = '<span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M3.5 12.5 12.5 3.5M5.5 3.5h7v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
 const link = (href, text, cls = "button") =>
   `<a class="${cls}" href="${href}">${text}${arrow}</a>`;
 const eyebrow = (text) => `<p class="eyebrow">${text}</p>`;

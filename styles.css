@@ -161,6 +161,19 @@ summary:focus-visible {
   font-size: 19px;
   font-weight: 400;
 }
+.arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.1em;
+}
+.arrow svg {
+  display: block;
+  width: 0.78em;
+  height: 0.78em;
+}
 .text-link {
   display: inline-flex;
   gap: 15px;
