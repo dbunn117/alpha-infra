@@ -44,6 +44,10 @@ Python's http.server on port 5180; rebuild before reloading, nothing watches.
   plain-text summary generated from the same data). `verify.mjs` fails the
   build on any `noindex`, any "preview" wording, an em/en dash in visible
   copy, missing structured data, or a blocked crawler.
+- **Analytics**: Cloudflare Web Analytics, switched on by setting
+  `cloudflareAnalyticsToken` in `build.mjs`. Empty token means no script and
+  the privacy page says the site has no analytics; a token adds the beacon and
+  the privacy wording changes to match. No other trackers.
 - **Interactive pieces** (`app.js`): three homepage examples (account briefs
   and drafts, a variance drill-down, inbox sorting) with fictional data and
   prewritten outputs, inline detail states, and a Back control, the idea explorer (authored suggestions, no
