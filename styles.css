@@ -1480,6 +1480,26 @@ details > div {
   display: block;
   margin-top: 15px;
 }
+.step-outcome {
+  font-size: 13px;
+  color: #627450;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+.step-outcome span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.resource-list .service-area h2 a:hover {
+  color: var(--blue);
+}
+.credits a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .tinted {
   background: var(--soft);
   border-block: 1px solid var(--line);
@@ -2539,6 +2559,10 @@ dialog.image-dialog img {
   }
   .service-area {
     grid-template-columns: 30px 1fr;
+  }
+  .service-area .step-outcome {
+    grid-column: 2;
+    margin-top: 0;
   }
   .service-area .text-link {
     grid-column: 2;
