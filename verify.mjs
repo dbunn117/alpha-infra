@@ -79,4 +79,10 @@ assert.match(systemPage, /not a client case study/, "Hypothetical agent example 
 assert.match(systemPage, /data-project="hermes"/, "Agent offering links to the independent project");
 assert.equal(projects.find(p => p.id === "hermes").type, "INDEPENDENT PROJECT");
 assert.match(await readFile(join(root, "services/index.html"), "utf8"), /custom AI agents/);
+const resourcesPage = await readFile(join(root, "resources/index.html"), "utf8");
+assert.match(resourcesPage, /href="\/resources\/how-a-build-runs\/"/, "Resources index links the build write-up");
+const buildPage = await readFile(join(root, "resources/how-a-build-runs/index.html"), "utf8");
+assert.match(buildPage, /Vermeer/, "Build write-up credits its source");
+assert.match(buildPage, /decisions file/, "Build write-up explains the decisions file");
+assert.equal((buildPage.match(/class="service-area"/g) || []).length, 7, "Build write-up has seven steps");
 console.log("PASS: " + htmlFiles.length + " HTML documents, " + references + " internal references, 14 project records.");

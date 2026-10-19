@@ -81,6 +81,7 @@ function layout(title, description, path, body, ld = []) {
     ["services", "How I can help"],
     ["work", "Selected work"],
     ["about", "About David"],
+    ["resources", "Resources"],
   ]
     .map(
       ([slug, label]) =>
@@ -88,7 +89,7 @@ function layout(title, description, path, body, ld = []) {
     )
     .join(
       "",
-    )}</nav>${link("/contact/", "Let’s talk", "button small header-cta")}<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="/services/">How I can help</a><a href="/work/">Selected work</a><a href="/about/">About David</a><a href="/explore/">Explore an idea</a><a href="/contact/">Let’s talk</a></nav></header><main id="main">${body}</main><footer class="footer wrap"><div class="footer-top"><div>${brand}<p>Independent AI consulting.<br>Advice and software for your business.</p></div><nav aria-label="Footer"><a href="/services/">How I can help</a><a href="/work/">Selected work</a><a href="/about/">About David</a><a href="/explore/">Explore an idea</a><a href="/contact/">Contact</a></nav><div class="footer-contact"><a href="mailto:david@alphainfra.us">david@alphainfra.us</a><a href="https://www.linkedin.com/in/davidkcbunn" target="_blank" rel="noopener noreferrer">LinkedIn ${arrow}</a><span>Based in the San Francisco Bay Area</span></div></div><div class="footer-bottom"><span>© 2026 Alpha Infra LLC</span><a href="/privacy/">Privacy</a></div></footer><dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close dialog">×</button><div id="dialog-content"></div></dialog><div class="toast" role="status" hidden></div>${analyticsScript}</body></html>`;
+    )}</nav>${link("/contact/", "Let’s talk", "button small header-cta")}<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="/services/">How I can help</a><a href="/work/">Selected work</a><a href="/about/">About David</a><a href="/resources/">Resources</a><a href="/explore/">Explore an idea</a><a href="/contact/">Let’s talk</a></nav></header><main id="main">${body}</main><footer class="footer wrap"><div class="footer-top"><div>${brand}<p>Independent AI consulting.<br>Advice and software for your business.</p></div><nav aria-label="Footer"><a href="/services/">How I can help</a><a href="/work/">Selected work</a><a href="/about/">About David</a><a href="/resources/">Resources</a><a href="/explore/">Explore an idea</a><a href="/contact/">Contact</a></nav><div class="footer-contact"><a href="mailto:david@alphainfra.us">david@alphainfra.us</a><a href="https://www.linkedin.com/in/davidkcbunn" target="_blank" rel="noopener noreferrer">LinkedIn ${arrow}</a><span>Based in the San Francisco Bay Area</span></div></div><div class="footer-bottom"><span>© 2026 Alpha Infra LLC</span><a href="/privacy/">Privacy</a></div></footer><dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close dialog">×</button><div id="dialog-content"></div></dialog><div class="toast" role="status" hidden></div>${analyticsScript}</body></html>`;
 }
 const helpAreas = [
   {
@@ -681,6 +682,54 @@ const hermes = `<section class="page-intro wrap"><a class="breadcrumb" href="/wo
       `<article class="project-card"><div class="project-card-content"><div class="project-meta"><span>${role}</span><span>INDEPENDENT PROJECT</span></div><h3>${name}</h3><p>${text}</p><p class="small-note">${tools.join(" · ")}</p>${href ? `<a class="text-link" href="${href}" target="_blank" rel="noopener noreferrer">See it running ${arrow}</a>` : ""}</div></article>`,
   )
   .join("")}</div></section>${cta("Want an agent like this<br>for your business?", "The same pattern, built around your information and your approvals.")}`;
+const buildSteps = [
+  [
+    "Your idea, in your words",
+    "You describe what you want in plain language. A paragraph is enough. No specification, no technical detail, and no decisions about how it should work yet. The point is to record the intent and the reason behind it.",
+    "A short written brief, in your own words, that everything else refers back to.",
+  ],
+  [
+    "Questions until nothing is ambiguous",
+    "The AI restates the goal, lists its assumptions and the things it doesn’t know, and asks questions until the goal and the constraints are clear. I sit on your side of this conversation. Most projects that go wrong go wrong here, long before any code, so this step is allowed to take time.",
+    "A clarified brief and the first entries in the decisions file.",
+  ],
+  [
+    "Options, with trade-offs",
+    "Where there is more than one sensible way to build it, we look at several. Simple or flexible. Connect to the existing system or replace it. A person approves every step, or only the exceptions. We pick a direction on purpose.",
+    "A short brainstorm document and a chosen approach, recorded in the decisions file.",
+  ],
+  [
+    "A spec you can read",
+    "The chosen direction becomes a specification: what it does, what it deliberately doesn’t do, what data it uses and who owns it, and the acceptance criteria that will decide whether it works. Written so you can read it and correct anything I assumed.",
+    "The specification, with acceptance criteria you signed off.",
+  ],
+  [
+    "The work, in small pieces",
+    "The spec is split into tickets: small, ordered pieces of work that can each be built, tested, and reviewed on their own. You can see what is done, what is next, and what depends on what.",
+    "A numbered list of tickets, each with its own acceptance criteria.",
+  ],
+  [
+    "Review before building",
+    "Before any code, the spec and tickets are reviewed from several angles: an architect’s view of how the pieces fit, a security view of access and data, and a product view of whether this is what you actually asked for. Concerns go back into the spec. After a big change, we review again.",
+    "A written review and an updated spec, so the expensive mistakes are caught on paper.",
+  ],
+  [
+    "Build, test, review, repeat",
+    "One ticket at a time. Tests are written first, the code is written to pass them, the result is reviewed, and the ticket is committed before the next one starts. You see working versions as the project takes shape, and we check every acceptance criterion before calling it done.",
+    "Working software in accounts you control, a test suite, and a decisions file that explains it.",
+  ],
+];
+const buildKeeps = [
+  ["The decisions file", "Every non-obvious choice, the question it answered, and what it cost. It stays with the project and with you. Whoever picks the work up later starts from the answers."],
+  ["Visible progress", "Tickets make the work legible. You can see what is built, what is next, and what is waiting on a decision from you."],
+  ["Mistakes caught on paper", "The architecture, security, and product reviews happen before code exists, where a change costs a conversation."],
+  ["Software you own", "The result lives in accounts you control, with the tests and the documentation. Handover is part of the build."],
+];
+const howABuildRuns = `<section class="page-intro wrap"><a class="breadcrumb" href="/resources/">Resources / How a build runs</a>${eyebrow("HOW I BUILD")}<h1>How a build runs,<br><em>step by step.</em></h1><p>What happens between “I have an idea” and working software in an account you control. This is the sequence I follow when I build with AI coding tools, written for the person commissioning the work.</p></section><section class="section wrap case-narrative"><div>${eyebrow("THE SHORT VERSION")}<h2>Most of the effort<br>happens before code.</h2></div><div><p>AI coding tools can write software fast. What they can’t know is what your business means by “key account”, which exceptions matter, or what “done” looks like for you. So the first six steps below get those answers written down, and only the seventh starts building.</p><p>Each step ends with the same instruction to the AI: ask clarifying questions until nothing is ambiguous. Each step also adds to a decisions file. By the time code is written, you can see every choice we made, the question it answered, and why.</p><p>I adapted this from a workflow published by Edwin Vermeer, a Dutch developer who used it to ship a mobile game in about four weeks of evenings and weekends. His version is written for developers. This one is written for you. The credits are at the bottom of the page.</p></div></section><section class="wrap service-areas build-steps">${buildSteps.map(([t, body, get], i) => `<article class="service-area"><span class="item-number">0${i + 1}</span><div><h2>${t}</h2><p>${body}</p></div><p class="step-outcome"><span>WHAT YOU GET</span>${get}</p></article>`).join("")}</section><section class="section tinted"><div class="wrap"><div class="section-heading"><div>${eyebrow("WHAT THIS MEANS FOR YOU")}<h2>Four things you keep.</h2></div><p>The software is the obvious result. These four are what make it maintainable after I step back.</p></div><div class="process-grid">${buildKeeps.map(([t, p], i) => `<article><span>0${i + 1}</span><h3>${t}</h3><p>${p}</p></article>`).join("")}</div></div></section><section class="section wrap case-narrative"><div>${eyebrow("WHERE AI SITS")}<h2>AI writes the code.<br>The rules are yours.</h2></div><div><p>The AI does the typing: it drafts the spec, splits the tickets, writes the tests and the code, and reviews its own work. The judgment comes from you and from me: what matters, how it’s calculated, and what should happen next.</p><p>Inside the software, the same split holds. Ordinary code handles the calculations, matching, and rules. AI handles the parts that benefit from interpretation, such as reading a document or summarizing a conversation.</p>${link("/services/system/", "What a custom build includes", "text-link")}</div></section><section class="section wrap case-narrative credits"><div>${eyebrow("CREDITS AND SOURCES")}<h2>Where this comes from.</h2></div><div><p>The sequence is adapted from Edwin Vermeer’s agentic coding workflow, published in his <a href="https://github.com/evermeer/CodingAgentOrchestration" target="_blank" rel="noopener noreferrer">CodingAgentOrchestration</a> guide and used to build <a href="https://github.com/evermeer/Quadrim" target="_blank" rel="noopener noreferrer">Quadrim</a>, an open-source game. His repositories include every prompt he used and a decisions log that ran to several hundred entries.</p><p>The steps lean on four open skill packs for Claude Code: <a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">Superpowers</a> (brainstorming, test-first development, verification), <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer">Matt Pocock’s skills</a> (specs, tickets, implementation, code review), <a href="https://github.com/msitarzewski/agency-agents-app" target="_blank" rel="noopener noreferrer">Agency Agents</a> (the architect, security, and product reviewers), and Anthropic’s <a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener noreferrer">Knowledge Work plugins</a>.</p><p>The adaptation for a business reader, and the “what you get” at each step, are mine.</p></div></section>${cta("Have an idea that<br>could become a tool?", "Tell me about it in a few words. Step one is the one above: your idea, in your words.")}`;
+const resourcesList = [
+  ["/resources/how-a-build-runs/", "HOW I BUILD", "How a build runs, step by step", "What happens between “I have an idea” and working software in an account you control. Seven steps, what you get at each one, and why most of the effort happens before any code."],
+];
+const resources = `<section class="page-intro wrap">${eyebrow("RESOURCES")}<h1>Notes on how<br><em>the work gets done.</em></h1><p>Short, practical write-ups on how I build and how AI fits into a business. Written for owners and operators rather than developers.</p></section><section class="wrap service-areas resource-list">${resourcesList.map(([href, kicker, title, text], i) => `<article class="service-area"><span class="item-number">0${i + 1}</span><div>${eyebrow(kicker)}<h2><a href="${href}">${title}</a></h2><p>${text}</p></div>${link(href, "Read the write-up", "text-link")}</article>`).join("")}</section><section class="wrap exploration-note"><p>More will be added as the work produces them. If you’d like a write-up on something in particular, <a href="/contact/">ask</a>.</p></section>${cta()}`;
 const redirects = [
   ["/book/", "/contact/"],
   ["/services/coaching/", "/services/"],
@@ -771,6 +820,26 @@ const pages = [
     "Hermes: three personal AI agents",
     "Three personal agents sharing one pattern: durable memory, proactive outreach, and approval before anything consequential happens.",
     hermes,
+  ],
+  [
+    "/resources/",
+    "Resources: notes on how the work gets done",
+    "Short, practical write-ups on how David Bunn builds with AI and how it fits into a business, written for owners and operators.",
+    resources,
+    [
+      { "@type": "ItemList", name: "Resources", itemListElement: resourcesList.map(([href, , title], i) => ({ "@type": "ListItem", position: i + 1, name: title, url: siteUrl + href })) },
+      crumbs([["Home", "/"], ["Resources", "/resources/"]]),
+    ],
+  ],
+  [
+    "/resources/how-a-build-runs/",
+    "How a build runs, step by step",
+    "The seven-step sequence David Bunn follows when building software with AI coding tools: idea, questions, options, spec, tickets, review, then build. What you get at each step.",
+    howABuildRuns,
+    [
+      { "@type": "Article", "@id": siteUrl + "/resources/how-a-build-runs/#article", headline: "How a build runs, step by step", description: "The seven-step sequence behind an Alpha Infra build with AI coding tools, written for the person commissioning the work.", datePublished: "2026-10-19", author: { "@id": siteUrl + "/#david" }, publisher: { "@id": siteUrl + "/#organization" } },
+      crumbs([["Home", "/"], ["Resources", "/resources/"], ["How a build runs", "/resources/how-a-build-runs/"]]),
+    ],
   ],
   [
     "/privacy/",

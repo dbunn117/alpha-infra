@@ -31,7 +31,10 @@ Python's http.server on port 5180; rebuild before reloading, nothing watches.
   never touch `app.js` or `styles.css`.
 - **Routes**: `/`, `/services/` plus `/services/{quick-win,system,strategy,
   ai-adoption,workshops,care}/`, `/work/`, `/work/entec/`, `/hermes/`, `/about/`,
-  `/contact/`, `/explore/`, `/privacy/`, `404.html`. Retired routes from the
+  `/resources/`, `/resources/how-a-build-runs/`, `/contact/`, `/explore/`,
+  `/privacy/`, `404.html`. Resources are the `resourcesList` records plus one
+  template const per write-up (`howABuildRuns`), listed in the header, mobile,
+  and footer navs. Retired routes from the
   previous site (`/book/`, `/services/coaching/`) are meta-refresh stubs
   written from the `redirects` list; add to that list rather than deleting a
   URL outright.
