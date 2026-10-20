@@ -911,6 +911,79 @@ const guides = [
     ],
     credits: "<p>This is the pattern behind <a href=\"/hermes/\">Scout, Heath, and Paula</a>, the three personal agents described on this site, which have run on <a href=\"https://github.com/NousResearch/hermes-agent\" target=\"_blank\" rel=\"noopener noreferrer\">Hermes Agent</a> by Nous Research with an Obsidian vault as memory since mid-2026. The identity file shape, the ownership note, the filing rules, and the job card are the real ones, with names and paths generalised.</p><p>Two ideas are borrowed with thanks: the GTD capture, clarify, organise loop and the PARA folder structure inform how captured notes move through the vault, and the companion guide on hiring an AI employee, adapted from Linas Beliūnas, supplies the probation and promotion steps this pattern was missing.</p>",
   },
+  {
+    slug: "build-a-second-brain-your-ai-can-read",
+    kicker: "GUIDE 04",
+    title: "Build a second brain<br><em>your AI can read.</em>",
+    plainTitle: "Build a second brain your AI can read",
+    short: "Set up a notes vault that both you and your AI tools can read, write, and trust: one front door, folders in reading order, names you will find next month, metadata on every note, and a lifecycle rule so it stays current. Ten steps with the templates included.",
+    lead: "A step-by-step method for setting up a personal knowledge base that works for two readers at once: you, and the AI tools and agents you give access to. Plain text in a folder you own, one front door every tool is told to read first, a small set of naming rules, metadata on every note, and a habit that keeps it current instead of letting it grow. The structure in this guide is the one behind the notes vault that the agents on the Hermes page of this site run on.",
+    time: "An afternoon to set up, a week of use to settle the folders",
+    audience: "Anyone who wants their notes to be the thing their AI knows about them, rather than a chat history. No technical background needed beyond installing a notes app.",
+    needs: [
+      "A notes app that stores each note as a plain Markdown file on disk. <a href=\"https://obsidian.md\" target=\"_blank\" rel=\"noopener noreferrer\">Obsidian</a> is the reference setup and is free for personal use; its Bases feature is used in step ten. Any app that keeps real files in a folder will do.",
+      "A way to sync the folder between your devices and, if you run agents, the machine they run on. Obsidian Sync, iCloud Drive, Dropbox, or a git repository all work.",
+      "At least one AI tool that can read files in a folder: Claude Code, a desktop AI app with file access, or a personal agent set up with the companion guide on memory and limits.",
+      "An hour you are willing to spend writing about yourself in step seven. That is the part no tool can do for you.",
+    ],
+    steps: [
+      {
+        title: "Put everything in plain text, in one folder you own",
+        body: "<p>The whole method rests on one choice: your notes are Markdown files in a folder on your own disk, synced between your devices. Not a product’s database, not a chat history, not a “memory” feature inside an AI app. A folder of text files can be read by any tool, searched by any agent, backed up anywhere, and moved to a different app in an afternoon.</p><p>Create the vault, turn on sync, and open it on your second device to confirm the files appear. If you run an agent on a server, install the sync client there too, so the agent and you read and write the same files.</p>",
+        have: ["An empty vault, synced, open on two devices."],
+      },
+      {
+        title: "Build one front door",
+        body: "<p>Every knowledge base needs exactly one entry point, and every AI tool you connect will be told to read it first. Call it Home Base. It holds your current situation in a paragraph, a map of the top-level folders and what each holds, your daily rhythm, start-here links for each area, your priorities for the week, and the links to the rules in step ten.</p><p>Keep it to one screen. Home Base is a map, not a place where content lives. If you find yourself writing paragraphs there, they belong in a note it links to.</p>",
+        prompt: "# Home Base\n\nThe single entry point for the vault. Everything else is one click from here.\n\n## Current operating context\n[Two or three sentences on where your life and work are right now. Update it when it changes.]\n\n## The map\n| Folder | Holds |\n|---|---|\n| 01 Daily Notes | one note per day |\n| 02 Personal | family, home, admin, media, recipes |\n| 03 Health | health records, plans, measurements |\n| 04 [Area] | ... |\n| 06 Work | career, bio, credentials |\n| 07 [Business] | the business: offers, clients, admin |\n| 99 System | the vault's own rules and history |\n\n## Daily rhythm\n- [[_Daily Note Template|Daily note]], filed as YYYY-MM-DD.md in 01 Daily Notes\n\n## Start here\n### Personal\n- [[00 About Me Index]]\n### Work\n- [[Career Direction]]\n\n## Weekly priorities\n1.\n2.\n3.\n\n## Vault maintenance\n- [[Naming and Filing Conventions]] (read before creating a note)\n- [[Tag Taxonomy]]\n- [[Vault Health]] (live view of everything by status)",
+        have: ["<code>Home Base.md</code> at the root of the vault, one screen long."],
+      },
+      {
+        title: "Number folders only when order matters, always with two digits",
+        body: "<p>Top-level folders get a two-digit number in the order you want to read them: <code>01 Daily Notes</code>, <code>02 Personal</code>, <code>03 Health</code>, and so on, with <code>99 System</code> last, because the vault’s own rules are infrastructure and should sit out of the way. Folders inside a stage-based workflow get numbers too, because the number is the sequence.</p><p>Topic folders inside an area (Ideas, Recipes, Strategy) get no number, so they sort alphabetically. Two digits everywhere, no single-digit prefixes, so there is one rule to remember.</p><p>Do not create an inbox folder. Capture-then-sort only works if the sort happens, and in practice it does not. File things where they belong the moment you capture them.</p>",
+        have: ["Your top-level folders, numbered in reading order, with no inbox."],
+      },
+      {
+        title: "Give each kind of note one word for its job",
+        body: "<p>A knowledge base rots when every hub invents its own name. Pick one word per job and retire the rest.</p><ul class=\"dot-list\"><li><b>Home Base</b>: the one root entry point. Exactly one in the vault.</li><li><b>00 [Area] Index</b>: a folder’s contents list. It lists and does not explain. One per folder that needs one.</li><li><b>00 [System] Home</b>: a system with rules and a workflow. It explains what each sibling file is for. One per system.</li></ul><p>Both carry the <code>00</code> prefix so a folder’s front door always sorts first; nobody should have to hunt for a folder’s own entry point. Words like Hub, Dashboard, Panel, and Vault are retired as entry-point names. Dashboard keeps its literal meaning for a note about a real built dashboard.</p>",
+        have: ["An Index or Home note at the top of each folder that needs one, and no other hub words in use."],
+      },
+      {
+        title: "Name notes so you would find them next month",
+        body: "<p>The test for any note name: what is this, and why would I search for it next month? A few rules cover almost everything.</p><ul class=\"dot-list\"><li><b>Date as a suffix</b> for topic notes that happen to be dated: <code>Costco Receipt - 2026-07-24</code>, <code>Agreement Review - 2026-08-01</code>. You will browse these by topic.</li><li><b>Date as a prefix</b> for logs where the date is the identity: <code>2026-08-03.md</code> for a daily note, <code>2026-08-03 Podcast Digest</code>. You will only ever browse these by date.</li><li><b>Area prefixes</b> for operating notes: <code>[Business] - Tax and Admin Questions</code>.</li><li><b>Person notes</b> are <code>First Last</code>, or <code>First Last - Company</code> when the company disambiguates.</li><li><b>A leading underscore</b> for templates, so they sort above real notes: <code>_Daily Note Template</code>.</li></ul>",
+        have: ["The naming rules written into a short Naming and Filing Conventions note in 99 System."],
+      },
+      {
+        title: "Put metadata on every note, from the moment it is written",
+        body: "<p>Every note starts with a small block of metadata (frontmatter). Folders are the primary filing system; metadata adds the cross-cutting context that tools can filter on. The minimum is three fields: tags, the date created, and a status.</p><p>Give each key exactly one meaning. A single status field that tries to carry lifecycle, provenance, and reading progress ends up with eight values nobody can filter on. Split them: <code>status</code> for lifecycle (active, reference, archive, log, template), <code>source</code> for provenance (which notes you wrote yourself, which an AI drafted), <code>progress</code> for media only, and <code>review</code> for who needs to see it (daily, periodic, agent-only).</p><p>Tags are a small number of stable families in lowercase kebab-case, such as <code>health/diabetes</code> or <code>work/learning</code>. A tag that only repeats the folder path is not earning its place. Keep a short table of retired tags so old names do not creep back. And the rule that matters most: whoever creates the note writes the metadata, whether that is you, a template, or an agent. A cleanup pass later always loses to a script writing one untagged note a day.</p>",
+        prompt: "---\ntags:\n  - [area/topic]\ncreated: YYYY-MM-DD\nstatus: active        # active | reference | archive | log | template\nsource: [me | ai-assisted | generated]     # only where provenance matters\nreview: periodic      # daily | periodic | agent-only\n---",
+        have: ["A Tag Taxonomy note listing your families, the four keys and their values, and the retired tags.", "Every template in the vault starting with the metadata block."],
+      },
+      {
+        title: "Write the evergreen notes about yourself, in your own voice",
+        body: "<p>This is the step that makes an AI actually know you. Create an About folder with an index and a handful of evergreen notes: your values and operating principles, your background, your family and the people closest to you, lessons you have learned, your favourites, what you follow, the recurring shape of your week.</p><p>No dates and no logs here; only settled material. And write them yourself. Every AI you connect will read these notes for context, and if an AI drafted them, every tool downstream learns to imitate an earlier machine rather than you. An hour of your own writing here is worth more than any amount of structure elsewhere.</p>",
+        have: ["An About index and at least four evergreen notes, written by you."],
+      },
+      {
+        title: "Keep a daily note from a template",
+        body: "<p>The daily note is where the vault stays current without effort. One file per day, date-prefixed because the date is its identity, made from a template with a few optional sections: what actually happened in your own words, energy and health, work, people, a line to carry forward.</p><p>Every section is optional, and a three-line entry beats a skipped day. Link people by name with double brackets, so the day shows up on their note and an agent asked about someone can see the history.</p>",
+        prompt: "---\ntags:\n  - personal/daily\ncreated: YYYY-MM-DD\nstatus: log\n---\n# Daily Note - YYYY-MM-DD\n\n## Reflection\n[What actually happened today, in your own words. Link people with [[Name]].]\n\n## Energy / health\n-\n\n## Work\n-\n\n## People\n-\n\n## Carry forward\n-",
+        have: ["<code>_Daily Note Template.md</code> in the daily notes folder, and today’s note made from it."],
+      },
+      {
+        title: "Point every AI at the vault",
+        body: "<p>Now tell your tools about it. Each AI tool you use has somewhere for standing instructions: a global instructions file for a coding agent, custom instructions in a chat app, the identity file of a personal agent. Add the paragraph below, adjusted to your paths. It does three things: names the vault as the source of truth, says where to start reading, and tells the tool to write facts about you back into the vault rather than into its own private memory.</p><p>That last part is what keeps one knowledge base instead of five. An AI’s own memory feature is convenient and invisible; the vault is yours, readable, and shared by every tool.</p><p>If you run personal agents, give each one a folder it owns inside the vault, with an ownership note. The companion guide on giving an agent a memory and limits covers that.</p>",
+        prompt: "For anything about my life, family, health, or my business, the source of truth is the notes\nvault at [path to the vault]. Read \"Home Base.md\" first, then follow its links. Do not answer\nfrom assumption or from what might be in your own memory; the vault is more current.\n\nIf something worth remembering is a fact about my life or my business, update the relevant\nvault note directly, following the vault's Naming and Filing Conventions and Tag Taxonomy,\nrather than saving it to your own memory.",
+        have: ["The paragraph in every AI tool’s standing instructions, and one test question answered from the vault rather than from memory."],
+      },
+      {
+        title: "Keep it alive: lifecycle, one hub per domain, live views",
+        body: "<p>A knowledge base that only grows stops being trusted. Three habits keep this one current.</p><ul class=\"dot-list\"><li><b>Every note has a job and a lifecycle.</b> Active while it is useful; completed when the action happened but the result still matters; archived to a folder under 99 System when it is only history; deleted when it has no durable value. Setup checklists and one-time prep do not stay active after the thing is done.</li><li><b>One strong hub per domain.</b> Before creating a second index, backlog, or home note for something, check whether one exists. Duplicated hubs drift apart within weeks, and then neither can be trusted. When you rename or merge a note, rewrite every incoming link to the new name; do not leave a stub behind.</li><li><b>Live views that read the metadata.</b> In Obsidian, a Base is a table that queries frontmatter: everything by status, recently changed, templates, archive. A wrong status drops a note out of the view, so you notice. If you run an agent, give it a daily sweep that reports missing metadata, broken links, and stale notes, and a short audit note every month or two recording what changed and why.</li></ul>",
+        have: ["A lifecycle rule written into the conventions note.", "A Vault Health view of everything by status.", "A recurring sweep or a calendar reminder to run one."],
+      },
+    ],
+    credits: "<p>This is the structure of the notes vault behind <a href=\"/hermes/\">Scout, Heath, and Paula</a>, the personal agents described on this site, as it stood in October 2026 after two rounds of consolidation. The two rules in steps three and four, the four metadata keys, the lifecycle table, and the “rename by rewriting links” rule all came out of audits of what had gone wrong in the vault before them.</p><p>The idea of a second brain is Tiago Forte’s, and his PARA structure (Projects, Areas, Resources, Archive) shaped the folder thinking here. Obsidian’s Bases feature, used in step ten, is the live-view layer. The companion guide on giving an agent a memory and limits covers the agents that own folders inside a vault like this one.</p>",
+  },
 ];
 const guideIndexUrl = "/resources/";
 const guideUrl = (g) => guideIndexUrl + g.slug + "/";

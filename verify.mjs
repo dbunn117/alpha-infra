@@ -80,7 +80,7 @@ assert.match(systemPage, /data-project="hermes"/, "Agent offering links to the i
 assert.equal(projects.find(p => p.id === "hermes").type, "INDEPENDENT PROJECT");
 assert.match(await readFile(join(root, "services/index.html"), "utf8"), /custom AI agents/);
 const resourcesPage = await readFile(join(root, "resources/index.html"), "utf8");
-for (const slug of ["build-software-with-an-ai-agent", "hire-your-first-ai-employee", "give-an-ai-agent-a-memory-and-limits"]) {
+for (const slug of ["build-software-with-an-ai-agent", "hire-your-first-ai-employee", "give-an-ai-agent-a-memory-and-limits", "build-a-second-brain-your-ai-can-read"]) {
   assert.match(resourcesPage, new RegExp('href="/resources/' + slug + '/"'), "Guides index links " + slug);
   const guide = await readFile(join(root, "resources", slug, "index.html"), "utf8");
   const steps = (guide.match(/id="step-\d+"/g) || []).length;
