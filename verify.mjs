@@ -70,7 +70,7 @@ for (const file of htmlFiles) {
 assert.match(await readFile(join(root, "book/index.html"), "utf8"), /url=\/contact\//, "/book redirects to /contact");
 assert.match(await readFile(join(root, "hermes/index.html"), "utf8"), /Paula/, "Hermes page lists the agents");
 const projects = JSON.parse(await readFile(join(root, "projects.json"), "utf8"));
-assert.equal(projects.length, 15);
+assert.equal(projects.length, 16);
 assert.equal(new Set(projects.map(p => p.id)).size, projects.length);
 assert.ok(projects.every(p => ["tools", "data", "workflow", "team", "lab"].includes(p.cat)));
 const systemPage = await readFile(join(root, "services/system/index.html"), "utf8");
@@ -91,4 +91,4 @@ for (const slug of ["build-software-with-an-ai-agent", "hire-your-first-ai-emplo
   assert.match(guide, /"@type":"HowTo"/, slug + ": HowTo structured data");
 }
 assert.match(await readFile(join(root, "resources/how-a-build-runs/index.html"), "utf8"), /url=\/resources\/build-software-with-an-ai-agent\//, "old build write-up route redirects");
-console.log("PASS: " + htmlFiles.length + " HTML documents, " + references + " internal references, 15 project records.");
+console.log("PASS: " + htmlFiles.length + " HTML documents, " + references + " internal references, 16 project records.");
