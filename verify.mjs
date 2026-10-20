@@ -70,7 +70,7 @@ for (const file of htmlFiles) {
 assert.match(await readFile(join(root, "book/index.html"), "utf8"), /url=\/contact\//, "/book redirects to /contact");
 assert.match(await readFile(join(root, "hermes/index.html"), "utf8"), /Paula/, "Hermes page lists the agents");
 const projects = JSON.parse(await readFile(join(root, "projects.json"), "utf8"));
-assert.equal(projects.length, 14);
+assert.equal(projects.length, 15);
 assert.equal(new Set(projects.map(p => p.id)).size, projects.length);
 assert.ok(projects.every(p => ["tools", "data", "workflow", "team", "lab"].includes(p.cat)));
 const systemPage = await readFile(join(root, "services/system/index.html"), "utf8");
@@ -80,7 +80,7 @@ assert.match(systemPage, /data-project="hermes"/, "Agent offering links to the i
 assert.equal(projects.find(p => p.id === "hermes").type, "INDEPENDENT PROJECT");
 assert.match(await readFile(join(root, "services/index.html"), "utf8"), /custom AI agents/);
 const resourcesPage = await readFile(join(root, "resources/index.html"), "utf8");
-for (const slug of ["build-software-with-an-ai-agent", "hire-your-first-ai-employee", "give-an-ai-agent-a-memory-and-limits", "build-a-second-brain-your-ai-can-read"]) {
+for (const slug of ["build-software-with-an-ai-agent", "hire-your-first-ai-employee", "give-an-ai-agent-a-memory-and-limits", "build-a-second-brain-your-ai-can-read", "prompt-for-outcomes-not-steps"]) {
   assert.match(resourcesPage, new RegExp('href="/resources/' + slug + '/"'), "Guides index links " + slug);
   const guide = await readFile(join(root, "resources", slug, "index.html"), "utf8");
   const steps = (guide.match(/id="step-\d+"/g) || []).length;
@@ -91,4 +91,4 @@ for (const slug of ["build-software-with-an-ai-agent", "hire-your-first-ai-emplo
   assert.match(guide, /"@type":"HowTo"/, slug + ": HowTo structured data");
 }
 assert.match(await readFile(join(root, "resources/how-a-build-runs/index.html"), "utf8"), /url=\/resources\/build-software-with-an-ai-agent\//, "old build write-up route redirects");
-console.log("PASS: " + htmlFiles.length + " HTML documents, " + references + " internal references, 14 project records.");
+console.log("PASS: " + htmlFiles.length + " HTML documents, " + references + " internal references, 15 project records.");
