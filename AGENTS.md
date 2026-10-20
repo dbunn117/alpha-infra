@@ -31,10 +31,14 @@ Python's http.server on port 5180; rebuild before reloading, nothing watches.
   never touch `app.js` or `styles.css`.
 - **Routes**: `/`, `/services/` plus `/services/{quick-win,system,strategy,
   ai-adoption,workshops,care}/`, `/work/`, `/work/entec/`, `/hermes/`, `/about/`,
-  `/resources/`, `/resources/how-a-build-runs/`, `/contact/`, `/explore/`,
-  `/privacy/`, `404.html`. Resources are the `resourcesList` records plus one
-  template const per write-up (`howABuildRuns`), listed in the header, mobile,
-  and footer navs. Retired routes from the
+  `/resources/` (the guides index) plus `/resources/<guide slug>/` for each
+  entry in the `guides` array, `/contact/`, `/explore/`, `/privacy/`,
+  `404.html`. A guide is data (steps with body, optional prompt, tip, and a
+  "you should now have" list, plus needs and credits) rendered by
+  `guidePage()`: sticky step nav, copyable prompt blocks, HowTo structured
+  data. Guides are product-neutral how-tos written for the reader doing the
+  work themselves, never "how I build"; credit sources by name. Resources is
+  linked from the header, mobile, and footer navs. Retired routes from the
   previous site (`/book/`, `/services/coaching/`) are meta-refresh stubs
   written from the `redirects` list; add to that list rather than deleting a
   URL outright.

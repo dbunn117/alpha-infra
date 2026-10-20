@@ -1480,26 +1480,6 @@ details > div {
   display: block;
   margin-top: 15px;
 }
-.step-outcome {
-  font-size: 13px;
-  color: #627450;
-  margin-top: 12px;
-  line-height: 1.6;
-}
-.step-outcome span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: var(--blue);
-  margin-bottom: 6px;
-}
-.resource-list .service-area h2 a:hover {
-  color: var(--blue);
-}
-.credits a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
 .tinted {
   background: var(--soft);
   border-block: 1px solid var(--line);
@@ -2560,10 +2540,6 @@ dialog.image-dialog img {
   .service-area {
     grid-template-columns: 30px 1fr;
   }
-  .service-area .step-outcome {
-    grid-column: 2;
-    margin-top: 0;
-  }
   .service-area .text-link {
     grid-column: 2;
     justify-self: start;
@@ -3496,5 +3472,286 @@ dialog.image-dialog img {
   *:after {
     transition: none !important;
     animation: none !important;
+  }
+}
+.guide-intro > p:not(.eyebrow) {
+  max-width: 760px;
+}
+.guide-meta {
+  display: flex;
+  gap: 48px;
+  margin: 38px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.guide-meta div {
+  max-width: 300px;
+}
+.guide-meta dt {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.guide-meta dd {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.guide-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 70px;
+  align-items: start;
+  padding-bottom: 60px;
+}
+.guide-nav {
+  position: sticky;
+  top: 110px;
+}
+.guide-nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.guide-nav li a {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.guide-nav li a span {
+  font-size: 11px;
+  color: var(--blue);
+  padding-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.guide-nav li a:hover,
+.guide-nav li a.active {
+  color: var(--ink);
+}
+.guide-nav li a.active {
+  font-weight: 600;
+}
+.guide-nav-foot {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.guide-nav-foot:hover {
+  color: var(--ink);
+}
+.guide-body {
+  min-width: 0;
+  max-width: 720px;
+}
+.guide-step {
+  padding: 44px 0 48px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+.guide-step:first-child {
+  border-top: 0;
+  padding-top: 10px;
+}
+.step-head .item-number {
+  display: block;
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+.step-head h2 {
+  font-size: 36px;
+  margin-bottom: 22px;
+}
+.guide-step .prose p,
+.guide-step .prose li {
+  font-size: 16px;
+}
+.guide-step .prose ul {
+  margin: 0 0 20px;
+}
+.guide-step .prose b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.guide-step code,
+.guide-needs code {
+  font: 13px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 2px 5px;
+  color: var(--ink);
+}
+.prompt-block {
+  margin: 26px 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--white);
+  overflow: hidden;
+}
+.prompt-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--soft);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+}
+.prompt-head .quiet-button {
+  letter-spacing: 0;
+  font-size: 12px;
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.prompt-block pre {
+  margin: 0;
+  padding: 18px 20px;
+  font: 13.5px/1.6 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.guide-tip {
+  margin: 22px 0 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--red);
+  background: var(--white);
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.guide-tip span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.guide-have {
+  margin-top: 30px;
+}
+.guide-have > span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #627450;
+  margin-bottom: 4px;
+}
+.guide-have .check-list li {
+  color: #4f5e3f;
+}
+.guide-have .check-list li:before {
+  color: #627450;
+}
+.guide-needs .check-list li {
+  font-size: 15px;
+}
+.guide-needs .check-list a,
+.guide-credits .prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.next-step {
+  margin-top: 30px;
+  font-size: 13px;
+}
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding-bottom: 20px;
+}
+.guide-card {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--white);
+  padding: 30px 30px 28px;
+  display: flex;
+  flex-direction: column;
+}
+.guide-card-kicker {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+}
+.guide-card h2 {
+  font-size: 32px;
+  margin: 16px 0 12px;
+}
+.guide-card h2 a:hover {
+  color: var(--blue);
+}
+.guide-card p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.guide-card-meta {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.guide-card-meta span:first-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+.guide-card .text-link {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 13px;
+}
+@media (max-width: 900px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .guide-nav {
+    position: static;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--white);
+  }
+  .guide-nav ol {
+    border-top: 0;
+  }
+  .guide-nav li:last-child a {
+    border-bottom: 0;
+  }
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 680px) {
+  .guide-meta {
+    gap: 22px;
+  }
+  .step-head h2 {
+    font-size: 30px;
+  }
+  .guide-step {
+    padding: 34px 0 38px;
+  }
+  .guide-card {
+    padding: 24px 22px;
+  }
+  .guide-card h2 {
+    font-size: 28px;
   }
 }

@@ -80,9 +80,15 @@ assert.match(systemPage, /data-project="hermes"/, "Agent offering links to the i
 assert.equal(projects.find(p => p.id === "hermes").type, "INDEPENDENT PROJECT");
 assert.match(await readFile(join(root, "services/index.html"), "utf8"), /custom AI agents/);
 const resourcesPage = await readFile(join(root, "resources/index.html"), "utf8");
-assert.match(resourcesPage, /href="\/resources\/how-a-build-runs\/"/, "Resources index links the build write-up");
-const buildPage = await readFile(join(root, "resources/how-a-build-runs/index.html"), "utf8");
-assert.match(buildPage, /Vermeer/, "Build write-up credits its source");
-assert.match(buildPage, /decisions file/, "Build write-up explains the decisions file");
-assert.equal((buildPage.match(/class="service-area"/g) || []).length, 7, "Build write-up has seven steps");
+for (const slug of ["build-software-with-an-ai-agent", "hire-your-first-ai-employee"]) {
+  assert.match(resourcesPage, new RegExp('href="/resources/' + slug + '/"'), "Guides index links " + slug);
+  const guide = await readFile(join(root, "resources", slug, "index.html"), "utf8");
+  const steps = (guide.match(/id="step-\d+"/g) || []).length;
+  assert.ok(steps >= 9, slug + ": at least nine steps (" + steps + ")");
+  assert.equal((guide.match(/data-step="/g) || []).length, steps, slug + ": step nav matches steps");
+  assert.match(guide, /id="credits"/, slug + ": credits section");
+  assert.match(guide, /data-copy/, slug + ": copyable prompts");
+  assert.match(guide, /"@type":"HowTo"/, slug + ": HowTo structured data");
+}
+assert.match(await readFile(join(root, "resources/how-a-build-runs/index.html"), "utf8"), /url=\/resources\/build-software-with-an-ai-agent\//, "old build write-up route redirects");
 console.log("PASS: " + htmlFiles.length + " HTML documents, " + references + " internal references, 14 project records.");

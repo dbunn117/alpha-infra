@@ -682,55 +682,176 @@ const hermes = `<section class="page-intro wrap"><a class="breadcrumb" href="/wo
       `<article class="project-card"><div class="project-card-content"><div class="project-meta"><span>${role}</span><span>INDEPENDENT PROJECT</span></div><h3>${name}</h3><p>${text}</p><p class="small-note">${tools.join(" · ")}</p>${href ? `<a class="text-link" href="${href}" target="_blank" rel="noopener noreferrer">See it running ${arrow}</a>` : ""}</div></article>`,
   )
   .join("")}</div></section>${cta("Want an agent like this<br>for your business?", "The same pattern, built around your information and your approvals.")}`;
-const buildSteps = [
-  [
-    "Your idea, in your words",
-    "You describe what you want in plain language. A paragraph is enough. No specification, no technical detail, and no decisions about how it should work yet. The point is to record the intent and the reason behind it.",
-    "A short written brief, in your own words, that everything else refers back to.",
-  ],
-  [
-    "Questions until nothing is ambiguous",
-    "The AI restates the goal, lists its assumptions and the things it doesn’t know, and asks questions until the goal and the constraints are clear. I sit on your side of this conversation. Most projects that go wrong go wrong here, long before any code, so this step is allowed to take time.",
-    "A clarified brief and the first entries in the decisions file.",
-  ],
-  [
-    "Options, with trade-offs",
-    "Where there is more than one sensible way to build it, we look at several. Simple or flexible. Connect to the existing system or replace it. A person approves every step, or only the exceptions. We pick a direction on purpose.",
-    "A short brainstorm document and a chosen approach, recorded in the decisions file.",
-  ],
-  [
-    "A spec you can read",
-    "The chosen direction becomes a specification: what it does, what it deliberately doesn’t do, what data it uses and who owns it, and the acceptance criteria that will decide whether it works. Written so you can read it and correct anything I assumed.",
-    "The specification, with acceptance criteria you signed off.",
-  ],
-  [
-    "The work, in small pieces",
-    "The spec is split into tickets: small, ordered pieces of work that can each be built, tested, and reviewed on their own. You can see what is done, what is next, and what depends on what.",
-    "A numbered list of tickets, each with its own acceptance criteria.",
-  ],
-  [
-    "Review before building",
-    "Before any code, the spec and tickets are reviewed from several angles: an architect’s view of how the pieces fit, a security view of access and data, and a product view of whether this is what you actually asked for. Concerns go back into the spec. After a big change, we review again.",
-    "A written review and an updated spec, so the expensive mistakes are caught on paper.",
-  ],
-  [
-    "Build, test, review, repeat",
-    "One ticket at a time. Tests are written first, the code is written to pass them, the result is reviewed, and the ticket is committed before the next one starts. You see working versions as the project takes shape, and we check every acceptance criterion before calling it done.",
-    "Working software in accounts you control, a test suite, and a decisions file that explains it.",
-  ],
+const guides = [
+  {
+    slug: "build-software-with-an-ai-agent",
+    kicker: "GUIDE 01",
+    title: "Build software with<br>an <em>AI coding agent.</em>",
+    plainTitle: "Build software with an AI coding agent",
+    short: "Take an idea to working software with Claude Code or a similar agent, without losing track of what is being built. Nine steps, each with a prompt to copy.",
+    lead: "A step-by-step method for taking an idea to working software with an AI coding agent, without losing track of what is being built. Most of the steps happen before any code is written, because that is where the cheap mistakes live. Every step has a prompt you can copy.",
+    time: "A weekend for a small tool, a few weeks for a real product",
+    audience: "Anyone who can write a clear paragraph. No coding background needed, but you will be working in a terminal.",
+    needs: [
+      "<a href=\"https://docs.claude.com/en/docs/claude-code/overview\" target=\"_blank\" rel=\"noopener noreferrer\">Claude Code</a> installed, or another coding agent that can read and write files in a folder. The prompts below are written for Claude Code.",
+      "A new, empty folder for the project with a <code>doc</code> subfolder and a <code>doc/tickets</code> subfolder inside it.",
+      "The four open skill packs the prompts refer to: <a href=\"https://github.com/obra/superpowers\" target=\"_blank\" rel=\"noopener noreferrer\">Superpowers</a>, <a href=\"https://github.com/mattpocock/skills\" target=\"_blank\" rel=\"noopener noreferrer\">Matt Pocock’s skills</a>, <a href=\"https://github.com/msitarzewski/agency-agents-app\" target=\"_blank\" rel=\"noopener noreferrer\">Agency Agents</a>, and Anthropic’s <a href=\"https://github.com/anthropics/knowledge-work-plugins\" target=\"_blank\" rel=\"noopener noreferrer\">Knowledge Work plugins</a>. Each has install instructions in its README. You can run the method without them; the prompts then lean on the agent’s own judgment instead of a named skill.",
+      "A git repository in the folder (<code>git init</code>), so every ticket can be committed on its own.",
+    ],
+    steps: [
+      {
+        title: "Write the idea down, in plain language",
+        body: "<p>Create a file called <code>doc/idea-v0.md</code> and write what you want to build as if you were explaining it to a capable friend. What it is, who it is for, why it should exist, what a good result looks like, and anything it must never do. A few paragraphs is enough.</p><p>Do not describe how it should be built, and do not ask for any code yet. The purpose of this file is to record the intent and the reason behind it, so every later step has something to refer back to.</p>",
+        tip: "Write the parts you are unsure about as open questions inside the file. They become the first things the agent asks you about in the next step.",
+        have: ["<code>doc/idea-v0.md</code> with the idea, the audience, the reason, and a description of a good result."],
+      },
+      {
+        title: "Clarify until nothing is ambiguous",
+        body: "<p>Open the agent in the project folder and give it the prompt below. It will restate the goal, list what it is assuming and what it does not know, and ask you questions. Answer every one. “I don’t know yet” is a fine answer; it gets recorded as an open decision rather than guessed.</p><p>This step is allowed to take time. Most projects that go wrong go wrong here, long before any code exists, and a question answered now costs a sentence rather than a rebuild.</p>",
+        prompt: "Here's a rough idea in the file doc/idea-v0.md. Restate the\ngoal, list the assumptions and unknowns, and don't write any code yet. Ask me\nany clarifying questions you need until the goal and constraints are\nunambiguous before you summarize. The goal is to have a clear and unambiguous\nunderstanding of the idea and its requirements before starting to write code.\nPut all decisions in the file doc/idea-v1-decisions.md and put the result in\nthe file doc/idea-v1.md",
+        have: ["<code>doc/idea-v1.md</code>, the idea with every ambiguity resolved.", "<code>doc/idea-v1-decisions.md</code>, the start of a running decisions file. Every later prompt adds to it."],
+      },
+      {
+        title: "Brainstorm the approaches",
+        body: "<p>Where there is more than one sensible way to build something, you want to see the options before one gets chosen for you. This prompt asks the agent to propose several approaches with trade-offs: simple or flexible, connect to an existing system or replace it, a person approves every action or only the exceptions.</p><p>Read the options, push back, and pick one on purpose. Note which one you chose; the next prompt refers to it by name.</p>",
+        prompt: "Use the Superpowers brainstorming skill on the created file doc/idea-v1.md.\nPropose several approaches. Ask clarifying questions about the setup, functionality, design and\nconstraints before proposing options if anything is unclear.\nPut the results in the file doc/idea-v1-brainstorming.md\nAdd all decisions to the file doc/idea-v1-decisions.md",
+        have: ["<code>doc/idea-v1-brainstorming.md</code> with several approaches and their trade-offs.", "A chosen approach, written into the decisions file."],
+      },
+      {
+        title: "Turn it into a spec you can read",
+        body: "<p>The chosen approach becomes a specification: what it does, what it deliberately does not do, what data it uses and who owns it, the interfaces it exposes, and the acceptance criteria that will decide whether it works.</p><p>Replace “strategy A” in the prompt with the approach you picked. When the spec comes back, read the acceptance criteria out loud. If you cannot tell whether one has been met, ask for it to be rewritten until you can.</p>",
+        prompt: "Use the Matt Skills to-spec skill to turn the doc/idea-v1.md plus the\ndoc/idea-v1-brainstorming.md and doc/idea-v1-decisions.md\ninto a spec for the idea: goal, scope, non-goals, exposed endpoints, data and\nacceptance criteria. Ask clarifying questions and don't finalize the spec until\nany ambiguities are resolved. Put the result in the file doc/idea-v1-spec.md\nAdd all decisions to the file doc/idea-v1-decisions.md\n\nFollow recommended strategy A from the brainstorming document.",
+        have: ["<code>doc/idea-v1-spec.md</code> with goal, scope, non-goals, data, and acceptance criteria you have signed off."],
+      },
+      {
+        title: "Split the spec into tickets",
+        body: "<p>A spec is too big to build in one go. This prompt breaks it into small, ordered tickets that can each be built, tested, and committed on their own, with dependencies and acceptance criteria per ticket. Each ticket becomes a file in <code>doc/tickets</code>, numbered so the order is obvious.</p><p>Skim the list. The first ticket should set up the project and prove the test setup works. If a ticket looks like it would take days, ask for it to be split.</p>",
+        prompt: "Use the Matt Skills to-tickets skill to break the doc/idea-v1-spec.md into\nsmall, independently shippable tickets with dependencies and acceptance\ncriteria, ordered so each can be built, tested, and merged on its own. Ask\nclarifying questions about scope or dependencies before finalizing the\nbreakdown. Store all tickets as a markdown file in the ./doc/tickets folder,\nwith a name that starts with the ticket number and a dash, followed by a short\ndescription of the ticket. For example, 001-setup-project.md. Put the result in\nthe ./doc/tickets folder. Add all decisions to the file doc/idea-v1-decisions.md",
+        have: ["A numbered set of ticket files in <code>doc/tickets</code>, each with its own acceptance criteria."],
+      },
+      {
+        title: "Review it from several angles before building",
+        body: "<p>Before any code, have the spec and tickets reviewed by specialist personas: an architect for how the pieces fit, a security engineer for access and data, and a product manager for whether this is what you actually asked for. Each returns concerns and recommendations.</p><p>Fold the ones you agree with back into the spec and tickets, and say so in the decisions file. After a big change, run the review again. A mistake caught here costs a conversation.</p>",
+        prompt: "Review the doc/idea-v1-spec.md and the tickets in the ./doc/tickets folder with the Agency Agents\nbackend-architect, security-engineer, and product-manager. Have each agent ask\nclarifying questions where context is missing before giving their concerns.\nReturn each agent's concerns and recommendations so I can fold them back into\nthe spec and tickets. Write the concerns and recommendations in the file doc/idea-v1-spec-review.md\nAdd all decisions to the file doc/idea-v1-decisions.md",
+        tip: "If you want your own thinking challenged as well, ask for the grill-me skill on the spec first: it probes edge cases, failure modes, and what would have to be true for the plan to work.",
+        have: ["<code>doc/idea-v1-spec-review.md</code>, and a spec and tickets updated to answer it."],
+      },
+      {
+        title: "Build one ticket at a time",
+        body: "<p>Now the code. The prompt tells the agent to work through the tickets in order, ask when something is unclear, run a code review after each ticket, and commit after each reviewed ticket. Tests are written first and the code is written to pass them.</p><p>After each ticket, look at what changed and, where you can, open the thing and use it. If the agent stops partway through the list, tell it to continue with the remaining tickets; that is normal on a long build.</p>",
+        prompt: "Now that the spec and tickets are finalized, start implementing the idea according to the tickets in the ./doc/tickets folder.\nThe goal is to have a working first version of the idea that can be tested.\nAsk clarifying questions if anything is unclear and add the decisions to the file doc/idea-v1-decisions.md\nAfter each ticket run the skill code-review-expert\nCommit the code to the main branch after each ticket is completed and reviewed.",
+        tip: "When something breaks and the cause is not obvious, ask for the Superpowers debugging skill on it. It reproduces the failure and finds the root cause rather than patching the symptom.",
+        have: ["A working first version, with one commit per reviewed ticket.", "A decisions file that explains every non-obvious choice made along the way."],
+      },
+      {
+        title: "Verify before calling it done",
+        body: "<p>Passing a code review is not the same as meeting the acceptance criteria. This prompt runs the full test suite, exercises the real end-to-end flows, and checks every acceptance criterion from the spec against evidence. Do not skip it because the build “looks fine”.</p>",
+        prompt: "Use the Superpowers verification-before-completion skill on the idea.\nRun the full test suite, exercise the end-to-end flows,\nconfirm no data loss on migration, and verify every\nacceptance criterion before calling it done.",
+        have: ["Every acceptance criterion checked, with the evidence in front of you."],
+      },
+      {
+        title: "Ship it, then fold the decisions back in",
+        body: "<p>Release the first version, ideally to a small group first, and watch what happens. Then do the thing that makes the next build faster: rewrite the idea file with every decision folded in, as <code>doc/idea-v2.md</code>. The answers arrive with the questions next time instead of being rediscovered.</p><p>When you have new ideas for version two, start this guide again from step two, with <code>idea-v2.md</code> as the input.</p>",
+        prompt: "Help me ship the idea: draft the phased rollout plan (a small group of users first, then everyone),\nlist what to watch after release, and outline any cleanup to do once it is stable.\nThen rewrite doc/idea-v1.md as doc/idea-v2.md with every decision from doc/idea-v1-decisions.md\nfolded into it, so the next version can start from the answers.\nAsk clarifying questions about the environment and rollout constraints before drafting the plan.",
+        have: ["A released first version and a rollout plan.", "<code>doc/idea-v2.md</code>: the brief to start from next time."],
+      },
+    ],
+    credits: "<p>The method and the prompts in steps two through eight come from Edwin Vermeer’s <a href=\"https://github.com/evermeer/CodingAgentOrchestration/blob/main/docs/part-2-how-to-use-an-ai-coding-agent.md\" target=\"_blank\" rel=\"noopener noreferrer\">CodingAgentOrchestration</a> tutorial, published under the MIT license. He used it to build <a href=\"https://github.com/evermeer/Quadrim\" target=\"_blank\" rel=\"noopener noreferrer\">Quadrim</a>, an open-source game whose repository includes every prompt and a decisions log of several hundred entries, and which is the best worked example to read alongside this guide.</p><p>The skill packs the prompts call on are Superpowers (Jesse Vincent), Matt Pocock’s skills for real engineers, Agency Agents (Michael Sitarzewski), and Anthropic’s Knowledge Work plugins. The “you should now have” checklists, the step-nine prompt, and the tips are this guide’s own.</p>",
+  },
+  {
+    slug: "hire-your-first-ai-employee",
+    kicker: "GUIDE 02",
+    title: "Hire your first<br><em>AI employee.</em>",
+    plainTitle: "Hire your first AI employee",
+    short: "Put an AI agent in charge of one job in your business, give it authority only as it earns it, and know when to take it away. Ten steps with the role card and prompts included.",
+    lead: "A step-by-step method for putting an AI agent in charge of one job in your business. Treat it the way you would treat a new hire: one written job, a short probation, and more authority only once it has earned it. The method works with any agent product that can run on a schedule inside your accounts.",
+    time: "One week to get through probation, about a month to real trust",
+    audience: "Founders, owners, and operators who have a recurring job they would like off their desk.",
+    needs: [
+      "An agent product that can run scheduled jobs and sign in to your tools. Examples at the time of writing: Grok Bot, Claude Code with scheduled routines, or the agent features inside your existing tools. The method does not depend on which one.",
+      "One job you do every week and could describe in a sentence. Not your most important job: your most repetitive, reversible one.",
+      "A folder or workspace where the agent can keep its own files between runs. Most products provide one.",
+      "Read-only access to any data the job needs. If the job needs write access, you are not ready for it yet; start with one that does not.",
+    ],
+    steps: [
+      {
+        title: "Pick one job, not a task",
+        body: "<p>A task is “summarise these five articles”. A job is “you own the Monday unpaid-invoice chase”. The task is done in ten minutes and teaches you nothing. The job can be measured, improved, and eventually trusted.</p><p>Write what the agent will own in one sentence. If the sentence needs several unrelated verbs, you are describing more than one job, and when something goes wrong you will not know which one caused it. Split it.</p><p>For the first hire, choose a job that is frequent, so you get signal this week, and reversible, so a mistake costs a minute. Anything that sends, publishes, buys, deletes, or talks to a customer waits until after probation.</p>",
+        have: ["One sentence that starts with “You own” and names a result, a day, and a source."],
+      },
+      {
+        title: "Write the role card",
+        body: "<p>The role card is the agent’s job description. Fill in the template below and paste it wherever your product keeps an agent’s standing instructions (its profile, description, or system prompt). Three lines matter more than the rest.</p><p><b>If unsure, stop and ask.</b> A capable agent facing ambiguity will use its best judgment on its own, and you want the opposite. Being slow costs nothing; being wrong inside your outbox costs a client.</p><p><b>Keep “ask me first” and “never” apart.</b> “Ask me first” means you might say yes today. “Never” means the question does not come up. Merge them and you teach the agent that everything is negotiable.</p><p><b>Make “finished when” checkable.</b> Ban words like useful, thorough, and complete. Replace them with conditions the agent can test on its own output: counts, fields, dates, sources, format.</p>",
+        prompt: "NAME: [a human name], [one-line job title]\n\nOWNS: [the one result you are accountable for, in one sentence]\nWORKS FROM: [the exact sources: URLs, folders, labels, sheets. Nothing else.]\nNOT YOUR JOB: [two or three adjacent jobs you refuse or hand back]\n\nCAN DO ALONE: read, search, compare, summarise, classify, draft, save files in [your folder]\nASK ME FIRST, EVERY TIME: send, post, book, edit a shared record, change a calendar or CRM, sign up for anything\nNEVER: pay, sign, accept terms, delete, change permissions, touch a live system, speak as me in public\n\nFINISHED WHEN: [checkable conditions: how many, which fields, which sources, what date range, what format]\nIF UNSURE: stop and ask me. Do not use your best judgment on your own.\nIF A SOURCE FAILS: report that source as failed. Never reuse old data as if it were current.\nLIMITS: retry a failing tool twice, repair a bad output once, stop after [N] minutes.\nREPORTING: post results in this conversation. If nothing changed, post one line: \"No change, checked [time].\"",
+        have: ["A completed role card, saved in the agent’s standing instructions and in a file of your own."],
+      },
+      {
+        title: "Separate the job from today’s assignment",
+        body: "<p>Durable rules live in the role card. Today’s work lives in the message you send. Keep them apart, because when something breaks you can then tell what broke.</p><ul class=\"dot-list\"><li>A forgotten preference is a memory problem: it belongs in the role card.</li><li>Opening the wrong tool is a routing problem: the “works from” line is too loose.</li><li>Sending something that should have stayed a draft is a permissions problem: the tiers are wrong or not enforced.</li><li>Retrying the same broken path six times is a limits problem.</li></ul><p>A better message fixes one run. A corrected role card fixes every run after it.</p>",
+        have: ["A habit: today’s assignment in the message, every rule that should outlive it in the role card."],
+      },
+      {
+        title: "Know which rules actually hold",
+        body: "<p>Everything in the role card is an instruction. Instructions shape behaviour without guaranteeing it, and the model behind your agent can change without notice. Some rules also need a control that holds when the instruction is misread.</p><p>The only “never” that is fully enforced is access the agent does not have. So, before run one, write down what the agent can reach, and close what it should not:</p><ul class=\"dot-list\"><li>Connect only the tools the job touches. Add a connection when a real, blocked task proves it is needed.</li><li>Prefer a read-only credential or connector to a browser login. A login can do anything the account can.</li><li>If two jobs need different levels of trust, such as outbound email and finance, give them separate accounts. Agents under one account usually share the same files and sessions.</li><li>Check what your product’s approval system actually reviews. Many review commands and external actions but not changes to the agent’s own memory or settings.</li></ul>",
+        have: ["A short list of what the agent can reach, and the confirmation that money, deletion, and public identity are not on it."],
+      },
+      {
+        title: "Interview it before it touches anything",
+        body: "<p>Before the first real run, ask the agent to walk you through how it would do the job, in order, and then stop. Treat the answer as a job interview. An agent that is about to misread your inbox will say so in text, and you catch it in a message instead of in your archive.</p><p>Listen for three disqualifiers. It names a tool or account you never connected: it plans to improvise access. It proposes an irreversible step without flagging it: your “ask me first” line is not landing. It cannot say when it would stop: “finished when” is too vague. Any one of these means the role card needs another pass.</p>",
+        prompt: "Before you do anything, read your role card and tell me, step by step and in order, how you would\ndo this week's job: which sources you would open, what you would do with each, what you would\nproduce, where you would stop to ask me, and what \"finished\" would look like. Do not open any tool\nor take any action yet. Stop after the plan and wait for me.",
+        have: ["A written plan you agree with, and a role card that has survived its first reading."],
+      },
+      {
+        title: "Run a three-run probation",
+        body: "<p>One clean run is an event. Reliability is a pattern, and you need three runs on different inputs to see one.</p><ul class=\"dot-list\"><li><b>Run one: observe.</b> Watch the whole run. Note every misread instruction, lost fact, odd tool choice, duplicated action, and every moment it guessed instead of asking.</li><li><b>Run two: correct.</b> Fix the role card, not the output, and give it a different but comparable input. Do not remind it of run one’s mistake by hand; you are testing whether the fix held.</li><li><b>Run three: release.</b> Step in only for approvals, genuine ambiguity, or a limit being hit.</li></ul><p>Score each run on five numbers: runs, clean passes, repairs you made by hand, guesses where it should have asked, and minutes of your time. Then save the three inputs and the outputs you accepted in a tests folder. That is your regression set, and you will use it every time something changes underneath the agent.</p>",
+        prompt: "That output was wrong: [what happened]. Do not redo the output yet. Find the exact step where\nit went wrong and why. Propose the smallest change to your role card or your instructions that\nwould have prevented it. Show me the change and wait for my yes. Then apply it, re-run on the\nsame input, and re-run on one of the saved tests.",
+        tip: "Any correction you find yourself giving twice becomes a line in the role card.",
+        have: ["Three scored runs.", "A tests folder with three inputs and three accepted outputs."],
+      },
+      {
+        title: "Draw the permission line at reversibility",
+        body: "<p>The line between “can do alone” and “ask me first” is not about how important an action feels. It is about whether it can be undone. “Draft the outreach to forty prospects” is reversible. “Send it” is not. A good run finishes the reversible ninety percent and stages the rest for you.</p><ul class=\"dot-list\"><li>When the agent hits a login wall, give it the session, never the password. Complete the blocked step yourself and hand control back. Never paste passwords or one-time codes into a chat.</li><li>Treat everything the agent reads as data, not instructions. During probation, plant a fake instruction in a test document and confirm the agent flags it instead of following it.</li><li>Money and identity stay with you. Read-only financial data is fine; paying, cancelling, accepting terms, and sending from your name are not. You are responsible for every action the agent takes, whether or not you intended it.</li></ul>",
+        have: ["Three tiers in the role card that match what the agent can actually reach.", "A passed prompt-injection test."],
+      },
+      {
+        title: "Design routines that survive the night",
+        body: "<p>A scheduled routine that ends in a request for your approval at three in the morning will time out, and the work is lost. Design it to end in staged drafts instead: the routine does all the reversible work, leaves the drafts where you will find them, and posts a one-line receipt. You approve when you open the conversation, while you are there to answer.</p><ul class=\"dot-list\"><li><b>A heartbeat.</b> Every run posts something, even “No change, checked 07:00.” If a job goes silent, assume it broke.</li><li><b>A ledger.</b> The agent keeps a file of what it has already covered and checks it before acting, so no customer is emailed twice and no spreadsheet is recreated from scratch.</li><li><b>An update rule.</b> “Update existing rows. Never create a new sheet or file if one exists.”</li><li><b>A stale-source stop.</b> If a source cannot be read, the run reports the failure and stops rather than filling the gap with old data.</li></ul>",
+        have: ["A routine that ends in drafts and a receipt, with a heartbeat, a ledger, and a stale-source stop written into its instructions."],
+      },
+      {
+        title: "Promote slowly, demote fast",
+        body: "<p>Autonomy is a level, and levels are earned. A simple ladder: level one drafts only; level two takes reversible actions alone; level three sends or posts within a named list; level four runs the whole job and reports. Most agents should live at level one or two for a long time.</p><p>Promote only when all five hold: five consecutive clean runs, verification passing every time, no unresolved side effects, a rollback you have tested at least once, and proof that the approval rule works in practice, meaning something was actually staged and you saw it wait. If your product offers an “always allow” button on an approval, that button is a promotion. Press it only for an action that has passed the gate.</p><p>The ladder runs both ways. Move the agent down a level when output quality drops, when the model, a connector, or a website changes underneath it, or when you catch yourself hand-correcting it two weeks in a row.</p>",
+        prompt: "Something changed underneath you: [the model / a connector / a website]. Re-run the three saved\ntests in the tests folder without sending anything. Compare each result to the accepted output\nand list every difference that would change a decision.",
+        have: ["A level written next to the agent’s name, and the five conditions it must meet to move up."],
+      },
+      {
+        title: "Review it every Friday, and know when to add or fire",
+        body: "<p>Always-on automation does not fail loudly. Logins expire, a site moves, your priorities shift, and the routine keeps delivering on time while the output becomes worthless. Build four watches before you build a team.</p><ul class=\"dot-list\"><li><b>The receipt.</b> Once a week, a short report: runs, passes, hand repairs, the repeated failure, and a keep, fix, or fire call. Spot-check one artifact yourself.</li><li><b>The heartbeat.</b> Did every scheduled run post something?</li><li><b>The approval log.</b> Did anything get staged? If the agent never parks anything, your approval rule is decorative.</li><li><b>The doubt line.</b> Did it run on time? Was the output correct, or merely present? Would you notice if it disappeared tomorrow? If the answer to the last one is no, delete it. A routine that removes no work is a trophy on a shelf.</li></ul><p>Add a second agent only when the work needs a different source set, a different permission boundary, a different memory, or a different way of being checked. When one ends, offboard it properly: pause its routines, sign out of the sites it used, revoke its connections at the source, remove its files, then delete it. Deleting the agent alone leaves the sessions behind.</p>",
+        prompt: "Every Friday at 16:00, review every run of your job in the last seven days. Post a table:\nrun date, pass or fail, repairs I made by hand, anything I had to approve, the one failure that\nrepeated, and your own keep / fix / fire recommendation. Name any source that needed a fresh\nlogin. Do not change anything and do not email anyone.",
+        tip: "The question that finds the next hire: where did you spend time this week that an agent could own from now on?",
+        have: ["A Friday review on the calendar.", "A rule for adding a second agent, and a sequence for retiring one."],
+      },
+    ],
+    credits: "<p>The approach in this guide, in particular the role card, the three-run probation, and the idea that autonomy is a level to be earned, is adapted from Linas Beliūnas’s guide <a href=\"https://linas.substack.com/p/how-to-hire-a-grok-bot\" target=\"_blank\" rel=\"noopener noreferrer\">How to Hire a Grok Bot: Your First AI Employee</a>, published in Linas’s Newsletter in October 2026 for paid subscribers, and its predecessor, his Ultimate Guide to Grok Bot. His version is specific to one product and goes deeper on its settings, billing, and team features; it is worth the subscription if that is the product you use.</p><p>The template wording, the prompts, the ladder, and the product-neutral framing are this guide’s own. The underlying practices (one job per agent, drafts instead of sends, a regression set, a weekly review) are common ground among people running agents in production.</p>",
+  },
 ];
-const buildKeeps = [
-  ["The decisions file", "Every non-obvious choice, the question it answered, and what it cost. It stays with the project and with you. Whoever picks the work up later starts from the answers."],
-  ["Visible progress", "Tickets make the work legible. You can see what is built, what is next, and what is waiting on a decision from you."],
-  ["Mistakes caught on paper", "The architecture, security, and product reviews happen before code exists, where a change costs a conversation."],
-  ["Software you own", "The result lives in accounts you control, with the tests and the documentation. Handover is part of the build."],
-];
-const howABuildRuns = `<section class="page-intro wrap"><a class="breadcrumb" href="/resources/">Resources / How a build runs</a>${eyebrow("HOW I BUILD")}<h1>How a build runs,<br><em>step by step.</em></h1><p>What happens between “I have an idea” and working software in an account you control. This is the sequence I follow when I build with AI coding tools, written for the person commissioning the work.</p></section><section class="section wrap case-narrative"><div>${eyebrow("THE SHORT VERSION")}<h2>Most of the effort<br>happens before code.</h2></div><div><p>AI coding tools can write software fast. What they can’t know is what your business means by “key account”, which exceptions matter, or what “done” looks like for you. So the first six steps below get those answers written down, and only the seventh starts building.</p><p>Each step ends with the same instruction to the AI: ask clarifying questions until nothing is ambiguous. Each step also adds to a decisions file. By the time code is written, you can see every choice we made, the question it answered, and why.</p><p>I adapted this from a workflow published by Edwin Vermeer, a Dutch developer who used it to ship a mobile game in about four weeks of evenings and weekends. His version is written for developers. This one is written for you. The credits are at the bottom of the page.</p></div></section><section class="wrap service-areas build-steps">${buildSteps.map(([t, body, get], i) => `<article class="service-area"><span class="item-number">0${i + 1}</span><div><h2>${t}</h2><p>${body}</p></div><p class="step-outcome"><span>WHAT YOU GET</span>${get}</p></article>`).join("")}</section><section class="section tinted"><div class="wrap"><div class="section-heading"><div>${eyebrow("WHAT THIS MEANS FOR YOU")}<h2>Four things you keep.</h2></div><p>The software is the obvious result. These four are what make it maintainable after I step back.</p></div><div class="process-grid">${buildKeeps.map(([t, p], i) => `<article><span>0${i + 1}</span><h3>${t}</h3><p>${p}</p></article>`).join("")}</div></div></section><section class="section wrap case-narrative"><div>${eyebrow("WHERE AI SITS")}<h2>AI writes the code.<br>The rules are yours.</h2></div><div><p>The AI does the typing: it drafts the spec, splits the tickets, writes the tests and the code, and reviews its own work. The judgment comes from you and from me: what matters, how it’s calculated, and what should happen next.</p><p>Inside the software, the same split holds. Ordinary code handles the calculations, matching, and rules. AI handles the parts that benefit from interpretation, such as reading a document or summarizing a conversation.</p>${link("/services/system/", "What a custom build includes", "text-link")}</div></section><section class="section wrap case-narrative credits"><div>${eyebrow("CREDITS AND SOURCES")}<h2>Where this comes from.</h2></div><div><p>The sequence is adapted from Edwin Vermeer’s agentic coding workflow, published in his <a href="https://github.com/evermeer/CodingAgentOrchestration" target="_blank" rel="noopener noreferrer">CodingAgentOrchestration</a> guide and used to build <a href="https://github.com/evermeer/Quadrim" target="_blank" rel="noopener noreferrer">Quadrim</a>, an open-source game. His repositories include every prompt he used and a decisions log that ran to several hundred entries.</p><p>The steps lean on four open skill packs for Claude Code: <a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">Superpowers</a> (brainstorming, test-first development, verification), <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer">Matt Pocock’s skills</a> (specs, tickets, implementation, code review), <a href="https://github.com/msitarzewski/agency-agents-app" target="_blank" rel="noopener noreferrer">Agency Agents</a> (the architect, security, and product reviewers), and Anthropic’s <a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener noreferrer">Knowledge Work plugins</a>.</p><p>The adaptation for a business reader, and the “what you get” at each step, are mine.</p></div></section>${cta("Have an idea that<br>could become a tool?", "Tell me about it in a few words. Step one is the one above: your idea, in your words.")}`;
-const resourcesList = [
-  ["/resources/how-a-build-runs/", "HOW I BUILD", "How a build runs, step by step", "What happens between “I have an idea” and working software in an account you control. Seven steps, what you get at each one, and why most of the effort happens before any code."],
-];
-const resources = `<section class="page-intro wrap">${eyebrow("RESOURCES")}<h1>Notes on how<br><em>the work gets done.</em></h1><p>Short, practical write-ups on how I build and how AI fits into a business. Written for owners and operators rather than developers.</p></section><section class="wrap service-areas resource-list">${resourcesList.map(([href, kicker, title, text], i) => `<article class="service-area"><span class="item-number">0${i + 1}</span><div>${eyebrow(kicker)}<h2><a href="${href}">${title}</a></h2><p>${text}</p></div>${link(href, "Read the write-up", "text-link")}</article>`).join("")}</section><section class="wrap exploration-note"><p>More will be added as the work produces them. If you’d like a write-up on something in particular, <a href="/contact/">ask</a>.</p></section>${cta()}`;
+const guideIndexUrl = "/resources/";
+const guideUrl = (g) => guideIndexUrl + g.slug + "/";
+const promptBlock = (text) => `<div class="prompt-block"><div class="prompt-head"><span>PROMPT TO COPY</span><button type="button" class="quiet-button" data-copy>Copy</button></div><pre>${e(text)}</pre></div>`;
+function guidePage(g) {
+  const n = g.steps.length;
+  const nav = `<nav class="guide-nav" aria-label="Steps in this guide"><p class="eyebrow">IN THIS GUIDE</p><ol>${g.steps.map((s, i) => `<li><a href="#step-${i + 1}" data-step="${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span>${s.title}</a></li>`).join("")}</ol><a class="guide-nav-foot" href="#credits">Credits and sources</a></nav>`;
+  const steps = g.steps
+    .map((s, i) => {
+      const next = i + 1 < n ? `<a class="text-link next-step" href="#step-${i + 2}">Next: ${g.steps[i + 1].title} ${arrow}</a>` : `<a class="text-link next-step" href="#credits">Credits and sources ${arrow}</a>`;
+      return `<section class="guide-step" id="step-${i + 1}"><div class="step-head"><span class="item-number">STEP ${String(i + 1).padStart(2, "0")} OF ${String(n).padStart(2, "0")}</span><h2>${s.title}</h2></div><div class="prose">${s.body}</div>${s.prompt ? promptBlock(s.prompt) : ""}${s.tip ? `<p class="guide-tip"><span>TIP</span>${s.tip}</p>` : ""}<div class="guide-have"><span>YOU SHOULD NOW HAVE</span><ul class="check-list">${s.have.map((h) => `<li>${h}</li>`).join("")}</ul></div>${next}</section>`;
+    })
+    .join("");
+  return `<section class="page-intro wrap guide-intro"><a class="breadcrumb" href="${guideIndexUrl}">Guides / ${g.plainTitle}</a>${eyebrow(g.kicker)}<h1>${g.title}</h1><p>${g.lead}</p><dl class="guide-meta"><div><dt>STEPS</dt><dd>${n}</dd></div><div><dt>TIME</dt><dd>${g.time}</dd></div><div><dt>WHO IT’S FOR</dt><dd>${g.audience}</dd></div></dl></section><div class="wrap guide-layout">${nav}<div class="guide-body"><section class="guide-step guide-needs" id="before-you-start"><div class="step-head"><span class="item-number">BEFORE YOU START</span><h2>What you need.</h2></div><ul class="check-list">${g.needs.map((x) => `<li>${x}</li>`).join("")}</ul><a class="text-link next-step" href="#step-1">Start with step one ${arrow}</a></section>${steps}<section class="guide-step guide-credits" id="credits"><div class="step-head"><span class="item-number">CREDITS AND SOURCES</span><h2>Where this comes from.</h2></div><div class="prose">${g.credits}</div></section></div></div>${cta("Would rather have it built<br>with you?", "Bring the idea, or the job you want off your desk. We can run the same steps together, or I can build it and hand it over.")}`;
+}
+const resources = `<section class="page-intro wrap">${eyebrow("GUIDES")}<h1>Step-by-step guides<br><em>for building with AI.</em></h1><p>Practical guides for people who want to build things with AI agents themselves. Each one is a sequence you can follow from start to finish, with the prompts and templates included. More are added as the work produces them.</p></section><section class="wrap guide-grid">${guides.map((g) => `<article class="guide-card"><span class="guide-card-kicker">${g.kicker}</span><h2><a href="${guideUrl(g)}">${g.plainTitle}</a></h2><p>${g.short}</p><div class="guide-card-meta"><span>${g.steps.length} steps</span><span>${g.time}</span></div>${link(guideUrl(g), "Start the guide", "text-link")}</article>`).join("")}</section><section class="wrap exploration-note"><p>Want a guide on something in particular? <a href="/contact/">Ask</a>, and if enough people want it, it gets written.</p></section>${cta()}`;
 const redirects = [
+  ["/resources/how-a-build-runs/", "/resources/build-software-with-an-ai-agent/"],
   ["/book/", "/contact/"],
   ["/services/coaching/", "/services/"],
 ];
@@ -823,24 +944,24 @@ const pages = [
   ],
   [
     "/resources/",
-    "Resources: notes on how the work gets done",
-    "Short, practical write-ups on how David Bunn builds with AI and how it fits into a business, written for owners and operators.",
+    "Step-by-step guides for building with AI",
+    "Practical, copy-and-paste guides for building software with AI coding agents and putting AI agents to work in a business.",
     resources,
     [
-      { "@type": "ItemList", name: "Resources", itemListElement: resourcesList.map(([href, , title], i) => ({ "@type": "ListItem", position: i + 1, name: title, url: siteUrl + href })) },
-      crumbs([["Home", "/"], ["Resources", "/resources/"]]),
+      { "@type": "ItemList", name: "Guides", itemListElement: guides.map((g, i) => ({ "@type": "ListItem", position: i + 1, name: g.plainTitle, url: siteUrl + guideUrl(g) })) },
+      crumbs([["Home", "/"], ["Guides", "/resources/"]]),
     ],
   ],
-  [
-    "/resources/how-a-build-runs/",
-    "How a build runs, step by step",
-    "The seven-step sequence David Bunn follows when building software with AI coding tools: idea, questions, options, spec, tickets, review, then build. What you get at each step.",
-    howABuildRuns,
+  ...guides.map((g) => [
+    guideUrl(g),
+    g.plainTitle + ": a step-by-step guide",
+    plain(g.short),
+    guidePage(g),
     [
-      { "@type": "Article", "@id": siteUrl + "/resources/how-a-build-runs/#article", headline: "How a build runs, step by step", description: "The seven-step sequence behind an Alpha Infra build with AI coding tools, written for the person commissioning the work.", datePublished: "2026-10-19", author: { "@id": siteUrl + "/#david" }, publisher: { "@id": siteUrl + "/#organization" } },
-      crumbs([["Home", "/"], ["Resources", "/resources/"], ["How a build runs", "/resources/how-a-build-runs/"]]),
+      { "@type": "HowTo", "@id": siteUrl + guideUrl(g) + "#howto", name: g.plainTitle, description: plain(g.short), totalTime: undefined, step: g.steps.map((st, i) => ({ "@type": "HowToStep", position: i + 1, name: st.title, url: siteUrl + guideUrl(g) + "#step-" + (i + 1), text: plain(st.body).slice(0, 300) })), author: { "@id": siteUrl + "/#david" }, publisher: { "@id": siteUrl + "/#organization" }, datePublished: "2026-10-19" },
+      crumbs([["Home", "/"], ["Guides", "/resources/"], [g.plainTitle, guideUrl(g)]]),
     ],
-  ],
+  ]),
   [
     "/privacy/",
     "Privacy",
@@ -923,6 +1044,10 @@ Hosting, model usage, and other third-party costs are discussed separately befor
 - Entec Access Systems sales intelligence hub: a custom commercial system built with the owner of a 15-person UK services business, connecting SimPRO, Xero, and Outlook so he can track key accounts, follow up inquiries, and prioritize the next commercial action. In daily use since July 2026. ${siteUrl}/work/entec/
 - Portfolio of professional and independent work: ${siteUrl}/work/
 - Hermes, three personal AI agents (admin, health, parenting): ${siteUrl}/hermes/
+
+## Guides (step-by-step, with prompts to copy)
+
+${guides.map((g) => `- ${g.plainTitle}: ${plain(g.short)} ${siteUrl}${guideUrl(g)}`).join("\n")}
 
 ## Practical questions
 

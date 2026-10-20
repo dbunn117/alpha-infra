@@ -656,3 +656,39 @@ contactForm?.addEventListener("submit", async (e) => {
   }
 });
 $("#copy-message")?.addEventListener("click", () => copyText(preparedMessage));
+
+// Guides: copy buttons on prompt blocks, and the step list tracks the step in view.
+for (const button of $$("[data-copy]")) {
+  button.addEventListener("click", async () => {
+    const text = button.closest(".prompt-block")?.querySelector("pre")?.textContent || "";
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = "Copied";
+      toast("Prompt copied. Paste it into your agent.");
+    } catch {
+      button.textContent = "Select and copy";
+      const range = document.createRange();
+      range.selectNodeContents(button.closest(".prompt-block").querySelector("pre"));
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+    setTimeout(() => (button.textContent = "Copy"), 2200);
+  });
+}
+const guideLinks = $$(".guide-nav a[data-step]");
+if (guideLinks.length && "IntersectionObserver" in window) {
+  const setActive = (id) => {
+    for (const a of guideLinks) a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+  };
+  const seen = new Map();
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const en of entries) seen.set(en.target.id, en.isIntersecting ? en.boundingClientRect.top : Infinity);
+      const visible = [...seen.entries()].filter(([, top]) => top !== Infinity).sort((a, b) => a[1] - b[1]);
+      if (visible.length) setActive(visible[0][0]);
+    },
+    { rootMargin: "-100px 0px -60% 0px", threshold: 0 },
+  );
+  for (const section of $$(".guide-step[id^='step-']")) observer.observe(section);
+}
